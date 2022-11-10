@@ -8,7 +8,7 @@ function dd(){
 }
 
 
-const BASE_URL = "http://localhost/duan1/";
+const BASE_URL = "http://localhost/duan1-stayyin/project1/";
 const SITE_URL = BASE_URL . "site/index.php";
 const ADMIN_BASE = BASE_URL . 'admin/';
 

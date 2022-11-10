@@ -14,6 +14,7 @@
             </li>
             <li>
                 <a href="<?= SITE_URL . "?danh-muc"?>">Danh mục</a>
+                <a href="<?= SITE_URL . "?chi-tiet"?>">Danh mục</a>
             </li>
         </ul>
     </nav>
