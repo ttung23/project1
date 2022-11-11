@@ -9,7 +9,4 @@
             $VIEW_NAME = '../room/danh-sach.php';
             include_once '../dashboard/layout.php';
         }
-
-       
-
     ?>
