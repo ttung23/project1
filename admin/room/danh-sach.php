@@ -91,65 +91,56 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-1 m-5 px-2 text-center py-5 bg-success border border-[#D0D7DE] shadow-lg rounded">
+    <div class="col-sm-1  px-2 text-center py-5 h-25 w-25 bg-success border border-[#D0D7DE] shadow-lg rounded">
                     <div class="  text-white">
                     <h1 class="fs-4">P301</h1>
                     <h2 class="fs-5">Víp</h2>
-                    <div class="bg-light rounded-circle w-50 text-center mx-3">
+                    <div class="bg-light rounded-circle w-50 text-center mx-5 py-2 ps-2">
                         <h3 class="fs-5"><i class="fa-solid fa-check text-success"></i></h3>
                     </div>
                 </div>
         </div>
-        <div class="col-sm-1 m-5 px-2 text-center py-5 bg-success border border-[#D0D7DE] shadow-lg rounded">
+        <div class="col-sm-1  px-2 text-center py-5 h-25 w-25 bg-success border border-[#D0D7DE] shadow-lg rounded">
                     <div class="  text-white">
                     <h1 class="fs-4">P301</h1>
                     <h2 class="fs-5">Víp</h2>
-                    <div class="bg-light rounded-circle w-50 text-center mx-3">
+                    <div class="bg-light rounded-circle w-50 text-center mx-5 py-2 ps-2">
                         <h3 class="fs-5"><i class="fa-solid fa-check text-success"></i></h3>
                     </div>
                 </div>
         </div>
-        <div class="col-sm-1 m-5 px-2 text-center py-5 bg-success border border-[#D0D7DE] shadow-lg rounded">
+        <div class="col-sm-1  px-2 text-center py-5 h-25 w-25 bg-success border border-[#D0D7DE] shadow-lg rounded">
                     <div class="  text-white">
                     <h1 class="fs-4">P301</h1>
                     <h2 class="fs-5">Víp</h2>
-                    <div class="bg-light rounded-circle w-50 text-center mx-3">
+                    <div class="bg-light rounded-circle w-50 text-center mx-5 py-2 ps-2">
                         <h3 class="fs-5"><i class="fa-solid fa-check text-success"></i></h3>
                     </div>
                 </div>
         </div>
-        <div class="col-sm-1 m-5 px-2 text-center py-5 bg-success border border-[#D0D7DE] shadow-lg rounded">
+        <div class="col-sm-1  px-2 text-center py-5 h-25 w-25 bg-success border border-[#D0D7DE] shadow-lg rounded">
                     <div class="  text-white">
                     <h1 class="fs-4">P301</h1>
                     <h2 class="fs-5">Víp</h2>
-                    <div class="bg-light rounded-circle w-50 text-center mx-3">
+                    <div class="bg-light rounded-circle w-50 text-center mx-5 py-2 ps-2">
                         <h3 class="fs-5"><i class="fa-solid fa-check text-success"></i></h3>
                     </div>
                 </div>
         </div>
-        <div class="col-sm-1 m-5 px-2 text-center py-5 bg-success border border-[#D0D7DE] shadow-lg rounded">
+        <div class="col-sm-1  px-2 text-center py-5 h-25 w-25 bg-success border border-[#D0D7DE] shadow-lg rounded">
                     <div class="  text-white">
                     <h1 class="fs-4">P301</h1>
                     <h2 class="fs-5">Víp</h2>
-                    <div class="bg-light rounded-circle w-50 text-center mx-3">
+                    <div class="bg-light rounded-circle w-50 text-center mx-5 py-2 ps-2">
                         <h3 class="fs-5"><i class="fa-solid fa-check text-success"></i></h3>
                     </div>
                 </div>
         </div>
-        <div class="col-sm-1 m-5 px-2 text-center py-5 bg-success border border-[#D0D7DE] shadow-lg rounded">
+        <div class="col-sm-1  px-2 text-center py-5 h-25 w-25 bg-success border border-[#D0D7DE] shadow-lg rounded">
                     <div class="  text-white">
                     <h1 class="fs-4">P301</h1>
                     <h2 class="fs-5">Víp</h2>
-                    <div class="bg-light rounded-circle w-50 text-center mx-3">
-                        <h3 class="fs-5"><i class="fa-solid fa-check text-success"></i></h3>
-                    </div>
-                </div>
-        </div>
-        <div class="col-sm-1 m-5 px-2 text-center py-5 bg-success border border-[#D0D7DE] shadow-lg rounded">
-                    <div class="  text-white">
-                    <h1 class="fs-4">P301</h1>
-                    <h2 class="fs-5">Víp</h2>
-                    <div class="bg-light rounded-circle w-50 text-center mx-3">
+                    <div class="bg-light rounded-circle w-50 text-center mx-5 py-2 ps-2">
                         <h3 class="fs-5"><i class="fa-solid fa-check text-success"></i></h3>
                     </div>
                 </div>
