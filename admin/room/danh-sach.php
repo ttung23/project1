@@ -90,8 +90,8 @@
             *<a class="text-primary px-4">di chuyển con trỏ chọn hình ảnh để xem thông tin phòng</a>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-1  px-2 text-center py-5 h-25 w-25 bg-success border border-[#D0D7DE] shadow-lg rounded">
+    <div class="row px-5">
+        <div class="col-sm-1  py-2 text-center py-5 h-25 w-25 bg-success border border-[#D0D7DE] shadow-lg rounded">
             <div class="  text-white">
                 <h1 class="fs-4">P301</h1>
                 <h2 class="fs-5">Víp</h2>

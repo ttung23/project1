@@ -65,10 +65,6 @@ body.dark .activity-data::-webkit-scrollbar-thumb:hover{
 }
 
 nav{
-    position: relative;
-    top: 0;
-    left: 0;
-    height: 100px;
     width: 250px;
     padding: 10px 14px;
     background-color: var(--panel-color);
