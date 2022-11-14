@@ -369,11 +369,11 @@
                     </h1>
                 </div>
             </div>
-            <a href="" class="underline font-bold text-xl hover:text-blue-600">Xem thêm bình luận ></a>
+            <a href="" class="underline font-bold text-xl hover:text-blue-600">Xem thêm đánh giá ></a>
         </div>
-        <div class="max-w-7xl py-5 flex items-center">
-            <textarea name="" id="" cols="150" rows="3" class="border border-gray-500" placeholder="Viết bình luận vào đây..."></textarea>
-            <button class="border border-2 rounded-md my-3 ml-2 px-8 py-6 border-blue-500 text-blue-800 hover:bg-blue-500 hover:text-white">Gửi</button>
+        <h1 class="max-w-7xl flex items-center justify-center pt-3">Bạn đã sử dụng phòng chưa ?</h1>
+        <div class="max-w-7xl flex items-center justify-center">
+            <button class="border border-2 rounded-md my-3 ml-2 px-8 py-4 border-blue-500 text-blue-800 hover:bg-blue-500 hover:text-white">Gửi đánh giá</button>
         </div>
     </section>
 </body>
