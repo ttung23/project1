@@ -9,11 +9,11 @@ body {
 }
 
 .containers {
-    max-width: 1280px;
+    max-width: 1580px;
 }
 
 .content {
-    margin: 0 30px;
+    margin: 0 10px;
 }
 
 .danh_sach {
@@ -109,3 +109,4 @@ table tr:nth-child(1) {
     margin: 20px 0;
     transition: var(--tran-05);
 }
+
