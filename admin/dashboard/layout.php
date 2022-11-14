@@ -23,9 +23,9 @@
 
         <div class="menu-items">
             <ul class="nav-links">
-                <li><a href="<?= SITE_URL . "?danh-muc"?>">
+                <li><a href="<?= ADMIN_BASE . "?service"?>">
                     <i class="uil uil-estate"></i>
-                    <span class="link-name">Trang chủ</span>
+                    <span class="link-name">Dịch VỤ</span>
                 </a></li>
                 <li><a href="#">
                     <i class="uil uil-comment-alt-dots"></i>

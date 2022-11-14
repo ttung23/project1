@@ -6,7 +6,10 @@
             $VIEW_NAME = 'chi-tiet.php';
         }elseif(isset($_GET['danh-muc'])){
             $VIEW_NAME = 'danh-muc.php';
-        }else{
+        }elseif(isset($_GET['cart'])){
+            $VIEW_NAME = 'cart.php';
+        }
+        else{
             $VIEW_NAME = 'trang-chu.php';
         }
 
