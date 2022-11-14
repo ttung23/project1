@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,11 +9,16 @@
     <link rel="stylesheet" href="../layout/assets/css/admin_cmt.css">
     <link rel="stylesheet" href="../layout/assets/css/index-admin.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
+
 <body>
-<main class="containers" style="display: flex;">
+    <main class="containers" style="display: flex;">
         <nav>
             <div class="logo-name">
                 <div class="logo-image">
@@ -92,13 +98,11 @@
         </nav>
 
         <div class="content">
-        <?php include_once $VIEW_NAME ?>
+            <?php include_once $VIEW_NAME ?>
         </div>
 
     </main>
     <script src="../layout/assets/js/index-admin.js"></script>
 </body>
+
 </html>
-
-
-    
