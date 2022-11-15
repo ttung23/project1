@@ -1,4 +1,4 @@
-* {
+*{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -66,6 +66,8 @@ td p {
 td p:hover {
     overflow: visible;
     white-space: unset;
+
+    /* word-break: break-word; */
 }
 
 .action {
@@ -107,3 +109,4 @@ table tr:nth-child(1) {
     margin: 20px 0;
     transition: var(--tran-05);
 }
+

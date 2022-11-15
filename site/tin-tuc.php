@@ -1,0 +1,1 @@
+<?php //trang tin tuc ?>

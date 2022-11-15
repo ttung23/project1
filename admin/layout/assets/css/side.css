@@ -1,11 +1,3 @@
-/* ===== Google Font Import - Poppins ===== */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
 :root {
     /* ===== Colors ===== */
     --primary-color: #0E4BF1;
@@ -105,6 +97,7 @@ nav.close .logo_name {
 
 nav .menu-items {
     margin-top: 40px;
+    height: calc(100% - 90px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
