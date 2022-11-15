@@ -1,9 +1,10 @@
 <?php
-const DBNAME = "mvc";
+const DBHOST = "localhost";
+const DBNAME = "hermes_hotel";
 const DBUSER = "root";
 const DBPASS = "";
 const DBCHARSET = "utf8";
-const DBHOST = "127.0.0.1";
+
 
 // tạo kết nối từ project php sang mysql
 function getConnect(){
@@ -20,7 +21,6 @@ function getConnect(){
 
 function pdo_query_all($query){
     // select * from users where email = ? or role_id = ?
-
     $args = func_get_args();
     $args = array_slice($args, 1);
     
@@ -40,7 +40,6 @@ function pdo_query_all($query){
 
 function pdo_query_one($query){
     // select * from users where email = ? or role_id = ?
-
     $args = func_get_args();
     $args = array_slice($args, 1);
     
