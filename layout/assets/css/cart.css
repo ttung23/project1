@@ -1,0 +1,208 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container-cart{
+    height: auto;
+}
+.turn{
+    background-color: blue;
+    font-weight: bolder;
+    color: white;
+    border-radius: 30px;
+    width: 20px;
+    height: 20px;
+    padding: 2px 3px 2px 3px;
+}
+.text1 h1{
+    color: black;
+}
+.chitiettt h2{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    font-weight: 30px;
+    font-style: oblique;
+}
+i{
+    padding: 10px;
+    margin: 5px;
+}
+.aside{
+    border: 1px solid #6C757D;
+    padding: 10px;
+    background-color: #EBF3FF;
+}
+.aside h1{
+    font-weight: bold;
+    font-size: large;
+    color: black;
+    margin: 5px;
+}
+.check-in{
+    padding: 20px 5px 20px 0px;
+    border-radius: 10px;
+    background-color: #EBF3FF;
+}
+.warning{
+    color: chocolate;
+    padding: 5px 10px 5px;
+    font-size: 20px;
+}
+.warning h1{   
+    padding: 5px;
+}
+.check-in h1{
+    font-style: italic;
+    color: white;
+    font-size: 25px;
+    padding: 5px 0px 0px 0px;
+}
+.info i{
+    color: red;
+}
+.pay1{
+    padding: 5px 10px 5px;
+    font-weight: bold;
+}
+.pay1 i{
+    color: green;
+}
+.service a{
+    border: 1px solid black;
+    background-color: green;
+    color: white;
+    padding: 5px;
+    font-weight: bold;
+
+}
+.info{
+    background-color: #EBF3FF;
+}
+.service a:hover{
+    text-decoration: underline;
+    color: chartreuse;
+}
+.aside h1{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-style: italic;
+}
+.aside{
+    border-radius: 10px;
+}
+.aside:hover{
+    box-shadow: inset 5px 5px cyan;
+    transition: 1s;
+    transform: scale(1.2);
+    transform: rotate(4deg);
+}
+.next{
+    margin: 2px 0px 35px 0px;
+}
+section{
+    margin: 20px 0px 20px 10px;
+    border: 1px solid #6C757D;
+}
+.info h3{
+    font-weight: 400;
+    text-align: justify;
+    font-weight: bold;
+    font-size: 15px;
+}
+.info{
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    background-color: red;
+}
+.info h1{
+    text-align: center;
+}
+.fa-plus{
+    color: blue;
+    margin: 2px;
+}
+.anh{
+    margin: 5px 10px 5px 10px;
+    font-style: inherit;
+    padding: 10px;
+
+}
+.anh img{
+    border-radius: 10px;
+    box-shadow: 10px 5px #6C757D;
+}
+.anh h1{
+    margin: 5px 10px 5px 10px;
+    color: darkslategrey;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.anh:hover img{
+    transition: 1s;
+    transform: scale(0.7);
+    transform: rotate(4deg);
+}
+.chitiettt i{
+color: cadetblue;
+margin: 5px;
+}
+.chitiettt h1{
+    text-align: justify;
+    font-style: inherit;
+}
+.chitiettt:hover h1{
+    text-shadow: 1px 1px #6C757D;
+}
+.service{
+    margin: 20px 5px 20px 5px;
+}
+.total{
+    text-align: right;
+}
+.total p{
+    background-color: #6C757D;
+    width: 40px;
+    padding: 10px;
+    font-weight: bolder;
+    color: aliceblue;
+    margin: 10px;
+    margin-left: 150px;
+    border-radius: 3px;
+}
+.total h1{
+    text-shadow: 2px 2px white;
+    margin: 5px 0px 5px 0px;
+    color: red;
+}
+.total button{
+    margin: 10px;
+}
+.pay{
+    padding: 10px;
+    background-color: #EBF3FF;
+}
+.pay i{
+    color: darkgreen;
+    padding: 5px;
+}
+.pay h1{
+    font-weight: bold;
+    font-size: large;
+}
+.product{
+    background-color: #EBF3FF;
+}
+.form-group{
+    background-color: #EBF3FF;
+    padding: 10px;
+}
+.form-group label {
+    font-weight: bold;
+    padding: 5px 10px 5px 10px;
+}
+.form-group .form-control{
+    padding: 5px 10px 5px 10px;
+}
