@@ -29,8 +29,8 @@
             </div>
 
             <div class="menu-items">
-                <ul class="nav-links">
-                    <li><a href="#">
+                    <li>
+                        <a href="#">
                             <i class="uil uil-estate"></i>
                             <span class="link-name">Trang chủ</span>
                         </a></li>
@@ -75,7 +75,6 @@
                             <span class="link-name">Quản Lý admin</span>
                         </a></li>
 
-                </ul>
 
                 <ul class="logout-mode">
                     <li><a href="#">

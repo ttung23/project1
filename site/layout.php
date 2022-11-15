@@ -20,7 +20,7 @@
             <li>
                 <a href="<?= SITE_URL . "?danh-muc" ?>">Danh mục</a>
                 <a href="<?= SITE_URL . "?chi-tiet" ?>">Danh mục</a>
-                <a href="<?= SITE_URL . "?cart" ?>">Danh mục</a>
+                <a href="<?= ADMIN_BASE . "?service" ?>">Room</a>
                 <a href="<?= ADMIN_BASE . "?room" ?>">Room</a>
             </li>
         </ul>

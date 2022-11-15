@@ -95,7 +95,7 @@
                             <div class="row product">
                                 <div class="col-sm-3 anh">
                                     <h1>Nâng Tầm Trải Nghiệm</h1>
-                                    <img src="./MVC/public/layout/img/product/p1.webp" alt="">
+                                    <img src="../layout/assets/img/Ảnh chụp màn hình 2022-11-12 095229.png" alt="">
                                 </div>
                                 <div class="col-sm-5 chitiettt">
                                     <h1>Phòng 301</h1>

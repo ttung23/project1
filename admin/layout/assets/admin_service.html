@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/admin_cmt.css">
+    <link rel="stylesheet" href="../assets/css/index-admin.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+    <main class="containers" style="display: flex;">
+        <nav>
+            <div class="logo-name">
+                <div class="logo-image">
+                    <img src="img/logo.jpg" alt="">
+                </div>
+
+                <span class="logo_name">StayyInn Hotel</span>
+            </div>
+
+            <div class="menu-items">
+                    <li>
+                        <a href="#">
+                            <i class="uil uil-estate"></i>
+                            <span class="link-name">Trang chủ</span>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="uil uil-comment-alt-dots"></i>
+                            <span class="link-name">Quản lý comment</span>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="uil uil-apps"></i>
+                            <span class="link-name">quản Lý Service</span>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="uil uil-bed-double"></i>
+                            <span class="link-name">quản Lý room</span>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="uil uil-book-medical"></i>
+                            <span class="link-name">quản lý booking</span>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="uil uil-list-ui-alt"></i>
+                            <span class="link-name">quản Lý Category</span>
+                        </a></li>
+
+                    <li><a href="#">
+                            <i class="uil uil-bitcoin"></i>
+                            <span class="link-name">Quản Lý Dịch Vu</span>
+                        </a></li>
+
+                    <li><a href="#">
+                            <i class="uil uil-feedback"></i>
+                            <span class="link-name">quản Lý Feedbacks</span>
+                        </a></li>
+
+                    <li><a href="#">
+                            <i class="uil uil-chart-pie"></i>
+                            <span class="link-name">Quản Lý Thống Kê</span>
+                        </a></li>
+
+                    <li><a href="#">
+                            <i class="uil uil-head-side"></i>
+                            <span class="link-name">Quản Lý admin</span>
+                        </a></li>
+
+
+                <ul class="logout-mode">
+                    <li><a href="#">
+                            <i class="uil uil-signout"></i>
+                            <span class="link-name">Logout</span>
+                        </a></li>
+
+                    <li class="mode">
+                        <a href="#">
+                            <i class="uil uil-moon"></i>
+                            <span class="link-name">Dark Mode</span>
+                        </a>
+
+                        <div class="mode-toggle">
+                            <span class="switch"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="col-sm-12">
+            <div class=" border border-[#D0D7DE] fs-6">
+                <div class="pb-4 m-4">
+                    <h1 class="fs-6 text-primary"><i class="fa-solid fa-hotel mr-4"></i>Sơ Đồ Phòng</h1>
+                    <div class="col-sm-2">
+                        <label for="">Loại Dịch Vụ:</label>
+                        <select name="" id="" class="form-control">
+                            <option value="">Tất Cả</option>
+                            <option value="">Tất Cả</option>
+                            <option value="">Tất Cả</option>
+                            <option value="">Tất Cả</option>
+                            <option value="">Tất Cả</option>
+                        </select>
+                    </div>
+                    <div class="my-4 row">
+                        <label for="">Trạng Thái service</label>
+                        <div class="col-sm-2 m-4 hover-bg-[#78C2B5]">
+                            <div>
+                                <button class="border btn btn-outline-success border-[#D0D7DE] w-100 h-100 text-primary px-3 py-1 shadow-lg">
+                                   Thêm
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-sm-2 m-4">
+                            <div>
+                                <button class="border btn btn-outline-danger border-[#D0D7DE] w-100 h-100 text-primary px-3 py-1 shadow-lg">
+                                    <i class="fa-solid fa-person-walking-luggage text-primary"></i>
+                                    Sửa
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-sm-2 m-4">
+                            <div>
+                                <button class="border border-[#D0D7DE] btn btn-outline-warning btn btn-outline-danger w-100 h-100 text-primary px-3 py-1 shadow-lg">
+                                    <i class="fa-solid fa-person-walking-luggage text-success"></i>
+            
+                                   xóa
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        *<a class="text-primary px-4">di chuyển con trỏ chọn hình ảnh để xem thông tin phòng</a>
+                    </div>
+                </div>
+            </div>
+            <section>
+            <div class="">
+                    <table class="table table-hover">
+                        <tr class="" scope="col">
+                            <th class="">#</th>
+                            <th class="table-primary">ID</th>
+                            <th class="">Name</th>
+                            <th class="table-primary">Images</th>
+                            <th class="">description</th>
+                            <th class="table-primary">price</th>
+                            <th class="">quantity</th>
+                            <th class="table-primary">status</th>
+                            <th class="">room_id</th>
+                            <th class="table-primary">Ngày tạo</th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td class="table-success">1</td>
+                            <td class="table-danger">1</td>
+                            <td class="table-warning">1</td>
+                            <td class="table-info">1</td>
+                            <td class="table-secondary">1</td>
+                            <td class="table-danger">1</td>
+                            <td class="table-warning">1</td>
+                            <td class="table-info">1</td>
+                            <td class="table-secondary">1</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td class="table-success">1</td>
+                            <td class="table-danger">1</td>
+                            <td class="table-warning">1</td>
+                            <td class="table-info">1</td>
+                            <td class="table-secondary">1</td>
+                            <td class="table-danger">1</td>
+                            <td class="table-warning">1</td>
+                            <td class="table-info">1</td>
+                            <td class="table-secondary">1</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td class="table-success">1</td>
+                            <td class="table-danger">1</td>
+                            <td class="table-warning">1</td>
+                            <td class="table-info">1</td>
+                            <td class="table-secondary">1</td>
+                            <td class="table-danger">1</td>
+                            <td class="table-warning">1</td>
+                            <td class="table-info">1</td>
+                            <td class="table-secondary">1</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td class="table-success">1</td>
+                            <td class="table-danger">1</td>
+                            <td class="table-warning">1</td>
+                            <td class="table-info">1</td>
+                            <td class="table-secondary">1</td>
+                            <td class="table-danger">1</td>
+                            <td class="table-warning">1</td>
+                            <td class="table-info">1</td>
+                            <td class="table-secondary">1</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td class="table-success">1</td>
+                            <td class="table-danger">1</td>
+                            <td class="table-warning">1</td>
+                            <td class="table-info">1</td>
+                            <td class="table-secondary">1</td>
+                            <td class="table-danger">1</td>
+                            <td class="table-warning">1</td>
+                            <td class="table-info">1</td>
+                            <td class="table-secondary">1</td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+            <div class="col-sm-6">
+                <h1 class="fs-5 text-center">Biểu Đồ Thống Kê Đặt Phòng Theo Tháng</h1>
+                <div id="myfirstchart" style="height: 250px;"></div>
+                <script>
+                    new Morris.Donut({
+              // ID of the element in which to draw the chart.
+              element: 'myfirstchart',
+              // Chart data records -- each entry in this array corresponds to a point on
+              // the chart.
+              data: [
+                { year: '2008', value: 20 },
+                { year: '2009', value: 10 },
+                { year: '2010', value: 5 },
+                { year: '2011', value: 5 },
+                { year: '2012', value: 20 }
+              ],
+              // The name of the data record attribute that contains x-values.
+              xkey: 'year',
+              // A list of names of data record attributes that contain y-values.
+              ykeys: ['value'],
+              // Labels for the ykeys -- will be displayed when you hover over the
+              // chart.
+              labels: ['Value']
+            });
+                </script>
+            </div>
+        </div>
+
+    </main>
+    <script src="../layout/assets/js/index-admin.js"></script>
+</body>
+
+</html>
