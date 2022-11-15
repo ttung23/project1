@@ -90,8 +90,8 @@
             *<a class="text-primary px-4">di chuyển con trỏ chọn hình ảnh để xem thông tin phòng</a>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-1  px-2 text-center py-5 h-25 w-25 bg-success border border-[#D0D7DE] shadow-lg rounded">
+    <div class="row px-5">
+        <div class="col-sm-1  py-2 text-center py-5 h-25 w-25 bg-success border border-[#D0D7DE] shadow-lg rounded">
             <div class="  text-white">
                 <h1 class="fs-4">P301</h1>
                 <h2 class="fs-5">Víp</h2>
@@ -190,4 +190,30 @@
             </div>
         </div>
     </div>
+</div>
+<div class="col-sm-6">
+    <h1 class="fs-5 text-center">Biểu Đồ Thống Kê Đặt Phòng Theo Tháng</h1>
+    <div id="myfirstchart" style="height: 250px;"></div>
+    <script>
+        new Morris.Donut({
+  // ID of the element in which to draw the chart.
+  element: 'myfirstchart',
+  // Chart data records -- each entry in this array corresponds to a point on
+  // the chart.
+  data: [
+    { year: '2008', value: 20 },
+    { year: '2009', value: 10 },
+    { year: '2010', value: 5 },
+    { year: '2011', value: 5 },
+    { year: '2012', value: 20 }
+  ],
+  // The name of the data record attribute that contains x-values.
+  xkey: 'year',
+  // A list of names of data record attributes that contain y-values.
+  ykeys: ['value'],
+  // Labels for the ykeys -- will be displayed when you hover over the
+  // chart.
+  labels: ['Value']
+});
+    </script>
 </div>
