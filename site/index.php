@@ -4,8 +4,8 @@
 
         if(isset($_GET['chi-tiet'])){
             $VIEW_NAME = 'chi-tiet.php';
-        }elseif(isset($_GET['danh-muc'])){
-            $VIEW_NAME = 'danh-muc.php';
+        }elseif(isset($_GET['tin-tuc'])){
+            $VIEW_NAME = 'tin-tuc.php';
         }elseif(isset($_GET['cart'])){
             $VIEW_NAME = 'cart.php';
         }
