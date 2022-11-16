@@ -66,10 +66,6 @@ td p {
 td p:hover {
     overflow: visible;
     white-space: unset;
-<<<<<<< HEAD
-=======
-
->>>>>>> 5aba59feb4fb215358d9a2b7c203b550c010cd73
     /* word-break: break-word; */
 }
 
@@ -112,7 +108,4 @@ table tr:nth-child(1) {
     margin: 20px 0;
     transition: var(--tran-05);
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 5aba59feb4fb215358d9a2b7c203b550c010cd73
