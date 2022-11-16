@@ -47,11 +47,11 @@ function pdo_query_one($query){
     
     $stmt = $conn->prepare($query);
     $stmt->execute($args);
-    $data = $stmt->fetch();
+    $data = $stmt->fetchAll(PDO::FETCH_OBJ);
     if(count($data) > 0){
         return $data;
     }
-    return null;
+    return [];
 
 }
 

@@ -122,6 +122,7 @@
                         <button> <a href="<?= SITE_URL . "?chi-tiet" ?>">sản Phẩm Bổ Sung</a><i class="fa-solid fa-caret-down"></i></button>
                         <button> <a href="<?= SITE_URL . "?cart" ?>">sản Phẩm Bổ Sung</a><i class="fa-solid fa-caret-down"></i></button>
                         <button> <a href="<?= SITE_URL . "?tin-tuc" ?>">sản Phẩm Bổ Sung</a><i class="fa-solid fa-caret-down"></i></button>
+                        
                         <div class="nd-mn4">
                             <i style="color: rgb(208, 148, 70);" class="fa-solid fa-coins"></i> Điểm thưởng của tôi <br>
                             <i style="color: red;" class="fa-solid fa-gift"></i> Đổi quà tặng

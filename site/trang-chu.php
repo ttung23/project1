@@ -99,13 +99,13 @@
                         </figcaption>
                     </figure>
                     <div class="sao">
-                        <a class="a0" href=""><?php echo $value->name ?></a>
+                        <a class="a0" href="<?= SITE_URL . "?product-detail" ?>"><?php echo $value->name ?></a>
                         <p class="diachi">
                             <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
                         </p>
                         <div class="text-dg">
                             <a class="a" href=""><?php echo $value->star ?> tuyệt vời</a><br>
-                            <a class="a1" href="">Qua 1257 đánh giá</a>
+                            <a class="a1" href="<?= SITE_URL . "?product-detail&id=$value->room_id&iddm=$value->id_category_room" ?>">Qua 1257 đánh giá</a>
                         </div>
                     </div>
                     <div class="i">
