@@ -2,6 +2,24 @@
 <?php foreach ($oneroom as $key => $value) : ?>
     <h1 class="text-2xl font-bold text-[#0194f3] pb-2"><?php echo $value->name?></h1>
     <div class="text-xl items-center pb-3 flex">
+    <form action="index.php?addcart&&id=<?php echo $value->room_id?>" method="post">
+    <input type="hidden" name="id" value="<?php echo $value->room_id?>">
+    <input type="hidden" name="ten" value="<?php echo $value->name?>">
+    <input type="hidden" name="des" value="<?php echo $value->description?>">
+    <input type="hidden" name="thumbnail" value="<?php echo $value->thumbnail?>">
+    <input type="hidden" name="id_cate" value="<?php echo $value->id_category_room?>">
+    <input type="hidden" name="price" value="<?php echo $value->price?>">
+    <input type="hidden" name="star" value="<?php echo $value->star?>">
+    <input type="hidden" name="quantity" value="<?php echo $value->quantity?>">
+    <input type="hidden" name="location" value="<?php echo $value->location?>">
+    <input type="hidden" name="acreage" value="<?php echo $value->acreage?>">
+    <input type="hidden" name="status" value="<?php echo $value->status?>">
+    <input type="hidden" name="view" value="<?php echo $value->view?>">
+    <input type="hidden" name="likes" value="<?php echo $value->likes?>">
+    <input type="hidden" name="id_service" value="<?php echo $value->id_service?>">
+    <input type="hidden" name="created_at" value="<?php echo $value->created_at?>">
+    <input type="hidden" name="id_admin" value="<?php echo $value->id_admin?>">
+     
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
                 <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
             </svg>
@@ -75,7 +93,9 @@
                     <h3> <span class="text-3xl font-bold text-[#0194f3]"><?php echo $value->price?>D</span> <span class="text-xl">/ phòng / đêm</span> </h3>
                 </div>
                 <div class="flex justify-center">
-                    <button class="border border-2 rounded-md my-3 px-16 py-3 border-blue-500 text-[#0194f3] hover:bg-blue-500 hover:text-white">Đặt phòng</button>
+                    <button class="border border-2 rounded-md my-3 px-16 py-3 border-blue-500 text-[#0194f3] hover:bg-blue-500 hover:text-white" type="submit" name="submit">Đặt phòng</button>
+                    <button class="border border-2 rounded-md my-3 px-16 py-3 border-blue-500 text-[#0194f3] hover:bg-blue-500 hover:text-white" type="submit" name="delete">Xóa</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -111,7 +131,7 @@
                 <h1 class="font-bold text-xl">Giá phòng</h1>
                 <h1 class="font-bold text-xl py-5 text-red-600">2 Giờ</h1>
                 <h1><span class="font-bold pr-2 text-3xl"><?php echo $value->price?>đ</span> <span class="text-xl line-through">200.000đ</span></h1>
-                <button class="border border-2 rounded-md my-3 px-8 py-3 border-blue-500 text-[#0194f3] hover:bg-blue-500 hover:text-white">Đặt phòng</button>
+                <button class="border border-2 rounded-md my-3 px-8 py-3 border-blue-500 text-[#0194f3] hover:bg-blue-500 hover:text-white" name="submit" type="submit">Đặt phòng</button>
             </div>
         </div>
                 <?php endforeach ?>

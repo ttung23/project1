@@ -92,7 +92,12 @@
                 </div>
                 <div class="col-sm-8">
                     <section>
-                            <div class="row product">
+                     <div class="row product">
+                    <?php foreach ($_SESSION['addcart'] as $key => $value) : ?>
+                    <a href="">Phòng <?php echo $value['ten'] ?></a>
+                    <a href="">Phòng <?php echo $value['ten'] ?></a>
+
+                    <?php endforeach ?>
                                 <div class="col-sm-3 anh">
                                     <h1>Nâng Tầm Trải Nghiệm</h1>
                                     <img src="../layout/assets/img/Ảnh chụp màn hình 2022-11-12 095229.png" alt="">

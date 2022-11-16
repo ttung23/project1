@@ -17,8 +17,26 @@
         }elseif(isset($_GET['tin-tuc'])){
             $news = loadAll_news();
             $VIEW_NAME = 'tin-tuc.php';
-        }elseif(isset($_GET['listproduct'])){
+        }elseif(isset($_GET['addcart'])){
+            session_start();
+            ob_start();
+            if(isset($_GET['addcart']) && isset($_POST['submit'])){
+                $id = $_POST['id'];
+                $ten = $_POST['ten'];
+                $quantity = $_POST['quantity'];
+                if(!isset($_SESSION['addcart'][$id])){
+                    $_SESSION['addcart'][$id] = array('id'=>$id,'ten'=>$ten);
+                }else{
+                    $_SESSION['addcart'][$id];
+                }
+            }
+            if(isset($_GET['addcart']) && isset($_POST['delete'])){
+                $id = $_POST['id'];
+                unset($_SESSION['addcart'][$id]);
+            }
+            ob_end_flush();
             $VIEW_NAME = 'cart.php';
+            ob_end_flush();
         }elseif(isset($_GET['product-detail'])){
             if(isset($_GET['id'])&&($_GET['id'])) {
                 $id=$_GET['id'];
