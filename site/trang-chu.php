@@ -77,36 +77,34 @@
             <p>Dịch vụ 24/24 </p>
             <div class="room">
                 <a style="background-color: #0770cd; color: white;" href="">Tất cả các phòng</a>
-                <a href="">Phòng thương gia</a>
-                <a href="">Phòng gia đình</a>
-                <a href="">Phòng đơn</a>
-                <a href="">Phòng nghỉ ngơi</a>
-                <a href="">Phòng tình yêu</a>
+                <?php foreach ($categoriesAll as $key => $value) : ?>
+                    <a href="">Phòng <?php echo $value->name ?></a>
+                <?php endforeach ?>
             </div>
             <div class="flex-choose">
-
+            <?php foreach ($roomAll as $key => $value) : ?>
                 <div class="chitiet">
                     <figure class="snip0016">
-                        <img src="../layout/assets/img/product/tg2.jpg" alt="sample41" />
+                        <img src="../layout/assets/img/product/<?php echo $value->thumbnail ?>" alt="sample41" />
                         <figcaption>
-                            <p class="p">Diện tích 92 m</p>
-                            <p class="p">Số phòng: 4</p>
-                            <p class="p">7 dịch vụ đi kèm miễn phí</p>
+                            <p class="p"><?php echo $value->acreage ?></p>
+                            <p class="p">Tầng: <?php echo $value->location ?></p>
+                            <p class="p"> <?php echo $value->sv ?> dịch vụ đi kèm</p>
                             <p>
-                            <p class="p1"><i class="fa-solid fa-thumbs-up"></i> 1333 lượt thích</p>
-                            <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> 899 lượt đặt </p>
-                            <p class="p1"><i class="fa-solid fa-eye"></i> 1580 lượt xem</p>
+                            <p class="p1"><i class="fa-solid fa-thumbs-up"></i><?php echo $value->likes ?></p>
+                            <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> <?php echo $value->tbl ?> Lượt Comment</p>
+                            <p class="p1"><i class="fa-solid fa-eye"></i> <?php echo $value->view ?> lượt xem</p>
                             </p>
                             <a href="#"></a>
                         </figcaption>
                     </figure>
                     <div class="sao">
-                        <a class="a0" href="">Phòng tình yêu </a>
+                        <a class="a0" href=""><?php echo $value->name ?></a>
                         <p class="diachi">
                             <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
                         </p>
                         <div class="text-dg">
-                            <a class="a" href="">8.9 tuyệt vời</a><br>
+                            <a class="a" href=""><?php echo $value->star ?> tuyệt vời</a><br>
                             <a class="a1" href="">Qua 1257 đánh giá</a>
                         </div>
                     </div>
@@ -114,108 +112,10 @@
                         <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
                         <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
                         <i class="fa-sharp fa-solid fa-star"></i>
-                        <span>200.000 VNĐ</span>
+                        <span><?php echo $value->price ?></span>
                     </div>
                 </div>
-                <!--  -->
-                <div class="chitiet">
-                    <figure class="snip0016">
-                        <img src="../layout/assets/img/product/tg2.jpg" alt="sample41" />
-                        <figcaption>
-                            <p class="p">Diện tích 92 m</p>
-                            <p class="p">Số phòng: 4</p>
-                            <p class="p">7 dịch vụ đi kèm miễn phí</p>
-                            <p>
-                            <p class="p1"><i class="fa-solid fa-thumbs-up"></i> 1333 lượt thích</p>
-                            <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> 899 lượt đặt </p>
-                            <p class="p1"><i class="fa-solid fa-eye"></i> 1580 lượt xem</p>
-                            </p>
-                            <a href="#"></a>
-                        </figcaption>
-                    </figure>
-                    <div class="sao">
-                        <a class="a0" href="">Phòng tình yêu </a>
-                        <p class="diachi">
-                            <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
-                        </p>
-                        <div class="text-dg">
-                            <a class="a" href="">8.9 tuyệt vời</a><br>
-                            <a class="a1" href="">Qua 1257 đánh giá</a>
-                        </div>
-                    </div>
-                    <div class="i">
-                        <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
-                        <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
-                        <i class="fa-sharp fa-solid fa-star"></i>
-                        <span>200.000 VNĐ</span>
-                    </div>
-                </div>
-                <!--  -->
-                <div class="chitiet">
-                    <figure class="snip0016">
-                        <img src="../layout/assets/img/product/tg2.jpg" alt="sample41" />
-                        <figcaption>
-                            <p class="p">Diện tích 92 m</p>
-                            <p class="p">Số phòng: 4</p>
-                            <p class="p">7 dịch vụ đi kèm miễn phí</p>
-                            <p>
-                            <p class="p1"><i class="fa-solid fa-thumbs-up"></i> 1333 lượt thích</p>
-                            <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> 899 lượt đặt </p>
-                            <p class="p1"><i class="fa-solid fa-eye"></i> 1580 lượt xem</p>
-                            </p>
-                            <a href="#"></a>
-                        </figcaption>
-                    </figure>
-                    <div class="sao">
-                        <a class="a0" href="">Phòng tình yêu </a>
-                        <p class="diachi">
-                            <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
-                        </p>
-                        <div class="text-dg">
-                            <a class="a" href="">8.9 tuyệt vời</a><br>
-                            <a class="a1" href="">Qua 1257 đánh giá</a>
-                        </div>
-                    </div>
-                    <div class="i">
-                        <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
-                        <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
-                        <i class="fa-sharp fa-solid fa-star"></i>
-                        <span>200.000 VNĐ</span>
-                    </div>
-                </div>
-                <!--  -->
-                <div class="chitiet">
-                    <figure class="snip0016">
-                        <img src="../layout/assets/img/product/tg2.jpg" alt="sample41" />
-                        <figcaption>
-                            <p class="p">Diện tích 92 m</p>
-                            <p class="p">Số phòng: 4</p>
-                            <p class="p">7 dịch vụ đi kèm miễn phí</p>
-                            <p>
-                            <p class="p1"><i class="fa-solid fa-thumbs-up"></i> 1333 lượt thích</p>
-                            <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> 899 lượt đặt </p>
-                            <p class="p1"><i class="fa-solid fa-eye"></i> 1580 lượt xem</p>
-                            </p>
-                            <a href="#"></a>
-                        </figcaption>
-                    </figure>
-                    <div class="sao">
-                        <a class="a0" href="">Phòng tình yêu </a>
-                        <p class="diachi">
-                            <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
-                        </p>
-                        <div class="text-dg">
-                            <a class="a" href="">8.9 tuyệt vời</a><br>
-                            <a class="a1" href="">Qua 1257 đánh giá</a>
-                        </div>
-                    </div>
-                    <div class="i">
-                        <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
-                        <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
-                        <i class="fa-sharp fa-solid fa-star"></i>
-                        <span>200.000 VNĐ</span>
-                    </div>
-                </div>
+                        <?php endforeach ?>
             </div>
 
         </div>
@@ -228,30 +128,25 @@
             <p>Dịch vụ 24/24 </p>
             <div class="room-dv">
                 <a style="background-color: #ff6d70; color: white;" href="">Tất cả các dịch vụ</a>
-                <a href="">Dịch vụ ăn uống</a>
-                <a href="">Dịch vụ sức khỏe</a>
-                <a href="">Dịch vụ đưa đón</a>
+                <?php foreach ($service as $key => $value) : ?>
+                    <a href="">Phòng <?php echo $value->name ?></a>
+                <?php endforeach ?>
 
             </div>
             <div class="flex-dv">
+            <?php foreach ($service as $key => $value) : ?>
                 <div class="chitiet-dv">
-                    <figure class="snip0016">
-                        <img src="assets/img/dichvu/dv4.jpg" alt="sample41" />
+                <figure class="snip0016">
+                        <img src="../layout/assets/img/product/<?php echo $value->images ?>" alt="sample41" />
                         <figcaption>
-                            <p class="p">Diện tích 92 m</p>
-                            <p class="p">Số phòng: 4</p>
-                            <p class="p">7 dịch vụ đi kèm miễn phí</p>
-                            <p>
-                            <p class="p1"><i class="fa-solid fa-thumbs-up"></i> 1333 lượt thích</p>
-                            <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> 899 lượt đặt</p>
-                            <p class="p1"><i class="fa-solid fa-eye"></i> 1580 lượt xem</p>
-                            </p>
+                            <p class="p"><?php echo $value->status ?></p>
+                            <p class="p">Số Lượng: <?php echo $value->quantity ?></p>
+                            <p class="p">Giá: <?php echo $value->price ?></p>
                             <a href="#"></a>
                         </figcaption>
                     </figure>
-
                     <div class="sao-dv">
-                        <a class="a0" href="">Dịch vụ đưa đón</a>
+                        <a class="a0" href=""> <?php echo $value->name ?></a>
                         <p class="diachi-dv">
                             <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
                         </p>
@@ -262,106 +157,10 @@
                     </div>
                     <div class="i">
 
-                        <span>180.000 VNĐ/lượt</span>
+                        <span> <?php echo $value->price ?></span>
                     </div>
                 </div>
-                <!--  -->
-                <div class="chitiet-dv">
-                    <figure class="snip0016">
-                        <img src="../layout/assets/img/dichvu/dv4.jpg" alt="sample41" />
-                        <figcaption>
-                            <p class="p">Diện tích 92 m</p>
-                            <p class="p">Số phòng: 4</p>
-                            <p class="p">7 dịch vụ đi kèm miễn phí</p>
-                            <p>
-                            <p class="p1"><i class="fa-solid fa-thumbs-up"></i> 1333 lượt thích</p>
-                            <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> 899 lượt đặt</p>
-                            <p class="p1"><i class="fa-solid fa-eye"></i> 1580 lượt xem</p>
-                            </p>
-                            <a href="#"></a>
-                        </figcaption>
-                    </figure>
-
-                    <div class="sao-dv">
-                        <a class="a0" href="">Dịch vụ đưa đón</a>
-                        <p class="diachi-dv">
-                            <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
-                        </p>
-                        <div class="text-dg">
-                            <a class="a" href="">8.9 tuyệt vời</a><br>
-                            <a class="a1" href="">Qua 144 phản hổi</a>
-                        </div>
-                    </div>
-                    <div class="i">
-
-                        <span>180.000 VNĐ/lượt</span>
-                    </div>
-                </div>
-                <!--  -->
-                <div class="chitiet-dv">
-                    <figure class="snip0016">
-                        <img src="../layout/assets/img/dichvu/dv4.jpg" alt="sample41" />
-                        <figcaption>
-                            <p class="p">Diện tích 92 m</p>
-                            <p class="p">Số phòng: 4</p>
-                            <p class="p">7 dịch vụ đi kèm miễn phí</p>
-                            <p>
-                            <p class="p1"><i class="fa-solid fa-thumbs-up"></i> 1333 lượt thích</p>
-                            <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> 899 lượt đặt</p>
-                            <p class="p1"><i class="fa-solid fa-eye"></i> 1580 lượt xem</p>
-                            </p>
-                            <a href="#"></a>
-                        </figcaption>
-                    </figure>
-
-                    <div class="sao-dv">
-                        <a class="a0" href="">Dịch vụ đưa đón</a>
-                        <p class="diachi-dv">
-                            <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
-                        </p>
-                        <div class="text-dg">
-                            <a class="a" href="">8.9 tuyệt vời</a><br>
-                            <a class="a1" href="">Qua 144 phản hổi</a>
-                        </div>
-                    </div>
-                    <div class="i">
-
-                        <span>180.000 VNĐ/lượt</span>
-                    </div>
-                </div>
-                <!--  -->
-
-                <div class="chitiet-dv">
-                    <figure class="snip0016">
-                        <img src="../layout/assets/img/dichvu/dv4.jpg" alt="sample41" />
-                        <figcaption>
-                            <p class="p">Diện tích 92 m</p>
-                            <p class="p">Số phòng: 4</p>
-                            <p class="p">7 dịch vụ đi kèm miễn phí</p>
-                            <p>
-                            <p class="p1"><i class="fa-solid fa-thumbs-up"></i> 1333 lượt thích</p>
-                            <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> 899 lượt đặt</p>
-                            <p class="p1"><i class="fa-solid fa-eye"></i> 1580 lượt xem</p>
-                            </p>
-                            <a href="#"></a>
-                        </figcaption>
-                    </figure>
-
-                    <div class="sao-dv">
-                        <a class="a0" href="">Dịch vụ đưa đón</a>
-                        <p class="diachi-dv">
-                            <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
-                        </p>
-                        <div class="text-dg">
-                            <a class="a" href="">8.9 tuyệt vời</a><br>
-                            <a class="a1" href="">Qua 144 phản hổi</a>
-                        </div>
-                    </div>
-                    <div class="i">
-
-                        <span>180.000 VNĐ/lượt</span>
-                    </div>
-                </div>
+                        <?php endforeach ?>
             </div>
         </div>
         <!-- trai nghiệm -->
@@ -370,12 +169,11 @@
             <div class="flex-tn">
                 <div class="img1">
                     <img src="../layout/assets/img/banner/tn0.jpg" alt="">
-                    <a href="">Xem thêm</a>
+                    <a href="<?= SITE_URL . "?listproduct" ?>">Xem thêm</a>
                 </div>
                 <div class="img2">
-
-                    <img src="assets/img/banner/tn1.jpg" alt="">
-                    <a href="">Xem thêm</a>
+                    <img src="../layout/assets/img/banner/tn1.jpg" alt="">
+                    <a href="<?= SITE_URL . "?listservice" ?>">Xem thêm</a>
                 </div>
             </div>
         </div>
@@ -388,36 +186,34 @@
             <p>Dịch vụ 24/24 </p>
             <div class="room">
                 <a style="background-color: #0770cd; color: white;" href="">Tất cả các phòng</a>
-                <a href="">Phòng thương gia</a>
-                <a href="">Phòng gia đình</a>
-                <a href="">Phòng đơn</a>
-                <a href="">Phòng nghỉ ngơi</a>
-                <a href="">Phòng tình yêu</a>
+                <?php foreach ($categoriesAll as $key => $value) : ?>
+                    <a href="">Phòng <?php echo $value->name ?></a>
+                <?php endforeach ?>
             </div>
             <div class="flex-choose">
-
+            <?php foreach ($roomAll as $key => $value) : ?>
                 <div class="chitiet">
                     <figure class="snip0016">
-                        <img src="../layout/assets/img/product/tg1.jpg" alt="sample41" />
+                        <img src="../layout/assets/img/product/<?php echo $value->thumbnail ?>" alt="sample41" />
                         <figcaption>
-                            <p class="p">Diện tích 92 m</p>
-                            <p class="p">Số phòng: 4</p>
-                            <p class="p">7 dịch vụ đi kèm miễn phí</p>
+                            <p class="p"><?php echo $value->acreage ?></p>
+                            <p class="p">Tầng: <?php echo $value->location ?></p>
+                            <p class="p"> <?php echo $value->sv ?> dịch vụ đi kèm</p>
                             <p>
-                            <p class="p1"><i class="fa-solid fa-thumbs-up"></i> 1333 lượt thích</p>
-                            <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> 899 lượt đặt </p>
-                            <p class="p1"><i class="fa-solid fa-eye"></i> 1580 lượt xem</p>
+                            <p class="p1"><i class="fa-solid fa-thumbs-up"></i><?php echo $value->likes ?></p>
+                            <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> <?php echo $value->tbl ?> Lượt Comment</p>
+                            <p class="p1"><i class="fa-solid fa-eye"></i> <?php echo $value->view ?> lượt xem</p>
                             </p>
                             <a href="#"></a>
                         </figcaption>
                     </figure>
                     <div class="sao">
-                        <a class="a0" href="">Phòng tình yêu </a>
+                        <a class="a0" href=""><?php echo $value->name ?></a>
                         <p class="diachi">
                             <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
                         </p>
                         <div class="text-dg">
-                            <a class="a" href="">8.9 tuyệt vời</a><br>
+                            <a class="a" href=""><?php echo $value->star ?> tuyệt vời</a><br>
                             <a class="a1" href="">Qua 1257 đánh giá</a>
                         </div>
                     </div>
@@ -425,111 +221,10 @@
                         <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
                         <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
                         <i class="fa-sharp fa-solid fa-star"></i>
-                        <span>200.000 VNĐ</span>
+                        <span><?php echo $value->price ?></span>
                     </div>
                 </div>
-                <!--  -->
-
-                <div class="chitiet">
-                    <figure class="snip0016">
-                        <img src="../layout/assets/img/product/tg1.jpg" alt="sample41" />
-                        <figcaption>
-                            <p class="p">Diện tích 92 m</p>
-                            <p class="p">Số phòng: 4</p>
-                            <p class="p">7 dịch vụ đi kèm miễn phí</p>
-                            <p>
-                            <p class="p1"><i class="fa-solid fa-thumbs-up"></i> 1333 lượt thích</p>
-                            <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> 899 lượt đặt </p>
-                            <p class="p1"><i class="fa-solid fa-eye"></i> 1580 lượt xem</p>
-                            </p>
-                            <a href="#"></a>
-                        </figcaption>
-                    </figure>
-                    <div class="sao">
-                        <a class="a0" href="">Phòng tình yêu </a>
-                        <p class="diachi">
-                            <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
-                        </p>
-                        <div class="text-dg">
-                            <a class="a" href="">8.9 tuyệt vời</a><br>
-                            <a class="a1" href="">Qua 1257 đánh giá</a>
-                        </div>
-                    </div>
-                    <div class="i">
-                        <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
-                        <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
-                        <i class="fa-sharp fa-solid fa-star"></i>
-                        <span>200.000 VNĐ</span>
-                    </div>
-                </div>
-                <!--  -->
-
-                <div class="chitiet">
-                    <figure class="snip0016">
-                        <img src="../layout/assets/img/product/tg1.jpg" alt="sample41" />
-                        <figcaption>
-                            <p class="p">Diện tích 92 m</p>
-                            <p class="p">Số phòng: 4</p>
-                            <p class="p">7 dịch vụ đi kèm miễn phí</p>
-                            <p>
-                            <p class="p1"><i class="fa-solid fa-thumbs-up"></i> 1333 lượt thích</p>
-                            <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> 899 lượt đặt </p>
-                            <p class="p1"><i class="fa-solid fa-eye"></i> 1580 lượt xem</p>
-                            </p>
-                            <a href="#"></a>
-                        </figcaption>
-                    </figure>
-                    <div class="sao">
-                        <a class="a0" href="">Phòng tình yêu </a>
-                        <p class="diachi">
-                            <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
-                        </p>
-                        <div class="text-dg">
-                            <a class="a" href="">8.9 tuyệt vời</a><br>
-                            <a class="a1" href="">Qua 1257 đánh giá</a>
-                        </div>
-                    </div>
-                    <div class="i">
-                        <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
-                        <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
-                        <i class="fa-sharp fa-solid fa-star"></i>
-                        <span>200.000 VNĐ</span>
-                    </div>
-                </div>
-                <!--  -->
-                <div class="chitiet">
-                    <figure class="snip0016">
-                        <img src="../layout/assets/img/product/tg1.jpg" alt="sample41" />
-                        <figcaption>
-                            <p class="p">Diện tích 92 m</p>
-                            <p class="p">Số phòng: 4</p>
-                            <p class="p">7 dịch vụ đi kèm miễn phí</p>
-                            <p>
-                            <p class="p1"><i class="fa-solid fa-thumbs-up"></i> 1333 lượt thích</p>
-                            <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> 899 lượt đặt </p>
-                            <p class="p1"><i class="fa-solid fa-eye"></i> 1580 lượt xem</p>
-                            </p>
-                            <a href="#"></a>
-                        </figcaption>
-                    </figure>
-                    <div class="sao">
-                        <a class="a0" href="">Phòng tình yêu </a>
-                        <p class="diachi">
-                            <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
-                        </p>
-                        <div class="text-dg">
-                            <a class="a" href="">8.9 tuyệt vời</a><br>
-                            <a class="a1" href="">Qua 1257 đánh giá</a>
-                        </div>
-                    </div>
-                    <div class="i">
-                        <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
-                        <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
-                        <i class="fa-sharp fa-solid fa-star"></i>
-                        <span>200.000 VNĐ</span>
-                    </div>
-                </div>
-
+                        <?php endforeach ?>
             </div>
         </div>
         <!-- thanh toán -->
