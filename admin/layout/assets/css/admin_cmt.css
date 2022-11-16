@@ -8,20 +8,12 @@ body {
     font-family: tahoma, sans-serif;
 }
 
-<<<<<<< HEAD
-.containers {
-=======
 .container {
->>>>>>> 5aba59feb4fb215358d9a2b7c203b550c010cd73
     max-width: 1280px;
 }
 
 .content {
-<<<<<<< HEAD
-    margin: 0 10px;
-=======
     margin: 0 30px;
->>>>>>> 5aba59feb4fb215358d9a2b7c203b550c010cd73
 }
 
 .danh_sach {
