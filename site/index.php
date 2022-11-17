@@ -41,18 +41,20 @@
         if (isset($_GET['id']) && ($_GET['id'])) {
             $id = $_GET['id'];
             $iddm = $_GET['iddm'];
+            $link="product-detail&id=$id&iddm=$iddm";
             $oneroom = loadOne_room($id);
             $onecomment = loadOne_comment($id);
             $room_categories = load_room_categories($iddm);
             extract($oneroom);
             extract($onecomment);
+            if(isset($_GET['addcomment']) && isset($_POST['addcomment'])) {
+                $content = $_POST['content'];
+                // $star = $_POST['star'];
+                $idroom = $_GET['id'];
+                // $iduser = $_GET['iduser'];
+                $addcomment = Insert_conmment($content,$idroom);
+                header("location:index.php?$link");
         }
-        if (isset($_POST['addcomment'])) {
-            $content = $_POST['content'];
-            // $star = $_POST['star'];
-            $idroom = $_GET['id'];
-            // $iduser = $_GET['iduser'];
-            $addcomment = Insert_conmment($content,$idroom);
         }
         $VIEW_NAME = 'chi-tiet.php';
     } else {

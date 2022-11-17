@@ -212,7 +212,8 @@
                     <div class="max-w-[1200px] mx-auto py-10">
                         <div class="p-5 block rounded-lg shadow-lg bg-white max-w-lg mx-auto">
                             <h1 class="text-center text-2xl font-bold text-[#0194f3] pt-2 pb-5">ĐÁNH GIÁ PHÒNG</h1>
-                            <form action="index.php?product-detail&id=<?php echo $value->room_id?>&iddm=<?php echo $value->id_category_room?>" method="post">
+                            <?php foreach ($oneroom as $key => $value) : ?>
+                            <form action="index.php?addcomment&product-detail&id=<?php echo $value->room_id?>&iddm=<?php echo $value->id_category_room?>" method="post">
                                 <div class="mb-6">
                                     <textarea class="block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#0194f3] focus:outline-none
                             " id="" rows="3" placeholder="Nêu cảm nhận của bạn" name="content"></textarea>
@@ -231,6 +232,7 @@
                                 <button type="submit"
                                     class="w-full px-6 py-2.5 bg-[#0194f3] text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                                     data-modal-toggle="modalEl" name="addcomment">Gửi đánh giá</button>
+                                    <?php endforeach ?>
                             </form>
                         </div>
                     </div>

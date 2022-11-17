@@ -5,9 +5,15 @@ function loadAll_comment(){
     $listroom = pdo_query_all($query);
     return $listroom;
 }
+function load_comment_database()
+{
+    $sql = "select * from binhluan order by Id desc";
+    $comment = pdo_query_all($sql);
+    return $comment;
+}
 function loadOne_comment($id)
 {
-    $sql = "select vr.*,us.name as 'tennguoidung' from vote_room vr inner join room r on r.room_id = vr.id_room inner join users us on us.user_id = vr.id_user where id_room =" . $id;
+    $sql = "select vr.*,us.name as 'tennguoidung' from vote_room vr left join room r on r.room_id = vr.id_room left join users us on us.user_id = vr.id_user where id_room =" . $id;
     $comment = pdo_query_one($sql);
     return $comment;
 }
