@@ -7,16 +7,154 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi tiết phòng</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+    <link rel="stylesheet" href="assets/css/header.css"/>
+    <link rel="stylesheet" href="assets/css/chi-tiet.css"/>
+    <link rel="stylesheet" href="assets/css/footer.css"/>
+
 </head>
 
 <body>
+
+    <div class="nav-index containerr">
+        <div class="nav-left">
+            <i class="fa-solid fa-bars"></i>
+            <img src="assets/img/logo/30bf6c528078ba28d34bc3e37d124bdb.svg" alt="">
+        </div>
+        <div class="nav-right">
+            <ul>
+                <li><a href=""><i class="fa-solid fa-download"></i></i> Tải ứng dụng <i><i
+                                class="fa-solid fa-chevron-down"></i></i></a></li>
+                <li><a href=""><i class="fa-solid fa-handshake"></i> Hợp tác với chúng tôi</a></li>
+                <li><a href=""><i class="fa-solid fa-clipboard-check"></i> Đã lưu</a></li>
+                <li><a href=""><i class="fa-solid fa-list-check"></i> Đặt chỗ của tôi </a>
+
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <button type="submit" onclick="hamDropdown()" class="nut_dropdown">
+                            <img src="assets/img/logo/co.png" alt=""> VND <i
+                                style="color:black; font-size: 11px; padding-left: 4px;padding-top: 5px;"
+                                class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="noidung_dropdown">
+                            <div class="nation">
+                                <h2>Tên quốc gia & ngôn ngữ</h2>
+                                <span>Indonesia (Bahasha indonesia) </span>
+                                <img src="assets/img/co/indo.png" alt="" />
+                                <span>Indonesia (English) </span>
+                                <img src="assets/img/co/indo.png" alt="" /> <span>Thailan </span>
+                                <img src="assets/img/co/thai.png" alt="" /> <span>Indonesia </span>
+                                <img src="assets/img/co/indo.png" alt="" /> <span>Indonesia </span>
+                                <img src="assets/img/co/indo.png" alt="" /> <span>Indonesia </span>
+                                <img src="assets/img/co/indo.png" alt="" /> <span>Indonesia </span>
+                                <img src="assets/img/co/indo.png" alt="" /> <span>Indonesia </span>
+                                <img src="assets/img/co/my.png" alt="" /> <span>Indonesia </span>
+                                <img src="assets/img/co/my.png" alt="" />
+                            </div>
+                            <div class="mony">
+                                <h2>Tiền tệ</h2>
+                                <span style="font-size: 15px; color: black; font-weight: 500">AUD</span>
+                                <span>Dola Úc</span> <br />
+                                <span style="font-size: 15px; color: black; font-weight: 500">SGD</span>
+                                <span>Dola Singapo</span> <br />
+                                <span style="font-size: 15px; color: black; font-weight: 500">USD</span>
+                                <span>Dola Mỹ</span> <br />
+                                <span style="font-size: 15px; color: black; font-weight: 500">VND</span>
+                                <span>Việt Nam Đồng</span> <br />
+                                <span style="font-size: 15px; color: black; font-weight: 500">THB</span>
+                                <span>Baht Thái</span> <br />
+                                <span style="font-size: 15px; color: black; font-weight: 500">IDR</span>
+                                <span>Rupiah Indonesia</span> <br />
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+                <li>
+                    <div class="dropdown-2">
+                        <button type="submit"><a class="dangnhap" href=""><i>
+                                    <i class="fa-solid fa-user"></i></i> Đăng nhập
+                                <i style="color:black; font-size: 12px;" class="fa-solid fa-chevron-down"></i></a>
+                        </button>
+                        <div class="noidung-index">
+                            <h2>Đăng nhập tài khoản</h2>
+                            <span>Email hoặc số di động</span>
+                            <input type="text">
+                            <div class="flex-nd">
+                                <span>Mật khẩu</span> <a href="">Quên mật khẩu</a>
+
+                            </div>
+                            <input type="text"><i><i class="fa-solid fa-eye"></i></i>
+
+                            <div class="nd-dn">
+                                <button>Đăng nhập</button><span>Bạn đã có tài khản chưa? <a href="">Đăng
+                                        kí</a></span>
+                            </div>
+                            <div class="fb-gg">
+                                <p>Hoặc đăng nhập bằng</p><br>
+                                <a style="margin-left: 40px;" href=""><i class="fa-brands fa-facebook"></i>
+                                    Facebook</a>
+                                <a href=""><i class="fa-brands fa-google"></i> Google</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li style="padding: unset;"><a class="dangki" href="">Đăng kí</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- nav-2 -->
+    <div class="nav-2-index">
+        <ul class="containerr">
+            <li>
+                <div class="menu-con1">
+                    <button><a href="">Vận chuyển</a><i class="fa-solid fa-caret-down"></i></button>
+                    <div class="nd-mn1">
+                        <i class="fa-solid fa-car-side"></i> Cho thuê ô tô <br>
+                        <i class="fa-solid fa-bus"></i> Xe đưa đón <br>
+                        <i class="fa-solid fa-business-time"></i> Chuyển đồ
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="menu-con2">
+                    <button><a href="">Chỗ ở</a><i class="fa-solid fa-caret-down"></i></button>
+                    <div class="nd-mn2">
+                        <i style="color: #0770cd;" class="fa-sharp fa-solid fa-gopuram"></i> Ở Hà Nội <br>
+                        <i style="color: #0770cd;" class="fa-solid fa-bridge"></i> Ở TP.HCM
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="menu-con3">
+                    <button><a href="">Hoạt động giải trí</a><i class="fa-solid fa-caret-down"></i></button>
+                    <div class="nd-mn3">
+                        <i style="color: #ff6d70;" class="fa-solid fa-people-group"></i> Hoạt động nhóm <br>
+                        <i style="color: #0770cd;" class="fa-solid fa-water-ladder"></i> Bể bơi <br>
+                        <i class="fa-solid fa-hippo"></i> Chăm sóc thú cưng
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="menu-con4">
+                    <button><a href="">Sản phẩm bổ xung</a><i class="fa-solid fa-caret-down"></i></button>
+                    <div class="nd-mn4">
+                        <i style="color: rgb(208, 148, 70);" class="fa-solid fa-coins"></i> Điểm thưởng của tôi <br>
+                        <i style="color: red;" class="fa-solid fa-gift"></i> Đổi quà tặng
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
     <!--Content -->
-    <section class="mx-auto max-w-[1200px] p-2">
+    <section class="mx-auto max-w-[1200px] p-2 mt-[16px]">
         <h1 class="text-2xl font-bold text-[#0194f3] pb-2">STAYYINN - DELUXE DOUBLE OR TWIN ROOM</h1>
         <div class="text-xl items-center pb-3 flex">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
-            </svg>
+            <img src="./assets/img/icon/svg_diachi.svg" alt="">
             <h3 class="px-2">Số 40, ngõ 80, phố Trung Kính, Phường Yên Hòa, Quận Cầu Giấy, Thành phố Hà Nội</h3>
         </div>
         <div class="grid grid-cols-3 gap-4">
@@ -42,7 +180,7 @@
                 <div class="flex pb-3 gap-4">
                     <p>Tầng 2</p>
                     <p>Cửa sổ</p>
-                    <p>20m2</p>
+                    <p>20m<sup style="z-index: -1;">2</sup></p>
                 </div>
                 <hr>
                 <h3 class="font-bold py-3">Tính năng phòng bạn thích</h3>
@@ -377,6 +515,83 @@
             <button class="border border-2 rounded-md my-3 ml-2 px-8 py-4 border-blue-500 text-[#0194f3] hover:bg-blue-500 hover:text-white">Gửi đánh giá</button>
         </div>
     </section>
+
+    <!-- foodted -->
+    <div class="footer">
+        <div class="ft-0">
+            <div class="ft-1">
+                <img src="assets/img/logo/logo2.svg" alt="">
+                <div class="grid-1-ft">
+                    <img src="assets/img/ft/1.webp" alt="">
+                    <img src="assets/img/ft/4.webp" alt="">
+                    <img src="assets/img/ft/5.webp" alt="">
+                    <img src="assets/img/ft/4.webp" alt="">
+                    <img src="assets/img/ft/5.webp" alt="">
+                    <img src="assets/img/ft/6.webp" alt="">
+                </div>
+                <div class="doitac">
+                    <i class="fa-solid fa-handshake"></i>Hợp tác với StayyInn
+                </div>
+                <h2 class="h2">Đối tác thanh toán</h2>
+                <div class="grid-2-ft">
+                    <img src="assets/img/ft/10.webp" alt="">
+                    <img src="assets/img/ft/11.webp" alt="">
+                    <img src="assets/img/ft/12.webp" alt="">
+                    <img src="assets/img/ft/13.webp" alt="">
+                    <img src="assets/img/ft/14.webp" alt="">
+                    <img src="assets/img/ft/15.webp" alt="">
+                    <img src="assets/img/ft/16.webp" alt="">
+                    <img src="assets/img/ft/17.webp" alt="">
+                    <img src="assets/img/ft/18.webp" alt="">
+                    <img src="assets/img/ft/19.webp" alt="">
+                    <img src="assets/img/ft/20.webp" alt="">
+                    <img src="assets/img/ft/21.webp" alt="">
+                    <img src="assets/img/ft/10.webp" alt="">
+                    <img src="assets/img/ft/11.webp" alt="">
+                    <img src="assets/img/ft/12.webp" alt="">
+                    <img src="assets/img/ft/13.webp" alt="">
+                </div>
+            </div>
+            <div class="ft-2">
+                <h2>Về StayyInn</h2>
+                Cách đặt chỗ <br>
+                Liên hệ chúng tôi <br>
+                Trợ giúp <br>
+                Tuyển dụng <br>
+                Về chúng tôi <br>
+                <h2>Theo dõi chúng tôi </h2>
+                Twitter <br>
+                Facebook <br>
+                Instagram <br>
+                Youtube <br>
+            </div>
+            <div class="ft-3">
+                <h2>Sản phẩm</h2>
+                Vé máy bay <br>
+                Khách sạn <br>
+                Combo tiết kiệm <br>
+                Xperience <br>
+                Car Rental <br>
+                Biệt thự <br>
+                Căn hộ <br>
+                Đưa đón sân bay <br>
+            </div>
+            <div class="ft-4">
+                <h2>Khác</h2>
+                Traveloka Affiliate <br>
+                Traveloka Blog <br>
+                Chính sách quyền riêng tư <br>
+                Điều khoản & Điều kiện <br>
+                Quy chế hoạt động <br>
+                Đăng ký nơi nghỉ của bạn <br>
+                Đăng ký doanh nghiệp hoạt động du lịch của bạn <br>
+                Khu vực báo chí <br><br>
+                <h2>Tải ứng dụng trên</h2>
+                <img src="assets/img/logo/gg.svg" alt="">
+                <img src="assets/img/logo/ap.svg" alt="">
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
