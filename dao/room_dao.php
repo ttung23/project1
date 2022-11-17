@@ -21,6 +21,10 @@ function product_remove_by_cate_id($cate_id){
     $query = "delete from products where category_id = ?";
     pdo_execute($query, $cate_id);
 }
+function room_tang_so_luot_xem($id){
+    $sql = "UPDATE room SET view = view + 1 WHERE id=?";
+    pdo_execute($sql, $id);
+}
 
 
 ?>
