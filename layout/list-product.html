@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Danh mục</title>
+
+  <link rel="stylesheet" href="assets/css/header.css" />
+  <link rel="stylesheet" href="assets/css/list-product.css" />
+  <link rel="stylesheet" href="assets/css/footer.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+</head>
+
+<body>
+  <div class="nav-index containerr">
+    <div class="nav-left">
+      <i class="fa-solid fa-bars"></i>
+      <img src="assets/img/logo/30bf6c528078ba28d34bc3e37d124bdb.svg" alt="">
+    </div>
+    <div class="nav-right">
+      <ul>
+        <li><a href=""><i class="fa-solid fa-download"></i></i> Tải ứng dụng <i><i
+                class="fa-solid fa-chevron-down"></i></i></a></li>
+        <li><a href=""><i class="fa-solid fa-handshake"></i> Hợp tác với chúng tôi</a></li>
+        <li><a href=""><i class="fa-solid fa-clipboard-check"></i> Đã lưu</a></li>
+        <li><a href=""><i class="fa-solid fa-list-check"></i> Đặt chỗ của tôi </a>
+
+        </li>
+        <li>
+          <div class="dropdown">
+            <button type="submit" onclick="hamDropdown()" class="nut_dropdown">
+              <img src="assets/img/logo/co.png" alt=""> VND <i
+                style="color:black; font-size: 11px; padding-left: 4px;padding-top: 5px;"
+                class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="noidung_dropdown">
+              <div class="nation">
+                <h2>Tên quốc gia & ngôn ngữ</h2>
+                <span>Indonesia (Bahasha indonesia) </span>
+                <img src="assets/img/co/indo.png" alt="" />
+                <span>Indonesia (English) </span>
+                <img src="assets/img/co/indo.png" alt="" /> <span>Thailan </span>
+                <img src="assets/img/co/thai.png" alt="" /> <span>Indonesia </span>
+                <img src="assets/img/co/indo.png" alt="" /> <span>Indonesia </span>
+                <img src="assets/img/co/indo.png" alt="" /> <span>Indonesia </span>
+                <img src="assets/img/co/indo.png" alt="" /> <span>Indonesia </span>
+                <img src="assets/img/co/indo.png" alt="" /> <span>Indonesia </span>
+                <img src="assets/img/co/my.png" alt="" /> <span>Indonesia </span>
+                <img src="assets/img/co/my.png" alt="" />
+              </div>
+              <div class="mony">
+                <h2>Tiền tệ</h2>
+                <span style="font-size: 15px; color: black; font-weight: 500">AUD</span>
+                <span>Dola Úc</span> <br />
+                <span style="font-size: 15px; color: black; font-weight: 500">SGD</span>
+                <span>Dola Singapo</span> <br />
+                <span style="font-size: 15px; color: black; font-weight: 500">USD</span>
+                <span>Dola Mỹ</span> <br />
+                <span style="font-size: 15px; color: black; font-weight: 500">VND</span>
+                <span>Việt Nam Đồng</span> <br />
+                <span style="font-size: 15px; color: black; font-weight: 500">THB</span>
+                <span>Baht Thái</span> <br />
+                <span style="font-size: 15px; color: black; font-weight: 500">IDR</span>
+                <span>Rupiah Indonesia</span> <br />
+              </div>
+            </div>
+          </div>
+
+        </li>
+        <li>
+          <div class="dropdown-2">
+            <button type="submit"><a class="dangnhap" href=""><i>
+                  <i class="fa-solid fa-user"></i></i> Đăng nhập
+                <i style="color:black; font-size: 12px;" class="fa-solid fa-chevron-down"></i></a>
+            </button>
+            <div class="noidung-index">
+              <h2>Đăng nhập tài khoản</h2>
+              <span>Email hoặc số di động</span>
+              <input type="text">
+              <div class="flex-nd">
+                <span>Mật khẩu</span> <a href="">Quên mật khẩu</a>
+
+              </div>
+              <input type="text"><i><i class="fa-solid fa-eye"></i></i>
+
+              <div class="nd-dn">
+                <button>Đăng nhập</button><span>Bạn đã có tài khản chưa? <a href="">Đăng
+                    kí</a></span>
+              </div>
+              <div class="fb-gg">
+                <p>Hoặc đăng nhập bằng</p><br>
+                <a style="margin-left: 40px;" href=""><i class="fa-brands fa-facebook"></i>
+                  Facebook</a>
+                <a href=""><i class="fa-brands fa-google"></i> Google</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li style="padding: unset;"><a class="dangki" href="">Đăng kí</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- nav-2 -->
+  <div class="nav-2-index">
+    <ul class="containerr">
+      <li>
+        <div class="menu-con1">
+          <button><a href="">Vận chuyển</a><i class="fa-solid fa-caret-down"></i></button>
+          <div class="nd-mn1">
+            <i class="fa-solid fa-car-side"></i> Cho thuê ô tô <br>
+            <i class="fa-solid fa-bus"></i> Xe đưa đón <br>
+            <i class="fa-solid fa-business-time"></i> Chuyển đồ
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="menu-con2">
+          <button><a href="">Chỗ ở</a><i class="fa-solid fa-caret-down"></i></button>
+          <div class="nd-mn2">
+            <i style="color: #0770cd;" class="fa-sharp fa-solid fa-gopuram"></i> Ở Hà Nội <br>
+            <i style="color: #0770cd;" class="fa-solid fa-bridge"></i> Ở TP.HCM
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="menu-con3">
+          <button><a href="">Hoạt động giải trí</a><i class="fa-solid fa-caret-down"></i></button>
+          <div class="nd-mn3">
+            <i style="color: #ff6d70;" class="fa-solid fa-people-group"></i> Hoạt động nhóm <br>
+            <i style="color: #0770cd;" class="fa-solid fa-water-ladder"></i> Bể bơi <br>
+            <i class="fa-solid fa-hippo"></i> Chăm sóc thú cưng
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="menu-con4">
+          <button><a href="">Sản phẩm bổ xung</a><i class="fa-solid fa-caret-down"></i></button>
+          <div class="nd-mn4">
+            <i style="color: rgb(208, 148, 70);" class="fa-solid fa-coins"></i> Điểm thưởng của tôi <br>
+            <i style="color: red;" class="fa-solid fa-gift"></i> Đổi quà tặng
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="bgc">
+    <div class="contai-list-product containerr">
+      <div class="left-l-pro">
+        <div class="mony-l-pro">
+          <div class="text-l-pro">
+            <h2>Sắp xếp theo kết quả</h2>
+            <a href="">Sắp xếp theo kết quả lựa chọn</a>
+          </div>
+          <form>
+            <input type="radio" name="gender" value="male" checked />
+            <span>Giá cao nhất</span>
+            <br />
+            <input type="radio" name="gender" value="female" />
+            <span>Giá thấp nhất</span><br />
+            <input type="radio" name="gender" value="other" />
+            <span>Điểm đánh giá</span>
+            <br />
+            <input type="radio" name="gender" value="other" />
+            <span>Tất cả</span>
+          </form>
+        </div>
+  
+        <div class="convenient-l-pro">
+          <div class="text-c">
+            <h2>Lọc theo kết quả</h2>
+            <a href="">Hiển thị theo kết quả lọc :</a>
+          </div>
+          <div class="cs-l-pro">
+            <h2>Chính sách đặt phòng</h2>
+            <form>
+              <input type="checkbox" name="vehicle1" value="mienphi" />Hoàn trả
+              phòng miễn phí
+              <br />
+              <input type="checkbox" name="vehicle2" value="matphi" />Hoàn trả
+              phòng mất 10% <br /><br />
+            </form>
+          </div>
+          <div class="gia-l-pro">
+            <h2>Giá mỗi đêm khoảng</h2>
+  
+            <input type="range" name="agetb" id="agetb" />
+          </div>
+          <div class="ks-l-pro">
+            <h2>Loại phòng khách sạn</h2>
+            <form action="">
+              <input type="checkbox" name="vehicle1" value="mienphi" />Tất cả
+              các phòng
+              <br />
+              <input type="checkbox" name="vehicle2" value="matphi" /> Phòng
+              thương gia <br />
+              <input type="checkbox" name="vehicle1" value="mienphi" />Phòng đôi
+              <br />
+              <input type="checkbox" name="vehicle2" value="matphi" />Phòng đơn
+              <br />
+              <input type="checkbox" name="vehicle2" value="matphi" />Phòng tình
+              yêu <br />
+            </form>
+          </div>
+          <div class="tiennghi-l-pro">
+            <h2>Tiện Nghi</h2>
+            <form action="">
+              <input type="checkbox" name="tn1" value="mienphi" />Có Wifi
+              <br />
+              <input type="checkbox" name="tn2" value="matphi" /> Có thang máy
+              <br />
+              <input type="checkbox" name="tn3" value="mienphi" />Lễ tân 24/24
+              <br />
+              <input type="checkbox" name="tn3" value="matphi" /> bồn tắm
+              <br />
+              <input type="checkbox" name="tn5" value="matphi" /> Chỗ để xe rộng
+              <br />
+              <input type="checkbox" name="tn5" value="matphi" /> Bể bơi
+              <br />
+              <input type="checkbox" name="tn5" value="matphi" /> Phòng tập GYM
+              <br />
+              <input type="checkbox" name="tn5" value="matphi" /> Massag
+              <br />
+            </form>
+          </div>
+          <div class="luutru-l-pro">
+            <h2>Loại hình lưu trú</h2>
+            <form action="">
+              <input type="radio" name="gender" value="male" checked /> Theo
+              giờ<br />
+              <input type="radio" name="gender" value="female" /> Qua đêm<br />
+              <input type="radio" name="gender" value="other" /> Theo tuần
+              <br />
+              <input type="radio" name="gender" value="other" /> Tất cả
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="right-l-pro">
+        <div class="giamgia-r">
+          <span>Giảm giá 11.11 độc quyền!</span><br />
+          <span>Khách sạn giảm giá lên tới 50%! Đặt ngay!</span>
+        </div>
+        <div class="tim-r-pro">
+          <input type="text" placeholder="Nhập phòng bạn muốn tìm kiếm" />
+          <select name="tp" id="tp" class="tp">
+            <option value="hn">Phòng/đêm</option>
+            <option value="hn">Qua đêm</option>
+            <option value="hn">Theo giờ</option>
+            <option value="hn">Theo tủar</option>
+          </select>
+        </div>
+        <!--  -->
+        <div class="room-l-pro">
+          <div class="img-l-pro">
+            <div class="nd-img-room">
+              <img src="assets/img/lis-pro/p1.webp" alt="" />
+              <div class="nd-flex-room">
+                <h2>Stayyin - Phòng đơn <span>( Phòng 422 )</span></h2>
+  
+                <a href="">Khách sạn</a><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                  class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <br />
+                <i style="padding-top: 13px; padding-right: 7px; color: #959ca1"
+                  class="fa-solid fa-location-dot"></i><span style="color: #959ca1">Hà nội</span><br />
+                <i style="color: #1ba0e2; padding-top: 9px" class="fa-solid fa-heart"></i>
+                <span style="color: #1ba0e2">ấn tượng - 8.9</span> (257)
+                <br /><br />
+                <a style="background-color: #eac2b0; color: #616669" href=""><i style="color: #f3545c"
+                    class="fa-solid fa-gift"></i> Quà
+                  tặng cho thành viên mới</a>
+              </div>
+            </div>
+            <div class="gia-room">
+              <i style="color: #7ed2a8" class="fa-sharp fa-solid fa-building-user"></i>
+              <span style="color: #7ed2a8">Đặt phòng đển nhận ưu đãi khủng 11.11</span><br /><br /><br /><br />
+              <span style="
+                    color: #ff5e1f;
+                    font-weight: bold;
+                    font-size: 18px;
+                    margin-top: 50px;
+                  ">
+                300.000 VND/Đêm
+              </span>
+              <br />
+              <br />
+  
+              <a href="">Đặt phòng</a>
+            </div>
+          </div>
+        </div>
+        <!--  -->
+        <div class="room-l-pro">
+          <div class="img-l-pro">
+            <div class="nd-img-room">
+              <img src="assets/img/lis-pro/p3.webp" alt="" />
+              <div class="nd-flex-room">
+                <h2>Stayyin - Phòng đơn <span>( Phòng 422 )</span></h2>
+  
+                <a href="">Khách sạn</a><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                  class="fa-solid fa-star"></i> <br />
+                <i style="padding-top: 13px; padding-right: 7px; color: #959ca1"
+                  class="fa-solid fa-location-dot"></i><span style="color: #959ca1">Hà nội</span><br />
+                <i style="color: #1ba0e2; padding-top: 9px" class="fa-solid fa-heart"></i>
+                <span style="color: #1ba0e2">ấn tượng - 8.9</span> (257)
+                <br /><br />
+              </div>
+            </div>
+            <div class="gia-room">
+              <i style="color: #7ed2a8" class="fa-sharp fa-solid fa-building-user"></i>
+              <span style="color: #7ed2a8">Đặt phòng giảm 30% !</span><br /><br /><br /><br />
+              <span style="
+                    color: #ff5e1f;
+                    font-weight: bold;
+                    font-size: 18px;
+                    margin-top: 50px;
+                  ">
+                300.000 VND/Đêm
+              </span>
+              <br /><br />
+              <a href="">Đặt phòng</a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="room-l-pro">
+          <div class="img-l-pro">
+            <div class="nd-img-room">
+              <img src="assets/img/lis-pro/p2.webp" alt="" />
+              <div class="nd-flex-room">
+                <h2>Stayyin - Phòng đơn <span>( Phòng 422 )</span></h2>
+  
+                <a href="">Khách sạn</a><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                  class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <br />
+                <i style="padding-top: 13px; padding-right: 7px; color: #959ca1"
+                  class="fa-solid fa-location-dot"></i><span style="color: #959ca1">Hà nội</span><br />
+                <i style="color: #1ba0e2; padding-top: 9px" class="fa-solid fa-heart"></i>
+                <span style="color: #1ba0e2">ấn tượng - 8.9</span> (257)
+                <br /><br />
+              </div>
+            </div>
+            <div class="gia-room">
+              <i style="color: #7ed2a8" class="fa-sharp fa-solid fa-building-user"></i>
+              <span style="color: #7ed2a8">Đặt phòng đển nhận ưu đãi khủng 11.11</span><br /><br /><br /><br />
+              <span style="
+                    color: #ff5e1f;
+                    font-weight: bold;
+                    font-size: 18px;
+                    margin-top: 50px;
+                  ">
+                300.000 VND/Đêm </span><br /><br />
+              <a href="">Đặt phòng</a>
+            </div>
+          </div>
+        </div>
+        <div class="room-l-pro">
+          <div class="img-l-pro">
+            <div class="nd-img-room">
+              <img src="assets/img/lis-pro/p4.webp" alt="" />
+              <div class="nd-flex-room">
+                <h2>Stayyin - Phòng đơn <span>( Phòng 422 )</span></h2>
+  
+                <a href="">Khách sạn</a><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                  class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <br />
+                <i style="padding-top: 13px; padding-right: 7px; color: #959ca1"
+                  class="fa-solid fa-location-dot"></i><span style="color: #959ca1">Hà nội</span><br />
+                <i style="color: #1ba0e2; padding-top: 9px" class="fa-solid fa-heart"></i>
+                <span style="color: #1ba0e2">ấn tượng - 8.9</span> (257)
+                <br /><br />
+                <a style="background-color: #eac2b0; color: #616669" href=""><i style="color: #f3545c"
+                    class="fa-solid fa-gift"></i> Quà
+                  tặng cho thành viên mới</a>
+              </div>
+            </div>
+            <div class="gia-room">
+              <i style="color: #7ed2a8" class="fa-sharp fa-solid fa-building-user"></i>
+              <span style="color: #7ed2a8">Đặt phòng đển nhận ưu đãi khủng 11.11</span><br /><br /><br /><br />
+              <span style="
+                    color: #ff5e1f;
+                    font-weight: bold;
+                    font-size: 18px;
+                    margin-top: 50px;
+                  ">
+                300.000 VND/Đêm </span><br /><br />
+              <a href="">Đặt phòng</a>
+            </div>
+          </div>
+        </div>
+        <!--  -->
+        <div class="banner-l-pro">
+          <img src="assets/img/lis-pro/sp0.webp" alt="" />
+          <div class="text-bn">
+            <span style="">Muốn nhận mã ưu đãi và giá phòng thấp nhất?</span><br />
+            <span style="color: #be90c8">Đặt ngay trên ứng dụng Traveloka, giá trung thực không phí
+              ẩn</span><br />
+            <a style="color: #1ba0e2" href="">Tải ngay ứng dụng </a>
+          </div>
+        </div>
+        <!--  -->
+        <div class="room-l-pro">
+          <div class="img-l-pro">
+            <div class="nd-img-room">
+              <img src="assets/img/lis-pro/p3.webp" alt="" />
+              <div class="nd-flex-room">
+                <h2>Stayyin - Phòng đơn <span>( Phòng 422 )</span></h2>
+  
+                <a href="">Khách sạn</a><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                  class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <br />
+                <i style="padding-top: 13px; padding-right: 7px; color: #959ca1"
+                  class="fa-solid fa-location-dot"></i><span style="color: #959ca1">Hà nội</span><br />
+                <i style="color: #1ba0e2; padding-top: 9px" class="fa-solid fa-heart"></i>
+                <span style="color: #1ba0e2">ấn tượng - 8.9</span> (257)
+                <br /><br />
+              </div>
+            </div>
+            <div class="gia-room">
+              <i style="color: #7ed2a8" class="fa-sharp fa-solid fa-building-user"></i>
+              <span style="color: #7ed2a8">Đặt phòng đển nhận ưu đãi khủng 11.11</span><br /><br /><br /><br />
+              <span style="
+                    color: #ff5e1f;
+                    font-weight: bold;
+                    font-size: 18px;
+                    margin-top: 50px;
+                  ">
+                300.000 VND/Đêm </span><br /><br />
+              <a href="">Đặt phòng</a>
+            </div>
+          </div>
+        </div>
+        <div class="room-l-pro">
+          <div class="img-l-pro">
+            <div class="nd-img-room">
+              <img src="assets/img/lis-pro/p1.webp" alt="" />
+              <div class="nd-flex-room">
+                <h2>Stayyin - Phòng đơn <span>( Phòng 422 )</span></h2>
+  
+                <a href="">Khách sạn</a><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                  class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <br />
+                <i style="padding-top: 13px; padding-right: 7px; color: #959ca1"
+                  class="fa-solid fa-location-dot"></i><span style="color: #959ca1">Hà nội</span><br />
+                <i style="color: #1ba0e2; padding-top: 9px" class="fa-solid fa-heart"></i>
+                <span style="color: #1ba0e2">ấn tượng - 8.9</span> (257)
+                <br /><br />
+              </div>
+            </div>
+            <div class="gia-room">
+              <i style="color: #7ed2a8" class="fa-sharp fa-solid fa-building-user"></i>
+              <span style="color: #7ed2a8">Đặt phòng đển nhận ưu đãi khủng 11.11</span><br /><br /><br /><br />
+              <span style="
+                    color: #ff5e1f;
+                    font-weight: bold;
+                    font-size: 18px;
+                    margin-top: 50px;
+                  ">
+                300.000 VND/Đêm </span><br /><br />
+              <a href="">Đặt phòng</a>
+            </div>
+          </div>
+        </div>
+        <div class="room-l-pro">
+          <div class="img-l-pro">
+            <div class="nd-img-room">
+              <img src="assets/img/lis-pro/p2.webp" alt="" />
+              <div class="nd-flex-room">
+                <h2>Stayyin - Phòng đơn <span>( Phòng 422 )</span></h2>
+  
+                <a href="">Khách sạn</a><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                  class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <br />
+                <i style="padding-top: 13px; padding-right: 7px; color: #959ca1"
+                  class="fa-solid fa-location-dot"></i><span style="color: #959ca1">Hà nội</span><br />
+                <i style="color: #1ba0e2; padding-top: 9px" class="fa-solid fa-heart"></i>
+                <span style="color: #1ba0e2">ấn tượng - 8.9</span> (257)
+                <br /><br />
+                <a style="background-color: #eac2b0; color: #616669" href=""><i style="color: #f3545c"
+                    class="fa-solid fa-gift"></i> Quà
+                  tặng cho thành viên mới</a>
+              </div>
+            </div>
+            <div class="gia-room">
+              <i style="color: #7ed2a8" class="fa-sharp fa-solid fa-building-user"></i>
+              <span style="color: #7ed2a8">Đặt phòng đển nhận ưu đãi khủng 11.11</span><br /><br /><br /><br />
+              <span style="
+                    color: #ff5e1f;
+                    font-weight: bold;
+                    font-size: 18px;
+                    margin-top: 50px;
+                  ">
+                300.000 VND/Đêm </span><br /><br />
+              <a href="">Đặt phòng</a>
+            </div>
+          </div>
+        </div>
+        <div class="room-l-pro">
+          <div class="img-l-pro">
+            <div class="nd-img-room">
+              <img src="assets/img/lis-pro/p4.webp" alt="" />
+              <div class="nd-flex-room">
+                <h2>Stayyin - Phòng đơn <span>( Phòng 422 )</span></h2>
+  
+                <a href="">Khách sạn</a><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                  class="fa-solid fa-star"></i> <br />
+                <i style="padding-top: 13px; padding-right: 7px; color: #959ca1"
+                  class="fa-solid fa-location-dot"></i><span style="color: #959ca1">Hà nội</span><br />
+                <i style="color: #1ba0e2; padding-top: 9px" class="fa-solid fa-heart"></i>
+                <span style="color: #1ba0e2">ấn tượng - 8.9</span> (257)
+                <br /><br />
+              </div>
+            </div>
+            <div class="gia-room">
+              <i style="color: #7ed2a8" class="fa-sharp fa-solid fa-building-user"></i>
+              <span style="color: #7ed2a8">Đặt phòng đển nhận ưu đãi khủng 11.11</span><br /><br /><br /><br />
+              <span style="
+                    color: #ff5e1f;
+                    font-weight: bold;
+                    font-size: 18px;
+                    margin-top: 50px;
+                  ">
+                300.000 VND/Đêm </span><br /><br />
+              <a href="">Đặt phòng</a>
+            </div>
+          </div>
+        </div>
+        <div class="room-l-pro">
+          <div class="img-l-pro">
+            <div class="nd-img-room">
+              <img src="assets/img/lis-pro/p1.webp" alt="" />
+              <div class="nd-flex-room">
+                <h2>Stayyin - Phòng đơn <span>( Phòng 422 )</span></h2>
+  
+                <a href="">Khách sạn</a><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                  class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <br />
+                <i style="padding-top: 13px; padding-right: 7px; color: #959ca1"
+                  class="fa-solid fa-location-dot"></i><span style="color: #959ca1">Hà nội</span><br />
+                <i style="color: #1ba0e2; padding-top: 9px" class="fa-solid fa-heart"></i>
+                <span style="color: #1ba0e2">ấn tượng - 8.9</span> (257)
+                <br /><br />
+                <a style="background-color: #eac2b0; color: #616669" href=""><i style="color: #f3545c"
+                    class="fa-solid fa-gift"></i> Quà
+                  tặng cho thành viên mới</a>
+              </div>
+            </div>
+            <div class="gia-room">
+              <i style="color: #7ed2a8" class="fa-sharp fa-solid fa-building-user"></i>
+              <span style="color: #7ed2a8">Đặt phòng đển nhận ưu đãi khủng 11.11</span><br /><br /><br /><br />
+              <span style="
+                    color: #ff5e1f;
+                    font-weight: bold;
+                    font-size: 18px;
+                    margin-top: 50px;
+                  ">
+                300.000 VND/Đêm </span><br /><br />
+              <a href="">Đặt phòng</a>
+            </div>
+          </div>
+        </div>
+        <!--  -->
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="ft-0">
+      <div class="ft-1">
+        <img src="assets/img/logo/logo2.svg" alt="">
+        <div class="grid-1-ft">
+          <img src="assets/img/ft/1.webp" alt="">
+          <img src="assets/img/ft/4.webp" alt="">
+          <img src="assets/img/ft/5.webp" alt="">
+          <img src="assets/img/ft/4.webp" alt="">
+          <img src="assets/img/ft/5.webp" alt="">
+          <img src="assets/img/ft/6.webp" alt="">
+        </div>
+        <div class="doitac">
+          <i class="fa-solid fa-handshake"></i>Hợp tác với StayyInn
+        </div>
+        <h2 class="h2">Đối tác thanh toán</h2>
+        <div class="grid-2-ft">
+          <img src="assets/img/ft/10.webp" alt="">
+          <img src="assets/img/ft/11.webp" alt="">
+          <img src="assets/img/ft/12.webp" alt="">
+          <img src="assets/img/ft/13.webp" alt="">
+          <img src="assets/img/ft/14.webp" alt="">
+          <img src="assets/img/ft/15.webp" alt="">
+          <img src="assets/img/ft/16.webp" alt="">
+          <img src="assets/img/ft/17.webp" alt="">
+          <img src="assets/img/ft/18.webp" alt="">
+          <img src="assets/img/ft/19.webp" alt="">
+          <img src="assets/img/ft/20.webp" alt="">
+          <img src="assets/img/ft/21.webp" alt="">
+          <img src="assets/img/ft/10.webp" alt="">
+          <img src="assets/img/ft/11.webp" alt="">
+          <img src="assets/img/ft/12.webp" alt="">
+          <img src="assets/img/ft/13.webp" alt="">
+        </div>
+      </div>
+      <div class="ft-2">
+        <h2>Về StayyInn</h2>
+        Cách đặt chỗ <br>
+        Liên hệ chúng tôi <br>
+        Trợ giúp <br>
+        Tuyển dụng <br>
+        Về chúng tôi <br>
+        <h2>Theo dõi chúng tôi </h2>
+        Twitter <br>
+        Facebook <br>
+        Instagram <br>
+        Youtube <br>
+      </div>
+      <div class="ft-3">
+        <h2>Sản phẩm</h2>
+        Vé máy bay <br>
+        Khách sạn <br>
+        Combo tiết kiệm <br>
+        Xperience <br>
+        Car Rental <br>
+        Biệt thự <br>
+        Căn hộ <br>
+        Đưa đón sân bay <br>
+      </div>
+      <div class="ft-4">
+        <h2>Khác</h2>
+        Traveloka Affiliate <br>
+        Traveloka Blog <br>
+        Chính sách quyền riêng tư <br>
+        Điều khoản & Điều kiện <br>
+        Quy chế hoạt động <br>
+        Đăng ký nơi nghỉ của bạn <br>
+        Đăng ký doanh nghiệp hoạt động du lịch của bạn <br>
+        Khu vực báo chí <br><br>
+        <h2>Tải ứng dụng trên</h2>
+        <img src="assets/img/logo/gg.svg" alt="">
+        <img src="assets/img/logo/ap.svg" alt="">
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

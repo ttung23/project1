@@ -66,6 +66,7 @@ td p {
 td p:hover {
     overflow: visible;
     white-space: unset;
+    /* word-break: break-word; */
 }
 
 .action {
