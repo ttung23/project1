@@ -13,7 +13,7 @@ function loadOne_room($id)
 }
 function load_room_categories($id)
 {
-    $sql = "select * from room r inner join service sv on sv.id_room= r.room_id  where id_category_room=" . $id;
+    $sql = "select r.* from room r inner join service sv on sv.id_room= r.room_id  where id_category_room=" . $id;
     $room = pdo_query_all($sql);
     return $room;
 }

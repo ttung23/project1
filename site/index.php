@@ -12,11 +12,15 @@
     $service = loadAll_service();
 
 
-    if (isset($_GET['chi-tiet'])) {
-        $VIEW_NAME = 'chi-tiet.php';
+    if (isset($_GET['cart'])) {
+        $VIEW_NAME = 'cart.php';
     } elseif (isset($_GET['tin-tuc'])) {
         $news = loadAll_news();
         $VIEW_NAME = 'tin-tuc.php';
+    }elseif (isset($_GET['list-room'])) {
+        $iddm = $_GET['iddm'];
+        $roomcategori = load_room_categories($iddm);
+        $VIEW_NAME = 'list-room.php';
     } elseif (isset($_GET['addcart'])) {
         session_start();
         ob_start();

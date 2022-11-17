@@ -4,19 +4,24 @@ function loadAll_service(){
     $listservice = pdo_query_all($query);
     return $listservice;
 }
+function loadAll_service_room($id){
+    $query = "select * from service where id_room= ? desc";
+    $listservice = pdo_query_one($query,$id);
+    return $listservice;
+}
 
 function service_remove_by_id($cate_id){
     $query = "delete from service where id = ?";
     pdo_execute($query, $cate_id);
 }
-function Insert_user($name,$username,$password,$gender,$email,$images,$address,$phone,$date){
-    $query = "Insert into users(name,username,password,gender,email,adress,phone,date) values(?,?,?,?,?,?,?)";
-    pdo_execute($query, $name,$username,$password,$gender,$email,$images,$address,$phone,$date);
+function Insert_service($name,$images,$description,$price,$quantity,$status,$id_room){
+    $query = "Insert into service(name,images,description,price,quantity,status,id_room) values(?,?,?,?,?,?,?)";
+    pdo_execute($query, $name,$images,$description,$price,$quantity,$status,$id_room);
 }
-function Update_user($id,$name,$username,$password,$gender,$email,$images,$address,$phone,$date)
+function Update_service($name,$images,$description,$price,$quantity,$status,$id_room)
 {
-    $query = "Update users set name = ? , username = ?,password = ?,gender = ?,email = ?, images = ?, address = ?, phone = ?, date = ? where user_id = ?";
-    pdo_execute($query, $name,$username,$password,$gender,$email,$images,$address,$phone,$date,$id);
+    $query = "Update service set name = ? , images = ?,description = ?,price = ?,quantity = ?, status = ?, id_room = ? where user_id = ?";
+    pdo_execute($query,$name,$images,$description,$price,$quantity,$status,$id_room);
 }
 
 ?>
