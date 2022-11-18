@@ -39,6 +39,11 @@ function  update_room($name, $des, $thumbnail, $id_cate, $price, $star, $quantit
         $sql = "update hang_hoa set name='" . $name . "', description='" . $des . "', thumbnail='" . $thumbnail . "', id_category_room='" . $id_cate . "',price='" . $price . "',star='" . $star . "', quantity='" . $quantity . "', location='" . $location . "', acreage='" . $acreage . "', view='" . $view . "', likes='" . $likes . "', id_service='" . $id_service . "' where room_id=" . $id;
     pdo_execute($sql);
 }
+function  find_room($check)
+{
+        $sql = "update hang_hoa set name='" . $name . "', description='" . $des . "', thumbnail='" . $thumbnail . "', id_category_room='" . $id_cate . "',price='" . $price . "',star='" . $star . "', quantity='" . $quantity . "', location='" . $location . "', acreage='" . $acreage . "', view='" . $view . "', likes='" . $likes . "', id_service='" . $id_service . "' where room_id=" . $id;
+    pdo_execute($sql);
+}
 function load_room_like($id)
 {
     $sql = "select * room order by likes desc";
