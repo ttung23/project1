@@ -2,7 +2,8 @@
         <div class="nav-index containerr">
             <div class="nav-left">
                 <i class="fa-solid fa-bars"></i>
-                <img src="../layout/assets/img/logo/30bf6c528078ba28d34bc3e37d124bdb.svg" alt="">
+                <a href=" <?= SITE_URL  ?>"><img src="../layout/assets/img/logo/30bf6c528078ba28d34bc3e37d124bdb.svg" alt=""></a>
+                
             </div>
             <div class="nav-right">
                 <ul>

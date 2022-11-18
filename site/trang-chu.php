@@ -4,35 +4,38 @@
         <a class="a" href=""><i class="fa-regular fa-moon"></i><br> Qua đêm</a>
         <a class="a" href=""><i class="fa-solid fa-calendar-days"></i><br> Theo ngày</a>
     </div>
+    <form action="index.php?list-room" method="post">
     <div class="search-check">
-                <div class="check">
-                    <div class="i">
-                        <i class="fa-sharp fa-solid fa-location-dot"></i> <br>
-                    </div>
-                    <p>Địa điểm</p>
-                    <input type="text" placeholder="Bạn muốn thuê phòng nào ?">
+            <div class="check">
+                <div class="i">
+                    <i class="fa-sharp fa-solid fa-location-dot"></i> <br>
                 </div>
-                <div class="book">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                    <p>Nhận phòng</p>
-                    <input type="datetime-local" name="bdaytime">
-                </div>
-                <div class="book1">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                    <p>Trả phòng </p>
-                    <input type="datetime-local" name="bdaytime">
-                </div>
-                <div class="book2">
-                    <select name="tp" id="tp" class="tp">
-                        <option value="hn">Khách hàng</option>
-                        <option value="hn">1 người</option>
-                        <option value="hn">Nhiều người</option>
-                        <option value="hn">Gia đình</option>
-                    </select>
-
-                </div>
-                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm</button>
+                <p>Địa điểm</p>
+                <input type="text" placeholder="Bạn muốn thuê phòng nào ?">
             </div>
+            <div class="book">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <p>Nhận phòng</p>
+                <input type="date" name="checkin">
+            </div>
+            <div class="book1">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <p>Trả phòng </p>
+                <input type="date" name="checkout">
+            </div>
+            <div class="book2">
+                <select name="quantity" id="tp" class="tp">
+                    <option value="hn">Số Lượng Người</option>
+            <option value="1">1</option></a>
+            <option value="2">2</option></a>
+            <option value="3">3</option></a>
+            <option value="4">4</option></a>
+            <option value="5">5</option></a>
+                </select>
+            </div>
+            <button type="submit" name="find"><i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm</button>
+    </div>
+    </form>
 </div>
 <div class="sale-index">
     <div class="sale-flex">
@@ -108,7 +111,7 @@
                         <a class="a1" href="<?= SITE_URL . "?product-detail&id=$value->room_id&iddm=$value->id_category_room" ?>">Qua 1257 đánh giá</a>
                     </div>
                     <div class="datphong-index">
-                        <a href="">Xem chi tiết</a>
+                        <a href="<?= SITE_URL . "?product-detail&id=$value->room_id&iddm=$value->id_category_room" ?>">Xem chi tiết</a>
                     </div>
                 </div>
                 <div class="i">

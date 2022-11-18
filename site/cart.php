@@ -95,8 +95,6 @@
                      <div class="row product">
                     <?php foreach ($_SESSION['addcart'] as $key => $value) : ?>
                     <a href="">Phòng <?php echo $value['ten'] ?></a>
-                    <a href="">Phòng <?php echo $value['ten'] ?></a>
-
                     <?php endforeach ?>
                                 <div class="col-sm-3 anh">
                                     <h1>Nâng Tầm Trải Nghiệm</h1>

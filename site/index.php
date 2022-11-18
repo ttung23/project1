@@ -13,13 +13,30 @@
 
 
     if (isset($_GET['cart'])) {
+        if(!isset($_SESSION['addcart'])){
+            $_SESSION['addcart']=[];
+        }
         $VIEW_NAME = 'cart.php';
     } elseif (isset($_GET['tin-tuc'])) {
         $news = loadAll_news();
         $VIEW_NAME = 'tin-tuc.php';
     }elseif (isset($_GET['list-room'])) {
-        $iddm = $_GET['iddm'];
-        $roomcategori = load_room_categories($iddm);
+        if(isset($_POST['find'])){
+            $checkin = $_POST['checkin'];
+            $checkout = $_POST['checkout'];
+            $selectfind = find_room($checkin,$checkout);
+        }else{
+            $selectfind = [];
+        }
+        $iddm = 0;
+        if(isset($_GET['iddm'])){
+            $iddm = $_GET['iddm'];
+        }
+        if($iddm == 0){
+            $roomcategori = loadAll_room();
+        }else{
+            $roomcategori = load_room_categories($iddm);
+        }
         $VIEW_NAME = 'list-room.php';
     } elseif (isset($_GET['addcart'])) {
         session_start();
@@ -30,6 +47,7 @@
             $quantity = $_POST['quantity'];
             if (!isset($_SESSION['addcart'][$id])) {
                 $_SESSION['addcart'][$id] = array('id' => $id, 'ten' => $ten);
+                setcookie($_SESSION['addcart'][$id], time() + 3600);
             } else {
                 $_SESSION['addcart'][$id];
             }

@@ -11,12 +11,19 @@ function loadOne_room($id)
     $room = pdo_query_one($sql);
     return $room;
 }
-function load_room_categories($id)
+function load_room_service($id)
 {
-    $sql = "select r.* from room r inner join service sv on sv.id_room= r.room_id  where id_category_room=" . $id;
+    $sql = "select r.* from room r inner join categories_room sv on sv.id_room= r.room_id  where id_category_room=" . $id;
     $room = pdo_query_all($sql);
     return $room;
 }
+function load_room_categories($id)
+{
+    $sql = "select * from room where id_category_room=" . $id;
+    $room = pdo_query_all($sql);
+    return $room;
+}
+
 function room_order_by_cate_id($cate_id){
     $query = "delete from room where category_id = ?";
     pdo_execute($query, $cate_id);
@@ -39,10 +46,11 @@ function  update_room($name, $des, $thumbnail, $id_cate, $price, $star, $quantit
         $sql = "update hang_hoa set name='" . $name . "', description='" . $des . "', thumbnail='" . $thumbnail . "', id_category_room='" . $id_cate . "',price='" . $price . "',star='" . $star . "', quantity='" . $quantity . "', location='" . $location . "', acreage='" . $acreage . "', view='" . $view . "', likes='" . $likes . "', id_service='" . $id_service . "' where room_id=" . $id;
     pdo_execute($sql);
 }
-function  find_room($check)
+function  find_room($checkin,$checkout)
 {
-        $sql = "update hang_hoa set name='" . $name . "', description='" . $des . "', thumbnail='" . $thumbnail . "', id_category_room='" . $id_cate . "',price='" . $price . "',star='" . $star . "', quantity='" . $quantity . "', location='" . $location . "', acreage='" . $acreage . "', view='" . $view . "', likes='" . $likes . "', id_service='" . $id_service . "' where room_id=" . $id;
-    pdo_execute($sql);
+    $sql = "SELECT * FROM room where room_id not in (select r.room_id from room r INNER join booking_detail bd on bd.id_room = r.room_id left JOIN bookings bk on bk.booking_id = bd.id_booking where bk.check_in_date >= '$checkin' and bk.check_in_date <= '$checkout' or bk.check_out_date <= '$checkin' and bk.check_out_date >= '$checkout')";
+    $room = pdo_query_one($sql);
+    return $room;
 }
 function load_room_like($id)
 {
