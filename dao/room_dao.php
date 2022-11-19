@@ -36,6 +36,13 @@ function room_tang_so_luot_xem($id){
     $sql = "UPDATE room SET view = view + 1 WHERE id=?";
     pdo_execute($sql, $id);
 }
+// phân trang
+//  function read_room($limit,$offset) {
+//     $sql = "select * from room limit ?,?";
+//     $room = pdo_query_all($sql,$offset,$limit);
+//     return $room;
+// }
+
 function insert_room($name, $des, $thumbnail, $id_cate, $price, $star, $quantity,$location,$acreage,$view,$likes,$id_service,$id_admin)
 {
     $sql = "insert into hang_hoa(name, description, thumbnail, id_category_room, price, star, quantity,location,acreage,view,likes,id_service,id_admin) value('$name', '$des', '$thumbnail', '$id_cate', '$price', '$star', '$quantity','$location','$acreage','$view','$likes','$id_service','$id_admin')";

@@ -122,7 +122,44 @@
                 </div>
             </div>
         <?php endforeach ?>
-    </div>
+        <!-- <div class="page-number">
+                            <ul>
+                                <?php if ($current_page > 1) { ?>
+                                    <li>
+                                        <a href="?perpage=<?= $limit ?>&page=<?= $current_page - 1 ?>"><</a>
+                                    </li>
+                                <?php } ?>
+
+                                <?php for($i = 1; $i <= $total_pages; $i++): ?>
+                                    <?php if ($current_page != $i ) { ?>
+                                        <?php if ($i > $current_page - 3 && $i < $current_page + 3) { ?>
+                                            <li>
+                                                <a href="?perpage=<?= $limit ?>&page=<?= $i ?>"><?= $i ?></a>
+                                            </li>
+                                        <?php } ?>
+                                    <?php } else { ?>
+                                        <li>
+                                            <strong><?= $i ?></strong>
+                                        </li>
+                                    <?php } ?>
+                                <?php endfor ?>
+
+                                <?php if ($current_page < $total_pages) { ?>
+                                    <li>
+                                        <a href="?perpage=<?= $limit ?>&page=<?= $current_page + 1 ?>">></a>
+                                    </li>
+                                <?php } ?>
+
+                                <!-- <li>
+                                    <a href="?perpage=9&page=2">2</a>
+                                </li>
+
+                                <li>
+                                    <a href="?perpage=9&page=3">></a>
+                                </li> -->
+                            </ul>
+                        </div>
+    </div> -->
 
 </div>
 <!-- dịch vụ khách sạn -->

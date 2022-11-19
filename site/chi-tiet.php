@@ -2,7 +2,7 @@
 <?php foreach ($oneroom as $key => $value) : ?>
     <h1 class="text-2xl font-bold text-[#0194f3] pb-2"><?php echo $value->name?></h1>
     <div class="text-xl items-center pb-3 flex">
-    <form action="index.php?addcart&&id=<?php echo $value->room_id?>" method="post">
+    <form action="index.php?cart" method="post">
     <input type="hidden" name="id" value="<?php echo $value->room_id?>">
     <input type="hidden" name="ten" value="<?php echo $value->name?>">
     <input type="hidden" name="des" value="<?php echo $value->description?>">
@@ -93,7 +93,7 @@
                     <h3> <span class="text-3xl font-bold text-[#0194f3]"><?php echo $value->price?>D</span> <span class="text-xl">/ phòng / đêm</span> </h3>
                 </div>
                 <div class="flex justify-center">
-                    <button class="border border-2 rounded-md my-3 px-16 py-3 border-blue-500 text-[#0194f3] hover:bg-blue-500 hover:text-white" type="submit" name="submit">Đặt phòng</button>
+                    <button class="border border-2 rounded-md my-3 px-16 py-3 border-blue-500 text-[#0194f3] hover:bg-blue-500 hover:text-white" type="submit" name="addcart">Đặt phòng</button>
                     <button class="border border-2 rounded-md my-3 px-16 py-3 border-blue-500 text-[#0194f3] hover:bg-blue-500 hover:text-white" type="submit" name="delete">Xóa</button>
                     </form>
                 </div>
