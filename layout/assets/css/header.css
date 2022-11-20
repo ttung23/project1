@@ -16,10 +16,6 @@
   padding-right: 12px;
 }
 
-.nav-right {
-  padding-left: 100px;
-}
-
 .nav-right ul {
   display: flex;
   position: relative;
