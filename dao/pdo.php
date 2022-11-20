@@ -1,6 +1,6 @@
 <?php
 const DBHOST = "localhost";
-const DBNAME = "hermes_hotel";
+const DBNAME = "StayyInn_hotel";
 const DBUSER = "root";
 const DBPASS = "";
 const DBCHARSET = "utf8";
@@ -28,7 +28,7 @@ function pdo_query_all($query){
     
     $stmt = $conn->prepare($query);
     $stmt->execute($args);
-    $data = $stmt->fetchAll();
+    $data = $stmt->fetchAll(PDO::FETCH_OBJ);
     if(count($data) > 0){
         return $data;
     }
@@ -47,11 +47,11 @@ function pdo_query_one($query){
     
     $stmt = $conn->prepare($query);
     $stmt->execute($args);
-    $data = $stmt->fetch();
+    $data = $stmt->fetchAll(PDO::FETCH_OBJ);
     if(count($data) > 0){
         return $data;
     }
-    return null;
+    return [];
 
 }
 

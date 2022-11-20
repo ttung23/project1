@@ -715,3 +715,23 @@
   font-weight: 600;
   padding-bottom: 30px;
 }
+.chitiet .datphong-index {
+  display: flex;
+  position: absolute;
+  top: 400px;
+  justify-content: left;
+  width: 100%;
+  padding: 0 20px 0 0;
+}
+.chitiet .datphong-index a {
+  padding: 4px;
+  border: 2px solid #0194f3;
+  color: #0194f3;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 6px;
+}
+.chitiet .datphong-index a:hover {
+  background-color: #0194f3;
+  color: white;
+}
