@@ -64,6 +64,7 @@
             $iddm = $_GET['iddm'];
             $link="product-detail&id=$id&iddm=$iddm";
             $oneroom = loadOne_room($id);
+            $addview = room_tang_so_luot_xem($id);
             $onecomment = loadOne_comment($id);
             $room_categories = load_room_categories($iddm);
             extract($oneroom);
