@@ -17,9 +17,9 @@ function load_room_comment($id)
     $room = pdo_query_all($sql);
     return $room;
 }
-function Insert_conmment($content,$idroom)
+function Insert_conmment($content,$idroom,$id_user)
 {
-    $sql = "insert into vote_room(comment,id_room) value('$content','$idroom')";
+    $sql = "insert into vote_room(comment,id_room,id_user) value('$content','$idroom','$id_user')";
     $comment = pdo_execute($sql);
     return $comment;
 }

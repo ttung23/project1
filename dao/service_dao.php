@@ -5,8 +5,8 @@ function loadAll_service(){
     return $listservice;
 }
 function loadAll_service_room($id){
-    $query = "select * from service where id_room= ? desc";
-    $listservice = pdo_query_one($query,$id);
+    $query = "select * from service where id_room=".$id;
+    $listservice = pdo_query_one($query);
     return $listservice;
 }
 

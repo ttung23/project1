@@ -19,6 +19,8 @@
     <input type="hidden" name="id_service" value="<?php echo $value->id_service?>">
     <input type="hidden" name="created_at" value="<?php echo $value->created_at?>">
     <input type="hidden" name="id_admin" value="<?php echo $value->id_admin?>">
+    <input type="hidden" name="namedichvu" value="<?php echo $value->namedichvu?>">
+    <input type="hidden" name="pricedichvu" value="<?php echo $value->pricedichvu?>">
      
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
                 <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
@@ -94,7 +96,6 @@
                 </div>
                 <div class="flex justify-center">
                     <button class="border border-2 rounded-md my-3 px-16 py-3 border-blue-500 text-[#0194f3] hover:bg-blue-500 hover:text-white" type="submit" name="addcart">Đặt phòng</button>
-                    <button class="border border-2 rounded-md my-3 px-16 py-3 border-blue-500 text-[#0194f3] hover:bg-blue-500 hover:text-white" type="submit" name="delete">Xóa</button>
                     </form>
                 </div>
             </div>

@@ -14,14 +14,14 @@ function loadAll_room_by_likes(){
 // select 1 room
 function loadOne_room($id)
 {
-    $sql = "select * from room where room_id =" . $id;
+    $sql = "select r.*,sv.name as 'namedichvu',sv.price as 'pricedichvu' from room r  inner join service sv on sv.service_id = r.id_service where room_id =" . $id;
     $room = pdo_query_one($sql);
     return $room;
 }
 // load phong theo dich vu
 function load_room_service($id)
 {
-    $sql = "select r.* from room r inner join categories_room sv on sv.id_room= r.room_id  where id_category_room=" . $id;
+    $sql = "select r.* from room r inner join categories_room sv on sv.id_room= r.room_id  where id_category_room= " . $id;
     $room = pdo_query_all($sql);
     return $room;
 }
