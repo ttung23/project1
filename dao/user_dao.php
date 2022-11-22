@@ -4,13 +4,24 @@
     $sql = "select * from users where username = '$username' and password = '$password' limit 1";
     $user = pdo_query_all($sql);
 
-        if(is_array($user)){
-            $_SESSION['isLogin'] = true;
-            $_SESSION['username'] = $user['username'];
-            $_SESSION['password'] = $user['password'];
-            $_SESSION['id'] = $user['user_id'];
-            $_SESSION['id'] = $user['id'];
-            header("Location: index.php");
+        if(($user != [])){
+           foreach($user as $key => $value){
+                $_SESSION['username'] = $value->username;
+                $_SESSION['password'] = $value->password;
+                $_SESSION['name'] = $value->name;
+                $_SESSION['user_id'] = $value->user_id;
+                $_SESSION['gender'] = $value->gender;
+                $_SESSION['email'] = $value->email;
+                $_SESSION['images'] = $value->images;
+                $_SESSION['address'] = $value->address;
+                $_SESSION['phone'] = $value->phone;
+                $_SESSION['date'] = $value->date;
+                $_SESSION['status'] = $value->status;
+                $_SESSION['bookingdetail_id'] = $value->bookingdetail_id;
+                 header("location:index.php?");
+           }
+        }else{
+            echo "bạn Đã sai tài khoản or mật khẩu";
         }
 }
 function loginforgot($username)
