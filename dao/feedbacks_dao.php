@@ -5,6 +5,13 @@ function loadAll_feedbacks(){
     return $feedbacks;
 }
 
+function loadAll_feedbacks_user($id,$idroom){
+    $query = "select * from feedbacks order by feedbacks where id_user = '$id' and id_room = '$idroom' desc";
+    $feedbacks = pdo_query_one($query);
+    return $feedbacks;
+}
+
+
 function feedbacks_remove_by_id($cate_id){
     $query = "delete from feedbacks where feedback_id = ?";
     pdo_execute($query, $cate_id);

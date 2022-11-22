@@ -1,22 +1,45 @@
 <?php
-
+// select theo room
 function loadAll_room(){
     $query = "select r.*,st.star,count(sv.id_room) as 'sv',COUNT(st.id_room) as 'tbl' from room r left join vote_room st on st.id_room = r.room_id left join service sv on sv.id_room=r.room_id GROUP BY room_id desc limit 0,4;";
     $listroom = pdo_query_all($query);
     return $listroom;
 }
+// select theo likes
+function loadAll_room_by_likes(){
+    $query = "select r.*,st.star,count(sv.id_room) as 'sv',COUNT(st.id_room) as 'tbl' from room r left join vote_room st on st.id_room = r.room_id left join service sv on sv.id_room=r.room id GROUP BY likes desc limit 0,10;";
+    $listroom = pdo_query_all($query);
+    return $listroom;
+}
+// select 1 room
 function loadOne_room($id)
 {
-    $sql = "select * from room where room_id =" . $id;
+    $sql = "select r.*,sv.name as 'namedichvu',sv.price as 'pricedichvu' from room r  inner join service sv on sv.service_id = r.id_service where room_id =" . $id;
     $room = pdo_query_one($sql);
     return $room;
 }
+// load phong theo dich vu
 function load_room_service($id)
 {
-    $sql = "select r.* from room r inner join categories_room sv on sv.id_room= r.room_id  where id_category_room=" . $id;
+    $sql = "select r.* from room r inner join categories_room sv on sv.id_room= r.room_id  where id_category_room= " . $id;
     $room = pdo_query_all($sql);
     return $room;
 }
+// hien thi theo sap xep
+function load_room_order($id)
+{
+    $sql = "select * from room order by '$id' desc";
+    $room = pdo_query_all($sql);
+    return $room;
+}
+// hien thi theo sap xep tag hay giam
+function load_room_order_add($id)
+{
+    $sql = "select * from room order by room_id" .$id;
+    $room = pdo_query_all($sql);
+    return $room;
+}
+// load phong theo danh muc
 function load_room_categories($id)
 {
     $sql = "select * from room where id_category_room=" . $id;
@@ -24,16 +47,19 @@ function load_room_categories($id)
     return $room;
 }
 
+// xoa phong 
 function room_order_by_cate_id($cate_id){
     $query = "delete from room where category_id = ?";
     pdo_execute($query, $cate_id);
 }
+// xoa phong theo id
 function room_remove($id){
     $query = "delete from room where room_id = ?";
     pdo_execute($query, $id);
 }
+// tang so luot xem
 function room_tang_so_luot_xem($id){
-    $sql = "UPDATE room SET view = view + 1 WHERE id=?";
+    $sql = "UPDATE room SET view = view + 1 WHERE room_id=?";
     pdo_execute($sql, $id);
 }
 // phân trang

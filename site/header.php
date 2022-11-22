@@ -54,22 +54,23 @@
                     </li>
                     <li>
                         <div class="dropdown-2">
-                            <button type="submit"><a class="dangnhap" href=""><i>
-                                        <i class="fa-solid fa-user"></i></i> Đăng nhập
+                            <form action="index.php?" method="post">
+                            <button type="submit" name="login">
+                                     <i class="fa-solid fa-user"></i></i> Đăng nhập
                                     <i style="color:black; font-size: 12px;" class="fa-solid fa-chevron-down"></i></a>
                             </button>
                             <div class="noidung-index">
                                 <h2>Đăng nhập tài khoản</h2>
                                 <span>Email hoặc số di động</span>
-                                <input type="text">
+                                <input type="text" name="user">
                                 <div class="flex-nd">
-                                    <span>Mật khẩu</span> <a href="">Quên mật khẩu</a>
+                                    <span>Mật khẩu</span> <a href="index.php?forgot">Quên mật khẩu</a>
 
                                 </div>
-                                <input type="text"><i><i class="fa-solid fa-eye"></i></i>
+                                <input type="text" name="password"><i><i class="fa-solid fa-eye"></i></i>
 
                                 <div class="nd-dn">
-                                    <button>Đăng nhập</button><span>Bạn đã có tài khản chưa? <a href="">Đăng
+                                    <button type="submit" name="login">Đăng nhập</button><span>Bạn đã có tài khản chưa? <a href="index.php?register">Đăng
                                             kí</a></span>
                                 </div>
                                 <div class="fb-gg">
@@ -79,6 +80,7 @@
                                     <a href=""><i class="fa-brands fa-google"></i> Google</a>
                                 </div>
                             </div>
+                            </form>
                         </div>
                     </li>
                     <li style="padding: unset;"><a class="dangki" href="">Đăng kí</a></li>
