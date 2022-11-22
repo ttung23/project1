@@ -51,22 +51,22 @@
                     <p class="chi-tiet-dat-phong text-[16px] font-bold">
                         Tóm tắt giá
                     </p>
-                    <?php foreach ($_SESSION['addcart'] as $key => $value) : ?>
+                    <?php foreach ($cart as $key => $value) : ?>
                         <div class="tomtat-detail">
-                            <div>Phòng <?php echo $value['ten'] ?></div>
-                            <div>VND <?php echo number_format($value['price']) ?></div>
+                            <div>Phòng <?php echo $cart['ten'] ?></div>
+                            <div>VND <?php echo number_format($cart['price']) ?></div>
                         </div>
                     <?php endforeach ?>
                     <div class="font-bold text-[14px] mb-2">
                         <div>Không bao gồm phụ phí:</div>
                     </div>
-                    <?php foreach ($_SESSION['addcart'] as $key => $value) : ?>
+                    <?php foreach ($cart as $key => $value) : ?>
                         <div class="tomtat-detail">
                             <div>
-                                Phí <?php echo $value['namedichvu'] ?>
+                                Phí <?php echo $cart['namedichvu'] ?>
                             </div>
                             <div>
-                                VND <?php echo $value['pricedichvu'] ?>
+                                VND <?php echo $cart['pricedichvu'] ?>
                             </div>
                         </div>
                     <?php endforeach ?>
@@ -89,20 +89,20 @@
                 </div>
             </div>
             <div class="content">
-                <?php foreach ($_SESSION['addcart'] as $key => $value) : ?>
+                <?php foreach ($cart as $key => $value) : ?>
                     <form action="index.php?cart" method="post">
-                        <input type="hidden" name="id" value="<?php echo $value['id'] ?>">
+                        <input type="hidden" name="id" value="<?php echo $cart['id'] ?>">
                         <div class="room-choosed">
                             <div class="h-[160px] w-[160px]">
-                                <img class="max-w-[100%] max-h-[100%]" src="../layout/assets/img/product/<?php echo $value['thumbnail'] ?>" alt="">
+                                <img class="max-w-[100%] max-h-[100%]" src="../layout/assets/img/product/<?php echo $cart['thumbnail'] ?>" alt="">
                             </div>
                             <div>
                                 <div class="text-[12px] text-[#6b6b6b]">Khách sạn StayyInn</div>
-                                <div class="room-name text-[20px] font-bold"><?php echo $value['ten'] ?></div>
+                                <div class="room-name text-[20px] font-bold"><?php echo $cart['ten'] ?></div>
                                 <div class="descrip">
                                     <div class="max-w-[180px]">
                                         <i class="fa-solid fa-bed"></i>
-                                        <?php echo $value['des'] ?>
+                                        <?php echo $cart['des'] ?>
                                     </div>
                                     <div>
                                         <i class="fa-regular fa-user-group"></i>
@@ -113,13 +113,13 @@
                                     <div class="w-[24px] h-[24px]">8.3</div>
                                     <div>Tuyệt vời</div>
                                     <div>
-                                        <?php echo $value['star'] ?> đánh giá
+                                        <?php echo $cart['star'] ?> đánh giá
                                     </div>
                                 </div>
                             </div>
                             <div class="price-pay ml-[144px]">
                                 <div class="text-[18px] font-bold text-[#3ba6e3]">
-                                    <?php echo number_format($value['price']) ?>
+                                    <?php echo number_format($cart['price']) ?>
                                 </div>
                                 <div class="text-[12px] text-[rgba(104,113,118,1.00)] text-right">
                                     / phòng / đêm
