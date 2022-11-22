@@ -31,8 +31,9 @@
   grid-gap: 12px;
 }
 
-.nav-right ul li .dropdown-2:hover .noidung-index {
-  display: block;
+.hien-login {
+  display: block !important;
+  z-index: 1;
 }
 
 /* nav-menu con */
@@ -131,8 +132,6 @@
   background-color: #fff;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
     rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-  height: 380px;
-  width: 320px;
   right: 10px;
   top: 33px;
   border-radius: 5px;
@@ -142,14 +141,11 @@
 .noidung-index h2 {
   font-weight: 700;
   font-size: 18px;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  padding-left: 10px;
+  padding: 10p 0;
 }
 
 .noidung-index span {
   font-weight: 500;
-  padding-left: 10px;
 }
 
 .noidung-index input {
@@ -158,7 +154,6 @@
   border-radius: 5px;
   margin-bottom: 10px;
   margin-top: 10px;
-  margin-left: 10px;
   padding-left: 10px;
   border: 1px solid #000;
 }
@@ -187,7 +182,6 @@
   border-radius: 5px;
   font-weight: 500;
   margin-right: 10px;
-  margin-left: 10px;
 }
 
 .nd-dn a {
@@ -195,8 +189,7 @@
 }
 
 .fb-gg {
-  background-color: #687176;
-  height: 91px;
+  background-color: #9b9d9e;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   margin-top: 20px;
@@ -204,21 +197,17 @@
 
 .fb-gg p {
   text-align: center;
-  padding-top: 5px;
 }
 
 .fb-gg a {
-  padding: 10px;
+  padding: 5px 10px;
   background-color: #0194f3;
   border-radius: 5px;
-  margin-right: 10px;
   color: white;
   font-weight: 500;
-  margin-left: 10px;
 }
 
 .fb-gg a i {
-  background-color: #03121a;
   padding: 5px;
   color: white;
 }
@@ -253,8 +242,7 @@
   left: 580px;
 }
 
-.nav-right ul li i {
-  color: #0194f3;
+.nav-right > ul li i {
   padding-right: 2px;
 }
 

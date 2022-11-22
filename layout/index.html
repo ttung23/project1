@@ -35,12 +35,12 @@
                     </li>
                     <li>
                         <div class="dropdown">
-                            <button type="submit" onclick="hamDropdown()" class="nut_dropdown">
+                            <button onclick="hamDropdown()" class="nut_dropdown">
                                 <img src="assets/img/logo/co.png" alt=""> VND <i
                                     style="color:black; font-size: 11px; padding-left: 4px;padding-top: 5px;"
                                     class="fa-solid fa-chevron-down"></i>
                             </button>
-                            <div class="noidung_dropdown hien" id="logo">
+                            <div class="noidung_dropdown hien" id="money">
                                 <div class="nation">
                                     <h2>Tên quốc gia & ngôn ngữ</h2>
                                     <span>Indonesia (Bahasha indonesia) </span>
@@ -76,11 +76,15 @@
                     </li>
                     <li>
                         <div class="dropdown-2">
-                            <button type="submit"><a class="dangnhap" href=""><i>
-                                        <i class="fa-solid fa-user"></i></i> Đăng nhập
-                                    <i style="color:black; font-size: 12px;" class="fa-solid fa-chevron-down"></i></a>
+                            <button onclick="drop_menu()">
+                                <a class="dangnhap">
+                                    <i>
+                                        <i class="fa-solid fa-user"></i>
+                                    </i> Đăng nhập
+                                    <i style="color:black; font-size: 12px;" class="fa-solid fa-chevron-down"></i>
+                                </a>
                             </button>
-                            <div class="noidung-index">
+                            <div class="noidung-index hien-login" id="login">
                                 <h2>Đăng nhập tài khoản</h2>
                                 <span>Email hoặc số di động</span>
                                 <input type="text">
@@ -152,6 +156,7 @@
             </ul>
 
         </div>
+
         <!-- banenr -->
         <div class="banner">
             <div class="image containerr">
