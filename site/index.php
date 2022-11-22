@@ -36,6 +36,7 @@
                 $acreage = $_POST['acreage'];
                 $status = $_POST['status'];
                 $view = $_POST['view'];
+                s
                 $likes = $_POST['likes'];
                 $id_service = $_POST['id_service'];
                 $created_at = $_POST['created_at'];
