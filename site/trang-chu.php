@@ -25,7 +25,7 @@
             </div>
             <div class="book2">
                 <select name="quantity" id="tp" class="tp">
-                    <option value="hn">Số Lượng Người</option>
+                    <option value="hn">Số Lượng</option>
             <option value="1">1</option></a>
             <option value="2">2</option></a>
             <option value="3">3</option></a>
