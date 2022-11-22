@@ -26,14 +26,10 @@
     --tran-03: all 0.2s ease;
 }
 
-<<<<<<< HEAD
-body.dark {
-=======
 body{
     min-height: 100vh;
 }
 body.dark{
->>>>>>> vinh
     --primary-color: #3A3B3C;
     --panel-color: #242526;
     --text-color: #CCC;
@@ -70,15 +66,11 @@ body.dark .activity-data::-webkit-scrollbar-thumb:hover {
     background: #3A3B3C;
 }
 
-<<<<<<< HEAD
-nav {
-=======
 nav{
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
->>>>>>> vinh
     width: 250px;
     padding: 10px 14px;
     background-color: var(--panel-color);
@@ -230,8 +222,6 @@ body.dark .nav-links li a:hover .link-name {
 body.dark .switch:before {
     left: 20px;
 }
-<<<<<<< HEAD
-=======
 
 .dashboard{
     position: relative;
@@ -464,4 +454,3 @@ nav.close ~ .dashboard .top{
         width: 100%;
     }
 }
->>>>>>> vinh
