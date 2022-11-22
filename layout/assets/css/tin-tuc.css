@@ -2,15 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  .container-index {
-    /* height: auto; */
-    position: relative;
-    overflow-x: hidden;
-  }
-  
-  .containerr {
+}
+
+.containerr {
     max-width: 1200px;
     margin: 0 auto;
-  }
+}
