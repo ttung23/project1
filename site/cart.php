@@ -1,407 +1,255 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="cart.css">
+<main class="containerr">
+    <form action="index.php?cart" method="post">
+        <input type="hidden" name="total_amount" value="<?php echo $total_amount ?>">
+        <div class="main">
+            <div class="side">
+                <div class="booking-detail">
+                    <p class="chi-tiet-dat-phong text-[16px] tieu-de font-bold">
+                        Chi tiết đặt phòng của bạn
+                    </p>
 
-<main>
-    <div class="next">
-        <div class="d-flex justify-content-between">
-            <div class="">
-                <h1 class="">
-                    <i class="fa-solid fa-check turn"></i> Lựa Chọn Của Bạn
-                </h1>
-            </div>
-            <div class="">
-                <i class="fa-solid fa-2 turn"></i>Giỏ Hàng
-            </div>
-            <div>
-                <h1 class="">
-                    <i class="fa-solid fa-3 turn"></i>Thanh Toán
-                </h1>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-4">
-            <section>
-                <div class="aside font-weight-bold table">
-                    <h1 class="text-secondary"><i class="fa-solid fa-cart-shopping"></i>Your booking Detail</h1>
-                    <div class="text-secondary check-in row form-groups">
-                        <div class="col-sm-6 text1">
-                            <h1 class="text-secondary ">chek-in-date</h1>
-                            <input type="date" class="form-control" value="" min="" max="">
+                    <div class="date">
+                        <div class="checkin pr-4">
+                            <div class="font-medium mb-1 text-[14px]">Nhận phòng</div>
+
+                            <div class="checkin-date">
+                                <span class="block font-bold text-[14px]"><input type="date" name="check_in"></span>
+                                <span class="text-[#6b6b6b] text-[12px]">12h - 00h</span>
+                            </div>
                         </div>
-                        <div class="col-sm-6">
-                            <h1 class="text-secondary ">chek-out-date</h1>
-                            <input type="date" class="form-control" value="" min="" max="">
+                        <div class="border-l-[1px] bl-[#ccc] "></div>
+                        <div class="checkout pl-4">
+                            <div class="font-medium mb-1 text-[14px]">Trả phòng</div>
+
+                            <div class="checkout-date">
+                                <span class="block font-bold text-[14px]"><input type="date" name="check_out"></span>
+                                <span class="text-[#6b6b6b] text-[12px]">00h - 12h</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="warning">
-                        <h1><i class="fa-sharp fa-solid fa-circle-exclamation text-info"></i>Chỉ Còn 1 Ngày</h1>
-                        <h1>Thời gian Đặt: 1 ngày</h1>
+                    <div>
+                    <div class="checkin pr-4">
+                            <div class="font-medium mb-1 text-[14px]">số lượng người</div>
+
+                            <div class="checkin-date">
+                                <span class="block font-bold text-[14px]"><input type="number" name="quantity" min="1" max="" value=""></span>
+                            </div>
+                        </div>
+</div>
+
+                    <div class="mt-4 time">
+                        <div class="checkin pr-4">
+                            <div class="font-medium text-[14px]">Tổng thời gian lưu trú:</div>
+
+                            <div class="checkin-date inline-block">
+                                <span class="block font-bold text-[14px]">1 ngày</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-sm-8">
-                    <section>
-                     <div class="row product">
+                <div class="tomtat">
+                    <p class="chi-tiet-dat-phong text-[16px] font-bold">
+                        Tóm tắt giá
+                    </p>
                     <?php foreach ($_SESSION['addcart'] as $key => $value) : ?>
-                    <a href="">Phòng <?php echo $value['ten'] ?></a>
+                        <div class="tomtat-detail">
+                            <div>Phòng <?php echo $value['ten'] ?></div>
+                            <div>VND <?php echo number_format($value['price']) ?></div>
+                        </div>
                     <?php endforeach ?>
-                                <div class="col-sm-3 anh">
-                                    <h1>Nâng Tầm Trải Nghiệm</h1>
-                                    <img src="../layout/assets/img/Ảnh chụp màn hình 2022-11-12 095229.png" alt="">
-                                </div>
-                                <div class="col-sm-5 chitiettt">
-                                    <h1>Phòng 301</h1>
-                                 <i class="fa-solid fa-eye"> 308 </i> <i class="fa-sharp fa-solid fa-heart"> 37 </i>
-                                    <h1><i class="fa-sharp fa-solid fa-location-dot"></i>Thửa đất số 576, Tờ bản đồ số 10Tổ 5 ấp Cửa lấp, xã Dương Tơ, Thành phố Phú Quốc, Kiên Giang , Duong Dong, Phu Quoc, Vietnam
-                                    <p>Cách Trung Tâm 16 km</p></h1>
-                                    <div class="service">
-                                    <label for="">Dịch Vụ</label>
-                                    <a href=""><i class="fa-solid fa-person-swimming"></i>Hồ bơi</a>
-                                    <a href=""><i class="fa-solid fa-person-swimming"></i>Đỗ xe</a>
-                                    <a href=""><i class="fa-solid fa-person-swimming"></i>Hồ bơi</a>
-                                </div>
-                                </div>
-                                <div class="col-sm-3 total">
-                                    <h1>Tuyệt Vời!!!</h1>
-                                    <p>8.6</p>
-                                    <a>22 Bình Luận</a>
-                                    <h3>7.600.800đ</h3>
-                                    <div>
-                                        <h2>2 Giường</h2>
-                                        <button class="btn btn-primary">Bao Trọn Dịch Vụ</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row cart product">
-                                <div class="col-sm-3 anh">
-                                    <h1 class="font-weight-bold fs-6 ">Nâng Tầm Trải Nghiệm</h1>
-                                    <img src="./MVC/public/layout/img/product/p1.webp" alt="">
-                                </div>
-                                <div class="col-sm-5 chitiettt">
-                                    <h2 class="font-weight-bold fs-3">Phòng 301</h2><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i>
-                                 <i class="fa-solid fa-eye"> 308 </i> <i class="fa-sharp fa-solid fa-heart"> 37 </i>
-                                    <h1><i class="fa-sharp fa-solid fa-location-dot"></i>Thửa đất số 576, Tờ bản đồ số 10Tổ 5 ấp Cửa lấp, xã Dương Tơ, Thành phố Phú Quốc, Kiên Giang , Duong Dong, Phu Quoc, Vietnam
-                                    <p>Cách Trung Tâm 16 km</p></h1>
-                                    <div class="service">
-                                    <label for="">Dịch Vụ</label>
-                                    <a href=""><i class="fa-solid fa-person-swimming"></i>Dịch Vụ Ưu Đãi Trong Thời Gian Có Hạn</a>
-                                    <a href=""><i class="fa-solid fa-person-swimming"></i>Hồ bơi</a>
-                                    <a href=""><i class="fa-solid fa-person-swimming"></i>Đỗ xe</a>
-                                    <a href=""><i class="fa-solid fa-person-swimming"></i>Hồ bơi</a>
-                                </div>
-                                </div>
-                                <div class="col-sm-3 total">
-                                    <h1>Tuyệt Vời!!!</h1>
-                                    <p>8.6</p>
-                                    <a>22 Bình Luận</a>
-                                    <h3>7.600.800đ</h3>
-                                    <div>
-                                        <h2>2 Giường</h2>
-                                        <button class="btn btn-primary">Bao Trọn Dịch Vụ</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row product">
-                                <div class="col-sm-3 anh">
-                                    <h1>Nâng Tầm Trải Nghiệm</h1>
-                                    <img src="./MVC/public/layout/img/product/p1.webp" alt="">
-                                </div>
-                                <div class="col-sm-5 chitiettt">
-                                    <h1>Phòng 301</h1>
-                                 <i class="fa-solid fa-eye"> 308 </i> <i class="fa-sharp fa-solid fa-heart"> 37 </i>
-                                    <h1><i class="fa-sharp fa-solid fa-location-dot"></i>Thửa đất số 576, Tờ bản đồ số 10Tổ 5 ấp Cửa lấp, xã Dương Tơ, Thành phố Phú Quốc, Kiên Giang , Duong Dong, Phu Quoc, Vietnam
-                                    <p>Cách Trung Tâm 16 km</p></h1>
-                                    <div class="service">
-                                    <label for="">Dịch Vụ</label>
-                                    <a href=""><i class="fa-solid fa-person-swimming"></i>Hồ bơi</a>
-                                    <a href=""><i class="fa-solid fa-person-swimming"></i>Đỗ xe</a>
-                                    <a href=""><i class="fa-solid fa-person-swimming"></i>Hồ bơi</a>
-                                </div>
-                                </div>
-                                <div class="col-sm-3 total">
-                                    <h1>Tuyệt Vời!!!</h1>
-                                    <p>8.6</p>
-                                    <a>22 Bình Luận</a>
-                                    <h3>7.600.800đ</h3>
-                                    <div>
-                                        <h2>2 Giường</h2>
-                                        <button class="btn btn-primary">Bao Trọn Dịch Vụ</button>
-                                    </div>
-                                </div>
-                            </div>
-                    </section>
-                    <section>
-                        <div class="pay">
-                            <h1><i class="fa-sharp fa-solid fa-credit-card"></i>Thanh Toán Online</h1>
-                            <h1>Thanh Toán Trực Tiếp</h1>
-                        </div>
-                    </section>
-                    <section>
-                        <div class="form-group">
-                            <div>
-                                <h1>Nhập Thông Tin Của Bạn Sắp Xong rồi</h1>
-                            </div>
-                            <div>
-                                <img src="" alt="">
-                            </div>
-                            <div>
-                                <label for="">Bạn Đang Đi Nghỉ Dưỡng Gia Đình</label>
-                                <div class="form-control">
-                                <input type="radio" name="" id="">Đúng
-                                <input type="radio" name="" id="">Sai
-                                </div>
-                            </div>
-                            <div>
-                                <label for="">Họ Tên</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                       
-                                      <span class="input-group-text" id="basic-addon1">@</span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                                  </div>
-                            </div>
-                            <div>
-                                <label for="">Email</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                       
-                                      <span class="input-group-text" id="basic-addon1">@</span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                                  </div>
-                            </div>
-                            <div>
-                                <label for="">Địa Chỉ Email</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                       
-                                      <span class="input-group-text" id="basic-addon1">@</span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                                  </div>
-                            </div>
-                            <div>
-                                <label for="">Số Điện Thoại</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                       
-                                      <span class="input-group-text" id="basic-addon1">+84</span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                                  </div>
-                            </div>
-                            <div>
-                                <label for="">Tin Nhắn Đặc Biệt</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                       
-                                      <span class="input-group-text" id="basic-addon1">@</span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                                  </div>
-                            </div>
-                        </div>
-                    </section>
-                    <div>
-                        <div>
-                            <h3>Tổng Tiền Của Bạn</h3>
-                        </div>
-                        <div>
-                            <i class="fa-solid fa-tag"></i> 2.600.800đ
-                        </div>
+                    <div class="font-bold text-[14px] mb-2">
+                        <div>Không bao gồm phụ phí:</div>
                     </div>
-                    <div>
-                        <div>
-                            <h3> <i class="fa-solid fa-tag"></i> Giảm Giá</h3>
+                    <?php foreach ($_SESSION['addcart'] as $key => $value) : ?>
+                        <div class="tomtat-detail">
+                            <div>
+                                Phí <?php echo $value['namedichvu'] ?>
+                            </div>
+                            <div>
+                                VND <?php echo $value['pricedichvu'] ?>
+                            </div>
                         </div>
-                        <div>
-                            600.800đ
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <h3>Thanh Toán Của Bạn</h3>
-                        </div>
-                        <div>
-                            <i class="fa-solid fa-tag"></i> 2.000.800đ
-                        </div>
+                    <?php endforeach ?>
+                    <div class="tomtat-detail">
                     </div>
                 </div>
-            </section>
-            <section>
-                <div class="pay1 bg-[#EBF3FF]">
-                    <p> <i class="fa-solid fa-money-bill-wave"></i>Thẻ Tích Điểm</p>
-                    <p>2.600.800đ</p>
-                </div>
-            </section>
-        </div>
-        <div class="col-sm-8">
-            <section>
-                <div class="row product">
-                    <div class="col-sm-3 anh">
-                        <h1>Nâng Tầm Trải Nghiệm</h1>
-                        <img src="../layout/assets/img/Ảnh chụp màn hình 2022-11-12 095229.png" alt="">
+                <div class="tomtat">
+                    <div class="font-bold text-[14px] mb-2">
+                        <div>Tổng Tiền Phải Trả</div>
                     </div>
-                    <div class="col-sm-5 chitiettt">
-                        <h1>Phòng 301</h1>
-                        <i class="fa-solid fa-eye"> 308 </i> <i class="fa-sharp fa-solid fa-heart"> 37 </i>
-                        <h1><i class="fa-sharp fa-solid fa-location-dot"></i>Thửa đất số 576, Tờ bản đồ số 10Tổ 5 ấp Cửa lấp, xã Dương Tơ, Thành phố Phú Quốc, Kiên Giang , Duong Dong, Phu Quoc, Vietnam
-                            <p>Cách Trung Tâm 16 km</p>
-                        </h1>
-                        <div class="service">
-                            <label for="">Dịch Vụ</label>
-                            <a href=""><i class="fa-solid fa-person-swimming"></i>Hồ bơi</a>
-                            <a href=""><i class="fa-solid fa-person-swimming"></i>Đỗ xe</a>
-                            <a href=""><i class="fa-solid fa-person-swimming"></i>Hồ bơi</a>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 total">
-                        <h1>Tuyệt Vời!!!</h1>
-                        <p>8.6</p>
-                        <a>22 Bình Luận</a>
-                        <h3>7.600.800đ</h3>
+                    <div class="tomtat-detail">
                         <div>
-                            <h2>2 Giường</h2>
-                            <button class="btn btn-primary">Bao Trọn Dịch Vụ</button>
                         </div>
-                    </div>
-                </div>
-                <div class="row cart product">
-                    <div class="col-sm-3 anh">
-                        <h1 class="font-weight-bold fs-6 ">Nâng Tầm Trải Nghiệm</h1>
-                        <img src="./MVC/public/layout/img/product/p1.webp" alt="">
-                    </div>
-                    <div class="col-sm-5 chitiettt">
-                        <h2 class="font-weight-bold fs-3">Phòng 301</h2><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i>
-                        <i class="fa-solid fa-eye"> 308 </i> <i class="fa-sharp fa-solid fa-heart"> 37 </i>
-                        <h1><i class="fa-sharp fa-solid fa-location-dot"></i>Thửa đất số 576, Tờ bản đồ số 10Tổ 5 ấp Cửa lấp, xã Dương Tơ, Thành phố Phú Quốc, Kiên Giang , Duong Dong, Phu Quoc, Vietnam
-                            <p>Cách Trung Tâm 16 km</p>
-                        </h1>
-                        <div class="service">
-                            <label for="">Dịch Vụ</label>
-                            <a href=""><i class="fa-solid fa-person-swimming"></i>Dịch Vụ Ưu Đãi Trong Thời Gian Có Hạn</a>
-                            <a href=""><i class="fa-solid fa-person-swimming"></i>Hồ bơi</a>
-                            <a href=""><i class="fa-solid fa-person-swimming"></i>Đỗ xe</a>
-                            <a href=""><i class="fa-solid fa-person-swimming"></i>Hồ bơi</a>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 total">
-                        <h1>Tuyệt Vời!!!</h1>
-                        <p>8.6</p>
-                        <a>22 Bình Luận</a>
-                        <h3>7.600.800đ</h3>
                         <div>
-                            <h2>2 Giường</h2>
-                            <button class="btn btn-primary">Bao Trọn Dịch Vụ</button>
+                            VND <?php echo $total_amount ?>
                         </div>
+                    </div>
+                    <div class="tomtat-detail">
                     </div>
                 </div>
-                <div class="row product">
-                    <div class="col-sm-3 anh">
-                        <h1>Nâng Tầm Trải Nghiệm</h1>
-                        <img src="./MVC/public/layout/img/product/p1.webp" alt="">
-                    </div>
-                    <div class="col-sm-5 chitiettt">
-                        <h1>Phòng 301</h1>
-                        <i class="fa-solid fa-eye"> 308 </i> <i class="fa-sharp fa-solid fa-heart"> 37 </i>
-                        <h1><i class="fa-sharp fa-solid fa-location-dot"></i>Thửa đất số 576, Tờ bản đồ số 10Tổ 5 ấp Cửa lấp, xã Dương Tơ, Thành phố Phú Quốc, Kiên Giang , Duong Dong, Phu Quoc, Vietnam
-                            <p>Cách Trung Tâm 16 km</p>
-                        </h1>
-                        <div class="service">
-                            <label for="">Dịch Vụ</label>
-                            <a href=""><i class="fa-solid fa-person-swimming"></i>Hồ bơi</a>
-                            <a href=""><i class="fa-solid fa-person-swimming"></i>Đỗ xe</a>
-                            <a href=""><i class="fa-solid fa-person-swimming"></i>Hồ bơi</a>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 total">
-                        <h1>Tuyệt Vời!!!</h1>
-                        <p>8.6</p>
-                        <a>22 Bình Luận</a>
-                        <h3>7.600.800đ</h3>
-                        <div>
-                            <h2>2 Giường</h2>
-                            <button class="btn btn-primary">Bao Trọn Dịch Vụ</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section>
-                <div class="pay">
-                    <h1><i class="fa-sharp fa-solid fa-credit-card"></i>Thanh Toán Online</h1>
-                    <h1>Thanh Toán Trực Tiếp</h1>
-                </div>
-            </section>
-            <section>
-                <div class="form-group">
-                    <div>
-                        <h1>Nhập Thông Tin Của Bạn Sắp Xong rồi</h1>
-                    </div>
-                    <div>
-                        <img src="" alt="">
-                    </div>
-                    <div>
-                        <label for="">Bạn Đang Đi Nghỉ Dưỡng Gia Đình</label>
-                        <div class="form-control">
-                            <input type="radio" name="" id="">Đúng
-                            <input type="radio" name="" id="">Sai
-                        </div>
-                    </div>
-                    <div>
-                        <label for="">Họ Tên</label>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-
-                                <span class="input-group-text" id="basic-addon1">@</span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                    </div>
-                    <div>
-                        <label for="">Email</label>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-
-                                <span class="input-group-text" id="basic-addon1">@</span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                    </div>
-                    <div>
-                        <label for="">Địa Chỉ Email</label>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-
-                                <span class="input-group-text" id="basic-addon1">@</span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                    </div>
-                    <div>
-                        <label for="">Số Điện Thoại</label>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-
-                                <span class="input-group-text" id="basic-addon1">+84</span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                    </div>
-                    <div>
-                        <label for="">Tin Nhắn Đặc Biệt</label>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-
-                                <span class="input-group-text" id="basic-addon1">@</span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <div>
-                <button class="btn btn-primary">Thanh Toán Ngay</button>
             </div>
-        </div>
+            <div class="content">
+                <?php foreach ($_SESSION['addcart'] as $key => $value) : ?>
+                    <form action="index.php?cart" method="post">
+                        <input type="hidden" name="id" value="<?php echo $value['id'] ?>">
+                        <div class="room-choosed">
+                            <div class="h-[160px] w-[160px]">
+                                <img class="max-w-[100%] max-h-[100%]" src="../layout/assets/img/product/<?php echo $value['thumbnail'] ?>" alt="">
+                            </div>
+                            <div>
+                                <div class="text-[12px] text-[#6b6b6b]">Khách sạn StayyInn</div>
+                                <div class="room-name text-[20px] font-bold"><?php echo $value['ten'] ?></div>
+                                <div class="descrip">
+                                    <div class="max-w-[180px]">
+                                        <i class="fa-solid fa-bed"></i>
+                                        <?php echo $value['des'] ?>
+                                    </div>
+                                    <div>
+                                        <i class="fa-regular fa-user-group"></i>
+                                        Phòng 2 khách
+                                    </div>
+                                </div>
+                                <div class="rate">
+                                    <div class="w-[24px] h-[24px]">8.3</div>
+                                    <div>Tuyệt vời</div>
+                                    <div>
+                                        <?php echo $value['star'] ?> đánh giá
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="price-pay ml-[144px]">
+                                <div class="text-[18px] font-bold text-[#3ba6e3]">
+                                    <?php echo number_format($value['price']) ?>
+                                </div>
+                                <div class="text-[12px] text-[rgba(104,113,118,1.00)] text-right">
+                                    / phòng / đêm
+                                </div>
+                                <div class="text-[12px] text-[#3ba6e3] font-semibold text-right">
+                                    Giá cuối cùng
+                                </div>
+                                <div class="delete-room">
+                                    <button class="rounded-md my-3 px-16 py-3 border-blue-500 text-light" type="submit" name="delete">Xóa</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                <?php endforeach ?>
+                <div class="information bg-[#ebf3ff]">
+                    <div class="head">
+                        <h2 class="text-[20px] font-bold">
+                            Nhập thông tin chi tiết của bạn
+                        </h2>
+
+                        <div class="flex gap-1 bg-white p-1 rounded">
+                            <!-- <img src="../layout/assets/img/logo/<?php echo $_SESSION['thumbnail'] ?>" alt="">
+                            <span><?php echo $_SESSION['name'] ?></span> -->
+                        </div>
+                    </div>
+
+                    <div class="di-cong-tac py-4">
+                        <div class="text-[14px] font-bold">
+                            Bạn sắp đi công tác ư?
+                        </div>
+
+                        <div class="true-false">
+                            <div class="">
+                                <input type="radio" name="congtac" id="">
+                                <span class="">Đúng</span>
+                            </div>
+
+                            <div>
+                                <input type="radio" name="congtac" id="">
+                                <span>Sai</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input">
+                        <div class="w-[25%] pt-[16px]">
+                            <label for="surname" class="font-bold text-[14px]">Họ</label>
+                            <input class="w-[100%] border-input p-[5px]" type="text" placeholder="Họ của bạn..." name="" id="surname">
+                        </div>
+                        <div class="w-[10%]"></div>
+                        <div class="w-[25%] pt-[16px]">
+                            <label for="name" class="font-bold text-[14px]">Tên</label>
+                            <input class="w-[100%] border-input p-[5px]" name="name" type="text" placeholder="Tên của bạn..." name="" id="name">
+                        </div>
+
+                        <div class="w-[60%] pt-[16px]">
+                            <label for="email" class="font-bold text-[14px]">Email</label>
+                            <input name="email" class="w-[100%] border-input p-[5px]" type="text" placeholder="Email của bạn..." name="" id="email">
+                        </div>
+
+                        <div class="w-[60%] pt-[16px]">
+                            <label for="address" class="font-bold text-[14px]">Điện Thoại Của Bạn</label>
+                            <input class="w-[100%] border-input p-[5px]" type="text" placeholder="" name="phone" id="address">
+                        </div>
+                        <div class="w-[60%] pt-[16px]">
+                            <label for="address" class="font-bold text-[14px]">Tin Nhắn Của Bạn</label>
+                            <input class="w-[100%] border-input p-[5px]" type="text" placeholder="" name="message" id="address">
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <div class="text-[14px] font-bold mb-2">Bạn đặt phòng cho ai?</div>
+                        <div class="mb-1">
+                            <input type="radio" name="ai-dat-phong" id="">
+                            <span>Tôi là khách lưu trú chính</span>
+                        </div>
+
+                        <div>
+                            <input type="radio" name="ai-dat-phong" id="">
+                            <span>Đặt phòng này là cho người khác</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service bg-[#ebf3ff]">
+                    <h2 class="text-[20px] font-bold">
+                        Dịch vụ
+                    </h2>
+
+                    <div class="my-4">
+                        <div class="my-4">
+                            <div class="font-medium mb-2 text-[14px]">Dịch vụ đang có</div>
+
+                            <div class="dichvu-dangco">
+                                <?php foreach ($service_room as $key => $value) : ?>
+                                    <a href="facebook.com" class="relative">
+                                        <img class="inline-block max-w-[16px] max-h-[16px]" src="assets/img/icon/svg_diachi.svg" alt="">
+                                        <span class="text-[12px]"><?php echo $value->name ?></span>
+                                        <a href="">
+                                            <i id="icon" class="fa-light fa-xmark"></i>
+                                        </a>
+                                    </a>
+                                <?php endforeach ?>
+
+                            </div>
+                        </div>
+
+                        <div class="my-4">
+                            <div class="font-medium mb-2 text-[14px]">Dịch vụ muốn có</div>
+
+                            <div class="dichvu-muonco">
+                                <?php foreach ($service as $key => $value) : ?>
+                                    <a href="facebook.com" class="relative">
+                                        <img class="inline-block max-w-[16px] max-h-[16px]" src="assets/img/icon/svg_diachi.svg" alt="">
+                                        <span class="text-[12px]"><?php echo $value->name ?></span>
+                                        <a href="">
+                                            <i id="icon" class="fa-light fa-xmark"></i>
+                                        </a>
+                                    </a>
+                                <?php endforeach ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pay text-right">
+                    <button type="submit" onclick="confirm('bạn có chắc chắn đặt hàng không')" name="addbooking">Thanh toán ngay</button>
+                </div>
+            </div>
+    </form>
+
     </div>
+</main>
