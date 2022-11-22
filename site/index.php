@@ -16,32 +16,46 @@
     if (isset($_GET['cart'])) {
         session_start();;
         $service_room = [];
-        if (isset($_POST['addcart'])) {
-            $id = $_POST['id'];
-            $ten = $_POST['ten'];
-            $thumbnail = $_POST['thumbnail'];
-            $id_user = $_SESSION['user_id'];
-            $des = $_POST['des'];
-            $id_cate = $_POST['id_cate'];
-            $price = $_POST['price'];
-            $star = $_POST['star'];
-            $quantity = $_POST['quantity'];
-            $location = $_POST['location'];
-            $acreage = $_POST['acreage'];
-            $status = $_POST['status'];
-            $view = $_POST['view'];
-            $likes = $_POST['likes'];
-            $id_service = $_POST['id_service'];
-            $created_at = $_POST['created_at'];
-            $id_admin = $_POST['id_admin'];
-            $namedichvu = $_POST['namedichvu'];
-            $service_room = loadAll_service_room($id);
-            $pricedichvu = $_POST['pricedichvu'];
-
-            if(!isset($_SESSION['addcart'])){
-                array_push($_SESSION['addcart'], array('id' => $id, 'ten' => $ten, 'thumbnail' => $thumbnail, 'des' => $des, 'id_cate' => $id_cate, 'price' => $price, 'star' => $star, 'quantity' => $quantity, 'location' => $location, 'acreage' => $acreage, 'status' => $status, 'view' => $view, 'likes' => $likes, 'id_service' => $id_service, 'created_at' => $created_at, 'id_admin' => $id_admin, 'namedichvu' => $namedichvu, 'pricedichvu' => $pricedichvu, 'id_user' => $id_user));
-            }else{
-                $_SESSION['addcart'] = [];
+        if(!isset($_SESSION['addcart'])){
+            session_start();
+            ob_start();
+            if (isset($_POST['addcart'])) {
+                echo $_SESSION['user_id'];
+                var_dump($_SESSION['addcart']);
+                $id = $_POST['id'];
+                $ten = $_POST['ten'];
+                $thumbnail = $_POST['thumbnail'];
+                $idnguoidung = $_SESSION['user_id'];
+                $des = $_POST['des'];
+                $id_cate = $_POST['id_cate'];
+                $price = $_POST['price'];
+                $star = $_POST['star'];
+                $quantity = $_POST['quantity'];
+                $location = $_POST['location'];
+                $acreage = $_POST['acreage'];
+                $status = $_POST['status'];
+                $view = $_POST['view'];
+                $likes = $_POST['likes'];
+                $id_service = $_POST['id_service'];
+                $created_at = $_POST['created_at'];
+                $id_admin = $_POST['id_admin'];
+                $namedichvu = $_POST['namedichvu'];
+                $service_room = loadAll_service_room($id);
+                $pricedichvu = $_POST['pricedichvu'];
+                if (!isset($_SESSION['addcart'][$idnguoidung])) {
+                    $_SESSION['addcart'][$idnguoidung] = array('id' => $id,'ten' => $ten,'thumbnail' => $thumbnail,'des' => $des,'id_cate' => $id_cate,'price' => $price,'star' => $star,'quantity' => $quantity,'location' => $location,'acreage' => $acreage,'status' => $status,'view' => $view,'likes' => $likes,'id_service' => $id_service,'created_at' => $created_at,'id_admin' => $id_admin,'namedichvu' => $namedichvu,'pricedichvu' => $pricedichvu);
+                    } else {
+                        for ($i = 1; $i <= count($_SESSION['addcart']); $i++) {
+                            if ($i == $_SESSION['idnguoidung']) {
+                              $x = array('id' => $id,'ten' => $ten,'thumbnail' => $thumbnail,'des' => $des,'id_cate' => $id_cate,'price' => $price,'star' => $star,'quantity' => $quantity,'location' => $location,'acreage' => $acreage,'status' => $status,'view' => $view,'likes' => $likes,'id_service' => $id_service,'created_at' => $created_at,'id_admin' => $id_admin,'namedichvu' => $namedichvu,'pricedichvu' => $pricedichvu);
+                                array_push($_SESSION['addcart'][$i], $x);
+                        
+                                echo "<pre>";
+                                var_dump($_SESSION['addcart'][$i]);
+                            }
+                        }
+                }
+                // tính tổng tiền
             }
             if (isset($_POST['delete'])) {
                 $id = $_POST['id'];
