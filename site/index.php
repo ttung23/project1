@@ -1,4 +1,4 @@
-    <?php
+<?php
     require_once '../global.php';
     require_once '../dao/pdo.php';
     require_once '../dao/room_dao.php';
