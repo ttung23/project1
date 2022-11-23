@@ -12,14 +12,15 @@
     $roomAll = loadAll_room();
     $categoriesAll = loadAll_categories();
     $service = loadAll_service();
-
+ 
     if (isset($_GET['cart'])) {
         session_start();
-        ob_start();
+        $tt = 0;
         $service_room = [];
         $total_amount = 0;
         $idnguoidung = $_SESSION['user_id'];
-        if (isset($_POST['addcart'])) {
+        if(!isset($_SESSION['cart'])) $_SESSION['cart']=[];
+        if(isset($_POST['addcart'])){
             $id = $_POST['id'];
             $ten = $_POST['ten'];
             $thumbnail = $_POST['thumbnail'];
@@ -37,33 +38,17 @@
             $created_at = $_POST['created_at'];
             $id_admin = $_POST['id_admin'];
             $namedichvu = $_POST['namedichvu'];
-            $service_room = loadAll_service_room($id);
             $pricedichvu = $_POST['pricedichvu'];
-            if (!isset($_SESSION['addcart'])) {
-                $_SESSION['addcart'] = array('id' => $id, 'ten' => $ten, 'thumbnail' => $thumbnail, 'des' => $des, 'id_cate' => $id_cate, 'price' => $price, 'star' => $star, 'quantity' => $quantity, 'location' => $location, 'acreage' => $acreage, 'status' => $status, 'view' => $view, 'likes' => $likes, 'id_service' => $id_service, 'created_at' => $created_at, 'id_admin' => $id_admin, 'namedichvu' => $namedichvu, 'pricedichvu' => $pricedichvu, 'id_user' => $idnguoidung);
-                header("location:index.php?cart");
-            } else {
-                for ($i = 1; $i <= count($_SESSION['addcart']); $i++) {
-                    if ($i == $_SESSION['user_id']) {
-                        $x = array('id' => $id, 'ten' => $ten, 'thumbnail' => $thumbnail, 'des' => $des, 'id_cate' => $id_cate, 'price' => $price, 'star' => $star, 'quantity' => $quantity, 'location' => $location, 'acreage' => $acreage, 'status' => $status, 'view' => $view, 'likes' => $likes, 'id_service' => $id_service, 'created_at' => $created_at, 'id_admin' => $id_admin, 'namedichvu' => $namedichvu, 'pricedichvu' => $pricedichvu, 'id_user' => $idnguoidung);
-                        array_push($_SESSION['addcart'], $x);
-                    }
-                }
-            }
-            // tính tổng tiền
+            $service_room = loadAll_service_room($id);
+            $room =[$id,$ten,$thumbnail,$des,$id_cate,$price,$star,$quantity,$location,$acreage,$status,$view,$likes,$id_service,$created_at,$id_admin,$namedichvu,$pricedichvu,$idnguoidung];
+            $_SESSION['cart'][]=$room;
+            var_dump($_SESSION['cart']);
         }
-        if (!isset($_SESSION['addcart'])) {
-            $cart = [];
-        } else {
-            for ($i = 1; $i < count($_SESSION['addcart']); $i++) {
-                
-                if ($_SESSION['addcart']["id_user"] == $idnguoidung) {
-                    $cart =($_SESSION['addcart']);
-                     break;
+        if (isset($_SESSION['cart']) && (is_array($_SESSION['cart']))) {
+            for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
+                if ($_SESSION['cart'][$i][18] == $_SESSION['user_id']) {
+                        $tt += $_SESSION['cart'][$i][17]+$_SESSION['cart'][$i][5];
                 }
-            }
-            foreach ($cart as $key => $value) {
-                $total_amount += $cart['price'] + $cart['pricedichvu'];
             }
         }
         if (isset($_POST['addbooking'])) {
@@ -78,14 +63,17 @@
             $name = $_POST['name'];
             //    $id_user = $_SESSION['name'];
             $insert_booking = Insert_booking($check_in, $check_out, $status, $quantity, $total_amount, $message, $phone, $email, $name);
+            for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
+                if ($_SESSION['cart'][$i][18] == $_SESSION['user_id']) {
+                    array_splice($_SESSION['cart'],$i,1);
+                }
+            }
             unset($_SESSION['addcart']);
             $_SESSION['addcart'] = [];
         }
-        if (isset($_POST['delete'])) {
-            $id = $_POST['id'];
-            unset($_SESSION['addcart'][$_SESSION['user_id'][$id]]);
+        if (isset($_GET['delid'])) {
+            array_splice($_SESSION['cart'],$_GET['delid'],1);
         }
-        var_dump($cart);
         $VIEW_NAME = 'cart.php';
     } elseif (isset($_GET['tin-tuc'])) {
         $news = loadAll_news();
@@ -108,10 +96,6 @@
             $roomcategori = load_room_categories($iddm);
         }
         $VIEW_NAME = 'list-room.php';
-    } elseif (isset($_GET['addcart'])) {
-
-        $VIEW_NAME = 'cart.php';
-        ob_end_flush();
     } elseif (isset($_GET['product-detail'])) {
         if (isset($_GET['id']) && ($_GET['id'])) {
             $id = $_GET['id'];
