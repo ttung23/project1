@@ -1,4 +1,5 @@
 <main class="containerr">
+    <!-- chinhsuacarrt -->
     <form action="index.php?cart" method="post">
         <input type="hidden" name="total_amount" value="<?php echo $total_amount ?>">
         <div class="main">
