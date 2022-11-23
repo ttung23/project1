@@ -15,11 +15,11 @@
 
     if (isset($_GET['cart'])) {
         session_start();
-        var_dump($_SESSION['addcart']);
+        ob_start();
         $service_room = [];
+        $total_amount = 0;
         $idnguoidung = $_SESSION['user_id'];
         if (isset($_POST['addcart'])) {
-            echo $_SESSION['user_id'];
             $id = $_POST['id'];
             $ten = $_POST['ten'];
             $thumbnail = $_POST['thumbnail'];
@@ -41,6 +41,7 @@
             $pricedichvu = $_POST['pricedichvu'];
             if (!isset($_SESSION['addcart'])) {
                 $_SESSION['addcart'] = array('id' => $id, 'ten' => $ten, 'thumbnail' => $thumbnail, 'des' => $des, 'id_cate' => $id_cate, 'price' => $price, 'star' => $star, 'quantity' => $quantity, 'location' => $location, 'acreage' => $acreage, 'status' => $status, 'view' => $view, 'likes' => $likes, 'id_service' => $id_service, 'created_at' => $created_at, 'id_admin' => $id_admin, 'namedichvu' => $namedichvu, 'pricedichvu' => $pricedichvu, 'id_user' => $idnguoidung);
+                header("location:index.php?cart");
             } else {
                 for ($i = 1; $i <= count($_SESSION['addcart']); $i++) {
                     if ($i == $_SESSION['user_id']) {
@@ -55,15 +56,12 @@
             $cart = [];
         } else {
             for ($i = 1; $i < count($_SESSION['addcart']); $i++) {
-                if ($_SESSION['addcart'][$i]["id_user"] == $idnguoidung) {
-
-                    $cart = $_SESSION['addcart'][$i];
+                
+                if ($_SESSION['addcart']["id_user"] == $idnguoidung) {
+                    $cart =($_SESSION['addcart']);
+                     break;
                 }
             }
-        }
-        if(!isset($_SESSION['addcart'])){
-        $total_amount = 0;
-        }else{
             foreach ($cart as $key => $value) {
                 $total_amount += $cart['price'] + $cart['pricedichvu'];
             }
@@ -87,6 +85,7 @@
             $id = $_POST['id'];
             unset($_SESSION['addcart'][$_SESSION['user_id'][$id]]);
         }
+        var_dump($cart);
         $VIEW_NAME = 'cart.php';
     } elseif (isset($_GET['tin-tuc'])) {
         $news = loadAll_news();
