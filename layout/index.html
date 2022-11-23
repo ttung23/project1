@@ -9,12 +9,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 
-    <link rel="stylesheet" href="assets/css/index.css"/>
+    <link rel="stylesheet" href="assets/css/index.css" />
     <link rel="stylesheet" href="assets/css/hover-index.css">
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/footer.css">
-
-
 </head>
 
 <body>
@@ -35,12 +33,12 @@
                     </li>
                     <li>
                         <div class="dropdown">
-                            <button type="submit" onclick="hamDropdown()" class="nut_dropdown">
+                            <button onclick="hamDropdown()" class="nut_dropdown">
                                 <img src="assets/img/logo/co.png" alt=""> VND <i
                                     style="color:black; font-size: 11px; padding-left: 4px;padding-top: 5px;"
                                     class="fa-solid fa-chevron-down"></i>
                             </button>
-                            <div class="noidung_dropdown hien" id="logo">
+                            <div class="noidung_dropdown hien" id="money">
                                 <div class="nation">
                                     <h2>Tên quốc gia & ngôn ngữ</h2>
                                     <span>Indonesia (Bahasha indonesia) </span>
@@ -76,11 +74,15 @@
                     </li>
                     <li>
                         <div class="dropdown-2">
-                            <button type="submit"><a class="dangnhap" href=""><i>
-                                        <i class="fa-solid fa-user"></i></i> Đăng nhập
-                                    <i style="color:black; font-size: 12px;" class="fa-solid fa-chevron-down"></i></a>
+                            <button onclick="drop_menu()">
+                                <a class="dangnhap">
+                                    <i>
+                                        <i class="fa-solid fa-user"></i>
+                                    </i> Đăng nhập
+                                    <i style="color:black; font-size: 12px;" class="fa-solid fa-chevron-down"></i>
+                                </a>
                             </button>
-                            <div class="noidung-index">
+                            <div class="noidung-index hien-login" id="login">
                                 <h2>Đăng nhập tài khoản</h2>
                                 <span>Email hoặc số di động</span>
                                 <input type="text">
@@ -104,6 +106,26 @@
                         </div>
                     </li>
                     <li style="padding: unset;"><a class="dangki" href="">Đăng kí</a></li>
+                    <li >
+                        <div class="anh-dangnhap">
+                            <div class="flex-anh-dn"> 
+                                    <img class="anh-user" src="assets/img/co/maly.png" alt=""> <span>Chiến</span><i
+                                    style="color:black; font-size: 11px; padding-left: 4px;padding-top: 5px;"
+                                    class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <div class="noidung-anh-dangnhap">
+                                    <h3>Tài khoản</h3>
+                                    <div class="a"><i class="fa-regular fa-user"></i> <span>Chỉnh sửa hồ sơ</span><br></div>
+                                    <div class="a"><i class="fa-solid fa-money-bill"></i> <span>Điểm thưởng của tôi</span><br></div>
+                                    <div class="a"><i class="fa-solid fa-person-booth"></i> <span>Dịch vụ khách sạn</span> <br></div>
+                                    <div class="a"><i class="fa-regular fa-bell"></i> <span>Thông báo của bạn</span> <br></div>
+                                    <div class="a"> <i class="fa-regular fa-credit-card"></i> <span>Thẻ của tôi</span> <br></div>
+                                    <div class="a"> <i class="fa-regular fa-envelope"></i> <span>Khuyến mãi</span> <br></div>
+                                    <div class="a"> <i class="fa-solid fa-right-from-bracket"></i> <span>Đăng xuất</span><br></div>
+                                    
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -113,7 +135,7 @@
             <ul class="containerr">
                 <li>
                     <div class="menu-con1">
-                        <button><a href="">Vận chuyển</a><i class="fa-solid fa-caret-down"></i></button>
+                        <a href="">Vận chuyển</a><i class="fa-solid fa-caret-down"></i>
                         <div class="nd-mn1">
                             <i class="fa-solid fa-car-side"></i> Cho thuê ô tô <br>
                             <i class="fa-solid fa-bus"></i> Xe đưa đón <br>
@@ -123,7 +145,7 @@
                 </li>
                 <li>
                     <div class="menu-con2">
-                        <button><a href="">Chỗ ở</a><i class="fa-solid fa-caret-down"></i></button>
+                        <a href="">Chỗ ở</a><i class="fa-solid fa-caret-down"></i>
                         <div class="nd-mn2">
                             <i style="color: #0770cd;" class="fa-sharp fa-solid fa-gopuram"></i> Ở Hà Nội <br>
                             <i style="color: #0770cd;" class="fa-solid fa-bridge"></i> Ở TP.HCM
@@ -132,7 +154,7 @@
                 </li>
                 <li>
                     <div class="menu-con3">
-                        <button><a href="">Hoạt động giải trí</a><i class="fa-solid fa-caret-down"></i></button>
+                        <a href="">Hoạt động giải trí</a><i class="fa-solid fa-caret-down"></i>
                         <div class="nd-mn3">
                             <i style="color: #ff6d70;" class="fa-solid fa-people-group"></i> Hoạt động nhóm <br>
                             <i style="color: #0770cd;" class="fa-solid fa-water-ladder"></i> Bể bơi <br>
@@ -142,7 +164,7 @@
                 </li>
                 <li>
                     <div class="menu-con4">
-                        <button><a href="">Sản phẩm bổ xung</a><i class="fa-solid fa-caret-down"></i></button>
+                        <a href="">Sản phẩm bổ xung</a><i class="fa-solid fa-caret-down"></i>
                         <div class="nd-mn4">
                             <i style="color: rgb(208, 148, 70);" class="fa-solid fa-coins"></i> Điểm thưởng của tôi <br>
                             <i style="color: red;" class="fa-solid fa-gift"></i> Đổi quà tặng
@@ -152,15 +174,16 @@
             </ul>
 
         </div>
+
         <!-- banenr -->
         <div class="banner">
             <div class="image containerr">
                 <img src="assets/img/banner/b1.webp" alt="">
-            
+
                 <img src="assets/img/banner/b2.webp" alt="">
 
                 <img src="assets/img/banner/b3.webp" alt="">
-            
+
                 <img src="assets/img/banner/b4.webp" alt="">
 
                 <img src="assets/img/banner/b5.webp" alt="">
@@ -171,7 +194,7 @@
                 <a href=""><i style="color: #ff6d70;" class="fa-solid fa-circle"></i></a>
                 <a href=""><i class="fa-solid fa-circle"></i></a>
                 <a href=""><i class="fa-solid fa-circle"></i></a>
-                
+
             </div>
         </div>
         <!-- đặt lịch -->

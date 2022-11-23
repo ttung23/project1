@@ -100,19 +100,6 @@
     border-radius: 4px 4px 4px 0;
 }
 
-@keyframes aa {
-    from {
-        background-color: #0194f3;
-        left: 0px;
-    } 
-
-    to {
-        
-        left: 50px;
-        background-color: red;
-    }
-}
-
 .delete-room {
     position: relative;
     margin-top: 52px;
@@ -124,6 +111,11 @@
     border-radius: 4px;
     transition: all 1s ease-in-out;
     cursor: pointer;
+}
+
+.delete-room a {
+    display: block;
+    padding: 5px 15px;
 }
 
 .delete-room::before {
@@ -146,6 +138,11 @@
 .delete-room:hover:before {
     width: 100%;
     transition: all 0.5s ease-in-out;
+}
+
+.delete-room a {
+    display: inline-block;
+    padding: 5px 15px;
 }
 
 .information {

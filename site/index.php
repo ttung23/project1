@@ -1,4 +1,4 @@
-    <?php
+<?php
     require_once '../global.php';
     require_once '../dao/pdo.php';
     require_once '../dao/room_dao.php';
@@ -12,7 +12,6 @@
     $roomAll = loadAll_room();
     $categoriesAll = loadAll_categories();
     $service = loadAll_service();
- 
     if (isset($_GET['cart'])) {
         // add cart
         session_start();
@@ -135,6 +134,10 @@
         }
         if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             session_unset();
+            header('Location:index.php');
+        }
+        if(isset($_GET['action']) && $_GET['action'] == 'logout'){
+            unset($_SESSION['addcart']);
             header('Location:index.php');
         }
         $VIEW_NAME = 'trang-chu.php';
