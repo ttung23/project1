@@ -119,6 +119,7 @@
         }
         $VIEW_NAME = 'chi-tiet.php';
     } else {
+        // s
         // $limit = $_GET['perpage'] ?? 9;
         // $current_page = $_GET['page'] ?? 1;
         // $offset = ($current_page - 1) * $limit;
