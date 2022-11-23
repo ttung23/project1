@@ -7,6 +7,7 @@
         if(($user != [])){
            foreach($user as $key => $value){
                 $_SESSION['username'] = $value->username;
+                $_SESSION['id'] = $value->user_id;
                 $_SESSION['password'] = $value->password;
                 $_SESSION['name'] = $value->name;
                 $_SESSION['user_id'] = $value->user_id;
