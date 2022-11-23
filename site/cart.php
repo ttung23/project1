@@ -47,6 +47,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="tomtat">
                     <p class="chi-tiet-dat-phong text-[16px] font-bold">
                         Tóm tắt giá

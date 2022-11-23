@@ -98,6 +98,7 @@
                             <i class="fa-solid fa-car-side"></i> Cho thuê ô tô <br>
                             <i class="fa-solid fa-bus"></i> Xe đưa đón <br>
                             <i class="fa-solid fa-business-time"></i> Chuyển đồ
+                            <a href="?action=logout">Đăng Xuất</a>
                         </div>
                     </div>
                 </li>
