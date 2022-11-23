@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang chủ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+    <link rel="stylesheet" href="assets/css/index.css" />
+    <link rel="stylesheet" href="assets/css/hover-index.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+</head>
+
+<body>
+    <div class="container-index">
+        <div class="nav-index containerr">
+            <div class="nav-left">
+                <i class="fa-solid fa-bars"></i>
+                <img src="assets/img/logo/30bf6c528078ba28d34bc3e37d124bdb.svg" alt="">
+            </div>
+            <div class="nav-right">
+                <ul>
+                    <li><a href=""><i class="fa-solid fa-download"></i></i> Tải ứng dụng <i><i
+                                    class="fa-solid fa-chevron-down"></i></i></a></li>
+                    <li><a href=""><i class="fa-solid fa-handshake"></i> Hợp tác với chúng tôi</a></li>
+                    <li><a href=""><i class="fa-solid fa-clipboard-check"></i> Đã lưu</a></li>
+                    <li><a href=""><i class="fa-solid fa-list-check"></i> Đặt chỗ của tôi </a>
+
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <button onclick="hamDropdown()" class="nut_dropdown">
+                                <img src="assets/img/logo/co.png" alt=""> VND <i
+                                    style="color:black; font-size: 11px; padding-left: 4px;padding-top: 5px;"
+                                    class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <div class="noidung_dropdown hien" id="money">
+                                <div class="nation">
+                                    <h2>Tên quốc gia & ngôn ngữ</h2>
+                                    <span>Indonesia (Bahasha indonesia) </span>
+                                    <img src="assets/img/co/indo.png" alt="" />
+                                    <span>Indonesia (English) </span>
+                                    <img src="assets/img/co/indo.png" alt="" /> <span>Thailan </span>
+                                    <img src="assets/img/co/thai.png" alt="" /> <span>Indonesia </span>
+                                    <img src="assets/img/co/indo.png" alt="" /> <span>Indonesia </span>
+                                    <img src="assets/img/co/indo.png" alt="" /> <span>Indonesia </span>
+                                    <img src="assets/img/co/indo.png" alt="" /> <span>Indonesia </span>
+                                    <img src="assets/img/co/indo.png" alt="" /> <span>Indonesia </span>
+                                    <img src="assets/img/co/my.png" alt="" /> <span>Indonesia </span>
+                                    <img src="assets/img/co/my.png" alt="" />
+                                </div>
+                                <div class="mony">
+                                    <h2>Tiền tệ</h2>
+                                    <span style="font-size: 15px; color: black; font-weight: 500">AUD</span>
+                                    <span>Dola Úc</span> <br />
+                                    <span style="font-size: 15px; color: black; font-weight: 500">SGD</span>
+                                    <span>Dola Singapo</span> <br />
+                                    <span style="font-size: 15px; color: black; font-weight: 500">USD</span>
+                                    <span>Dola Mỹ</span> <br />
+                                    <span style="font-size: 15px; color: black; font-weight: 500">VND</span>
+                                    <span>Việt Nam Đồng</span> <br />
+                                    <span style="font-size: 15px; color: black; font-weight: 500">THB</span>
+                                    <span>Baht Thái</span> <br />
+                                    <span style="font-size: 15px; color: black; font-weight: 500">IDR</span>
+                                    <span>Rupiah Indonesia</span> <br />
+                                </div>
+                            </div>
+                        </div>
+
+                    </li>
+                    <li>
+                        <div class="dropdown-2">
+                            <button onclick="drop_menu()">
+                                <a class="dangnhap">
+                                    <i>
+                                        <i class="fa-solid fa-user"></i>
+                                    </i> Đăng nhập
+                                    <i style="color:black; font-size: 12px;" class="fa-solid fa-chevron-down"></i>
+                                </a>
+                            </button>
+                            <div class="noidung-index hien-login" id="login">
+                                <h2>Đăng nhập tài khoản</h2>
+                                <span>Email hoặc số di động</span>
+                                <input type="text">
+                                <div class="flex-nd">
+                                    <span>Mật khẩu</span> <a href="">Quên mật khẩu</a>
+
+                                </div>
+                                <input type="text"><i><i class="fa-solid fa-eye"></i></i>
+
+                                <div class="nd-dn">
+                                    <button>Đăng nhập</button><span>Bạn đã có tài khản chưa? <a href="">Đăng
+                                            kí</a></span>
+                                </div>
+                                <div class="fb-gg">
+                                    <p>Hoặc đăng nhập bằng</p><br>
+                                    <a style="margin-left: 40px;" href=""><i class="fa-brands fa-facebook"></i>
+                                        Facebook</a>
+                                    <a href=""><i class="fa-brands fa-google"></i> Google</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li style="padding: unset;"><a class="dangki" href="">Đăng kí</a></li>
+                    <li >
+                        <div class="anh-dangnhap">
+                            <div class="flex-anh-dn"> 
+                                    <img class="anh-user" src="assets/img/co/maly.png" alt=""> <span>Chiến</span><i
+                                    style="color:black; font-size: 11px; padding-left: 4px;padding-top: 5px;"
+                                    class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <div class="noidung-anh-dangnhap">
+                                    <h3>Tài khoản</h3>
+                                    <div class="a"><i class="fa-regular fa-user"></i> <span>Chỉnh sửa hồ sơ</span><br></div>
+                                    <div class="a"><i class="fa-solid fa-money-bill"></i> <span>Điểm thưởng của tôi</span><br></div>
+                                    <div class="a"><i class="fa-solid fa-person-booth"></i> <span>Dịch vụ khách sạn</span> <br></div>
+                                    <div class="a"><i class="fa-regular fa-bell"></i> <span>Thông báo của bạn</span> <br></div>
+                                    <div class="a"> <i class="fa-regular fa-credit-card"></i> <span>Thẻ của tôi</span> <br></div>
+                                    <div class="a"> <i class="fa-regular fa-envelope"></i> <span>Khuyến mãi</span> <br></div>
+                                    <div class="a"> <i class="fa-solid fa-right-from-bracket"></i> <span>Đăng xuất</span><br></div>
+                                    
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- nav-2 -->
+        <div class="nav-2-index">
+            <ul class="containerr">
+                <li>
+                    <div class="menu-con1">
+                        <a href="">Vận chuyển</a><i class="fa-solid fa-caret-down"></i>
+                        <div class="nd-mn1">
+                            <i class="fa-solid fa-car-side"></i> Cho thuê ô tô <br>
+                            <i class="fa-solid fa-bus"></i> Xe đưa đón <br>
+                            <i class="fa-solid fa-business-time"></i> Chuyển đồ
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="menu-con2">
+                        <a href="">Chỗ ở</a><i class="fa-solid fa-caret-down"></i>
+                        <div class="nd-mn2">
+                            <i style="color: #0770cd;" class="fa-sharp fa-solid fa-gopuram"></i> Ở Hà Nội <br>
+                            <i style="color: #0770cd;" class="fa-solid fa-bridge"></i> Ở TP.HCM
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="menu-con3">
+                        <a href="">Hoạt động giải trí</a><i class="fa-solid fa-caret-down"></i>
+                        <div class="nd-mn3">
+                            <i style="color: #ff6d70;" class="fa-solid fa-people-group"></i> Hoạt động nhóm <br>
+                            <i style="color: #0770cd;" class="fa-solid fa-water-ladder"></i> Bể bơi <br>
+                            <i class="fa-solid fa-hippo"></i> Chăm sóc thú cưng
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="menu-con4">
+                        <a href="">Sản phẩm bổ xung</a><i class="fa-solid fa-caret-down"></i>
+                        <div class="nd-mn4">
+                            <i style="color: rgb(208, 148, 70);" class="fa-solid fa-coins"></i> Điểm thưởng của tôi <br>
+                            <i style="color: red;" class="fa-solid fa-gift"></i> Đổi quà tặng
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+
+        <!-- banenr -->
+        <div class="banner">
+            <div class="image containerr">
+                <img src="assets/img/banner/b1.webp" alt="">
+
+                <img src="assets/img/banner/b2.webp" alt="">
+
+                <img src="assets/img/banner/b3.webp" alt="">
+
+                <img src="assets/img/banner/b4.webp" alt="">
+
+                <img src="assets/img/banner/b5.webp" alt="">
+
+            </div>
+
+            <div class="circle-banner-idx containerr">
+                <a href=""><i style="color: #ff6d70;" class="fa-solid fa-circle"></i></a>
+                <a href=""><i class="fa-solid fa-circle"></i></a>
+                <a href=""><i class="fa-solid fa-circle"></i></a>
+
+            </div>
+        </div>
+        <!-- đặt lịch -->
+        <div class="search">
+            <div class="search-time">
+                <a class="a" href=""><i class="fa-solid fa-clock"></i><br> Theo giờ</a>
+                <a class="a" href=""><i class="fa-regular fa-moon"></i><br> Qua đêm</a>
+                <a class="a" href=""><i class="fa-solid fa-calendar-days"></i><br> Theo ngày</a>
+            </div>
+            <div class="search-check">
+                <div class="check">
+                    <div class="i">
+                        <i class="fa-sharp fa-solid fa-location-dot"></i> <br>
+                    </div>
+                    <p>Địa điểm</p>
+                    <input type="text" placeholder="Bạn muốn thuê phòng nào ?">
+                </div>
+                <div class="book">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <p>Nhận phòng</p>
+                    <input type="datetime-local" name="bdaytime">
+                </div>
+                <div class="book1">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <p>Trả phòng </p>
+                    <input type="datetime-local" name="bdaytime">
+                </div>
+                <div class="book2">
+                    <select name="tp" id="tp" class="tp">
+                        <option value="hn">Khách hàng</option>
+                        <option value="hn">1 người</option>
+                        <option value="hn">Nhiều người</option>
+                        <option value="hn">Gia đình</option>
+                    </select>
+
+                </div>
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm</button>
+            </div>
+        </div>
+        <!--  -->
+        <!-- đặt lịch -->
+        <div class="search">
+            <div class="search-time">
+                <a class="a" href=""><i class="fa-solid fa-clock"></i><br> Theo giờ</a>
+                <a class="a" href=""><i class="fa-regular fa-moon"></i><br> Qua đêm</a>
+                <a class="a" href=""><i class="fa-solid fa-calendar-days"></i><br> Theo ngày</a>
+            </div>
+            <div class="search-check">
+                <div class="check">
+                    <div class="i">
+                        <i class="fa-sharp fa-solid fa-location-dot"></i> <br>
+                    </div>
+                    <p>Địa điểm</p>
+                    <input type="text" placeholder="Bạn muốn thuê phòng nào ?">
+                </div>
+                <div class="book">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <p>Nhận phòng</p>
+                    <input type="datetime-local" name="bdaytime">
+                </div>
+                <div class="book1">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <p>Trả phòng </p>
+                    <input type="datetime-local" name="bdaytime">
+                </div>
+                <div class="book2">
+                    <select name="tp" id="tp" class="tp">
+                        <option value="hn">Khách hàng</option>
+                        <option value="hn">1 người</option>
+                        <option value="hn">Nhiều người</option>
+                        <option value="hn">Gia đình</option>
+                    </select>
+
+                </div>
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm</button>
+            </div>
+        </div>
+        <!--  -->
+        <div class="sale-index">
+            <div class="sale-flex">
+                <img src="assets/img/icon/p2.jpg" alt="" />
+                <h2>Khuyến Mại Khủng 11.11</h2>
+            </div>
+            <a href="">Khám phá deal qua từng ô sản phẩm</a>
+            <img src="assets/img/banner/km1.webp" alt="" />
+        </div>
+        <!--  -->
+        <div class="discount-index">
+            <img src="assets/img/banner/km2.webp" alt="" />
+            <img src="assets/img/banner/km3.webp" alt="" />
+            <img src="assets/img/banner/km4.webp" alt="" />
+        </div>
+        <!--  -->
+        <div class="sale-11-index">
+            <h2>Săn thêm khuyến mại 11.11</h2>
+            <img src="assets/img/banner/sale11.11.webp" alt="" />
+        </div>
+        <!-- sale phòng khách sạn -->
+        <div class="sale-ks-index">
+            <div class="text-ks">
+                <i class="fa-solid fa-gift"></i>
+                <h2>Đặt phòng khách sạn giá ưu đãi</h2>
+            </div>
+            <p>Áp dụng với những khách hàng mới muốn trải nghiệm khách sạn</p>
+            <div class="ks-flex">
+                <img src="assets/img/product/p0.webp" alt="">
+                <img src="assets/img/product/p1.webp" alt="">
+                <img src="assets/img/product/p2.webp" alt="">
+                <img src="assets/img/product/p3.webp" alt="">
+                <img src="assets/img/product/p4.webp" alt="">
+            </div>
+        </div>
+        <!--chọn phòng khách sạn  -->
+        <div class="choose-index">
+            <div class="text-choose">
+                <i class="fa-solid fa-gift"></i>
+                <h2>Lựa chọn phòng khách sạn của bạn</h2>
+            </div>
+            <p>Dịch vụ 24/24 </p>
+            <div class="room">
+                <a style="background-color: #0770cd; color: white;" href="">Tất cả các phòng</a>
+                <a href="">Phòng thương gia</a>
+                <a href="">Phòng gia đình</a>
+                <a href="">Phòng đơn</a>
+                <a href="">Phòng nghỉ ngơi</a>
+                <a href="">Phòng tình yêu</a>
+            </div>
+            <div class="flex-choose">
+
+                <div class="chitiet">
+                    <figure class="snip0016">
+                        <img src="assets/img/product/tg2.jpg" alt="sample41" />
+                        <figcaption>
+                            <p class="p">Diện tích 92 m</p>
+                            <p class="p">Số phòng: 4</p>
+                            <p class="p">7 dịch vụ đi kèm miễn phí</p>
+                            <p>
+                            <p class="p1"><i class="fa-solid fa-thumbs-up"></i> 1333 lượt thích</p>
+                            <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> 899 lượt đặt </p>
+                            <p class="p1"><i class="fa-solid fa-eye"></i> 1580 lượt xem</p>
+                            </p>
+                        </figcaption>
+                    </figure>
+                    <div class="sao">
+                        <a class="a0" href="">Phòng tình yêu </a>
+                        <p class="diachi">
+                            <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
+                        </p>
+                        <div class="text-dg">
+                            <a class="a" href="">8.9 tuyệt vời</a><br>
+                            <a class="a1" href="">Qua 1257 đánh giá</a>
+                        </div>
+
+                        <div class="datphong-index">
+                            <a href="">Xem chi tiết</a>
+                        </div>
+                    </div>
+                    <div class="i">
+                        <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <span>200.000 VNĐ</span>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="chitiet">
+                    <figure class="snip0016">
+                        <img src="assets/img/product/tg2.jpg" alt="sample41" />
+                        <figcaption>
+                            <p class="p">Diện tích 92 m</p>
+                            <p class="p">Số phòng: 4</p>
+                            <p class="p">7 dịch vụ đi kèm miễn phí</p>
+                            <p>
+                            <p class="p1"><i class="fa-solid fa-thumbs-up"></i> 1333 lượt thích</p>
+                            <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> 899 lượt đặt </p>
+                            <p class="p1"><i class="fa-solid fa-eye"></i> 1580 lượt xem</p>
+                            </p>
+                            <a href="#"></a>
+                        </figcaption>
+                    </figure>
+                    <div class="sao">
+                        <a class="a0" href="">Phòng tình yêu </a>
+                        <p class="diachi">
+                            <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
+                        </p>
+                        <div class="text-dg">
+                            <a class="a" href="">8.9 tuyệt vời</a><br>
+                            <a class="a1" href="">Qua 1257 đánh giá</a>
+                        </div>
+                    </div>
+                    <div class="i">
+                        <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <span>200.000 VNĐ</span>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="chitiet">
+                    <figure class="snip0016">
+                        <img src="assets/img/product/tg2.jpg" alt="sample41" />
+                        <figcaption>
+                            <p class="p">Diện tích 92 m</p>
+                            <p class="p">Số phòng: 4</p>
+                            <p class="p">7 dịch vụ đi kèm miễn phí</p>
+                            <p>
+                            <p class="p1"><i class="fa-solid fa-thumbs-up"></i> 1333 lượt thích</p>
+                            <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> 899 lượt đặt </p>
+                            <p class="p1"><i class="fa-solid fa-eye"></i> 1580 lượt xem</p>
+                            </p>
+                            <a href="#"></a>
+                        </figcaption>
+                    </figure>
+                    <div class="sao">
+                        <a class="a0" href="">Phòng tình yêu </a>
+                        <p class="diachi">
+                            <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
+                        </p>
+                        <div class="text-dg">
+                            <a class="a" href="">8.9 tuyệt vời</a><br>
+                            <a class="a1" href="">Qua 1257 đánh giá</a>
+                        </div>
+                    </div>
+                    <div class="i">
+                        <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <span>200.000 VNĐ</span>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="chitiet">
+                    <figure class="snip0016">
+                        <img src="assets/img/product/tg2.jpg" alt="sample41" />
+                        <figcaption>
+                            <p class="p">Diện tích 92 m</p>
+                            <p class="p">Số phòng: 4</p>
+                            <p class="p">7 dịch vụ đi kèm miễn phí</p>
+                            <p>
+                            <p class="p1"><i class="fa-solid fa-thumbs-up"></i> 1333 lượt thích</p>
+                            <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> 899 lượt đặt </p>
+                            <p class="p1"><i class="fa-solid fa-eye"></i> 1580 lượt xem</p>
+                            </p>
+                            <a href="#"></a>
+                        </figcaption>
+                    </figure>
+                    <div class="sao">
+                        <a class="a0" href="">Phòng tình yêu </a>
+                        <p class="diachi">
+                            <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
+                        </p>
+                        <div class="text-dg">
+                            <a class="a" href="">8.9 tuyệt vời</a><br>
+                            <a class="a1" href="">Qua 1257 đánh giá</a>
+                        </div>
+                    </div>
+                    <div class="i">
+                        <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <span>200.000 VNĐ</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- dịch vụ khách sạn -->
+        <div class="dv-ks-index">
+            <div class="text-dv">
+                <i class="fa-solid fa-gift"></i>
+                <h2>Lựa chọn dịch vụ khách sạn của bạn</h2>
+            </div>
+            <p>Dịch vụ 24/24 </p>
+            <div class="room-dv">
+                <a style="background-color: #ff6d70; color: white;" href="">Tất cả các dịch vụ</a>
+                <a href="">Dịch vụ ăn uống</a>
+                <a href="">Dịch vụ sức khỏe</a>
+                <a href="">Dịch vụ đưa đón</a>
+
+            </div>
+            <div class="flex-dv">
+                <div class="chitiet-dv">
+                    <figure class="snip0016">
+                        <img src="assets/img/dichvu/dv4.jpg" alt="sample41" />
+                        <figcaption>
+                            <p class="p">Diện tích 92 m</p>
+                            <p class="p">Số phòng: 4</p>
+                            <p class="p">7 dịch vụ đi kèm miễn phí</p>
+                            <p>
+                            <p class="p1"><i class="fa-solid fa-thumbs-up"></i> 1333 lượt thích</p>
+                            <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> 899 lượt đặt</p>
+                            <p class="p1"><i class="fa-solid fa-eye"></i> 1580 lượt xem</p>
+                            </p>
+                            <a href="#"></a>
+                        </figcaption>
+                    </figure>
+
+                    <div class="sao-dv">
+                        <a class="a0" href="">Dịch vụ đưa đón</a>
+                        <p class="diachi-dv">
+                            <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
+                        </p>
+                        <div class="text-dg">
+                            <a class="a" href="">8.9 tuyệt vời</a><br>
+                            <a class="a1" href="">Qua 144 phản hổi</a>
+                        </div>
+                    </div>
+                    <div class="i">
+
+                        <span>180.000 VNĐ/lượt</span>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="chitiet-dv">
+                    <figure class="snip0016">
+                        <img src="assets/img/dichvu/dv4.jpg" alt="sample41" />
+                        <figcaption>
+                            <p class="p">Diện tích 92 m</p>
+                            <p class="p">Số phòng: 4</p>
+                            <p class="p">7 dịch vụ đi kèm miễn phí</p>
+                            <p>
+                            <p class="p1"><i class="fa-solid fa-thumbs-up"></i> 1333 lượt thích</p>
+                            <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> 899 lượt đặt</p>
+                            <p class="p1"><i class="fa-solid fa-eye"></i> 1580 lượt xem</p>
+                            </p>
+                            <a href="#"></a>
+                        </figcaption>
+                    </figure>
+
+                    <div class="sao-dv">
+                        <a class="a0" href="">Dịch vụ đưa đón</a>
+                        <p class="diachi-dv">
+                            <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
+                        </p>
+                        <div class="text-dg">
+                            <a class="a" href="">8.9 tuyệt vời</a><br>
+                            <a class="a1" href="">Qua 144 phản hổi</a>
+                        </div>
+                    </div>
+                    <div class="i">
+
+                        <span>180.000 VNĐ/lượt</span>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="chitiet-dv">
+                    <figure class="snip0016">
+                        <img src="assets/img/dichvu/dv4.jpg" alt="sample41" />
+                        <figcaption>
+                            <p class="p">Diện tích 92 m</p>
+                            <p class="p">Số phòng: 4</p>
+                            <p class="p">7 dịch vụ đi kèm miễn phí</p>
+                            <p>
+                            <p class="p1"><i class="fa-solid fa-thumbs-up"></i> 1333 lượt thích</p>
+                            <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> 899 lượt đặt</p>
+                            <p class="p1"><i class="fa-solid fa-eye"></i> 1580 lượt xem</p>
+                            </p>
+                            <a href="#"></a>
+                        </figcaption>
+                    </figure>
+
+                    <div class="sao-dv">
+                        <a class="a0" href="">Dịch vụ đưa đón</a>
+                        <p class="diachi-dv">
+                            <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
+                        </p>
+                        <div class="text-dg">
+                            <a class="a" href="">8.9 tuyệt vời</a><br>
+                            <a class="a1" href="">Qua 144 phản hổi</a>
+                        </div>
+                    </div>
+                    <div class="i">
+
+                        <span>180.000 VNĐ/lượt</span>
+                    </div>
+                </div>
+                <!--  -->
+
+                <div class="chitiet-dv">
+                    <figure class="snip0016">
+                        <img src="assets/img/dichvu/dv4.jpg" alt="sample41" />
+                        <figcaption>
+                            <p class="p">Diện tích 92 m</p>
+                            <p class="p">Số phòng: 4</p>
+                            <p class="p">7 dịch vụ đi kèm miễn phí</p>
+                            <p>
+                            <p class="p1"><i class="fa-solid fa-thumbs-up"></i> 1333 lượt thích</p>
+                            <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> 899 lượt đặt</p>
+                            <p class="p1"><i class="fa-solid fa-eye"></i> 1580 lượt xem</p>
+                            </p>
+                            <a href="#"></a>
+                        </figcaption>
+                    </figure>
+
+                    <div class="sao-dv">
+                        <a class="a0" href="">Dịch vụ đưa đón</a>
+                        <p class="diachi-dv">
+                            <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
+                        </p>
+                        <div class="text-dg">
+                            <a class="a" href="">8.9 tuyệt vời</a><br>
+                            <a class="a1" href="">Qua 144 phản hổi</a>
+                        </div>
+                    </div>
+                    <div class="i">
+
+                        <span>180.000 VNĐ/lượt</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- trai nghiệm -->
+        <div class="trainghiem">
+            <h2>Trải nghiệm cùng StayyInn</h2>
+            <div class="flex-tn">
+                <div class="img1">
+                    <img src="assets/img/banner/tn0.jpg" alt="">
+                    <a href="">Xem thêm</a>
+                </div>
+                <div class="img2">
+
+                    <img src="assets/img/banner/tn1.jpg" alt="">
+                    <a href="">Xem thêm</a>
+                </div>
+            </div>
+        </div>
+        <!-- phòng đặt nhiều trong tháng 11 -->
+        <div class="choose-index">
+            <div class="text-choose">
+                <i class="fa-solid fa-gift"></i>
+                <h2>Số phòng đặt nhiều trong tháng 11</h2>
+            </div>
+            <p>Dịch vụ 24/24 </p>
+            <div class="room">
+                <a style="background-color: #0770cd; color: white;" href="">Tất cả các phòng</a>
+                <a href="">Phòng thương gia</a>
+                <a href="">Phòng gia đình</a>
+                <a href="">Phòng đơn</a>
+                <a href="">Phòng nghỉ ngơi</a>
+                <a href="">Phòng tình yêu</a>
+            </div>
+            <div class="flex-choose">
+
+                <div class="chitiet">
+                    <figure class="snip0016">
+                        <img src="assets/img/product/tg1.jpg" alt="sample41" />
+                        <figcaption>
+                            <p class="p">Diện tích 92 m</p>
+                            <p class="p">Số phòng: 4</p>
+                            <p class="p">7 dịch vụ đi kèm miễn phí</p>
+                            <p>
+                            <p class="p1"><i class="fa-solid fa-thumbs-up"></i> 1333 lượt thích</p>
+                            <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> 899 lượt đặt </p>
+                            <p class="p1"><i class="fa-solid fa-eye"></i> 1580 lượt xem</p>
+                            </p>
+                            <a href="#"></a>
+                        </figcaption>
+                    </figure>
+                    <div class="sao">
+                        <a class="a0" href="">Phòng tình yêu </a>
+                        <p class="diachi">
+                            <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
+                        </p>
+                        <div class="text-dg">
+                            <a class="a" href="">8.9 tuyệt vời</a><br>
+                            <a class="a1" href="">Qua 1257 đánh giá</a>
+                        </div>
+                    </div>
+                    <div class="i">
+                        <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <span>200.000 VNĐ</span>
+                    </div>
+                </div>
+                <!--  -->
+
+                <div class="chitiet">
+                    <figure class="snip0016">
+                        <img src="assets/img/product/tg1.jpg" alt="sample41" />
+                        <figcaption>
+                            <p class="p">Diện tích 92 m</p>
+                            <p class="p">Số phòng: 4</p>
+                            <p class="p">7 dịch vụ đi kèm miễn phí</p>
+                            <p>
+                            <p class="p1"><i class="fa-solid fa-thumbs-up"></i> 1333 lượt thích</p>
+                            <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> 899 lượt đặt </p>
+                            <p class="p1"><i class="fa-solid fa-eye"></i> 1580 lượt xem</p>
+                            </p>
+                            <a href="#"></a>
+                        </figcaption>
+                    </figure>
+                    <div class="sao">
+                        <a class="a0" href="">Phòng tình yêu </a>
+                        <p class="diachi">
+                            <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
+                        </p>
+                        <div class="text-dg">
+                            <a class="a" href="">8.9 tuyệt vời</a><br>
+                            <a class="a1" href="">Qua 1257 đánh giá</a>
+                        </div>
+                    </div>
+                    <div class="i">
+                        <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <span>200.000 VNĐ</span>
+                    </div>
+                </div>
+                <!--  -->
+
+                <div class="chitiet">
+                    <figure class="snip0016">
+                        <img src="assets/img/product/tg1.jpg" alt="sample41" />
+                        <figcaption>
+                            <p class="p">Diện tích 92 m</p>
+                            <p class="p">Số phòng: 4</p>
+                            <p class="p">7 dịch vụ đi kèm miễn phí</p>
+                            <p>
+                            <p class="p1"><i class="fa-solid fa-thumbs-up"></i> 1333 lượt thích</p>
+                            <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> 899 lượt đặt </p>
+                            <p class="p1"><i class="fa-solid fa-eye"></i> 1580 lượt xem</p>
+                            </p>
+                            <a href="#"></a>
+                        </figcaption>
+                    </figure>
+                    <div class="sao">
+                        <a class="a0" href="">Phòng tình yêu </a>
+                        <p class="diachi">
+                            <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
+                        </p>
+                        <div class="text-dg">
+                            <a class="a" href="">8.9 tuyệt vời</a><br>
+                            <a class="a1" href="">Qua 1257 đánh giá</a>
+                        </div>
+                    </div>
+                    <div class="i">
+                        <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <span>200.000 VNĐ</span>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="chitiet">
+                    <figure class="snip0016">
+                        <img src="assets/img/product/tg1.jpg" alt="sample41" />
+                        <figcaption>
+                            <p class="p">Diện tích 92 m</p>
+                            <p class="p">Số phòng: 4</p>
+                            <p class="p">7 dịch vụ đi kèm miễn phí</p>
+                            <p>
+                            <p class="p1"><i class="fa-solid fa-thumbs-up"></i> 1333 lượt thích</p>
+                            <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> 899 lượt đặt </p>
+                            <p class="p1"><i class="fa-solid fa-eye"></i> 1580 lượt xem</p>
+                            </p>
+                            <a href="#"></a>
+                        </figcaption>
+                    </figure>
+                    <div class="sao">
+                        <a class="a0" href="">Phòng tình yêu </a>
+                        <p class="diachi">
+                            <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
+                        </p>
+                        <div class="text-dg">
+                            <a class="a" href="">8.9 tuyệt vời</a><br>
+                            <a class="a1" href="">Qua 1257 đánh giá</a>
+                        </div>
+                    </div>
+                    <div class="i">
+                        <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <span>200.000 VNĐ</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- thanh toán -->
+        <div class="thanhtoan">
+            <div class="text-tt">
+                <h2>Đối tác thanh toán</h2>
+                <p>
+                    Những đối tác thanh toán đáng tin cậy của chúng tôi sẽ giúp
+                    cho bạn luôn an tâm thực hiện mọi giao dịch một cách thuận lợi nhất!
+                </p>
+            </div>
+            <div class="grid">
+                <img src="assets/img/thanhtoan/t1.webp" alt="">
+                <img src="assets/img/thanhtoan/t2.webp" alt="">
+                <img src="assets/img/thanhtoan/t3.webp" alt="">
+                <img src="assets/img/thanhtoan/t4.webp" alt="">
+                <img src="assets/img/thanhtoan/t5.webp" alt="">
+                <img src="assets/img/thanhtoan/t6.webp" alt="">
+                <img src="assets/img/thanhtoan/t7.webp" alt="">
+                <img src="assets/img/thanhtoan/t8.webp" alt="">
+                <img src="assets/img/thanhtoan/t9.webp" alt="">
+                <img src="assets/img/thanhtoan/t10.webp" alt="">
+                <img src="assets/img/thanhtoan/t11.webp" alt="">
+                <img src="assets/img/thanhtoan/t12.webp" alt="">
+
+            </div>
+        </div>
+        <!-- vận chuyển -->
+        <div class="vanchuyen">
+            <div class="text-vc">
+                <h2>Đối tác vận chuyển</h2>
+                <p>
+                    Những đối tác thanh toán đáng tin cậy của chúng tôi sẽ giúp
+                    cho bạn luôn an tâm thực hiện mọi giao dịch một cách thuận lợi nhất!
+                </p>
+            </div>
+            <div class="grid-vc">
+                <img src="assets/img/vanchuyen/v1.webp" alt="">
+                <img src="assets/img/vanchuyen/v2.webp" alt="">
+                <img src="assets/img/vanchuyen/v3.webp" alt="">
+                <img src="assets/img/vanchuyen/v4.webp" alt="">
+                <img src="assets/img/vanchuyen/v5.webp" alt="">
+                <img src="assets/img/vanchuyen/v6.webp" alt="">
+                <img src="assets/img/vanchuyen/v7.webp" alt="">
+                <img src="assets/img/vanchuyen/v8.webp" alt="">
+                <img src="assets/img/vanchuyen/v9.webp" alt="">
+                <img src="assets/img/vanchuyen/v10.webp" alt="">
+                <img src="assets/img/vanchuyen/v11.webp" alt="">
+                <img src="assets/img/vanchuyen/v12.webp" alt="">
+            </div>
+        </div>
+        <!-- Đối tác khách sạn -->
+        <div class="nhahang">
+            <div class="text-nh">
+                <h2>Đối tác nhà hàng</h2>
+                <p>
+                    Những đối tác thanh toán đáng tin cậy của chúng tôi sẽ giúp
+                    cho bạn luôn an tâm thực hiện mọi giao dịch một cách thuận lợi nhất!
+                </p>
+            </div>
+            <div class="grid-nh">
+                <img src="assets/img/doitac/t1.webp" alt="">
+                <img src="assets/img/doitac/t2.webp" alt="">
+                <img src="assets/img/doitac/t3.webp" alt="">
+                <img src="assets/img/doitac/t4.webp" alt="">
+                <img src="assets/img/doitac/t7.webp" alt="">
+                <img src="assets/img/doitac/t6.webp" alt="">
+                <img src="assets/img/doitac/t7.webp" alt="">
+                <img src="assets/img/doitac/t8.webp" alt="">
+                <img src="assets/img/doitac/t9.webp" alt="">
+                <img src="assets/img/doitac/t10.webp" alt="">
+                <img src="assets/img/doitac/t1.webp" alt="">
+                <img src="assets/img/doitac/t12.webp" alt="">
+            </div>
+        </div>
+        <!-- tại sao nên đặt phòng ở đây -->
+        <div class="why">
+            <h2 class="h2">Tại sao nên đặt phòng ở StayyInn</h2>
+            <div class="grid-w">
+                <div class="img-w">
+                    <img src="assets/img/icon/ic1.webp" alt="">
+                    <h2>Giải pháp du lịch hoàn thiện</h2>
+                    <p>
+                        Giải pháp toàn diện - giúp bạn tìm chuyến bay
+                        và khách sạn khắp Việt Nam và Đông Nam Á một cách tiết kiệm.
+                    </p>
+                </div>
+                <div class="img-w">
+                    <img src="assets/img/icon/ic2.webp" alt="">
+                    <h2>Giải pháp du lịch hoàn thiện</h2>
+                    <p>
+                        Giải pháp toàn diện - giúp bạn tìm chuyến bay
+                        và khách sạn khắp Việt Nam và Đông Nam Á một cách tiết kiệm.
+                    </p>
+                </div>
+                <div class="img-w">
+                    <img src="assets/img/icon/ic3.webp" alt="">
+                    <h2>Giải pháp du lịch hoàn thiện</h2>
+                    <p>
+                        Giải pháp toàn diện - giúp bạn tìm chuyến bay
+                        và khách sạn khắp Việt Nam và Đông Nam Á một cách tiết kiệm.
+                    </p>
+                </div>
+                <div class="img-w">
+                    <img src="assets/img/icon/ic4.webp" alt="">
+                    <h2>Giải pháp du lịch hoàn thiện</h2>
+                    <p>
+                        Giải pháp toàn diện - giúp bạn tìm chuyến bay
+                        và khách sạn khắp Việt Nam và Đông Nam Á một cách tiết kiệm.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        <!-- foodted -->
+        <div class="footer">
+            <div class="ft-0">
+                <div class="ft-1">
+                    <img src="assets/img/logo/logo2.svg" alt="">
+                    <div class="grid-1-ft">
+                        <img src="assets/img/ft/1.webp" alt="">
+                        <img src="assets/img/ft/4.webp" alt="">
+                        <img src="assets/img/ft/5.webp" alt="">
+                        <img src="assets/img/ft/4.webp" alt="">
+                        <img src="assets/img/ft/5.webp" alt="">
+                        <img src="assets/img/ft/6.webp" alt="">
+                    </div>
+                    <div class="doitac">
+                        <i class="fa-solid fa-handshake"></i>Hợp tác với StayyInn
+                    </div>
+                    <h2 class="h2">Đối tác thanh toán</h2>
+                    <div class="grid-2-ft">
+                        <img src="assets/img/ft/10.webp" alt="">
+                        <img src="assets/img/ft/11.webp" alt="">
+                        <img src="assets/img/ft/12.webp" alt="">
+                        <img src="assets/img/ft/13.webp" alt="">
+                        <img src="assets/img/ft/14.webp" alt="">
+                        <img src="assets/img/ft/15.webp" alt="">
+                        <img src="assets/img/ft/16.webp" alt="">
+                        <img src="assets/img/ft/17.webp" alt="">
+                        <img src="assets/img/ft/18.webp" alt="">
+                        <img src="assets/img/ft/19.webp" alt="">
+                        <img src="assets/img/ft/20.webp" alt="">
+                        <img src="assets/img/ft/21.webp" alt="">
+                        <img src="assets/img/ft/10.webp" alt="">
+                        <img src="assets/img/ft/11.webp" alt="">
+                        <img src="assets/img/ft/12.webp" alt="">
+                        <img src="assets/img/ft/13.webp" alt="">
+                    </div>
+                </div>
+                <div class="ft-2">
+                    <h2>Về StayyInn</h2>
+                    Cách đặt chỗ <br>
+                    Liên hệ chúng tôi <br>
+                    Trợ giúp <br>
+                    Tuyển dụng <br>
+                    Về chúng tôi <br>
+                    <h2>Theo dõi chúng tôi </h2>
+                    Twitter <br>
+                    Facebook <br>
+                    Instagram <br>
+                    Youtube <br>
+                </div>
+                <div class="ft-3">
+                    <h2>Sản phẩm</h2>
+                    Vé máy bay <br>
+                    Khách sạn <br>
+                    Combo tiết kiệm <br>
+                    Xperience <br>
+                    Car Rental <br>
+                    Biệt thự <br>
+                    Căn hộ <br>
+                    Đưa đón sân bay <br>
+                </div>
+                <div class="ft-4">
+                    <h2>Khác</h2>
+                    Traveloka Affiliate <br>
+                    Traveloka Blog <br>
+                    Chính sách quyền riêng tư <br>
+                    Điều khoản & Điều kiện <br>
+                    Quy chế hoạt động <br>
+                    Đăng ký nơi nghỉ của bạn <br>
+                    Đăng ký doanh nghiệp hoạt động du lịch của bạn <br>
+                    Khu vực báo chí <br><br>
+                    <h2>Tải ứng dụng trên</h2>
+                    <img src="assets/img/logo/gg.svg" alt="">
+                    <img src="assets/img/logo/ap.svg" alt="">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

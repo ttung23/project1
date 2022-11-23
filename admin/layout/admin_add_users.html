@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm user</title>
+    <link rel="stylesheet" href="assets/css/admin_cmt.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+</head>
+
+<body>
+    <main class="container" style="display: flex;">
+        <nav>
+            <div class="logo-name">
+                <div class="logo-image">
+                    <img src="img/logo.jpg" alt="">
+                </div>
+
+                <span class="logo_name">StayyInn Hotel</span>
+            </div>
+
+            <div class="menu-items">
+                <ul class="nav-links">
+                    <li><a href="#">
+                            <i class="uil uil-estate"></i>
+                            <span class="link-name">Trang chủ</span>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="uil uil-comment-alt-dots"></i>
+                            <span class="link-name">Quản lý comment</span>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="uil uil-apps"></i>
+                            <span class="link-name">quản Lý Service</span>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="uil uil-bed-double"></i>
+                            <span class="link-name">quản Lý room</span>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="uil uil-book-medical"></i>
+                            <span class="link-name">quản lý booking</span>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="uil uil-list-ui-alt"></i>
+                            <span class="link-name">quản Lý Category</span>
+                        </a></li>
+
+                    <li><a href="#">
+                            <i class="uil uil-bitcoin"></i>
+                            <span class="link-name">Quản Lý Dịch Vu</span>
+                        </a></li>
+
+                    <li><a href="#">
+                            <i class="uil uil-feedback"></i>
+                            <span class="link-name">quản Lý Feedbacks</span>
+                        </a></li>
+
+                    <li><a href="#">
+                            <i class="uil uil-chart-pie"></i>
+                            <span class="link-name">Quản Lý Thống Kê</span>
+                        </a></li>
+
+                    <li><a href="#">
+                            <i class="uil uil-head-side"></i>
+                            <span class="link-name">Quản Lý admin</span>
+                        </a></li>
+
+                </ul>
+
+                <ul class="logout-mode">
+                    <li><a href="#">
+                            <i class="uil uil-signout"></i>
+                            <span class="link-name">Logout</span>
+                        </a></li>
+
+                    <li class="mode">
+                        <a href="#">
+                            <i class="uil uil-moon"></i>
+                            <span class="link-name">Dark Mode</span>
+                        </a>
+
+                        <div class="mode-toggle">
+                            <span class="switch"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <section class="dashboard w-full" >
+            <div class="w-full flex justify-between p-3 items-center">
+                <i class="uil uil-bars sidebar-toggle text-3xl"></i>
+    
+                <div class="search-box">
+                    <i class="uil uil-search"></i>
+                    <input type="text" placeholder="Search here..." class="border-sky-400 px-3">
+                </div>
+                
+                <img src="./assets/img/anh3.jpg" alt="" width="50px" class="rounded-full">
+            </div>
+    
+            <div class="content">
+                <div class="danh_sach">
+                    <h3 class="text-3xl text-sky-500">
+                        THÊM USERS
+                    </h3>
+
+
+                    <form action="" method="post">
+                        <div>
+                            <label for="">ID</label>
+                            <input type="text" name="id" disabled class="border rounded border-sky-400 w-full p-2">
+                        </div>
+
+                        <div>
+                            <label for="">Name</label>
+                            <input type="text" name="name" class="border rounded border-sky-400 w-full p-2 " >
+                        </div>
+
+                        <div>
+                            <label for="">Username</label>
+                            <input type="text" name="username" class="border rounded border-sky-400 w-full p-2 " >
+                        </div>
+
+                        <div>
+                            <label for="">PassWord</label>
+                            <input type="password" name="password" class="border rounded border-sky-400 w-full p-2 " >
+                        </div>
+
+                        <div>
+                            <label for="">Gender</label>
+                            <input type="text" name="gender" class="border rounded border-sky-400 w-full p-2 " >
+                        </div>
+
+                        <div>
+                            <label for="">Email</label>
+                            <input type="text" name="email" class="border rounded border-sky-400 w-full p-2 " >
+                        </div>
+
+                        <div>
+                            <label for="">Images</label>
+                            <input type="file" name="images" class=" w-full p-2 " >
+                        </div>
+
+                        <div>
+                            <label for="">Address</label>
+                            <input type="text" name="address" class="border rounded border-sky-400 w-full p-2 " >
+                        </div>
+
+                        <div>
+                            <label for="">Phone</label>
+                            <input type="text" name="phone" class="border rounded border-sky-400 w-full p-2 " >
+                        </div>
+
+                        <div>
+                            <label for="">Date</label>
+                            <input type="date" name="username" class="border rounded border-sky-400 w-full p-2 " >
+                        </div>
+
+                        <div>
+                            <label for="">Status</label>
+                            <input type="text" name="status" class="border rounded border-sky-400 w-full p-2 " >
+                        </div>
+
+                        <div>
+                            <label for="">Created_at</label>
+                            <input type="date" name="created_at" class="border rounded border-sky-400 w-full p-2 " >
+                        </div>
+
+                        <div>
+                            <label for="">Updated_at</label>
+                            <input type="date" name="cpdated_at" class="border rounded border-sky-400 w-full p-2 " >
+                        </div>
+
+
+                        <button type="submit" class="border p-3 bg-blue-500 text-white mt-5 rounded">Thêm users</button>
+                    </form>
+
+                </div>
+    
+            </div>
+        </section>
+
+
+    </main>
+
+    <script>
+
+        const body = document.querySelector("body"),
+            modeToggle = body.querySelector(".mode-toggle");
+
+        let getMode = localStorage.getItem("mode");
+        if (getMode && getMode === "dark") {
+            body.classList.toggle("dark");
+        }
+
+        modeToggle.addEventListener("click", () => {
+            body.classList.toggle("dark");
+            if (body.classList.contains("dark")) {
+                localStorage.setItem("mode", "dark");
+            } else {
+                localStorage.setItem("mode", "light");
+            }
+        });
+
+
+        new Morris.Donut({
+            // ID of the element in which to draw the chart.
+            element: 'myfirstchart',
+            // Chart data records -- each entry in this array corresponds to a point on
+            // the chart.
+            data: [
+                { year: '2008', value: 20 },
+                { year: '2009', value: 10 },
+                { year: '2010', value: 5 },
+                { year: '2011', value: 5 },
+                { year: '2012', value: 20 }
+            ],
+            // The name of the data record attribute that contains x-values.
+            xkey: 'year',
+            // A list of names of data record attributes that contain y-values.
+            ykeys: ['value'],
+            // Labels for the ykeys -- will be displayed when you hover over the
+            // chart.
+            labels: ['Value']
+        });
+    </script>
+
+
+
+</body>
+
+</html>
