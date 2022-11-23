@@ -24,7 +24,9 @@
 .nav-right ul li {
   padding-right: 15px;
 }
-
+/* sau đăng nhập */
+.nav-right ul li .anh-user {
+}
 .hien {
   display: grid !important;
   grid-template-columns: 2.5fr 1.5fr;
@@ -211,8 +213,47 @@
   padding: 5px;
   color: white;
 }
-
-/*  */
+/* menu-ảnh sau đăng nhập */
+.anh-dangnhap {
+  display: none;
+}
+.flex-anh-dn {
+  display: flex;
+}
+.flex-anh-dn img {
+  border-radius: 50%;
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+}
+.noidung-anh-dangnhap {
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  width: 250px;
+  border-radius: 5px;
+  padding-bottom: 10px;
+  line-height: 40px;
+}
+.noidung-anh-dangnhap h3 {
+  font-weight: 700;
+  font-size: 19px;
+  padding: 10px 0 0 15px;
+}
+.noidung-anh-dangnhap .a {
+  padding-left: 15px;
+}
+.noidung-anh-dangnhap i {
+  color: #0194f3;
+  font-size: 18px;
+  margin-right: 5px;
+}
+.noidung-anh-dangnhap span {
+  font-weight: 500;
+}
+.noidung-anh-dangnhap .a:hover {
+  background-color: #9b9d9e;
+}
+/* nav-đăng kí */
 .nav-right ul li .dangki {
   padding: 5px 10px 10px 10px;
   background-color: #0194f3;
