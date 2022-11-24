@@ -126,6 +126,11 @@
     cursor: pointer;
 }
 
+.delete-room a {
+    display: inline-block;
+    padding: 5px 15px;
+}
+
 .delete-room::before {
     content: "";
     position: absolute;

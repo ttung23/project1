@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="assets/css/admin_cmt.css">
-    <link rel="stylesheet" href="assets/css/index-admin.css">
-    <link rel="stylesheet" href="assets/css/side.css">
+    <title>Quản lý Services</title>
+    <link rel="stylesheet" href="assets/css/admin_service.css">
+    
+    
 
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
@@ -98,159 +98,112 @@
             </div>
         </nav>
 
-        <div class="col-sm-10">
-            <div class=" border border-[#D0D7DE] fs-6">
-                <div class="pb-4 m-4">
-                    <h1 class="fs-6 text-primary"><i class="fa-solid fa-hotel mr-4"></i>Sơ Đồ Phòng</h1>
-                    <div class="col-sm-2">
-                        <label for="">Loại Dịch Vụ:</label>
-                        <select name="" id="" class="form-control">
-                            <option value="">Tất Cả</option>
-                            <option value="">Tất Cả</option>
-                            <option value="">Tất Cả</option>
-                            <option value="">Tất Cả</option>
-                            <option value="">Tất Cả</option>
-                        </select>
-                    </div>
-                    <div class="my-4 row">
-                        <label for="">Trạng Thái service</label>
-                        <div class="col-sm-2 m-4 hover-bg-[#78C2B5]">
-                            <div>
-                                <button class="border btn btn-outline-success border-[#D0D7DE] w-100 h-100 text-primary px-3 py-1 shadow-lg">
-                                   Thêm
-                                </button>
-                            </div>
-                        </div>
-                        <div class="col-sm-2 m-4">
-                            <div>
-                                <button class="border btn btn-outline-danger border-[#D0D7DE] w-100 h-100 text-primary px-3 py-1 shadow-lg">
-                                    <i class="fa-solid fa-person-walking-luggage text-primary"></i>
-                                    Sửa
-                                </button>
-                            </div>
-                        </div>
-                        <div class="col-sm-2 m-4">
-                            <div>
-                                <button class="border border-[#D0D7DE] btn btn-outline-warning btn btn-outline-danger w-100 h-100 text-primary px-3 py-1 shadow-lg">
-                                    <i class="fa-solid fa-person-walking-luggage text-success"></i>
-            
-                                   xóa
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        *<a class="text-primary px-4">di chuyển con trỏ chọn hình ảnh để xem thông tin phòng</a>
-                    </div>
+
+        <div class="content">
+
+            <div class="top">
+                <i class="uil uil-bars sidebar-toggle"></i>
+    
+                <div class="search-box">
+                    <i class="uil uil-search"></i>
+                    <input type="text" placeholder="Search here...">
                 </div>
+                
+                <img src="assets/img/anh1.jpg" alt="">
             </div>
-            <section>
-            <div class="">
-                    <table class="table table-hover">
-                        <tr class="" scope="col">
-                            <th class="">#</th>
-                            <th class="table-primary">ID</th>
-                            <th class="">Name</th>
-                            <th class="table-primary">Images</th>
-                            <th class="">description</th>
-                            <th class="table-primary">price</th>
-                            <th class="">quantity</th>
-                            <th class="table-primary">status</th>
-                            <th class="">room_id</th>
-                            <th class="table-primary">Ngày tạo</th>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox"></td>
-                            <td class="table-success">1</td>
-                            <td class="table-danger">1</td>
-                            <td class="table-warning">1</td>
-                            <td class="table-info">1</td>
-                            <td class="table-secondary">1</td>
-                            <td class="table-danger">1</td>
-                            <td class="table-warning">1</td>
-                            <td class="table-info">1</td>
-                            <td class="table-secondary">1</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox"></td>
-                            <td class="table-success">1</td>
-                            <td class="table-danger">1</td>
-                            <td class="table-warning">1</td>
-                            <td class="table-info">1</td>
-                            <td class="table-secondary">1</td>
-                            <td class="table-danger">1</td>
-                            <td class="table-warning">1</td>
-                            <td class="table-info">1</td>
-                            <td class="table-secondary">1</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox"></td>
-                            <td class="table-success">1</td>
-                            <td class="table-danger">1</td>
-                            <td class="table-warning">1</td>
-                            <td class="table-info">1</td>
-                            <td class="table-secondary">1</td>
-                            <td class="table-danger">1</td>
-                            <td class="table-warning">1</td>
-                            <td class="table-info">1</td>
-                            <td class="table-secondary">1</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox"></td>
-                            <td class="table-success">1</td>
-                            <td class="table-danger">1</td>
-                            <td class="table-warning">1</td>
-                            <td class="table-info">1</td>
-                            <td class="table-secondary">1</td>
-                            <td class="table-danger">1</td>
-                            <td class="table-warning">1</td>
-                            <td class="table-info">1</td>
-                            <td class="table-secondary">1</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox"></td>
-                            <td class="table-success">1</td>
-                            <td class="table-danger">1</td>
-                            <td class="table-warning">1</td>
-                            <td class="table-info">1</td>
-                            <td class="table-secondary">1</td>
-                            <td class="table-danger">1</td>
-                            <td class="table-warning">1</td>
-                            <td class="table-info">1</td>
-                            <td class="table-secondary">1</td>
-                        </tr>
-                    </table>
+
+            <div class="danh_sach">
+                <h3>
+                    DANH SÁCH DỊCH VỤ
+                </h3>
+
+                <div class="action flex items-center">
+                    <a href="#" class="mx-3">Thêm</a>
+                    <a href="#" class="mx-3">Sửa</a>
+                    <a href="#">Xóa</a>
                 </div>
-            </section>
-            <div class="col-sm-6">
-                <h1 class="fs-5 text-center">Biểu Đồ Thống Kê Đặt Phòng Theo Tháng</h1>
+
+                <table>
+                    <tr>
+                        <th>#</th>
+                        <th style="width: 65px;">ID</th>
+                        <th>Tên</th>
+                        <th>Ảnh đại diện</th>
+                        <th style="width: 250px;">Mô tả</th>
+                        <th>Trạng thái</th>
+                        <th>Ngày tạo</th>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="" id="">
+                        </td>
+                        <td>1</td>
+                        <td>Vinh</td>
+                        <td>
+                            <img src="./assets/img/anh1.jpg" alt="" width="150px">
+                        </td>
+                        <td>....</td>
+                        <td>....</td>
+                        <td>18/09/2022</td>
+                    </tr>
+
+                </table>
+            </div>
+
+            <div class="bieu_do">
+                <h3>
+                    CÁC THỐNG KÊ VỀ DỊCH VỤ
+                </h3>
+
                 <div id="myfirstchart" style="height: 250px;"></div>
-                <script>
-                    new Morris.Donut({
-              // ID of the element in which to draw the chart.
-              element: 'myfirstchart',
-              // Chart data records -- each entry in this array corresponds to a point on
-              // the chart.
-              data: [
+
+            </div>
+        </div>
+
+
+    </main>
+    <script>
+
+        const body = document.querySelector("body"),
+            modeToggle = body.querySelector(".mode-toggle");
+
+        let getMode = localStorage.getItem("mode");
+        if (getMode && getMode === "dark") {
+            body.classList.toggle("dark");
+        }
+
+        modeToggle.addEventListener("click", () => {
+            body.classList.toggle("dark");
+            if (body.classList.contains("dark")) {
+                localStorage.setItem("mode", "dark");
+            } else {
+                localStorage.setItem("mode", "light");
+            }
+        });
+
+
+        new Morris.Donut({
+            // ID of the element in which to draw the chart.
+            element: 'myfirstchart',
+            // Chart data records -- each entry in this array corresponds to a point on
+            // the chart.
+            data: [
                 { year: '2008', value: 20 },
                 { year: '2009', value: 10 },
                 { year: '2010', value: 5 },
                 { year: '2011', value: 5 },
                 { year: '2012', value: 20 }
-              ],
-              // The name of the data record attribute that contains x-values.
-              xkey: 'year',
-              // A list of names of data record attributes that contain y-values.
-              ykeys: ['value'],
-              // Labels for the ykeys -- will be displayed when you hover over the
-              // chart.
-              labels: ['Value']
-            });
-                </script>
-            </div>
-        </div>
-
-    </main>
+            ],
+            // The name of the data record attribute that contains x-values.
+            xkey: 'year',
+            // A list of names of data record attributes that contain y-values.
+            ykeys: ['value'],
+            // Labels for the ykeys -- will be displayed when you hover over the
+            // chart.
+            labels: ['Value']
+        });
+    </script>
     <script src="../layout/assets/js/index-admin.js"></script>
 </body>
 
