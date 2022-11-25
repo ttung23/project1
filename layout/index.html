@@ -9,14 +9,16 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 
-    <link rel="stylesheet" href="assets/css/index.css"/>
+    <link rel="stylesheet" href="assets/css/index.css" />
     <link rel="stylesheet" href="assets/css/hover-index.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+
 
 </head>
 
 <body>
     <div class="container-index">
-
         <div class="nav-index containerr">
             <div class="nav-left">
                 <i class="fa-solid fa-bars"></i>
@@ -33,12 +35,12 @@
                     </li>
                     <li>
                         <div class="dropdown">
-                            <button type="submit" onclick="hamDropdown()" class="nut_dropdown">
+                            <button onclick="hamDropdown()" class="nut_dropdown">
                                 <img src="assets/img/logo/co.png" alt=""> VND <i
                                     style="color:black; font-size: 11px; padding-left: 4px;padding-top: 5px;"
                                     class="fa-solid fa-chevron-down"></i>
                             </button>
-                            <div class="noidung_dropdown">
+                            <div class="noidung_dropdown hien" id="money">
                                 <div class="nation">
                                     <h2>Tên quốc gia & ngôn ngữ</h2>
                                     <span>Indonesia (Bahasha indonesia) </span>
@@ -74,11 +76,15 @@
                     </li>
                     <li>
                         <div class="dropdown-2">
-                            <button type="submit"><a class="dangnhap" href=""><i>
-                                        <i class="fa-solid fa-user"></i></i> Đăng nhập
-                                    <i style="color:black; font-size: 12px;" class="fa-solid fa-chevron-down"></i></a>
+                            <button onclick="drop_menu()">
+                                <a class="dangnhap">
+                                    <i>
+                                        <i class="fa-solid fa-user"></i>
+                                    </i> Đăng nhập
+                                    <i style="color:black; font-size: 12px;" class="fa-solid fa-chevron-down"></i>
+                                </a>
                             </button>
-                            <div class="noidung-index">
+                            <div class="noidung-index hien-login" id="login">
                                 <h2>Đăng nhập tài khoản</h2>
                                 <span>Email hoặc số di động</span>
                                 <input type="text">
@@ -111,7 +117,7 @@
             <ul class="containerr">
                 <li>
                     <div class="menu-con1">
-                        <button><a href="">Vận chuyển</a><i class="fa-solid fa-caret-down"></i></button>
+                        <a href="">Vận chuyển</a><i class="fa-solid fa-caret-down"></i>
                         <div class="nd-mn1">
                             <i class="fa-solid fa-car-side"></i> Cho thuê ô tô <br>
                             <i class="fa-solid fa-bus"></i> Xe đưa đón <br>
@@ -121,7 +127,7 @@
                 </li>
                 <li>
                     <div class="menu-con2">
-                        <button><a href="">Chỗ ở</a><i class="fa-solid fa-caret-down"></i></button>
+                        <a href="">Chỗ ở</a><i class="fa-solid fa-caret-down"></i>
                         <div class="nd-mn2">
                             <i style="color: #0770cd;" class="fa-sharp fa-solid fa-gopuram"></i> Ở Hà Nội <br>
                             <i style="color: #0770cd;" class="fa-solid fa-bridge"></i> Ở TP.HCM
@@ -130,7 +136,7 @@
                 </li>
                 <li>
                     <div class="menu-con3">
-                        <button><a href="">Hoạt động giải trí</a><i class="fa-solid fa-caret-down"></i></button>
+                        <a href="">Hoạt động giải trí</a><i class="fa-solid fa-caret-down"></i>
                         <div class="nd-mn3">
                             <i style="color: #ff6d70;" class="fa-solid fa-people-group"></i> Hoạt động nhóm <br>
                             <i style="color: #0770cd;" class="fa-solid fa-water-ladder"></i> Bể bơi <br>
@@ -140,7 +146,7 @@
                 </li>
                 <li>
                     <div class="menu-con4">
-                        <button><a href="">Sản phẩm bổ xung</a><i class="fa-solid fa-caret-down"></i></button>
+                        <a href="">Sản phẩm bổ xung</a><i class="fa-solid fa-caret-down"></i>
                         <div class="nd-mn4">
                             <i style="color: rgb(208, 148, 70);" class="fa-solid fa-coins"></i> Điểm thưởng của tôi <br>
                             <i style="color: red;" class="fa-solid fa-gift"></i> Đổi quà tặng
@@ -150,15 +156,16 @@
             </ul>
 
         </div>
+
         <!-- banenr -->
         <div class="banner">
             <div class="image containerr">
                 <img src="assets/img/banner/b1.webp" alt="">
-            
+
                 <img src="assets/img/banner/b2.webp" alt="">
 
                 <img src="assets/img/banner/b3.webp" alt="">
-            
+
                 <img src="assets/img/banner/b4.webp" alt="">
 
                 <img src="assets/img/banner/b5.webp" alt="">
@@ -169,9 +176,47 @@
                 <a href=""><i style="color: #ff6d70;" class="fa-solid fa-circle"></i></a>
                 <a href=""><i class="fa-solid fa-circle"></i></a>
                 <a href=""><i class="fa-solid fa-circle"></i></a>
-                
+
             </div>
         </div>
+        <!-- đặt lịch -->
+        <div class="search">
+            <div class="search-time">
+                <a class="a" href=""><i class="fa-solid fa-clock"></i><br> Theo giờ</a>
+                <a class="a" href=""><i class="fa-regular fa-moon"></i><br> Qua đêm</a>
+                <a class="a" href=""><i class="fa-solid fa-calendar-days"></i><br> Theo ngày</a>
+            </div>
+            <div class="search-check">
+                <div class="check">
+                    <div class="i">
+                        <i class="fa-sharp fa-solid fa-location-dot"></i> <br>
+                    </div>
+                    <p>Địa điểm</p>
+                    <input type="text" placeholder="Bạn muốn thuê phòng nào ?">
+                </div>
+                <div class="book">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <p>Nhận phòng</p>
+                    <input type="datetime-local" name="bdaytime">
+                </div>
+                <div class="book1">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <p>Trả phòng </p>
+                    <input type="datetime-local" name="bdaytime">
+                </div>
+                <div class="book2">
+                    <select name="tp" id="tp" class="tp">
+                        <option value="hn">Khách hàng</option>
+                        <option value="hn">1 người</option>
+                        <option value="hn">Nhiều người</option>
+                        <option value="hn">Gia đình</option>
+                    </select>
+
+                </div>
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm</button>
+            </div>
+        </div>
+        <!--  -->
         <!-- đặt lịch -->
         <div class="search">
             <div class="search-time">
@@ -273,7 +318,6 @@
                             <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> 899 lượt đặt </p>
                             <p class="p1"><i class="fa-solid fa-eye"></i> 1580 lượt xem</p>
                             </p>
-                            <a href="#"></a>
                         </figcaption>
                     </figure>
                     <div class="sao">
@@ -284,6 +328,10 @@
                         <div class="text-dg">
                             <a class="a" href="">8.9 tuyệt vời</a><br>
                             <a class="a1" href="">Qua 1257 đánh giá</a>
+                        </div>
+
+                        <div class="datphong-index">
+                            <a href="">Xem chi tiết</a>
                         </div>
                     </div>
                     <div class="i">
