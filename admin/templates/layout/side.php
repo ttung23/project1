@@ -17,11 +17,11 @@
                     <i class="uil uil-user"></i>
                     <span class="link-name">Quản lý người dùng</span>
                 </a></li>
-            <li><a href="#">
+            <li><a href="../../admin/comment/c_cmt.php">
                     <i class="uil uil-comment-alt-dots"></i>
                     <span class="link-name">Quản lý Comment</span>
                 </a></li>
-            <li><a href="#">
+            <li><a href="../../admin/service/c_service.php">
                     <i class="uil uil-apps"></i>
                     <span class="link-name">Quản lý Service</span>
                 </a></li>
@@ -36,11 +36,6 @@
             <li><a href="../../admin/danh-muc/c_danh_muc.php">
                     <i class="uil uil-list-ui-alt"></i>
                     <span class="link-name">Quản lý danh mục</span>
-                </a></li>
-
-            <li><a href="#">
-                    <i class="uil uil-bitcoin"></i>
-                    <span class="link-name">Quản lý Dịch Vu</span>
                 </a></li>
 
             <li><a href="#">

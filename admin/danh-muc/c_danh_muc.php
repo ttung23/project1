@@ -2,13 +2,7 @@
 // MODEL
 require_once '../global.php';
 require_once '../../dao/pdo.php';
-require_once '../../dao/room_dao.php';
 require_once '../../dao/category_dao.php';
-require_once '../../dao/service_dao.php';
-require_once '../../dao/comment_dao.php';
-require_once '../../dao/news_dao.php';
-require_once '../../dao/booking_dao.php';
-require_once '../../dao/user_dao.php';
 
 // CONTROLLER
 if (isset($_GET['add_cate'])) {

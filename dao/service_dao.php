@@ -1,6 +1,6 @@
 <?php
-function loadAll_service(){
-    $query = "select * from service order by service_id desc";
+function loadAll_service() {
+    $query = "SELECT sv.*, room.name as room_name FROM `service` sv LEFT JOIN room on sv.id_room = room.room_id;";
     $listservice = pdo_query_all($query);
     return $listservice;
 }
@@ -10,12 +10,12 @@ function loadAll_service_room($id){
     return $listservice;
 }
 
-function service_remove_by_id($cate_id){
-    $query = "delete from service where id = ?";
-    pdo_execute($query, $cate_id);
+function service_remove_by_id($id_service){
+    $query = "delete from service where service_id = ?";
+    pdo_execute($query, $id_service);
 }
 function Insert_service($name,$images,$description,$price,$quantity,$status,$id_room){
-    $query = "Insert into service(name,images,description,price,quantity,status,id_room) values(?,?,?,?,?,?,?)";
+    $query = "Insert into service(name, images, description, price, quantity, status, id_room) values(?,?,?,?,?,?,?)";
     pdo_execute($query, $name,$images,$description,$price,$quantity,$status,$id_room);
 }
 function Update_service($name,$images,$description,$price,$quantity,$status,$id_room)

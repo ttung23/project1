@@ -54,12 +54,13 @@
                     </li>
                     <li>
                         <div class="dropdown-2">
-                            <form action="index.php?" method="post">
-                            <button type="submit" name="login">
+                            
+                            <button type="" onclick="drop_menu()" name="login">
                                      <i class="fa-solid fa-user"></i></i> Đăng nhập
                                     <i style="color:black; font-size: 12px;" class="fa-solid fa-chevron-down"></i></a>
                             </button>
-                            <div class="noidung-index">
+                            <form action="index.php?" method="post">
+                            <div class="noidung-index" id="login">
                                 <h2>Đăng nhập tài khoản</h2>
                                 <span>Email hoặc số di động</span>
                                 <input type="text" name="user">

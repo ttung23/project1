@@ -13,6 +13,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../layout/assets/css/side.css">
     <link rel="stylesheet" href="../layout/assets/css/<?php echo $VIEW_CSS ?>">
+    <?= $VIEW_CSS_BOOSTRAP ?? "" ?>
     
     <!-- ICON -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">

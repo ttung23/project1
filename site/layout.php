@@ -23,31 +23,33 @@
     <div class="container-index">
         <!-- header -->
         <div>
-        <?php include_once "header.php" ?>
-        <div>
-        <!-- content  -->
-        <main>
-            <?php include_once $VIEW_NAME ?>
-        <main>
-                <!-- foodted -->
-        <div class="footer">
-            <?php include_once "footer.php" ?>
-        </div>
-    </div>
-    <script src="../layout/assets/js/main.js"></script>
-    <script src="../layout/assets/js/list-room.js"></script>
-    <script src="jquery-3.6.0.min.js"></script>
-    <script>
-          $("select").click(function() {
-    var open = $(this).data("isopen");
-    if(open) {
-      window.location.href = $(this).val()
-    }
-    //set isopen to opposite so next time when use clicked select box
-    //it wont trigger this event
-    $(this).data("isopen", !open);
-  });
-    </script>
+            <?php include_once "header.php" ?>
+            <div>
+                <!-- content  -->
+                <main>
+                    <?php include_once $VIEW_NAME ?>
+                    <main>
+                        <!-- foodted -->
+                        <div class="footer">
+                            <?php include_once "footer.php" ?>
+                        </div>
+            </div>
+            <script src="../layout/assets/js/main.js"></script>
+            <script src="../layout/assets/js/list-room.js"></script>
+            <script src="jquery-3.6.0.min.js"></script>
+            <script>
+                $("select").click(function() {
+                    var open = $(this).data("isopen");
+                    if (open) {
+                        window.location.href = $(this).val()
+                    }
+                    //set isopen to opposite so next time when use clicked select box
+                    //it wont trigger this event
+                    $(this).data("isopen", !open);
+                });
+            </script>
+
+            <script src="../layout/assets/js/main.js"></script>
 </body>
 
 </html>
