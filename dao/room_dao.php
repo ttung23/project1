@@ -5,6 +5,11 @@ function loadAll_room(){
     $listroom = pdo_query_all($query);
     return $listroom;
 }
+function loadAll_room4(){
+    $query = "select r.*,st.star,count(sv.id_room) as 'sv',COUNT(st.id_room) as 'tbl' from room r left join vote_room st on st.id_room = r.room_id left join service sv on sv.id_room=r.room_id GROUP BY room_id desc;";
+    $listroom = pdo_query_all($query);
+    return $listroom;
+}
 // select theo likes
 function loadAll_room_by_likes(){
     $query = "select r.*,st.star,count(sv.id_room) as 'sv',COUNT(st.id_room) as 'tbl' from room r left join vote_room st on st.id_room = r.room_id left join service sv on sv.id_room=r.room id GROUP BY likes desc limit 0,10;";
@@ -69,15 +74,15 @@ function room_tang_so_luot_xem($id){
 //     return $room;
 // }
 
-function insert_room($name, $des, $thumbnail, $id_cate, $price, $star, $quantity,$location,$acreage,$view,$likes,$id_service,$id_admin)
+function insert_room($name, $des, $thumbnail, $id_cate, $price, $star, $quantity,$status,$location,$acreage,$view,$likes,$id_service)
 {
-    $sql = "insert into hang_hoa(name, description, thumbnail, id_category_room, price, star, quantity,location,acreage,view,likes,id_service,id_admin) value('$name', '$des', '$thumbnail', '$id_cate', '$price', '$star', '$quantity','$location','$acreage','$view','$likes','$id_service','$id_admin')";
+    $sql = "insert into room(name, description, thumbnail, id_category_room, price, star, quantity,status,location,acreage,view,likes,id_service) value('$name', '$des', '$thumbnail', '$id_cate', '$price', '$star', '$quantity','$status','$location','$acreage','$view','$likes','$id_service')";
     pdo_execute($sql);
 }
-function  update_room($name, $des, $thumbnail, $id_cate, $price, $star, $quantity,$location,$acreage,$view,$likes,$id_service,$id_admin,$id)
+function  update_room($name, $des, $thumbnail, $id_cate, $price, $star, $quantity,$status,$location,$acreage,$view,$likes,$id_service,$id)
 {
-        $sql = "update hang_hoa set name='" . $name . "', description='" . $des . "', thumbnail='" . $thumbnail . "', id_category_room='" . $id_cate . "',price='" . $price . "',star='" . $star . "', quantity='" . $quantity . "', location='" . $location . "', acreage='" . $acreage . "', view='" . $view . "', likes='" . $likes . "', id_service='" . $id_service . "' where room_id=" . $id;
-    pdo_execute($sql);
+        $sql = "update room set name= ?, description=?, thumbnail= ?, id_category_room= ?,price= ?,star= ?, quantity=?,status =?, location= ?, acreage=?, view= ?, likes= ?, id_service=? where room_id =?";
+    pdo_execute($sql,$name, $des, $thumbnail, $id_cate, $price, $star, $quantity,$status,$location,$acreage,$view,$likes,$id_service,$id);
 }
 function  find_room($checkin,$checkout)
 {

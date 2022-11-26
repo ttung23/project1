@@ -25,22 +25,17 @@
                     <i class="uil uil-apps"></i>
                     <span class="link-name">Quản lý Service</span>
                 </a></li>
-            <li><a href="#">
+            <li><a href="../../admin/room/c_room.php">
                     <i class="uil uil-bed-double"></i>
                     <span class="link-name">Quản lý room</span>
                 </a></li>
-            <li><a href="#">
+            <li><a href="../../admin/booking/c_booking.php">
                     <i class="uil uil-book-medical"></i>
                     <span class="link-name">Quản lý Booking</span>
                 </a></li>
             <li><a href="../../admin/danh-muc/c_danh_muc.php">
                     <i class="uil uil-list-ui-alt"></i>
                     <span class="link-name">Quản lý danh mục</span>
-                </a></li>
-
-            <li><a href="#">
-                    <i class="uil uil-bitcoin"></i>
-                    <span class="link-name">Quản lý Dịch Vu</span>
                 </a></li>
 
             <li><a href="#">
@@ -53,9 +48,13 @@
                     <span class="link-name">Quản lý Thống Kê</span>
                 </a></li>
 
-            <li><a href="#">
+            <li><a href="../../admin/admin/c_admin.php">
                     <i class="uil uil-head-side"></i>
                     <span class="link-name">Quản lý Admin</span>
+                </a></li>
+            <li><a href="../../admin/permission/c_permission.php">
+                    <i class="uil uil-head-side"></i>
+                    <span class="link-name">Quản lý Permission</span>
                 </a></li>
 
         </ul>

@@ -47,7 +47,8 @@
             <div class="action">
                 <a href="../../admin/danh-muc/c_danh_muc.php?add_cate">Thêm danh mục</a>
                 <a href="../../admin/danh-muc/c_danh_muc.php?edit_cate">Sửa danh mục</a>
-                <button type="submit" name="delete_cate" onclick="return confirm('Bạn muốn xóa danh mục ko?')">Xóa danh mục</button>
+                <button type="submit" name="delete_cate" onclick="return confirm('Bạn muốn xóa danh mục ko?')">Xóa danh
+                    mục</button>
             </div>
 
             <table>
@@ -61,16 +62,16 @@
                     <th style="width: 200px">Ngày khởi tạo</th>
                 </tr>
                 <?php foreach ($category as $value) { ?>
-                    <tr>
-                        <td><input type="checkbox" name="danh_muc[]" value="<?= $value->categories_id ?>" /></td>
-                        <td><?= $value->categories_id ?></td>
-                        <td><?= $value->name ?></td>
-                        <td><?= $value->status ?></td>
-                        <td><?= $value->description ?></td>
-                        <td><img src="../../layout/assets/img/<?= $value->images ?>" alt="" /></td>
-                        <td><?= $value->created_at ?></td>
+                <tr>
+                    <td><input type="checkbox" name="danh_muc[]" value="<?= $value->categories_id ?>" /></td>
+                    <td><?= $value->categories_id ?></td>
+                    <td><?= $value->name ?></td>
+                    <td><?= $value->status ?></td>
+                    <td><?= $value->description ?></td>
+                    <td><img src="../../layout/assets/img/<?= $value->images ?>" alt="" /></td>
+                    <td><?= $value->created_at ?></td>
 
-                    </tr>
+                </tr>
                 <?php } ?>
             </table>
         </form>
