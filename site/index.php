@@ -17,7 +17,6 @@
     if (isset($_GET['cart'])) {
         $service_room = [];
         if (!isset($_SESSION['addcart'])) {
-            session_start();
             ob_start();
             if (isset($_POST['addcart'])) {
                 $id = $_POST['id'];
