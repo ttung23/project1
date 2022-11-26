@@ -52,10 +52,13 @@ th {
     padding: 10px 20px;
 }
 
+<<<<<<< HEAD
 .action {
     margin: 15px 0;
 }
 
+=======
+>>>>>>> c8d86ca (add file)
 td p {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -70,10 +73,18 @@ td p:hover {
 }
 
 .action {
+<<<<<<< HEAD
     margin: 30px 0;
 }
 
 .action a {
+=======
+    margin: 20px 0;
+}
+
+.action a {
+    display: inline-block;
+>>>>>>> c8d86ca (add file)
     text-decoration: none;
     color: #fff;
     padding: 9px;
@@ -109,6 +120,7 @@ table tr:nth-child(1) {
     transition: var(--tran-05);
 }
 
+<<<<<<< HEAD
 :root {
     /* ===== Colors ===== */
     --primary-color: #0E4BF1;
@@ -177,6 +189,8 @@ nav.close {
     width: 73px;
 }
 
+=======
+>>>>>>> c8d86ca (add file)
 nav .logo-name {
     margin: 20px 0;
     text-align: center;

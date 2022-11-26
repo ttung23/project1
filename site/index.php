@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <?php
+=======
+    <?php
+>>>>>>> c8d86ca (add file)
     require_once '../global.php';
     require_once '../dao/pdo.php';
     require_once '../dao/room_dao.php';
@@ -12,6 +16,7 @@
     $roomAll = loadAll_room();
     $categoriesAll = loadAll_categories();
     $service = loadAll_service();
+<<<<<<< HEAD
     if (isset($_GET['cart'])) {
         // add cart
         session_start();
@@ -73,6 +78,65 @@
         }
         if (isset($_GET['delid'])) {
             array_splice($_SESSION['cart'],$_GET['delid'],1);
+=======
+    session_start();
+
+    if (isset($_GET['cart'])) {
+        $service_room = [];
+        if (!isset($_SESSION['addcart'])) {
+            ob_start();
+            if (isset($_POST['addcart'])) {
+                $id = $_POST['id'];
+                $ten = $_POST['ten'];
+                $thumbnail = $_POST['thumbnail'];
+                $des = $_POST['des'];
+                $id_cate = $_POST['id_cate'];
+                $price = $_POST['price'];
+                $star = $_POST['star'];
+                $quantity = $_POST['quantity'];
+                $location = $_POST['location'];
+                $acreage = $_POST['acreage'];
+                $status = $_POST['status'];
+                $view = $_POST['view'];
+                $likes = $_POST['likes'];
+                $id_service = $_POST['id_service'];
+                $created_at = $_POST['created_at'];
+                $id_admin = $_POST['id_admin'];
+                $namedichvu = $_POST['namedichvu'];
+                $service_room = loadAll_service_room($id);
+                $pricedichvu = $_POST['pricedichvu'];
+                if (!isset($_SESSION['addcart'][$id])) {
+                    $_SESSION['addcart'][$id] = array('id' => $id, 'ten' => $ten, 'thumbnail' => $thumbnail, 'des' => $des, 'id_cate' => $id_cate, 'price' => $price, 'star' => $star, 'quantity' => $quantity, 'location' => $location, 'acreage' => $acreage, 'status' => $status, 'view' => $view, 'likes' => $likes, 'id_service' => $id_service, 'created_at' => $created_at, 'id_admin' => $id_admin, 'namedichvu' => $namedichvu, 'pricedichvu' => $pricedichvu);
+                } else {
+                }
+                // tính tổng tiền
+            }
+            if (isset($_POST['delete'])) {
+                $id = $_POST['id'];
+                unset($_SESSION['addcart'][$id]);
+            }
+            $total_amount = 0;
+            foreach ($_SESSION['addcart'] as $key => $value) {
+                $total_amount += $value['price'] + $value['pricedichvu'];
+            }
+            if (isset($_POST['addbooking'])) {
+                $check_in = $_POST['check_in'];
+                $check_out = $_POST['check_out'];
+                $status = 0;
+                $quantity = $_POST['quantity'];
+                $total_amount = $total_amount;
+                $message = $_POST['message'];
+                $phone = $_POST['phone'];
+                $email = $_POST['email'];
+                $name = $_POST['name'];
+                //    $id_user = $_SESSION['name'];
+                $insert_booking = Insert_booking($check_in, $check_out, $status, $quantity, $total_amount, $message, $phone, $email, $name);
+                unset($_SESSION['addcart']);
+                $_SESSION['addcart'] = [];
+            }
+
+            ob_end_flush();
+>>>>>>> c8d86ca (add file)
         }
         $VIEW_NAME = 'cart.php';
     } elseif (isset($_GET['tin-tuc'])) {
@@ -96,6 +160,13 @@
             $roomcategori = load_room_categories($iddm);
         }
         $VIEW_NAME = 'list-room.php';
+<<<<<<< HEAD
+=======
+    } elseif (isset($_GET['addcart'])) {
+
+        $VIEW_NAME = 'cart.php';
+        ob_end_flush();
+>>>>>>> c8d86ca (add file)
     } elseif (isset($_GET['product-detail'])) {
         if (isset($_GET['id']) && ($_GET['id'])) {
             $id = $_GET['id'];
@@ -118,7 +189,10 @@
         }
         $VIEW_NAME = 'chi-tiet.php';
     } else {
+<<<<<<< HEAD
         // s
+=======
+>>>>>>> c8d86ca (add file)
         // $limit = $_GET['perpage'] ?? 9;
         // $current_page = $_GET['page'] ?? 1;
         // $offset = ($current_page - 1) * $limit;
@@ -127,11 +201,15 @@
         // $room = read_room($limit,$offset);
 
         if (isset($_POST['login'])) {
+<<<<<<< HEAD
             session_start();
+=======
+>>>>>>> c8d86ca (add file)
             $user = $_POST['user'];
             $password = $_POST['password'];
             $login = login($user, $password);
         }
+<<<<<<< HEAD
         if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             session_unset();
             header('Location:index.php');
@@ -140,6 +218,8 @@
             unset($_SESSION['addcart']);
             header('Location:index.php');
         }
+=======
+>>>>>>> c8d86ca (add file)
         $VIEW_NAME = 'trang-chu.php';
     }
     include_once './layout.php';

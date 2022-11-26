@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
+=======
+
+>>>>>>> c8d86ca (add file)
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>Quản lý BOOKING</title>
     <link rel="stylesheet" href="assets/css/admin-booking.css">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -75,4 +80,228 @@
         </div>
     </main>
 </body>
+=======
+    <title>Quản lý booking</title>
+    <link rel="stylesheet" href="assets/css/admin_booking1.css">
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+</head>
+
+<body>
+    <main class="container" style="display: flex;">
+        <nav>
+            <div class="logo-name">
+                <div class="logo-image">
+                    <img src="img/logo.jpg" alt="">
+                </div>
+
+                <span class="logo_name">StayyInn Hotel</span>
+            </div>
+
+            <div class="menu-items">
+                <ul class="nav-links">
+                    <li><a href="#">
+                            <i class="uil uil-estate"></i>
+                            <span class="link-name">Trang chủ</span>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="uil uil-comment-alt-dots"></i>
+                            <span class="link-name">Quản lý comment</span>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="uil uil-apps"></i>
+                            <span class="link-name">quản Lý Service</span>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="uil uil-bed-double"></i>
+                            <span class="link-name">quản Lý room</span>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="uil uil-book-medical"></i>
+                            <span class="link-name">quản lý booking</span>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="uil uil-list-ui-alt"></i>
+                            <span class="link-name">quản Lý Category</span>
+                        </a></li>
+
+                    <li><a href="#">
+                            <i class="uil uil-bitcoin"></i>
+                            <span class="link-name">Quản Lý Dịch Vu</span>
+                        </a></li>
+
+                    <li><a href="#">
+                            <i class="uil uil-feedback"></i>
+                            <span class="link-name">quản Lý Feedbacks</span>
+                        </a></li>
+
+                    <li><a href="#">
+                            <i class="uil uil-chart-pie"></i>
+                            <span class="link-name">Quản Lý Thống Kê</span>
+                        </a></li>
+
+                    <li><a href="#">
+                            <i class="uil uil-head-side"></i>
+                            <span class="link-name">Quản Lý admin</span>
+                        </a></li>
+
+                </ul>
+
+                <ul class="logout-mode">
+                    <li><a href="#">
+                            <i class="uil uil-signout"></i>
+                            <span class="link-name">Logout</span>
+                        </a></li>
+
+                    <li class="mode">
+                        <a href="#">
+                            <i class="uil uil-moon"></i>
+                            <span class="link-name">Dark Mode</span>
+                        </a>
+
+                        <div class="mode-toggle">
+                            <span class="switch"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+            <div class="content">
+
+                <div class="top" >
+                    <i class="uil uil-bars sidebar-toggle"></i>
+        
+                    <div class="search-box">
+                        <i class="uil uil-search"></i>
+                        <input type="text" placeholder="Search here...">
+                    </div>
+                    
+                    <img src="assets/img/anh1.jpg" alt="">
+                </div>
+
+                <div class="danh_sach">
+                    <h3>
+                        DANH SÁCH BOOKING
+                    </h3>
+
+                    <div class="action flex items-center">
+                        <a href="#" class="mx-3">Thêm</a>
+                        <a href="#" class="mx-3">Sửa</a>
+                        <a href="#">Xóa</a>
+                    </div>
+    
+                    <table border="1">
+                        <tr>
+                            <th>#</th>
+                            <th style="width: 65px;">booking_id</th>
+                            <th>name_booking</th>
+                            <th>date_add</th>
+                            <th>check_in_date</th>
+                            <th>status</th>
+                            <th>quantity_people</th>
+                            <th>total_amount</th>
+                            <th>id_user</th>
+                            <th>message</th>
+                            <th>phone</th>
+                            <th>email</th>
+                            <th>name</th>
+                            <th>created_at</th>
+                            <th>updated_at</th>
+                        </tr>
+    
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="" id="">
+                            </td>
+                            <td>1</td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, deserunt nihil quidem
+                                    facere dolore nobis numquam dolores illum nesciunt corporis velit quam consequatur autem
+                                    tempore iste minus porro itaque maiores.
+                                </p>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="bieu_do">
+                    <h3>
+                        CÁC THỐNG KÊ VỀ BOOKS
+                    </h3>
+    
+                    <div id="myfirstchart" style="height: 250px;"></div>
+    
+                </div>
+            </div>
+
+
+
+    </main>
+
+    <script>
+
+        const body = document.querySelector("body"),
+            modeToggle = body.querySelector(".mode-toggle");
+
+        let getMode = localStorage.getItem("mode");
+        if (getMode && getMode === "dark") {
+            body.classList.toggle("dark");
+        }
+
+        modeToggle.addEventListener("click", () => {
+            body.classList.toggle("dark");
+            if (body.classList.contains("dark")) {
+                localStorage.setItem("mode", "dark");
+            } else {
+                localStorage.setItem("mode", "light");
+            }
+        });
+
+
+        new Morris.Donut({
+            // ID of the element in which to draw the chart.
+            element: 'myfirstchart',
+            // Chart data records -- each entry in this array corresponds to a point on
+            // the chart.
+            data: [
+                { year: '2008', value: 20 },
+                { year: '2009', value: 10 },
+                { year: '2010', value: 5 },
+                { year: '2011', value: 5 },
+                { year: '2012', value: 20 }
+            ],
+            // The name of the data record attribute that contains x-values.
+            xkey: 'year',
+            // A list of names of data record attributes that contain y-values.
+            ykeys: ['value'],
+            // Labels for the ykeys -- will be displayed when you hover over the
+            // chart.
+            labels: ['Value']
+        });
+    </script>
+
+
+
+</body>
+
+>>>>>>> c8d86ca (add file)
 </html>
