@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giỏ hàng</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="assets/css/cart.css">
-    
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
 </head>
+
 <body>
-    <main>
-     
     <div class="nav-index containerr">
         <div class="nav-left">
             <i class="fa-solid fa-bars"></i>
@@ -36,7 +36,7 @@
                                 style="color:black; font-size: 11px; padding-left: 4px;padding-top: 5px;"
                                 class="fa-solid fa-chevron-down"></i>
                         </button>
-                        <div class="noidung_dropdown">
+                        <div class="noidung_dropdown hien" id="logo">
                             <div class="nation">
                                 <h2>Tên quốc gia & ngôn ngữ</h2>
                                 <span>Indonesia (Bahasha indonesia) </span>
@@ -71,7 +71,7 @@
 
                 </li>
                 <li>
-                    <div class="dropdown-2 z-[1]">
+                    <div class="dropdown-2">
                         <button type="submit"><a class="dangnhap" href=""><i>
                                     <i class="fa-solid fa-user"></i></i> Đăng nhập
                                 <i style="color:black; font-size: 12px;" class="fa-solid fa-chevron-down"></i></a>
@@ -109,7 +109,7 @@
         <ul class="containerr">
             <li>
                 <div class="menu-con1">
-                    <button><a href="">Vận chuyển</a><i class="fa-solid fa-caret-down"></i></button>
+                    <a href="">Vận chuyển</a><i class="fa-solid fa-caret-down"></i>
                     <div class="nd-mn1">
                         <i class="fa-solid fa-car-side"></i> Cho thuê ô tô <br>
                         <i class="fa-solid fa-bus"></i> Xe đưa đón <br>
@@ -119,7 +119,7 @@
             </li>
             <li>
                 <div class="menu-con2">
-                    <button><a href="">Chỗ ở</a><i class="fa-solid fa-caret-down"></i></button>
+                    <a href="">Chỗ ở</a><i class="fa-solid fa-caret-down"></i>
                     <div class="nd-mn2">
                         <i style="color: #0770cd;" class="fa-sharp fa-solid fa-gopuram"></i> Ở Hà Nội <br>
                         <i style="color: #0770cd;" class="fa-solid fa-bridge"></i> Ở TP.HCM
@@ -128,7 +128,7 @@
             </li>
             <li>
                 <div class="menu-con3">
-                    <button><a href="">Hoạt động giải trí</a><i class="fa-solid fa-caret-down"></i></button>
+                    <a href="">Hoạt động giải trí</a><i class="fa-solid fa-caret-down"></i>
                     <div class="nd-mn3">
                         <i style="color: #ff6d70;" class="fa-solid fa-people-group"></i> Hoạt động nhóm <br>
                         <i style="color: #0770cd;" class="fa-solid fa-water-ladder"></i> Bể bơi <br>
@@ -138,7 +138,7 @@
             </li>
             <li>
                 <div class="menu-con4">
-                    <button><a href="">Sản phẩm bổ xung</a><i class="fa-solid fa-caret-down"></i></button>
+                    <a href="">Sản phẩm bổ xung</a><i class="fa-solid fa-caret-down"></i>
                     <div class="nd-mn4">
                         <i style="color: rgb(208, 148, 70);" class="fa-solid fa-coins"></i> Điểm thưởng của tôi <br>
                         <i style="color: red;" class="fa-solid fa-gift"></i> Đổi quà tặng
@@ -146,239 +146,330 @@
                 </div>
             </li>
         </ul>
+
     </div>
 
-    <main>
-        <div class="containerr">
-            <div class="next">
-                <div class="d-flex justify-content-between">
-                    <div class="">
-                        <h1 class="">
-                            <i class="fa-solid fa-check turn"></i> Lựa Chọn Của Bạn
-                        </h1>
+    <main class="containerr">
+        <div class="main">
+            <div class="side">
+                <div class="booking-detail">
+                    <p class="chi-tiet-dat-phong text-[16px] tieu-de font-bold">
+                        Chi tiết đặt phòng của bạn
+                    </p>
+
+                    <div class="date">
+                        <div class="checkin pr-4">
+                            <div class="font-medium mb-1 text-[14px]">Nhận phòng</div>
+
+                            <div class="checkin-date">
+                                <span class="block font-bold text-[14px]">T4, 23 tháng 11 2022</span>
+                                <span class="text-[#6b6b6b] text-[12px]">12h - 00h</span>
+                            </div>
+                        </div>
+
+                        <div class="border-l-[1px] bl-[#ccc] "></div>
+
+                        <div class="checkout pl-4">
+                            <div class="font-medium mb-1 text-[14px]">Trả phòng</div>
+
+                            <div class="checkout-date">
+                                <span class="block font-bold text-[14px]">T5, 24 tháng 11 2022</span>
+                                <span class="text-[#6b6b6b] text-[12px]">00h - 12h</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="">
-                        <i class="fa-solid fa-2 turn"></i>Giỏ Hàng
+
+                    <div class="mt-4 time">
+                        <div class="checkin pr-4">
+                            <div class="font-medium text-[14px]">Tổng thời gian lưu trú:</div>
+
+                            <div class="checkin-date inline-block">
+                                <span class="block font-bold text-[14px]">1 ngày</span>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <h1 class="">
-                            <i class="fa-solid fa-3 turn"></i>Thanh Toán</h1>
+                </div>
+
+                <div class="tomtat">
+                    <p class="chi-tiet-dat-phong text-[16px] font-bold">
+                        Tóm tắt giá
+                    </p>
+
+                    <div class="tomtat-detail">
+                        <div>Phòng 405</div>
+
+                        <div>VND 100.000</div>
                     </div>
+
+                    <div class="tomtat-detail">
+                        <div>Phòng 305</div>
+
+                        <div>VND 100.000</div>
+                    </div>
+
+                    <div class="tomtat-detail font-bold my-4 text-[#3ba6e3]">
+                        <div>
+                            Giá
+                        </div>
+
+                        <div>
+                            VND 200.000
+                        </div>
+                    </div>
+
+                    <div class="font-bold text-[14px] mb-2">
+                        <div>Không bao gồm phụ phí:</div>
+                    </div>
+
+                    <div class="tomtat-detail">
+                        <div>
+                            Phí dọn dẹp
+                        </div>
+
+                        <div>
+                            VND 50.000
+                        </div>
+                    </div>
+
+                    <div class="tomtat-detail">
+                        <div>
+                            Dịch vụ
+                        </div>
+
+                        <div>
+                            VND 50.000
+                        </div>
+                    </div>
+
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <section>
-                        <div class="aside font-weight-bold table">
-                        <h1 class="text-secondary"><i class="fa-solid fa-cart-shopping"></i>Your booking Detail</h1>
-                        <div class="text-secondary check-in row form-groups">
-                            <div class="col-sm-6 text1">
-                                <h1 class="text-secondary ">chek-in-date</h1>
-                                <input type="date" class="form-control" value="" min="" max="">
-                            </div>
-                            <div class="col-sm-6">
-                                <h1 class="text-secondary ">chek-out-date</h1>
-                                <input type="date" class="form-control" value="" min="" max="">
-                            </div>
-                        </div>
-                        <div class="warning">
-                            <h1><i class="fa-sharp fa-solid fa-circle-exclamation text-info"></i>Chỉ Còn 1 Ngày</h1>
-                            <h1>Thời gian Đặt: 1 ngày</h1>
-                        </div>
+
+            <div class="content">
+                <div class="room-choosed">
+                    <div class="h-[160px] w-[160px]">
+                        <img class="max-w-[100%] max-h-[100%]" src="assets/img/product/ca.jpg" alt="">
                     </div>
-                    </section>
-                    <section>
-                        <div class="bg-[#EBF3FF] info">
-                            <h3>
-                            Bạn Đã Chọn Dịch vụ:            
-                            </h3>
-                            <p><i class="fa-solid fa-plus"></i>2x 2 giường đôi nhìn ra vườn</p>
-                            <p><i class="fa-solid fa-plus"></i>2x 2 giường đôi nhìn ra vườn</p>
-                            <p><i class="fa-solid fa-check turn"></i> 2 giường đôi nhìn ra vườn</p>
-                            <p><i class="fa-solid fa-check turn"></i> 2 giường đôi nhìn ra vườn</p>
-                            <p><i class="fa-solid fa-check turn"></i> 2 giường đôi nhìn ra vườn</p>
-                            <p><i class="fa-solid fa-check turn"></i> 2 giường đôi nhìn ra vườn</p>
-                            <h3>Bữa Ăn</h3>
-                            <p><i class="fa-solid fa-plus"></i>Cả Ngày</p>
-                            <h3>Số Lượng Người(Tối Đa)</h3>
-                            <p><i class="fa-solid fa-plus"></i>14</p>
-                            <a href="" class="btn btn-warning">Thay Đổi Lựa Chọn Của Bạn</a>
-                        </div>
-                    </section>
-                    <section>
-                        <div class="bg-[#EBF3FF] info">
-                        <h1>Tóm Tắt Giá Của Bạn</h1>
-                        <div>
-                            <div>
-                                <h3>Tổng Tiền Của Bạn</h3>
+
+                    <div>
+                        <div class="text-[12px] text-[#6b6b6b]">Khách sạn StayyInn</div>
+
+                        <div class="room-name text-[20px] font-bold">Tên phòng blabal/405</div>
+
+                        <div class="descrip">
+                            <div class="max-w-[180px]">
+                                <i class="fa-solid fa-bed"></i>
+                                1 Giường cỡ King và 2 giường đơn
                             </div>
+
                             <div>
-                                <i class="fa-solid fa-tag"></i>  2.600.800đ
+                                <i class="fa-regular fa-user-group"></i>
+                                Phòng 2 khách
                             </div>
                         </div>
-                        <div>
+
+                        <div class="rate">
+                            <div class="w-[24px] h-[24px]">8.3</div>
+
+                            <div>Tuyệt vời</div>
+
                             <div>
-                                <h3>  <i class="fa-solid fa-tag"></i> Giảm Giá</h3>
-                            </div>
-                            <div>
-                                600.800đ
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <h3>Thanh Toán Của Bạn</h3>
-                            </div>
-                            <div>
-                                <i class="fa-solid fa-tag"></i> 2.000.800đ
+                                6 đánh giá
                             </div>
                         </div>
                     </div>
-                    </section>
-                    <section>
-                        <div class="pay1 bg-[#EBF3FF]">
-                           <p> <i class="fa-solid fa-money-bill-wave"></i>Thẻ Tích Điểm</p>
-                            <p>2.600.800đ</p>
+
+                    <div class="price-pay ml-[144px]">
+                        <div class="text-[18px] font-bold text-[#3ba6e3]">
+                            100.000 VND
                         </div>
-                    </section>
+
+                        <div class="text-[12px] text-[rgba(104,113,118,1.00)] text-right">
+                            / phòng / đêm
+                        </div>
+
+                        <div class="text-[12px] text-[#3ba6e3] font-semibold text-right">
+                            Giá cuối cùng
+                        </div>
+
+                        <div class="delete-room">
+                            <a href="">Xóa</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm-8">
-                    <section>
-                            <div class="row product">
-                                <div class="col-sm-3 anh">
-                                    <h1>Nâng Tầm Trải Nghiệm</h1>
-                                    <img src="../layout/assets/img/Ảnh chụp màn hình 2022-11-12 095229.png" alt="">
-                                </div>
-                                <div class="col-sm-5 chitiettt">
-                                    <h1>Phòng 301</h1>
-                                 <i class="fa-solid fa-eye"> 308 </i> <i class="fa-sharp fa-solid fa-heart"> 37 </i>
-                                    <h1><i class="fa-sharp fa-solid fa-location-dot"></i>Thửa đất số 576, Tờ bản đồ số 10Tổ 5 ấp Cửa lấp, xã Dương Tơ, Thành phố Phú Quốc, Kiên Giang , Duong Dong, Phu Quoc, Vietnam
-                                    <p>Cách Trung Tâm 16 km</p></h1>
-                                    <div class="service">
-                                    <label for="">Dịch Vụ</label>
-                                    <a href=""><i class="fa-solid fa-person-swimming"></i>Hồ bơi</a>
-                                    <a href=""><i class="fa-solid fa-person-swimming"></i>Đỗ xe</a>
-                                    <a href=""><i class="fa-solid fa-person-swimming"></i>Hồ bơi</a>
-                                </div>
-                                </div>
-                                <div class="col-sm-3 total">
-                                    <h1>Tuyệt Vời!!!</h1>
-                                    <p>8.6</p>
-                                    <a>22 Bình Luận</a>
-                                    <h3>7.600.800đ</h3>
-                                    <div>
-                                        <h2>2 Giường</h2>
-                                        <button class="btn btn-primary">Bao Trọn Dịch Vụ</button>
-                                    </div>
-                                </div>
+
+                <div class="room-choosed">
+                    <div class="h-[160px] w-[160px]">
+                        <img class="max-w-[100%] max-h-[100%]" src="assets/img/product/ca.jpg" alt="">
+                    </div>
+
+                    <div>
+                        <div class="text-[12px] text-[#6b6b6b]">Khách sạn StayyInn</div>
+
+                        <div class="room-name text-[20px] font-bold">Tên phòng blabal/405</div>
+
+                        <div class="descrip">
+                            <div class="max-w-[180px]">
+                                <i class="fa-solid fa-bed"></i>
+                                1 Giường cỡ King và 2 giường đơn
                             </div>
-                            <div class="row cart product">
-                                <div class="col-sm-3 anh">
-                                    <h1 class="font-weight-bold fs-6 ">Nâng Tầm Trải Nghiệm</h1>
-                                    <img src="./MVC/public/layout/img/product/p1.webp" alt="">
-                                </div>
-                                <div class="col-sm-5 chitiettt">
-                                    <h2 class="font-weight-bold fs-3">Phòng 301</h2><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i>
-                                 <i class="fa-solid fa-eye"> 308 </i> <i class="fa-sharp fa-solid fa-heart"> 37 </i>
-                                    <h1><i class="fa-sharp fa-solid fa-location-dot"></i>Thửa đất số 576, Tờ bản đồ số 10Tổ 5 ấp Cửa lấp, xã Dương Tơ, Thành phố Phú Quốc, Kiên Giang , Duong Dong, Phu Quoc, Vietnam
-                                    <p>Cách Trung Tâm 16 km</p></h1>
-                                    <div class="service">
-                                    <label for="">Dịch Vụ</label>
-                                    <a href=""><i class="fa-solid fa-person-swimming"></i>Dịch Vụ Ưu Đãi Trong Thời Gian Có Hạn</a>
-                                    <a href=""><i class="fa-solid fa-person-swimming"></i>Hồ bơi</a>
-                                    <a href=""><i class="fa-solid fa-person-swimming"></i>Đỗ xe</a>
-                                    <a href=""><i class="fa-solid fa-person-swimming"></i>Hồ bơi</a>
-                                </div>
-                                </div>
-                                <div class="col-sm-3 total">
-                                    <h1>Tuyệt Vời!!!</h1>
-                                    <p>8.6</p>
-                                    <a>22 Bình Luận</a>
-                                    <h3>7.600.800đ</h3>
-                                    <div>
-                                        <h2>2 Giường</h2>
-                                        <button class="btn btn-primary">Bao Trọn Dịch Vụ</button>
-                                    </div>
-                                </div>
+
+                            <div>
+                                <i class="fa-regular fa-user-group"></i>
+                                Phòng 2 khách
                             </div>
-                            <div class="row product">
-                                <div class="col-sm-3 anh">
-                                    <h1>Nâng Tầm Trải Nghiệm</h1>
-                                    <img src="./MVC/public/layout/img/product/p1.webp" alt="">
-                                </div>
-                                <div class="col-sm-5 chitiettt">
-                                    <h1>Phòng 301</h1>
-                                 <i class="fa-solid fa-eye"> 308 </i> <i class="fa-sharp fa-solid fa-heart"> 37 </i>
-                                    <h1><i class="fa-sharp fa-solid fa-location-dot"></i>Thửa đất số 576, Tờ bản đồ số 10Tổ 5 ấp Cửa lấp, xã Dương Tơ, Thành phố Phú Quốc, Kiên Giang , Duong Dong, Phu Quoc, Vietnam
-                                    <p>Cách Trung Tâm 16 km</p></h1>
-                                    <div class="service">
-                                    <label for="">Dịch Vụ</label>
-                                    <a href=""><i class="fa-solid fa-person-swimming"></i>Hồ bơi</a>
-                                    <a href=""><i class="fa-solid fa-person-swimming"></i>Đỗ xe</a>
-                                    <a href=""><i class="fa-solid fa-person-swimming"></i>Hồ bơi</a>
-                                </div>
-                                </div>
-                                <div class="col-sm-3 total">
-                                    <h1>Tuyệt Vời!!!</h1>
-                                    <p>8.6</p>
-                                    <a>22 Bình Luận</a>
-                                    <h3>7.600.800đ</h3>
-                                    <div>
-                                        <h2>2 Giường</h2>
-                                        <button class="btn btn-primary">Bao Trọn Dịch Vụ</button>
-                                    </div>
-                                </div>
-                            </div>
-                    </section>
-                    <section>
-                        <div class="pay">
-                            <h1><i class="fa-sharp fa-solid fa-credit-card"></i>Thanh Toán Online</h1>
-                            <h1>Thanh Toán Trực Tiếp</h1>
                         </div>
-                    </section>
-                    <section>
-                        <div class="form-group">
+
+                        <div class="rate">
+                            <div class="w-[24px] h-[24px]">8.3</div>
+
+                            <div>Tuyệt vời</div>
+
                             <div>
-                                <h1>Nhập Thông Tin Của Bạn Sắp Xong rồi</h1>
+                                6 đánh giá
                             </div>
-                            <div>
-                                <img src="" alt="">
+                        </div>
+                    </div>
+
+                    <div class="price-pay ml-[144px]">
+                        <div class="text-[18px] font-bold text-[#3ba6e3]">
+                            100.000 VND
+                        </div>
+
+                        <div class="text-[12px] text-[rgba(104,113,118,1.00)] text-right">
+                            / phòng / đêm
+                        </div>
+
+                        <div class="text-[12px] text-[#3ba6e3] font-semibold text-right">
+                            Giá cuối cùng
+                        </div>
+
+                        <div class="delete-room">
+                            <a href="">Xóa</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="room-choosed">
+                    <div class="h-[160px] w-[160px]">
+                        <img class="max-w-[100%] max-h-[100%]" src="assets/img/product/ca.jpg" alt="">
+                    </div>
+
+                    <div>
+                        <div class="text-[12px] text-[#6b6b6b]">Khách sạn StayyInn</div>
+
+                        <div class="room-name text-[20px] font-bold">Tên phòng blabal/405</div>
+
+                        <div class="descrip">
+                            <div class="max-w-[180px]">
+                                <i class="fa-solid fa-bed"></i>
+                                1 Giường cỡ King và 2 giường đơn
                             </div>
+
                             <div>
-                                <label for="">Bạn Đang Đi Nghỉ Dưỡng Gia Đình</label>
-                                <div class="form-control">
-                                <input type="radio" name="" id="">Đúng
-                                <input type="radio" name="" id="">Sai
+                                <i class="fa-regular fa-user-group"></i>
+                                Phòng 2 khách
+                            </div>
+                        </div>
+
+                        <div class="rate">
+                            <div class="w-[24px] h-[24px]">8.3</div>
+
+                            <div>Tuyệt vời</div>
+
+                            <div>
+                                6 đánh giá
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="price-pay ml-[144px]">
+                        <div class="text-[18px] font-bold text-[#3ba6e3]">
+                            100.000 VND
+                        </div>
+
+                        <div class="text-[12px] text-[rgba(104,113,118,1.00)] text-right">
+                            / phòng / đêm
+                        </div>
+
+                        <div class="text-[12px] text-[#3ba6e3] font-semibold text-right">
+                            Giá cuối cùng
+                        </div>
+
+                        <div class="delete-room">
+                            <a href="" class="px-[20px] py-[10px]">Xóa</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="information bg-[#ebf3ff]">
+                    <form action="" method="post">
+                        <div class="head">
+                            <h2 class="text-[20px] font-bold">
+                                Nhập thông tin chi tiết của bạn
+                            </h2>
+
+                            <div class="flex gap-1 bg-white p-1 rounded">
+                                <img src="assets/img/logo/Ảnh chụp màn hình 2022-11-12 095229.png" alt="">
+                                <span>Tùng Nguyễn</span>
+                            </div>
+                        </div>
+
+                        <div class="di-cong-tac py-4">
+                            <div class="text-[14px] font-bold">
+                                Bạn sắp đi công tác ư?
+                            </div>
+
+                            <div class="true-false">
+                                <div class="">
+                                    <input type="radio" name="congtac" id="">
+                                    <span class="">Đúng</span>
+                                </div>
+
+                                <div>
+                                    <input type="radio" name="congtac" id="">
+                                    <span>Sai</span>
                                 </div>
                             </div>
-                            <div>
-                                <label for="">Họ Tên</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                       
-                                      <span class="input-group-text" id="basic-addon1">@</span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                                  </div>
+                        </div>
+
+                        <div class="input">
+                            <div class="w-[25%] pt-[16px]">
+                                <label for="surname" class="font-bold text-[14px]">Họ</label>
+                                <input class="w-[100%] border-input p-[5px]" type="text" placeholder="Họ của bạn..."
+                                    name="" id="surname">
                             </div>
-                            <div>
-                                <label for="">Email</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                       
-                                      <span class="input-group-text" id="basic-addon1">@</span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                                  </div>
+
+                            <div class="w-[10%]"></div>
+
+                            <div class="w-[25%] pt-[16px]">
+                                <label for="name" class="font-bold text-[14px]">Tên</label>
+                                <input class="w-[100%] border-input p-[5px]" type="text" placeholder="Tên của bạn..."
+                                    name="" id="name">
                             </div>
+
+                            <div class="w-[60%] pt-[16px]">
+                                <label for="email" class="font-bold text-[14px]">Email</label>
+                                <input class="w-[100%] border-input p-[5px]" type="text" placeholder="Email của bạn..."
+                                    name="" id="email">
+                            </div>
+
+                            <div class="w-[60%] pt-[16px]">
+                                <label for="address" class="font-bold text-[14px]">Địa chỉ thường trú</label>
+                                <input class="w-[100%] border-input p-[5px]" type="text"
+                                    placeholder="Địa chỉ của bạn..." name="" id="address">
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <div class="text-[14px] font-bold mb-2">Bạn đặt phòng cho ai?</div>
+                            <div class="mb-1">
+                                <input type="radio" name="ai-dat-phong" id="">
+                                <span>Tôi là khách lưu trú chính</span>
+                            </div>
+
                             <div>
-                                <label for="">Địa Chỉ Email</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                       
-                                      <span class="input-group-text" id="basic-addon1">@</span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                                  </div>
+                                <input type="radio" name="ai-dat-phong" id="">
+                                <span>Đặt phòng này là cho người khác</span>
                             </div>
                         </div>
                     </form>
@@ -397,56 +488,89 @@
                                 <a href="facebook.com" class="relative">
                                     <img class="inline-block max-w-[16px] max-h-[16px]" src="assets/img/icon/svg_diachi.svg" alt="">
                                     <span class="text-[12px]">Ban công</span>
+                                    <a href="">
+                                        <i id="icon" class="fa-light fa-xmark"></i>
+                                    </a>
                                 </a>
 
                                 <a href="facebook.com">
                                     <img class="inline-block max-w-[16px] max-h-[16px]" src="assets/img/icon/svg_diachi.svg" alt="">
                                     <span class="text-[12px]">Ban công</span>
+                                    <a href="">
+                                        <i id="icon" class="fa-light fa-xmark"></i>
+                                    </a>
                                 </a>
 
                                 <a href="facebook.com">
                                     <img class="inline-block max-w-[16px] max-h-[16px]" src="assets/img/icon/svg_diachi.svg" alt="">
                                     <span class="text-[12px]">Ban công</span>
+                                    <a href="">
+                                        <i id="icon" class="fa-light fa-xmark"></i>
+                                    </a>
                                 </a>
 
                                 <a href="facebook.com">
                                     <img class="inline-block max-w-[16px] max-h-[16px]" src="assets/img/icon/svg_diachi.svg" alt="">
                                     <span class="text-[12px]">Ban công</span>
+                                    <a href="">
+                                        <i id="icon" class="fa-light fa-xmark"></i>
+                                    </a>
                                 </a>
 
                                 <a href="facebook.com">
                                     <img class="inline-block max-w-[16px] max-h-[16px]" src="assets/img/icon/svg_diachi.svg" alt="">
                                     <span class="text-[12px]">Ban công</span>
+                                    <a href="">
+                                        <i id="icon" class="fa-light fa-xmark"></i>
+                                    </a>
                                 </a>
 
                                 <a href="facebook.com">
                                     <img class="inline-block max-w-[16px] max-h-[16px]" src="assets/img/icon/svg_diachi.svg" alt="">
                                     <span class="text-[12px]">Ban công</span>
+                                    <a href="">
+                                        <i id="icon" class="fa-light fa-xmark"></i>
+                                    </a>
                                 </a>
 
                                 <a href="facebook.com">
                                     <img class="inline-block max-w-[16px] max-h-[16px]" src="assets/img/icon/svg_diachi.svg" alt="">
                                     <span class="text-[12px]">Ban công</span>
+                                    <a href="">
+                                        <i id="icon" class="fa-light fa-xmark"></i>
+                                    </a>
                                 </a>
 
                                 <a href="facebook.com">
                                     <img class="inline-block max-w-[16px] max-h-[16px]" src="assets/img/icon/svg_diachi.svg" alt="">
                                     <span class="text-[12px]">Ban công</span>
+                                    <a href="">
+                                        <i id="icon" class="fa-light fa-xmark"></i>
+                                    </a>
                                 </a>
 
                                 <a href="facebook.com">
                                     <img class="inline-block max-w-[16px] max-h-[16px]" src="assets/img/icon/svg_diachi.svg" alt="">
                                     <span class="text-[12px]">Ban công</span>
+                                    <a href="">
+                                        <i id="icon" class="fa-light fa-xmark"></i>
+                                    </a>
                                 </a>
 
                                 <a href="facebook.com">
                                     <img class="inline-block max-w-[16px] max-h-[16px]" src="assets/img/icon/svg_diachi.svg" alt="">
                                     <span class="text-[12px]">Ban công</span>
+                                    <a href="">
+                                        <i id="icon" class="fa-light fa-xmark"></i>
+                                    </a>
                                 </a>
 
                                 <a href="facebook.com">
                                     <img class="inline-block max-w-[16px] max-h-[16px]" src="assets/img/icon/svg_diachi.svg" alt="">
                                     <span class="text-[12px]">Ban công</span>
+                                    <a href="">
+                                        <i id="icon" class="fa-light fa-xmark"></i>
+                                    </a>
                                 </a>
                             </div>
                         </div>
@@ -458,66 +582,180 @@
                                 <a href="facebook.com">
                                     <img class="inline-block max-w-[16px] max-h-[16px]" src="assets/img/icon/svg_diachi.svg" alt="">
                                     <span class="text-[12px]">Ban công</span>
+                                    <a href="">
+                                        <i id="icon" class="fa-light fa-xmark"></i>
+                                    </a>
                                 </a>
 
                                 <a href="facebook.com">
                                     <img class="inline-block max-w-[16px] max-h-[16px]" src="assets/img/icon/svg_diachi.svg" alt="">
                                     <span class="text-[12px]">Ban công</span>
+                                    <a href="">
+                                        <i id="icon" class="fa-light fa-xmark"></i>
+                                    </a>
                                 </a>
 
                                 <a href="facebook.com">
                                     <img class="inline-block max-w-[16px] max-h-[16px]" src="assets/img/icon/svg_diachi.svg" alt="">
                                     <span class="text-[12px]">Ban công</span>
+                                    <a href="">
+                                        <i id="icon" class="fa-light fa-xmark"></i>
+                                    </a>
                                 </a>
 
                                 <a href="facebook.com">
                                     <img class="inline-block max-w-[16px] max-h-[16px]" src="assets/img/icon/svg_diachi.svg" alt="">
                                     <span class="text-[12px]">Ban công</span>
+                                    <a href="">
+                                        <i id="icon" class="fa-light fa-xmark"></i>
+                                    </a>
                                 </a>
 
                                 <a href="facebook.com">
                                     <img class="inline-block max-w-[16px] max-h-[16px]" src="assets/img/icon/svg_diachi.svg" alt="">
                                     <span class="text-[12px]">Ban công</span>
+                                    <a href="">
+                                        <i id="icon" class="fa-light fa-xmark"></i>
+                                    </a>
                                 </a>
 
                                 <a href="facebook.com">
                                     <img class="inline-block max-w-[16px] max-h-[16px]" src="assets/img/icon/svg_diachi.svg" alt="">
                                     <span class="text-[12px]">Ban công</span>
+                                    <a href="">
+                                        <i id="icon" class="fa-light fa-xmark"></i>
+                                    </a>
                                 </a>
 
                                 <a href="facebook.com">
                                     <img class="inline-block max-w-[16px] max-h-[16px]" src="assets/img/icon/svg_diachi.svg" alt="">
                                     <span class="text-[12px]">Ban công</span>
+                                    <a href="">
+                                        <i id="icon" class="fa-light fa-xmark"></i>
+                                    </a>
                                 </a>
 
                                 <a href="facebook.com">
                                     <img class="inline-block max-w-[16px] max-h-[16px]" src="assets/img/icon/svg_diachi.svg" alt="">
                                     <span class="text-[12px]">Ban công</span>
+                                    <a href="">
+                                        <i id="icon" class="fa-light fa-xmark"></i>
+                                    </a>
                                 </a>
 
                                 <a href="facebook.com">
                                     <img class="inline-block max-w-[16px] max-h-[16px]" src="assets/img/icon/svg_diachi.svg" alt="">
                                     <span class="text-[12px]">Ban công</span>
+                                    <a href="">
+                                        <i id="icon" class="fa-light fa-xmark"></i>
+                                    </a>
                                 </a>
 
                                 <a href="facebook.com">
                                     <img class="inline-block max-w-[16px] max-h-[16px]" src="assets/img/icon/svg_diachi.svg" alt="">
                                     <span class="text-[12px]">Ban công</span>
+                                    <a href="">
+                                        <i id="icon" class="fa-light fa-xmark"></i>
+                                    </a>
                                 </a>
 
                                 <a href="facebook.com">
                                     <img class="inline-block max-w-[16px] max-h-[16px]" src="assets/img/icon/svg_diachi.svg" alt="">
                                     <span class="text-[12px]">Ban công</span>
+                                    <a href="">
+                                        <i id="icon" class="fa-light fa-xmark"></i>
+                                    </a>
                                 </a>
                             </div>
                         </div>
-                    </section>
-                    <div>
-                        <button class="btn btn-primary">Thanh Toán Ngay</button>
                     </div>
                 </div>
+
+                <div class="pay text-right">
+                    <a href="">Thanh toán ngay</a>
+                </div>
+            </div>
+
+
+        </div>
+    </main>
+
+    <div class="footer">
+        <div class="ft-0">
+            <div class="ft-1">
+                <img src="assets/img/logo/logo2.svg" alt="">
+                <div class="grid-1-ft">
+                    <img src="assets/img/ft/1.webp" alt="">
+                    <img src="assets/img/ft/4.webp" alt="">
+                    <img src="assets/img/ft/5.webp" alt="">
+                    <img src="assets/img/ft/4.webp" alt="">
+                    <img src="assets/img/ft/5.webp" alt="">
+                    <img src="assets/img/ft/6.webp" alt="">
+                </div>
+                <div class="doitac">
+                    <i class="fa-solid fa-handshake"></i>Hợp tác với StayyInn
+                </div>
+                <h2 class="h2">Đối tác thanh toán</h2>
+                <div class="grid-2-ft">
+                    <img src="assets/img/ft/10.webp" alt="">
+                    <img src="assets/img/ft/11.webp" alt="">
+                    <img src="assets/img/ft/12.webp" alt="">
+                    <img src="assets/img/ft/13.webp" alt="">
+                    <img src="assets/img/ft/14.webp" alt="">
+                    <img src="assets/img/ft/15.webp" alt="">
+                    <img src="assets/img/ft/16.webp" alt="">
+                    <img src="assets/img/ft/17.webp" alt="">
+                    <img src="assets/img/ft/18.webp" alt="">
+                    <img src="assets/img/ft/19.webp" alt="">
+                    <img src="assets/img/ft/20.webp" alt="">
+                    <img src="assets/img/ft/21.webp" alt="">
+                    <img src="assets/img/ft/10.webp" alt="">
+                    <img src="assets/img/ft/11.webp" alt="">
+                    <img src="assets/img/ft/12.webp" alt="">
+                    <img src="assets/img/ft/13.webp" alt="">
+                </div>
+            </div>
+            <div class="ft-2">
+                <h2>Về StayyInn</h2>
+                Cách đặt chỗ <br>
+                Liên hệ chúng tôi <br>
+                Trợ giúp <br>
+                Tuyển dụng <br>
+                Về chúng tôi <br>
+                <h2>Theo dõi chúng tôi </h2>
+                Twitter <br>
+                Facebook <br>
+                Instagram <br>
+                Youtube <br>
+            </div>
+            <div class="ft-3">
+                <h2>Sản phẩm</h2>
+                Vé máy bay <br>
+                Khách sạn <br>
+                Combo tiết kiệm <br>
+                Xperience <br>
+                Car Rental <br>
+                Biệt thự <br>
+                Căn hộ <br>
+                Đưa đón sân bay <br>
+            </div>
+            <div class="ft-4">
+                <h2>Khác</h2>
+                Traveloka Affiliate <br>
+                Traveloka Blog <br>
+                Chính sách quyền riêng tư <br>
+                Điều khoản & Điều kiện <br>
+                Quy chế hoạt động <br>
+                Đăng ký nơi nghỉ của bạn <br>
+                Đăng ký doanh nghiệp hoạt động du lịch của bạn <br>
+                Khu vực báo chí <br><br>
+                <h2>Tải ứng dụng trên</h2>
+                <img src="assets/img/logo/gg.svg" alt="">
+                <img src="assets/img/logo/ap.svg" alt="">
             </div>
         </div>
-    
+    </div>
+    <script src="assets/js/main.js"></script>
 </body>
+
 </html>
