@@ -21,7 +21,6 @@ function Insert_conmment($content,$idroom,$id_user)
 {
     $sql = "insert into vote_room(comment,id_room,id_user) value('$content','$idroom','$id_user')";
     $comment = pdo_execute($sql);
-    return $comment;
 }
 // update comment user
 function Update_comment($star,$comment)

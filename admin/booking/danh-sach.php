@@ -2,11 +2,10 @@
     <h3>
         DANH SÁCH BOOKING
     </h3>
-    <form action="" method="post"></form>
+    <form action="" method="post">
     <div class="action flex items-center">
-        <a href="#" class="mx-3">Thêm</a>
-        <a href="#" class="mx-3">Sửa</a>
-        <button type="submit" name="delete" onclick="return confirm('Bạn muốn xóa danh mục ko?')">Xóa</a>
+        <a href="c_booking.php?add-booking" class="mx-3">Thêm</a>
+        <button type="submit" name="delete_booking" onclick="return confirm('Bạn muốn xóa danh mục ko?')">Xóa</a>
     </div>
 
     <table border="1">
@@ -51,6 +50,7 @@
             <td><?php echo $value->name ?></td>
             <td><?php echo $value->create_at ?></td>
             <td><?php echo $value->updated_at ?></td>
+            <td>        <a href="c_booking.php?edit-booking&id=<?php echo $value->booking_id ?>" class="mx-3">Sửa</a></td>
         </tr>
         <?php endforeach ?>
     </table>

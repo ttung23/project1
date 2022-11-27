@@ -26,6 +26,7 @@ if(isset($_GET['add-room'])){
             $description = $_POST['description'];
             $image = $_FILES['image'];
             $image_name = $image['name'];
+            $err=[];
     
             if ($name_room == "") {
                 $err['name_room'] = "Bạn chưa nhập tên Phòng";

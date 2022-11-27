@@ -5,61 +5,47 @@ require_once '../../dao/pdo.php';
 require_once '../../dao/category_dao.php';
 require_once '../../dao/room_dao.php';
 require_once '../../dao/service_dao.php';
+require_once '../../dao/admin_dao.php';
+require_once '../../dao/permission_dao.php';
 $categoryAll = loadAll_categories();
-$service = loadAll_service();
-$roomAll = loadAll_room4();
+$per = loadAll_permissions();
+$admin = loadAll_admin();
 
-if(isset($_GET['add-room'])){
-    if(isset($_POST['add_room'])){
-             $name_room = $_POST['name_room'];
-            $category_id = $_POST['category_id'];
-            $service_id = $_POST['service_id'];
-            $price_room = $_POST['price_room'];
-            $quantity = $_POST['quantity'];
-            $star = $_POST['star'];
-            $location = $_POST['location'];
-            $acreage_room = $_POST['acreage_room'];
-            $location = $_POST['location'];
-            $view = 0;
-            $likes = 0;
-            $status = $_POST['status'];
-            $description = $_POST['description'];
-            $image = $_FILES['image'];
-            $image_name = $image['name'];
-    
-            if ($name_room == "") {
-                $err['name_room'] = "Bạn chưa nhập tên Phòng";
-            }    
-            if ($price_room == "") {
-                $err['price_room'] = "Bạn chưa nhập Giá Phòng";
-            }
-            if ($category_id == "") {
-                $err['category_id'] = "Bạn chưa nhập tên danh mục";
-            }
-    
-            if ($quantity == "") {
-                $err['quantity'] = "Bạn chưa chọn diện tích";
-            }
-    
-            if ($location == "") {
-                $err['location'] = "Bạn chưa nhập vị trí";
-            }
-    
-            if ($acreage_room == "") {
-                $err['acreage_room'] = "Bạn chưa nhập diện tích";
-            }
-            if ($service_id == "") {
-                $err['service_id'] = "Bạn chưa nhập tên danh mục";
-            }
-    
-            if ($status == "") {
-                $err['status'] = "Bạn chưa nhập trạng thái của Phòng";
-            }
-    
-            if ($description == "") {
-                $err['description'] = "Bạn chưa nhập mô tả của Phòng";
-            }
-    
+if(isset($_GET['add-admin'])){
+    if(isset($_POST['add_admin'])){
+        $name_admin = $_POST['name_admin'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $address = $_POST['address'];
+        $phone = $_POST['phone'];
+        $gender = $_POST['gender'];      
+         $status = $_POST['status'];
+       $image = $_FILES['image'];
+       $image_name = $image['name'];       $err=[];
+       if ($name_admin == "") {
+        $err['name_admin'] = "Bạn chưa nhập tên Phòng";
+    }    
+    if ($email == "") {
+        $err['email'] = "Bạn chưa nhập email";
+    }
+    if ($password == "") {
+        $err['password'] = "Bạn chưa nhập password";
+    }
+
+    if ($address == "") {
+        $err['address'] = "Bạn chưa chọn address";
+    }
+
+    if ($phone == "") {
+        $err['phone'] = "Bạn chưa nhập phone";
+    }
+
+    if ($gender == "") {
+        $err['gender'] = "Bạn chưa nhập gender";
+    }
+    if ($status == "") {
+        $err['status'] = "Bạn chưa nhập trạng thái của Phòng";
+    }
             $ext = pathinfo($image_name, PATHINFO_EXTENSION);
     
             if ($image['size'] <= 0) {
@@ -71,71 +57,58 @@ if(isset($_GET['add-room'])){
             }
     
             if (!$err) {
-                $add_room = insert_room($name_room, $description, $image_name,$category_id,$price_room,$star, $quantity,$status,$location,$acreage_room,$view,$likes,$service_id);
+                $update = Insert_admins($name_admin,$email,$password,$gender,$image_name,$address,$phone,$status);
     
                 if ($image['size'] > 0) {
                     move_uploaded_file($image['tmp_name'], '../../layout/assets/img/' . $image_name);
                 }
     
-                header('location:c_room.php');
+                header('location:c_admin.php');
     }
 }
     $VIEW_TITLE = "Thêm danh mục";
     $VIEW_CSS = 'admin_add_danhmuc.css';
-    $VIEW_ADMIN_NAME = 'add-room.php';
+    $VIEW_ADMIN_NAME = 'add-admin.php';
 
-}elseif(isset($_GET['edit-room'])){
+}elseif(isset($_GET['edit_admin'])){
     $id = $_GET['id'];
-    $oneroom = loadOne_room($id);
-    if(isset($_POST['edit_room'])){
-        $name_room = $_POST['name_room'];
-       $category_id = $_POST['category_id'];
-       $service_id = $_POST['service_id'];
-       $price_room = $_POST['price_room'];
-       $quantity = $_POST['quantity'];
-       $star = $_POST['star'];
-       $location = $_POST['location'];
-       $acreage_room = $_POST['acreage_room'];
-       $location = $_POST['location'];
-       $view = $_POST['view'];
-       $likes = $_POST['likes'];
-       $status = $_POST['status'];
-       $description = $_POST['description'];
+    $oneroom = loadOne_admins($id);
+    if(isset($_POST['edit_admin'])){
+        $name_admin = $_POST['name_admin'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $address = $_POST['address'];
+        $phone = $_POST['phone'];
+        $gender = $_POST['gender'];      
+         $status = $_POST['status'];
        $image = $_FILES['image'];
        $image_name = $image['name'];
+    //    $per = $_POST['permission'];
        $err=[];
 
-       if ($name_room == "") {
-           $err['name_room'] = "Bạn chưa nhập tên Phòng";
+       if ($name_admin == "") {
+           $err['name_admin'] = "Bạn chưa nhập tên Phòng";
        }    
-       if ($price_room == "") {
-           $err['price_room'] = "Bạn chưa nhập Giá Phòng";
+       if ($email == "") {
+           $err['email'] = "Bạn chưa nhập email";
        }
-       if ($category_id == "") {
-           $err['category_id'] = "Bạn chưa nhập tên danh mục";
-       }
-
-       if ($quantity == "") {
-           $err['quantity'] = "Bạn chưa chọn diện tích";
+       if ($password == "") {
+           $err['password'] = "Bạn chưa nhập password";
        }
 
-       if ($location == "") {
-           $err['location'] = "Bạn chưa nhập vị trí";
+       if ($address == "") {
+           $err['address'] = "Bạn chưa chọn address";
        }
 
-       if ($acreage_room == "") {
-           $err['acreage_room'] = "Bạn chưa nhập diện tích";
-       }
-       if ($service_id == "") {
-           $err['service_id'] = "Bạn chưa nhập tên danh mục";
+       if ($phone == "") {
+           $err['phone'] = "Bạn chưa nhập phone";
        }
 
+       if ($gender == "") {
+           $err['gender'] = "Bạn chưa nhập gender";
+       }
        if ($status == "") {
            $err['status'] = "Bạn chưa nhập trạng thái của Phòng";
-       }
-
-       if ($description == "") {
-           $err['description'] = "Bạn chưa nhập mô tả của Phòng";
        }
       
        $ext = pathinfo($image_name, PATHINFO_EXTENSION);
@@ -150,31 +123,31 @@ if(isset($_GET['add-room'])){
 
        if (!$err) {
 
-           $update = update_room($name_room,$description,$image['name'],$category_id,$price_room,$star, $quantity,$status,$location,$acreage_room,$view,$likes,$service_id,$id);
+           $update = Insert_admins($name_admin,$email,$password,$gender,$image_name,$address,$phone,$status);
            if ($image['size'] > 0) {
-               move_uploaded_file($image['tmp_name'], '../../layout/assets/img/' . $image_name);
+               move_uploaded_file($image['tmp_name'], '../layout/assets/img/' . $image_name);
            }
 
-           header('location:c_room.php');
+           header('location:c_admin.php');
 }
     }
     $VIEW_TITLE = "Sửa danh mục";
     $VIEW_CSS = 'admin_add_danhmuc.css';
-    $VIEW_ADMIN_NAME = 'edit-room.php';
+    $VIEW_ADMIN_NAME = 'edit-admin.php';
 }else{
-    if (isset($_POST['delete_room'])) {
-        if (isset($_POST['room'])) {
-            $choose_cate = $_POST['room'];
+    if (isset($_POST['delete_admin'])) {
+        if (isset($_POST['admin'])) {
+            $choose_cate = $_POST['admin'];
     
             for ($i = 0; $i < count($choose_cate); $i++) {
-                $delete_room = room_remove($choose_cate[$i]);
+                $delete_admin = admin_remove_by_id($choose_cate[$i]);
             }
     
-            header('location:c_room.php');
+            header('location:c_admin.php');
         }
     }
     $VIEW_TITLE = "Danh sách danh mục";
-    $VIEW_CSS = 'admin_room.css';
+    $VIEW_CSS = 'admin_cmt.css';
     $VIEW_ADMIN_NAME = '../admin/danh-sach.php';
 }
 
