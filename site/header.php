@@ -50,41 +50,64 @@
                                 </div>
                             </div>
                         </div>
-
                     </li>
-                    <li>
-                        <div class="dropdown-2">
-                            
-                            <button type="" onclick="drop_menu()" name="login">
-                                     <i class="fa-solid fa-user"></i></i> Đăng nhập
-                                    <i style="color:black; font-size: 12px;" class="fa-solid fa-chevron-down"></i></a>
-                            </button>
-                            <form action="index.php?" method="post">
-                            <div class="noidung-index" id="login">
-                                <h2>Đăng nhập tài khoản</h2>
-                                <span>Email hoặc số di động</span>
-                                <input type="text" name="user">
-                                <div class="flex-nd">
-                                    <span>Mật khẩu</span> <a href="index.php?forgot">Quên mật khẩu</a>
 
+                    <?php if (isset($_SESSION['username'])) { ?>
+                        <li >
+                            <div class="anh-dangnhap">
+                                <div class="flex-anh-dn"> 
+                                        <img class="anh-user" src="../layout/assets/img/<?= $_SESSION['images'] ?>" width="50px" alt=""> <span><?= $_SESSION['name'] ?></span><i
+                                        style="color:black; font-size: 11px; padding-left: 4px;padding-top: 5px;"
+                                        class="fa-solid fa-chevron-down"></i>
                                 </div>
-                                <input type="text" name="password"><i><i class="fa-solid fa-eye"></i></i>
-
-                                <div class="nd-dn">
-                                    <button type="submit" name="login">Đăng nhập</button><span>Bạn đã có tài khản chưa? <a href="index.php?register">Đăng
-                                            kí</a></span>
-                                </div>
-                                <div class="fb-gg">
-                                    <p>Hoặc đăng nhập bằng</p><br>
-                                    <a style="margin-left: 40px;" href=""><i class="fa-brands fa-facebook"></i>
-                                        Facebook</a>
-                                    <a href=""><i class="fa-brands fa-google"></i> Google</a>
+                                <div class="noidung-anh-dangnhap">
+                                        <h3>Tài khoản</h3>
+                                        <div class="a"><i class="fa-regular fa-user"></i> <span>Chỉnh sửa hồ sơ</span><br></div>
+                                        <div class="a"><i class="fa-solid fa-money-bill"></i> <span>Điểm thưởng của tôi</span><br></div>
+                                        <div class="a"><i class="fa-solid fa-person-booth"></i> <span>Dịch vụ khách sạn</span> <br></div>
+                                        <div class="a"><i class="fa-regular fa-bell"></i> <span>Thông báo của bạn</span> <br></div>
+                                        <div class="a"> <i class="fa-regular fa-credit-card"></i> <span>Thẻ của tôi</span> <br></div>
+                                        <div class="a"> <i class="fa-regular fa-envelope"></i> <span>Khuyến mãi</span> <br></div>
+                                        <div class="a"> <a href="index.php?action=logout"><i class="fa-solid fa-right-from-bracket"></i> <span>Đăng xuất</span></a><br></div>
+                                        
                                 </div>
                             </div>
-                            </form>
-                        </div>
-                    </li>
-                    <li style="padding: unset;"><a class="dangki" href="">Đăng kí</a></li>
+                        </li>
+                    <?php } else { ?>
+                        <li>
+                            <div class="dropdown-2">
+                                
+                                <button type="" onclick="drop_menu()" name="login">
+                                        <i class="fa-solid fa-user"></i></i> Đăng nhập
+                                        <i style="color:black; font-size: 12px;" class="fa-solid fa-chevron-down"></i></a>
+                                </button>
+                                <form action="index.php?" method="post">
+                                <div class="noidung-index" id="login">
+                                    <h2>Đăng nhập tài khoản</h2>
+                                    <span>Email hoặc số di động</span>
+                                    <input type="text" name="user">
+                                    <div class="flex-nd">
+                                        <span>Mật khẩu</span> <a href="index.php?forgot">Quên mật khẩu</a>
+
+                                    </div>
+                                    <input type="text" name="password"><i><i class="fa-solid fa-eye"></i></i>
+
+                                    <div class="nd-dn">
+                                        <button type="submit" name="login">Đăng nhập</button><span>Bạn đã có tài khản chưa? <a href="index.php?register">Đăng
+                                                kí</a></span>
+                                    </div>
+                                    <div class="fb-gg">
+                                        <p>Hoặc đăng nhập bằng</p><br>
+                                        <a style="margin-left: 40px;" href=""><i class="fa-brands fa-facebook"></i>
+                                            Facebook</a>
+                                        <a href=""><i class="fa-brands fa-google"></i> Google</a>
+                                    </div>
+                                </div>
+                                </form>
+                            </div>
+                        </li>
+                        <li style="padding: unset;"><a class="dangki" href="">Đăng kí</a></li>
+                    <?php } ?>
                 </ul>
             </div>
         </div>
@@ -99,6 +122,7 @@
                             <i class="fa-solid fa-car-side"></i> Cho thuê ô tô <br>
                             <i class="fa-solid fa-bus"></i> Xe đưa đón <br>
                             <i class="fa-solid fa-business-time"></i> Chuyển đồ
+                            <a href="?action=logout">Đăng Xuất</a>
                         </div>
                     </div>
                 </li>
@@ -126,7 +150,7 @@
                         <button> <a href="<?= SITE_URL . "?product-detail" ?>">Chi Tiết Sản Phẩm</a><i class="fa-solid fa-caret-down"></i></button>
                         <button> <a href="<?= SITE_URL . "?cart" ?>">Giỏ Hàng</a><i class="fa-solid fa-caret-down"></i></button>
                         <button> <a href="<?= SITE_URL . "?tin-tuc" ?>">Tin Tức</a><i class="fa-solid fa-caret-down"></i></button>
-                        <button> <a href="<?= SITE_URL . "?list-room" ?>">List-product</a><i class="fa-solid fa-caret-down"></i></button>
+                        <button> <a href="<?= SITE_URL . "?list-room" ?>">Danh sách phòng</a><i class="fa-solid fa-caret-down"></i></button>
                         
                         <div class="nd-mn4">
                             <i style="color: rgb(208, 148, 70);" class="fa-solid fa-coins"></i> Điểm thưởng của tôi <br>

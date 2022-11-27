@@ -148,7 +148,7 @@
             <div class="nd-img-room">
               <img src="../layout/assets/img/product/<?php echo $value->thumbnail ?>" alt="" />
               <div class="nd-flex-room">
-                <h2>Stayyin - Phòng đơn <span>( Phòng <?php echo $value->name ?> )</span></h2>
+                <h2> ( Phòng <?php echo $value->name ?> )<span></span></h2>
 
                 <a href="">Khách sạn</a><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <br />
                 <i style="padding-top: 13px; padding-right: 7px; color: #959ca1" class="fa-solid fa-location-dot"></i><span style="color: #959ca1">Hà nội</span><br />

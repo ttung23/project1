@@ -51,5 +51,4 @@
 
             <script src="../layout/assets/js/main.js"></script>
 </body>
-
 </html>
