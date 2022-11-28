@@ -16,7 +16,7 @@ $service = loadAll_service();
 if (isset($_GET['cart'])) {
     // add cart
     if (isset($_SESSION['username'])) {
-    
+
         $tt = 0;
         $service_room = [];
         $total_amount = 0;
@@ -64,11 +64,18 @@ if (isset($_GET['cart'])) {
             $email = $_POST['email'];
             $name = $_POST['name'];
             //    $id_user = $_SESSION['name'];
-            $insert_booking = Insert_booking($check_in, $check_out, $status, $quantity, $total_amount, $message, $phone, $email, $name,$_SESSION['user_id']);
-          
-            for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
-                if ($_SESSION['cart'][$i][18] == $_SESSION['user_id']) {
-                    array_splice($_SESSION['cart'], $i, 1);
+            $insert_booking = Insert_booking($check_in, $check_out, $status, $quantity, $total_amount, $message, $phone, $email, $name, $_SESSION['user_id']);
+            $selectbooking = loadAll_bookingdt1();
+            foreach ($selectbooking as $key => $value) {
+                $idbooking = $value->booking_id;
+            }
+            if (isset($idbooking)) {
+                if (isset($_SESSION['cart']) && (is_array($_SESSION['cart']))) {
+                    for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
+                        if ($_SESSION['cart'][$i][18] == $_SESSION['user_id']) {
+                            $insert_bookingdt = Insert_bookingdt($_SESSION['cart'][$i][0], $idbooking);
+                        }
+                    }
                 }
             }
             // $insert_bookdetail = Insert_bookingdt($id,);
@@ -82,8 +89,6 @@ if (isset($_GET['cart'])) {
     } else {
         $VIEW_NAME = 'trang-chu.php';
     }
-
-    
 } elseif (isset($_GET['tin-tuc'])) {
     $news = loadAll_news();
     $VIEW_NAME = 'tin-tuc.php';
@@ -126,6 +131,36 @@ if (isset($_GET['cart'])) {
         }
     }
     $VIEW_NAME = 'chi-tiet.php';
+} elseif (isset($_GET['info-user'])) {
+    if (isset($_GET['id']) && ($_GET['id'])) {
+        $id = $_GET['id'];
+        $bookinguser = loadAll_booking_user($id);
+        $oneusrer = loadOne_user($id);
+        if (isset($_POST['edit_user'])) {
+            $id = $_SESSION['id'];
+            $name = $_POST['name'];
+            $username = $_POST['username'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $address = $_POST['address'];
+            $phone = $_POST['phone'];
+            $date = $_POST['date'];
+            $image = $_FILES['image'];
+            $image_name = $image['name'];
+            //    $per = $_POST['permission'];
+            $err = [];
+            if (!$err) {
+
+                $update = Update_users($name,$username,$password, $email, $image_name, $address, $phone,$date,$id);
+                if ($image['size'] > 0) {
+                    move_uploaded_file($image['tmp_name'], '../layout/assets/img/product' . $image_name);
+                }
+
+                header('location:index.php');
+            }
+        }
+    }
+    $VIEW_NAME = 'info_user.php';
 } else {
     // s
     // $limit = $_GET['perpage'] ?? 9;
