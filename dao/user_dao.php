@@ -5,12 +5,19 @@
     $user = pdo_query_all($sql);
 
         if(($user != [])){
+            // $_SESSION['user'] = $user;
+            // var_dump($_SESSION['user']['username']);
+            // exit;
            foreach($user as $key => $value){
                 $_SESSION['username'] = $value->username;
+<<<<<<< HEAD
 <<<<<<< HEAD
                 $_SESSION['id'] = $value->user_id;
 =======
 >>>>>>> c8d86ca (add file)
+=======
+                $_SESSION['id'] = $value->user_id;
+>>>>>>> 1f754b3 (add php)
                 $_SESSION['password'] = $value->password;
                 $_SESSION['name'] = $value->name;
                 $_SESSION['user_id'] = $value->user_id;
@@ -22,7 +29,7 @@
                 $_SESSION['date'] = $value->date;
                 $_SESSION['status'] = $value->status;
                 $_SESSION['bookingdetail_id'] = $value->bookingdetail_id;
-                 header("location:index.php?");
+                header("location:index.php?");
            }
         }else{
             echo "bạn Đã sai tài khoản or mật khẩu";
@@ -42,23 +49,34 @@ function register($username,$password){
     pdo_execute($query,$username,$password);
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 function loadAll_users(){
     $query = "select * from user order by user_id desc";
     $listuser = pdo_query_all($query);
     return $listuser;
 }
 =======
+=======
+
+>>>>>>> 1f754b3 (add php)
 function loadAll_users() {
     $query = "select * from users";
     $listuser = pdo_query_all($query);
     return $listuser;
 }
 
+<<<<<<< HEAD
 >>>>>>> c8d86ca (add file)
 function loadOne_users($id){
     $query = "select * from user where user_id = ? desc";
     $listuser = pdo_query_all($query,$id);
     return $listuser;
+=======
+function loadOne_user($id){
+    $query = "select * from users where user_id = ?";
+    $user = pdo_query_one($query, $id);
+    return $user;
+>>>>>>> 1f754b3 (add php)
 }
 
 <<<<<<< HEAD
@@ -83,15 +101,23 @@ function list_user_block () {
     return $listuser;
 }
 
+<<<<<<< HEAD
 >>>>>>> c8d86ca (add file)
 function user_order_by_id($user_id){
     $query = "select * from user order by ? desc";
     $listuser = pdo_query_all($query,$user_id);
     return $listuser;
+=======
+function Insert_user($name, $username, $password, $gender, $email, $images, $address, $phone, $date){
+    $query = "INSERT into users(name, username, password, gender, email, adress, phone, date) 
+    VALUES (?,?,?,?,?,?,?)";
+    pdo_execute($query, $name, $username, $password, $gender, $email, $images, $address, $phone, $date);
+>>>>>>> 1f754b3 (add php)
 }
 <<<<<<< HEAD
 =======
 
+<<<<<<< HEAD
 >>>>>>> c8d86ca (add file)
 function Insert_user($name,$username,$password,$gender,$email,$images,$address,$phone,$date){
     $query = "Insert into users(name,username,password,gender,email,adress,phone,date) values(?,?,?,?,?,?,?)";
@@ -102,9 +128,12 @@ function Insert_user($name,$username,$password,$gender,$email,$images,$address,$
 
 >>>>>>> c8d86ca (add file)
 function Update_user($id,$name,$username,$password,$gender,$email,$images,$address,$phone,$date)
+=======
+function Update_user($name, $username, $gender, $email, $images, $address, $phone, $date, $id)
+>>>>>>> 1f754b3 (add php)
 {
-    $query = "Update users set name = ? , username = ?,password = ?,gender = ?,email = ?, images = ?, address = ?, phone = ?, date = ? where user_id = ?";
-    pdo_execute($query, $name,$username,$password,$gender,$email,$images,$address,$phone,$date,$id);
+    $query = "UPDATE users SET name = ? , username = ?, gender = ?, email = ?, images = ?, address = ?, phone = ?, date = ?, updated_at = current_timestamp() where user_id = ?";
+    pdo_execute($query, $name, $username, $gender, $email, $images, $address, $phone, $date, $id);
 }
 <<<<<<< HEAD
 =======
