@@ -52,13 +52,6 @@ th {
     padding: 10px 20px;
 }
 
-<<<<<<< HEAD
-.action {
-    margin: 15px 0;
-}
-
-=======
->>>>>>> c8d86ca (add file)
 td p {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -73,18 +66,11 @@ td p:hover {
 }
 
 .action {
-<<<<<<< HEAD
-    margin: 30px 0;
-}
-
-.action a {
-=======
     margin: 20px 0;
 }
 
 .action a {
     display: inline-block;
->>>>>>> c8d86ca (add file)
     text-decoration: none;
     color: #fff;
     padding: 9px;
@@ -120,77 +106,6 @@ table tr:nth-child(1) {
     transition: var(--tran-05);
 }
 
-<<<<<<< HEAD
-:root {
-    /* ===== Colors ===== */
-    --primary-color: #0E4BF1;
-    --panel-color: #FFF;
-    --text-color: #000;
-    --black-light-color: #707070;
-    --border-color: #e6e5e5;
-    --toggle-color: #DDD;
-    --box1-color: #4DA3FF;
-    --box2-color: #FFE6AC;
-    --box3-color: #E7D1FC;
-    --title-icon-color: #fff;
-
-    /* ====== Transition ====== */
-    --tran-05: all 0.5s ease;
-    --tran-03: all 0.3s ease;
-    --tran-03: all 0.2s ease;
-}
-
-body.dark {
-    --primary-color: #3A3B3C;
-    --panel-color: #242526;
-    --text-color: #CCC;
-    --black-light-color: #CCC;
-    --border-color: #4D4C4C;
-    --toggle-color: #FFF;
-    --box1-color: #3A3B3C;
-    --box2-color: #3A3B3C;
-    --box3-color: #3A3B3C;
-    --title-icon-color: #CCC;
-}
-
-/* === Custom Scroll Bar CSS === */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 12px;
-    transition: all 0.3s ease;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #0b3cc1;
-}
-
-body.dark::-webkit-scrollbar-thumb:hover,
-body.dark .activity-data::-webkit-scrollbar-thumb:hover {
-    background: #3A3B3C;
-}
-
-nav {
-    width: 250px;
-    padding: 10px 14px;
-    background-color: var(--panel-color);
-    border-right: 1px solid var(--border-color);
-    transition: var(--tran-05);
-}
-
-nav.close {
-    width: 73px;
-}
-
-=======
->>>>>>> c8d86ca (add file)
 nav .logo-name {
     margin: 20px 0;
     text-align: center;

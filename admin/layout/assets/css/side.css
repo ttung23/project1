@@ -55,11 +55,8 @@ body.dark .activity-data::-webkit-scrollbar-thumb:hover {
 }
 
 nav {
-<<<<<<< HEAD
-=======
     position: sticky;
     left: 0;
->>>>>>> c8d86ca (add file)
     width: 250px;
     padding: 10px 14px;
     background-color: var(--panel-color);
@@ -102,10 +99,6 @@ nav.close .logo_name {
 
 nav .menu-items {
     margin-top: 40px;
-<<<<<<< HEAD
-    height: calc(100% - 90px);
-=======
->>>>>>> c8d86ca (add file)
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -170,10 +163,7 @@ body.dark .nav-links li a:hover .link-name {
 }
 
 .menu-items .logout-mode {
-<<<<<<< HEAD
-=======
     margin-top: 80px;
->>>>>>> c8d86ca (add file)
     padding-top: 10px;
     border-top: 1px solid var(--border-color);
 }

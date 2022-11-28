@@ -5,11 +5,7 @@
         <a class="a" href=""><i class="fa-solid fa-calendar-days"></i><br> Theo ngày</a>
     </div>
     <form action="index.php?list-room" method="post">
-<<<<<<< HEAD
-    <div class="search-check">
-=======
         <div class="search-check">
->>>>>>> c8d86ca (add file)
             <div class="check">
                 <div class="i">
                     <i class="fa-sharp fa-solid fa-location-dot"></i> <br>
@@ -30,17 +26,6 @@
             <div class="book2">
                 <select name="quantity" id="tp" class="tp">
                     <option value="hn">Số Lượng</option>
-<<<<<<< HEAD
-            <option value="1">1</option></a>
-            <option value="2">2</option></a>
-            <option value="3">3</option></a>
-            <option value="4">4</option></a>
-            <option value="5">5</option></a>
-                </select>
-            </div>
-            <button type="submit" name="find"><i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm</button>
-    </div>
-=======
                     <option value="1">1</option></a>
                     <option value="2">2</option></a>
                     <option value="3">3</option></a>
@@ -50,7 +35,6 @@
             </div>
             <button type="submit" name="find"><i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm</button>
         </div>
->>>>>>> c8d86ca (add file)
     </form>
 </div>
 <div class="sale-index">
@@ -146,13 +130,8 @@
                                     </li>
                                 <?php } ?>
 
-<<<<<<< HEAD
-                                <?php for($i = 1; $i <= $total_pages; $i++): ?>
-                                    <?php if ($current_page != $i ) { ?>
-=======
                                 <?php for ($i = 1; $i <= $total_pages; $i++) : ?>
                                     <?php if ($current_page != $i) { ?>
->>>>>>> c8d86ca (add file)
                                         <?php if ($i > $current_page - 3 && $i < $current_page + 3) { ?>
                                             <li>
                                                 <a href="?perpage=<?= $limit ?>&page=<?= $i ?>"><?= $i ?></a>
@@ -178,15 +157,9 @@
                                 <li>
                                     <a href="?perpage=9&page=3">></a>
                                 </li> -->
-<<<<<<< HEAD
-                            </ul>
-                        </div>
-    </div> -->
-=======
         </ul>
     </div>
 </div> -->
->>>>>>> c8d86ca (add file)
 
 </div>
 <!-- dịch vụ khách sạn -->
