@@ -1,7 +1,6 @@
 <?php
 function loadAll_categories(){
-    $query = "select * from categories_room order by categories_id desc";
-
+    $query = "select * from categories_room";
     $listcategories = pdo_query_all($query);
     return $listcategories;
 }

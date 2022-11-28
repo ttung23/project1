@@ -1,6 +1,5 @@
 <?php
 function loadAll_permissions(){
-
     $query = "select * from permissions order by permission_id desc";
     $listservice = pdo_query_all($query);
     return $listservice;
@@ -10,6 +9,7 @@ function loadAll_permissionsone($id){
     $room = pdo_query_one($query,$id);
     return $room;
 }
+
 function permissions_remove_by_id($cate_id){
     $query = "delete from permissions where permission_id = ?";
     pdo_execute($query, $cate_id);
