@@ -14,7 +14,7 @@
                             <div class="font-medium mb-1 text-[14px]">Nhận phòng</div>
 
                             <div class="checkin-date">
-                                <span class="block font-bold text-[14px]"><input type="date" name="check_in"></span>
+                                <span class="block font-bold text-[14px]"><input value="<?= $_SESSION['checkin'] ?>" type="date" name="check_in"></span>
                                 <span class="text-[#6b6b6b] text-[12px]">12h - 00h</span>
                             </div>
                         </div>
@@ -23,7 +23,7 @@
                             <div class="font-medium mb-1 text-[14px]">Trả phòng</div>
 
                             <div class="checkout-date">
-                                <span class="block font-bold text-[14px]"><input type="date" name="check_out"></span>
+                                <span class="block font-bold text-[14px]"><input type="date" value="<?= $_SESSION['checkout'] ?>" name="check_out"></span>
                                 <span class="text-[#6b6b6b] text-[12px]">00h - 12h</span>
                             </div>
                         </div>
@@ -78,14 +78,14 @@
                         for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
                             if ($_SESSION['cart'][$i][18] == $_SESSION['user_id']) {
                     ?>
-                            <div class="tomtat-detail">
-                                <div>
-                                    Phòng <?php echo $_SESSION['cart'][$i][16] ?>
+                                <div class="tomtat-detail">
+                                    <div>
+                                        Phòng <?php echo $_SESSION['cart'][$i][16] ?>
+                                    </div>
+                                    <div>
+                                        VND <?php echo $_SESSION['cart'][$i][17] ?>
+                                    </div>
                                 </div>
-                                <div>
-                                    VND <?php echo $_SESSION['cart'][$i][17] ?>
-                                </div>
-                            </div>
                     <?php
                             }
                         }
@@ -115,49 +115,49 @@
                     for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
                         if ($_SESSION['cart'][$i][18] == $_SESSION['user_id']) {
                 ?>
-                        <form action="index.php?cart" method="post">
-                            <input type="hidden" name="id" value="<?php echo $_SESSION['cart'][$i][0] ?>">
-                            <div class="room-choosed">
-                                <div class="h-[160px] w-[160px]">
-                                    <img class="max-w-[100%] max-h-[100%]" src="../layout/assets/img/product/<?php echo $_SESSION['cart'][$i][2] ?>" alt="">
-                                </div>
-                                <div>
-                                    <div class="text-[12px] text-[#6b6b6b]">Khách sạn StayyInn</div>
-                                    <div class="room-name text-[20px] font-bold"><?php echo $_SESSION['cart'][$i][1] ?></div>
-                                    <div class="descrip">
-                                        <div class="max-w-[180px]">
-                                            <i class="fa-solid fa-bed"></i>
-                                            <?php echo $_SESSION['cart'][$i][3] ?>
+                            <form action="index.php?cart" method="post">
+                                <input type="hidden" name="id" value="<?php echo $_SESSION['cart'][$i][0] ?>">
+                                <div class="room-choosed">
+                                    <div class="h-[160px] w-[160px]">
+                                        <img class="max-w-[100%] max-h-[100%]" src="../layout/assets/img/product/<?php echo $_SESSION['cart'][$i][2] ?>" alt="">
+                                    </div>
+                                    <div>
+                                        <div class="text-[12px] text-[#6b6b6b]">Khách sạn StayyInn</div>
+                                        <div class="room-name text-[20px] font-bold"><?php echo $_SESSION['cart'][$i][1] ?></div>
+                                        <div class="descrip">
+                                            <div class="max-w-[180px]">
+                                                <i class="fa-solid fa-bed"></i>
+                                                <?php echo $_SESSION['cart'][$i][3] ?>
+                                            </div>
+                                            <div>
+                                                <i class="fa-regular fa-user-group"></i>
+                                                Phòng 2 khách
+                                            </div>
                                         </div>
-                                        <div>
-                                            <i class="fa-regular fa-user-group"></i>
-                                            Phòng 2 khách
+                                        <div class="rate">
+                                            <div class="w-[24px] h-[24px]">8.3</div>
+                                            <div>Tuyệt vời</div>
+                                            <div>
+                                                <?php echo $_SESSION['cart'][$i][6] ?> đánh giá
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="rate">
-                                        <div class="w-[24px] h-[24px]">8.3</div>
-                                        <div>Tuyệt vời</div>
-                                        <div>
-                                            <?php echo $_SESSION['cart'][$i][6] ?> đánh giá
+                                    <div class="price-pay ml-[144px]">
+                                        <div class="text-[18px] font-bold text-[#3ba6e3]">
+                                            <?php echo number_format($_SESSION['cart'][$i][5]) ?>
+                                        </div>
+                                        <div class="text-[12px] text-[rgba(104,113,118,1.00)] text-right">
+                                            / phòng / đêm
+                                        </div>
+                                        <div class="text-[12px] text-[#3ba6e3] font-semibold text-right">
+                                            Giá cuối cùng
+                                        </div>
+                                        <div class="delete-room">
+                                            <a class="rounded-md my-3 px-16 py-3 border-blue-500 text-light" href="index.php?cart&&delid=<?php echo $i ?>">Xóa</a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="price-pay ml-[144px]">
-                                    <div class="text-[18px] font-bold text-[#3ba6e3]">
-                                        <?php echo number_format($_SESSION['cart'][$i][5]) ?>
-                                    </div>
-                                    <div class="text-[12px] text-[rgba(104,113,118,1.00)] text-right">
-                                        / phòng / đêm
-                                    </div>
-                                    <div class="text-[12px] text-[#3ba6e3] font-semibold text-right">
-                                        Giá cuối cùng
-                                    </div>
-                                    <div class="delete-room">
-                                        <a class="rounded-md my-3 px-16 py-3 border-blue-500 text-light"  href="index.php?cart&&delid=<?php echo $i ?>">Xóa</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+                            </form>
                 <?php
                         }
                     }

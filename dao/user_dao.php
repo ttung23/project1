@@ -5,6 +5,9 @@
     $user = pdo_query_all($sql);
 
         if(($user != [])){
+            // $_SESSION['user'] = $user;
+            // var_dump($_SESSION['user']['username']);
+            // exit;
            foreach($user as $key => $value){
                 $_SESSION['username'] = $value->username;
                 $_SESSION['id'] = $value->user_id;
@@ -19,7 +22,7 @@
                 $_SESSION['date'] = $value->date;
                 $_SESSION['status'] = $value->status;
                 $_SESSION['bookingdetail_id'] = $value->bookingdetail_id;
-                 header("location:index.php?");
+                header("location:index.php?");
            }
         }else{
             echo "bạn Đã sai tài khoản or mật khẩu";
@@ -38,35 +41,47 @@ function register($username,$password){
     $query = "Insert into users(username,password) values(?,?)";
     pdo_execute($query,$username,$password);
 }
-function loadAll_users(){
-    $query = "select * from user order by user_id desc";
+
+function loadAll_users() {
+    $query = "select * from users";
     $listuser = pdo_query_all($query);
     return $listuser;
 }
-function loadOne_users($id){
-    $query = "select * from user where user_id = ? desc";
-    $listuser = pdo_query_all($query,$id);
+
+function loadOne_user($id){
+    $query = "select * from users where user_id = ?";
+    $user = pdo_query_one($query, $id);
+    return $user;
+}
+
+function block_user($user_id){
+    $query = "update users set status = 0 where user_id = ?";
+    pdo_execute($query, $user_id);
+}
+
+function unlock_user($user_id){
+    $query = "update users set status = 1 where user_id = ?";
+    pdo_execute($query, $user_id);
+}
+
+function list_user_block () {
+    $query = "select * from users where status = 0";
+    $listuser = pdo_query_all($query);
     return $listuser;
 }
 
-function user_remove_by_id($user_id){
-    $query = "delete from users where id = ?";
-    pdo_execute($query, $user_id);
+function Insert_user($name, $username, $password, $gender, $email, $images, $address, $phone, $date){
+    $query = "INSERT into users(name, username, password, gender, email, adress, phone, date) 
+    VALUES (?,?,?,?,?,?,?)";
+    pdo_execute($query, $name, $username, $password, $gender, $email, $images, $address, $phone, $date);
 }
-function user_order_by_id($user_id){
-    $query = "select * from user order by ? desc";
-    $listuser = pdo_query_all($query,$user_id);
-    return $listuser;
-}
-function Insert_user($name,$username,$password,$gender,$email,$images,$address,$phone,$date){
-    $query = "Insert into users(name,username,password,gender,email,adress,phone,date) values(?,?,?,?,?,?,?)";
-    pdo_execute($query, $name,$username,$password,$gender,$email,$images,$address,$phone,$date);
-}
-function Update_user($id,$name,$username,$password,$gender,$email,$images,$address,$phone,$date)
+
+function Update_user($name, $username, $gender, $email, $images, $address, $phone, $date, $id)
 {
-    $query = "Update users set name = ? , username = ?,password = ?,gender = ?,email = ?, images = ?, address = ?, phone = ?, date = ? where user_id = ?";
-    pdo_execute($query, $name,$username,$password,$gender,$email,$images,$address,$phone,$date,$id);
+    $query = "UPDATE users SET name = ? , username = ?, gender = ?, email = ?, images = ?, address = ?, phone = ?, date = ?, updated_at = current_timestamp() where user_id = ?";
+    pdo_execute($query, $name, $username, $gender, $email, $images, $address, $phone, $date, $id);
 }
+
 function getinfo($client) {
     $client->setAccessToken($_SESSION['access_token']);
     // $plus = new Google_Service_Plus($client);
