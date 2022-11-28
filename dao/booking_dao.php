@@ -15,7 +15,16 @@ function loadAll_booking_user($id){
     $listroom = pdo_query_all($query);
     return $listroom;
 }
-
+function loadAll_booking_userct($id){
+    $query = "SELECT * from bookings bk WHERE id_user = '$id' GROUP BY booking_id DESC;";
+    $listroom = pdo_query_all($query);
+    return $listroom;
+}
+function loadAll_bookingdt1(){
+    $query = "SELECT * FROM bookings WHERE 1 order by booking_id desc limit 1;";
+    $listroom = pdo_query_all($query);
+    return $listroom;
+}
 function booking_remove_by_id($cate_id){
     $query = "delete from bookings where booking_id = ?";
     pdo_execute($query, $cate_id);

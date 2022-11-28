@@ -81,6 +81,11 @@ function Update_user($name, $username, $gender, $email, $images, $address, $phon
     $query = "UPDATE users SET name = ? , username = ?, gender = ?, email = ?, images = ?, address = ?, phone = ?, date = ?, updated_at = current_timestamp() where user_id = ?";
     pdo_execute($query, $name, $username, $gender, $email, $images, $address, $phone, $date, $id);
 }
+function Update_users($name, $username,$password, $email, $images, $address, $phone, $date, $id)
+{
+    $query = "UPDATE users SET name = ? , username = ?,password = ? , email = ?, images = ?, address = ?, phone = ?, date = ?, updated_at = current_timestamp() where user_id = ?";
+    pdo_execute($query ,$name, $username,$password, $email, $images, $address, $phone, $date, $id);
+}
 
 function getinfo($client) {
     $client->setAccessToken($_SESSION['access_token']);

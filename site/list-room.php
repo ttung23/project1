@@ -112,8 +112,7 @@
             <div class="nd-img-room">
               <img src="../layout/assets/img/product/<?php echo $value->thumbnail ?>" alt="" />
               <div class="nd-flex-room">
-                <h2>Stayyin - Phòng đơn <span>( Phòng <?php echo $value->name ?> )</span></h2>
-
+              <h2> ( Phòng <?php echo $value->name ?> )<span>Stayyin - <?php echo $value->tendt ?> </span></h2>
                 <a href="">Khách sạn</a><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <br />
                 <i style="padding-top: 13px; padding-right: 7px; color: #959ca1" class="fa-solid fa-location-dot"></i><span style="color: #959ca1">Hà nội</span><br />
                 <i style="color: #1ba0e2; padding-top: 9px" class="fa-solid fa-heart"></i>
@@ -142,6 +141,16 @@
           </div>
         </div>
       <?php endforeach ?>
+      <div class="banner-l-pro">
+        <img src="assets/img/lis-pro/sp0.webp" alt="" />
+        <div class="text-bn">
+          <span style="">Muốn nhận mã ưu đãi và giá phòng thấp nhất?</span><br />
+          <span style="color: #be90c8">Đặt ngay trên ứng dụng Traveloka, giá trung thực không phí
+            ẩn</span><br />
+          <a style="color: #1ba0e2" href="">Tải ngay ứng dụng </a>
+        </div>
+      </div>
+      <!--  -->
       <?php foreach ($roomcategori as $key => $value) : ?>
         <div class="room-l-pro">
           <div class="img-l-pro">
@@ -177,54 +186,7 @@
           </div>
         </div>
       <?php endforeach ?>
-      <!--  -->
-      <div class="banner-l-pro">
-        <img src="assets/img/lis-pro/sp0.webp" alt="" />
-        <div class="text-bn">
-          <span style="">Muốn nhận mã ưu đãi và giá phòng thấp nhất?</span><br />
-          <span style="color: #be90c8">Đặt ngay trên ứng dụng Traveloka, giá trung thực không phí
-            ẩn</span><br />
-          <a style="color: #1ba0e2" href="">Tải ngay ứng dụng </a>
-        </div>
-      </div>
-      <!--  -->
-      <?php foreach ($roomAll as $key => $value) : ?>
-        <div class="room-l-pro">
-          <div class="img-l-pro">
-            <div class="nd-img-room">
-              <img src="../layout/assets/img/product/<?php echo $value->thumbnail ?>" alt="" />
-              <div class="nd-flex-room">
-                <h2>Stayyin - Phòng đơn <span>( Phòng <?php echo $value->name ?> )</span></h2>
-
-                <a href="">Khách sạn</a><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <br />
-                <i style="padding-top: 13px; padding-right: 7px; color: #959ca1" class="fa-solid fa-location-dot"></i><span style="color: #959ca1">Hà nội</span><br />
-                <i style="color: #1ba0e2; padding-top: 9px" class="fa-solid fa-heart"></i>
-                <span style="color: #1ba0e2">ấn tượng - 8.9</span> (257)
-                <br /><br />
-                <a style="background-color: #eac2b0; color: #616669" href=""><i style="color: #f3545c" class="fa-solid fa-gift"></i> Quà
-                  tặng cho thành viên mới</a>
-              </div>
-            </div>
-            <div class="gia-room">
-              <i style="color: #7ed2a8" class="fa-sharp fa-solid fa-building-user"></i>
-              <span style="color: #7ed2a8">Đặt phòng đển nhận ưu đãi khủng 11.11</span><br /><br /><br /><br />
-              <span style="
-                    color: #ff5e1f;
-                    font-weight: bold;
-                    font-size: 18px;
-                    margin-top: 50px;
-                  ">
-                <?php echo $value->price ?>
-              </span>
-              <br />
-              <br />
-
-              <a href="">Đặt phòng</a>
-            </div>
-          </div>
-        </div>
-      <?php endforeach ?>
-      <!--  -->
+      
     </div>
   </div>
 </div>

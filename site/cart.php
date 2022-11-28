@@ -14,7 +14,7 @@
                             <div class="font-medium mb-1 text-[14px]">Nhận phòng</div>
 
                             <div class="checkin-date">
-                                <span class="block font-bold text-[14px]"><input value="<?= $_SESSION['checkin'] ?>" type="date" name="check_in"></span>
+                                <span class="block font-bold text-[14px]"><input value="<?= $_SESSION['checkin'] ?? ""  ?>" type="date" name="check_in"></span>
                                 <span class="text-[#6b6b6b] text-[12px]">12h - 00h</span>
                             </div>
                         </div>
@@ -23,7 +23,7 @@
                             <div class="font-medium mb-1 text-[14px]">Trả phòng</div>
 
                             <div class="checkout-date">
-                                <span class="block font-bold text-[14px]"><input type="date" value="<?= $_SESSION['checkout'] ?>" name="check_out"></span>
+                                <span class="block font-bold text-[14px]"><input type="date" value="<?= $_SESSION['checkout']?? "" ?>" name="check_out"></span>
                                 <span class="text-[#6b6b6b] text-[12px]">00h - 12h</span>
                             </div>
                         </div>

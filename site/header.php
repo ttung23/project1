@@ -56,13 +56,13 @@
                         <li >
                             <div class="anh-dangnhap">
                                 <div class="flex-anh-dn"> 
-                                        <img class="anh-user" src="../layout/assets/img/<?= $_SESSION['images'] ?>" width="50px" alt=""> <span><?= $_SESSION['name'] ?></span><i
+                                        <img class="anh-user" src="../layout/assets/img/product/<?= $_SESSION['images'] ?>" width="50px" alt=""> <span><?= $_SESSION['name'] ?></span><i
                                         style="color:black; font-size: 11px; padding-left: 4px;padding-top: 5px;"
                                         class="fa-solid fa-chevron-down"></i>
                                 </div>
                                 <div class="noidung-anh-dangnhap">
                                         <h3>Tài khoản</h3>
-                                        <div class="a"><i class="fa-regular fa-user"></i> <span>Chỉnh sửa hồ sơ</span><br></div>
+                                        <div class="a"><i class="fa-regular fa-user"></i> <span><a href="<?= SITE_URL . "?info-user&id=". $_SESSION['user_id']?>">thông tin người dùng</a></span><br></div>
                                         <div class="a"><i class="fa-solid fa-money-bill"></i> <span>Điểm thưởng của tôi</span><br></div>
                                         <div class="a"><i class="fa-solid fa-person-booth"></i> <span>Dịch vụ khách sạn</span> <br></div>
                                         <div class="a"><i class="fa-regular fa-bell"></i> <span>Thông báo của bạn</span> <br></div>
@@ -151,7 +151,7 @@
                         <button> <a href="<?= SITE_URL . "?cart" ?>">Giỏ Hàng</a><i class="fa-solid fa-caret-down"></i></button>
                         <button> <a href="<?= SITE_URL . "?tin-tuc" ?>">Tin Tức</a><i class="fa-solid fa-caret-down"></i></button>
                         <button> <a href="<?= SITE_URL . "?list-room" ?>">Danh sách phòng</a><i class="fa-solid fa-caret-down"></i></button>
-                        
+                        <button> <a href="<?= SITE_URL . "?info-user" ?>">thông tin người dùng</a><i class="fa-solid fa-caret-down"></i></button>
                         <div class="nd-mn4">
                             <i style="color: rgb(208, 148, 70);" class="fa-solid fa-coins"></i> Điểm thưởng của tôi <br>
                             <i style="color: red;" class="fa-solid fa-gift"></i> Đổi quà tặng
