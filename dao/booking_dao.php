@@ -11,13 +11,17 @@ function loadAll_booking_user($id){
     return $listroom;
 }
 
+function load_booking_newest () {
+    
+}
+
 function booking_remove_by_id($cate_id){
     $query = "delete from bookings where booking_id = ?";
     pdo_execute($query, $cate_id);
 }
 function Insert_booking($check_in_date,$check_out_date,$status,$quantity_people,$total_amount,$message,$phone,$email,$names)
 {
-    $sql = "insert into bookings(check_in_date,check_out_date,status,quantity_people,total_amount,message,phone,email,name) value('$check_in_date','$check_out_date','$status','$quantity_people','$total_amount','$message','$phone','$email','$names')";
+    $sql = "insert into bookings (check_in_date,check_out_date,status,quantity_people,total_amount,message,phone,email,name) value('$check_in_date','$check_out_date','$status','$quantity_people','$total_amount','$message','$phone','$email','$names')";
     $room = pdo_execute($sql);
     return $room;
 }

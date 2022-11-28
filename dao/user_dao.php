@@ -37,6 +37,18 @@ function loginforgot($username)
             header("Location: loginforgot.php");
         }
 }
+
+function forgot_user ($name, $username, $date, $email, $phone) {
+    $query = "select * from users where name = ? and username = ? and email = ? and date = ? and phone = ?";
+    $user = pdo_query_one($query, $name, $username, $date, $email, $phone);
+    return $user;
+}
+
+function update_pass ($pass, $user_id) {
+    $query = "update users set password = ? where user_id = ?";
+    pdo_execute($query, $pass, $user_id);
+}
+
 function register($username,$password){
     $query = "Insert into users(username,password) values(?,?)";
     pdo_execute($query,$username,$password);
@@ -70,9 +82,9 @@ function list_user_block () {
     return $listuser;
 }
 
-function Insert_user($name, $username, $password, $gender, $email, $images, $address, $phone, $date){
-    $query = "INSERT into users(name, username, password, gender, email, adress, phone, date) 
-    VALUES (?,?,?,?,?,?,?)";
+function signUp($name, $username, $password, $gender, $email, $images, $address, $phone, $date){
+    $query = "INSERT into users (name, username, password, gender, email, images, address, phone, date) 
+    VALUES (?,?,?,?,?,?,?,?,?)";
     pdo_execute($query, $name, $username, $password, $gender, $email, $images, $address, $phone, $date);
 }
 

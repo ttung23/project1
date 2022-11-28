@@ -56,7 +56,7 @@
                         <li >
                             <div class="anh-dangnhap">
                                 <div class="flex-anh-dn"> 
-                                        <img class="anh-user" src="../layout/assets/img/<?= $_SESSION['images'] ?>" width="50px" alt=""> <span><?= $_SESSION['name'] ?></span><i
+                                        <img class="anh-user" src="../layout/assets/img/users/<?= $_SESSION['images'] ?>" width="50px" alt=""> <span><?= $_SESSION['name'] ?></span><i
                                         style="color:black; font-size: 11px; padding-left: 4px;padding-top: 5px;"
                                         class="fa-solid fa-chevron-down"></i>
                                 </div>
@@ -106,7 +106,7 @@
                                 </form>
                             </div>
                         </li>
-                        <li style="padding: unset;"><a class="dangki" href="">Đăng kí</a></li>
+                        <li style="padding: unset;"><a class="dangki" href="index.php?sign_up">Đăng kí</a></li>
                     <?php } ?>
                 </ul>
             </div>

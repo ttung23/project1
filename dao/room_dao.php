@@ -81,7 +81,13 @@ function  update_room($name, $des, $thumbnail, $id_cate, $price, $star, $quantit
 }
 function  find_room($checkin,$checkout)
 {
-    $sql = "SELECT * FROM room where room_id not in (select r.room_id from room r INNER join booking_detail bd on bd.id_room = r.room_id left JOIN bookings bk on bk.booking_id = bd.id_booking where bk.check_in_date >= '$checkin' and bk.check_in_date <= '$checkout' or bk.check_out_date <= '$checkin' and bk.check_out_date >= '$checkout')";
+    $sql = "SELECT * FROM room where room_id 
+    not in 
+    (select r.room_id 
+    from room r INNER join booking_detail bd on bd.id_room = r.room_id 
+    left JOIN bookings bk on bk.booking_id = bd.id_booking 
+    where bk.check_in_date >= '$checkin' and bk.check_in_date <= '$checkout' 
+    or bk.check_out_date <= '$checkin' and bk.check_out_date >= '$checkout')";
     $room = pdo_query_one($sql);
     return $room;
 }

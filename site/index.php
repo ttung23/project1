@@ -15,7 +15,6 @@ $service = loadAll_service();
 if (isset($_GET['cart'])) {
     // add cart
     if (isset($_SESSION['username'])) {
-    
         $tt = 0;
         $service_room = [];
         $total_amount = 0;
@@ -69,20 +68,26 @@ if (isset($_GET['cart'])) {
                     array_splice($_SESSION['cart'], $i, 1);
                 }
             }
+            var_dump($insert_booking);
+            exit;
             unset($_SESSION['addcart']);
             $_SESSION['addcart'] = [];
         }
         if (isset($_GET['delid'])) {
             array_splice($_SESSION['cart'], $_GET['delid'], 1);
         }
+
+        $_TITLE = "Giỏ hàng";
         $VIEW_NAME = 'cart.php';
     } else {
+
+        $_TITLE = "Trang chủ";
         $VIEW_NAME = 'trang-chu.php';
     }
-
-    
 } elseif (isset($_GET['tin-tuc'])) {
     $news = loadAll_news();
+
+    $_TITLE = "Tin tức StayyInn";
     $VIEW_NAME = 'tin-tuc.php';
 } elseif (isset($_GET['list-room'])) {
     if (isset($_POST['find'])) {
@@ -122,7 +127,128 @@ if (isset($_GET['cart'])) {
             header("location:index.php?$link");
         }
     }
+
+    $_TITLE = "Thông tin phòng";
     $VIEW_NAME = 'chi-tiet.php';
+    
+} elseif (isset($_GET['sign_up'])) {
+    if (isset($_POST['btn_sign_up'])) {
+        $name = $_POST['name'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $re_password = $_POST['re_password'];
+        $gender = $_POST['gender'];
+        $email = $_POST['email'];
+        $date = $_POST['date'];
+        $diachi = $_POST['diachi'];
+        $sdt = $_POST['sdt'];
+
+        $image = $_FILES['image'];
+        $image_name = 'user.jpg';
+
+        if ($name == "") {
+            $err['name'] = "Bạn chưa nhập họ tên";
+        }
+
+        if ($username == "") {
+            $err['username'] = "Bạn chưa nhập username";
+        }
+
+        if ($password == "") {
+            $err['password'] = "Bạn chưa nhập mật khẩu";
+        }
+
+        if ($re_password != $password) {
+            $err['re_password'] = "Mật khẩu không chính xác";
+        }
+
+        if ($email == "") {
+            $err['email'] = "Bạn chưa chọn nhập email";
+        }
+
+        if ($date == "") {
+            $err['date'] = "Bạn chưa chọn ngày sinh";
+        }
+
+        if ($diachi == "") {
+            $err['diachi'] = "Bạn chưa nhập địa chỉ";
+        }
+
+        if ($sdt == "") {
+            $err['sdt'] = "Bạn chưa nhập số điện thoại";
+        }
+
+        if ($image['size'] > 0) {
+            $image_name = $image['name'];
+
+            $ext = pathinfo($image_name, PATHINFO_EXTENSION);
+
+            if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
+                $err['img'] = "Ảnh không đúng định dạng";
+            } else if ($image['size'] >= 2 * 1024 * 1024) {
+                $err['img'] = "Ảnh không được quá 2MB";
+            }
+        }
+
+        if (!$err) {
+            $sign_up = signUp($name, $username, $password, $gender, $email, $image_name, $diachi, $sdt, $date);
+
+            if ($image['size'] > 0) {
+                move_uploaded_file($image['tmp_name'], '../../layout/assets/img/users/' . $image_name);
+            }
+
+            header("location:index.php");
+        }
+    }
+
+    $VIEW_CSS = '';
+    $_TITLE = "Đăng ký";
+    $VIEW_NAME = 'sign_up.php';
+} elseif (isset($_GET['forgot'])) {
+    if (isset($_POST['btn_forgot_pass'])) {
+        $name = $_POST['name'];
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $date = $_POST['date'];
+        $sdt = $_POST['sdt'];
+
+        $_SESSION['user_forgot'] = forgot_user($name, $username, $email, $date, $sdt);
+
+        if (empty($_SESSION['user_forgot'])) {
+            $err['sdt'] = "Thông tin chưa chính xác";
+        } else {
+            header("location:index.php?update_password");
+        }
+
+    }
+
+    $VIEW_CSS = '';
+    $_TITLE = "Quên mật khẩu";
+    $VIEW_NAME = 'forgot_password.php';
+} elseif (isset($_GET['update_password'])) {
+    if (isset($_POST['btn_update_password'])) {
+        $password = $_POST['password'];
+        $re_password = $_POST['re_password'];
+
+        if ($password == "") {
+            $err['password'] = "Bạn chưa nhập mật khẩu";
+        }
+
+        if ($password != $re_password) {
+            $err['re_password'] = "Mật khẩu không chính xác";
+        }
+
+        if (!isset($err)) {
+            $update_pass = update_pass($password, $_SESSION['user_forgot'][0]->user_id);
+
+            header("location:index.php");
+        }
+
+    }
+
+    $VIEW_CSS = '';
+    $_TITLE = "Quên mật khẩu";
+    $VIEW_NAME = 'update_password.php';
 } else {
     // s
     // $limit = $_GET['perpage'] ?? 9;
@@ -146,6 +272,8 @@ if (isset($_GET['cart'])) {
         unset($_SESSION['addcart']);
         header('Location:index.php');
     }
+
+    $_TITLE = "Trang chủ";
     $VIEW_NAME = 'trang-chu.php';
 }
 include_once './layout.php';

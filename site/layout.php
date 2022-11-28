@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><?= $_TITLE ?></title>
     <title>Chi tiết phòng</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../layout/assets/css/index.css" />
@@ -24,31 +24,35 @@
         <!-- header -->
         <div>
             <?php include_once "header.php" ?>
-            <div>
-                <!-- content  -->
-                <main>
-                    <?php include_once $VIEW_NAME ?>
-                    <main>
-                        <!-- foodted -->
-                        <div class="footer">
-                            <?php include_once "footer.php" ?>
-                        </div>
-            </div>
-            <script src="../layout/assets/js/main.js"></script>
-            <script src="../layout/assets/js/list-room.js"></script>
-            <script src="jquery-3.6.0.min.js"></script>
-            <script>
-                $("select").click(function() {
-                    var open = $(this).data("isopen");
-                    if (open) {
-                        window.location.href = $(this).val()
-                    }
-                    //set isopen to opposite so next time when use clicked select box
-                    //it wont trigger this event
-                    $(this).data("isopen", !open);
-                });
-            </script>
+        <div>
+            
+        <!-- content  -->
+        <main>
+            <?php include_once $VIEW_NAME ?>
+        <main>
 
-            <script src="../layout/assets/js/main.js"></script>
+        <!-- foodted -->
+        <div class="footer">
+            <?php include_once "footer.php" ?>
+        </div>
+    </div>
+
+    <script src="../layout/assets/js/main.js"></script>
+    <script src="../layout/assets/js/list-room.js"></script>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        $("select").click(function() {
+            var open = $(this).data("isopen");
+            if (open) {
+                window.location.href = $(this).val()
+            }
+            //set isopen to opposite so next time when use clicked select box
+            //it wont trigger this event
+            $(this).data("isopen", !open);
+        });
+    </script>
+
+    <script src="../layout/assets/js/main.js"></script>
 </body>
+
 </html>
