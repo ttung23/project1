@@ -43,7 +43,7 @@
                             <div class="font-medium text-[14px]">Tổng thời gian lưu trú:</div>
 
                             <div class="checkin-date inline-block">
-                                <span class="block font-bold text-[14px]">1 ngày</span>
+                                <span class="block font-bold text-[14px]"><?php echo $_SESSION['$tongnd'] ?></span>
                             </div>
                         </div>
                     </div>

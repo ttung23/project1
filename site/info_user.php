@@ -70,6 +70,10 @@
             <td><?php echo $value->phone ?></td>
             <td><?php echo $value->name ?></td>
             <td><?php echo $value->create_at ?></td>
+            <td>
+            <a href="index.php?booking_dt&idbk=<?php echo $value->booking_id ?>" class="mx-3">xem chi Chi Tiết</a>
+
+            </td>
                 </tr>
         <?php endforeach ?>
     </table>

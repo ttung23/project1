@@ -109,6 +109,11 @@ if (isset($_GET['cart'])) {
     if (isset($_POST['find'])) {
         $_SESSION['checkin'] = $_POST['checkin'];
         $_SESSION['checkout'] = $_POST['checkout'];
+        $first_date = strtotime($_SESSION['checkin']);
+    $second_date = strtotime($_SESSION['checkout']);
+    $datediff = abs($first_date - $second_date);
+        $tongnd = floor($datediff / (60*60*24));
+        $_SESSION['$tongnd']= $tongnd;
         $selectfind = find_room($_SESSION['checkin'], $_SESSION['checkout']);
     } else {
         $selectfind = [];
@@ -174,6 +179,12 @@ if (isset($_GET['cart'])) {
         }
     }
     $VIEW_NAME = 'info_user.php';
+}  elseif (isset($_GET['booking_dt'])) {
+    if (isset($_GET['idbk']) && ($_GET['idbk'])) {
+        $id = $_GET['idbk'];
+        $bookinguserde = loadAll_bookingdt_booking($id);
+    }
+    $VIEW_NAME = 'booking_detail.php';
 } else {
     // s
     // $limit = $_GET['perpage'] ?? 9;
@@ -184,7 +195,6 @@ if (isset($_GET['cart'])) {
     // $room = read_room($limit,$offset);
 
     if (isset($_POST['login'])) {
-        session_start();
         $user = $_POST['user'];
         $password = $_POST['password'];
         $login = login($user, $password);
