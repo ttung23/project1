@@ -10,7 +10,6 @@
             // exit;
            foreach($user as $key => $value){
                 $_SESSION['username'] = $value->username;
-                $_SESSION['id'] = $value->user_id;
                 $_SESSION['password'] = $value->password;
                 $_SESSION['name'] = $value->name;
                 $_SESSION['user_id'] = $value->user_id;
@@ -21,7 +20,6 @@
                 $_SESSION['phone'] = $value->phone;
                 $_SESSION['date'] = $value->date;
                 $_SESSION['status'] = $value->status;
-                $_SESSION['bookingdetail_id'] = $value->bookingdetail_id;
                 header("location:index.php?");
            }
         }else{
