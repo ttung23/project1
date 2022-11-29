@@ -70,6 +70,8 @@
         <img src="../layout/assets/img/logo/gg.svg" alt="">
         <img src="../layout/assets/img/logo/ap.svg" alt="">
     </div>
+    <script src="assets/js/main.js"></script>
+    <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function(event) { 
             var scrollpos = localStorage.getItem('scrollpos');

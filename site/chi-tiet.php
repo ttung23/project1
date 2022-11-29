@@ -18,7 +18,6 @@
     <input type="hidden" name="likes" value="<?php echo $value->likes?>">
     <input type="hidden" name="id_service" value="<?php echo $value->id_service?>">
     <input type="hidden" name="created_at" value="<?php echo $value->created_at?>">
-    <input type="hidden" name="id_admin" value="<?php echo $value->id_admin?>">
     <input type="hidden" name="namedichvu" value="<?php echo $value->namedichvu?>">
     <input type="hidden" name="pricedichvu" value="<?php echo $value->pricedichvu?>">
      

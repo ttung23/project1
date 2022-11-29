@@ -20,6 +20,8 @@ if (isset($_GET['cart'])) {
         $tt = 0;
         $service_room = [];
         $total_amount = 0;
+        // echo <pre>";
+        // var_dump($_SESSION['cart']);
         $idnguoidung = $_SESSION['user_id'];
         if (!isset($_SESSION['cart'])) $_SESSION['cart'] = [];
         if (isset($_POST['addcart'])) {
@@ -38,18 +40,17 @@ if (isset($_GET['cart'])) {
             $likes = $_POST['likes'];
             $id_service = $_POST['id_service'];
             $created_at = $_POST['created_at'];
-            $id_admin = $_POST['id_admin'];
             $namedichvu = $_POST['namedichvu'];
             $pricedichvu = $_POST['pricedichvu'];
             $service_room = loadAll_service_room($id);
-            $room = [$id, $ten, $thumbnail, $des, $id_cate, $price, $star, $quantity, $location, $acreage, $status, $view, $likes, $id_service, $created_at, $id_admin, $namedichvu, $pricedichvu, $idnguoidung];
+            $room = [$id, $ten, $thumbnail, $des, $id_cate, $price, $star, $quantity, $location, $acreage, $status, $view, $likes, $id_service, $created_at, $namedichvu, $pricedichvu, $idnguoidung];
             $_SESSION['cart'][] = $room;
             // var_dump($_SESSION['cart']);
         }
         if (isset($_SESSION['cart']) && (is_array($_SESSION['cart']))) {
             for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
-                if ($_SESSION['cart'][$i][18] == $_SESSION['user_id']) {
-                    $tt += $_SESSION['cart'][$i][17] + $_SESSION['cart'][$i][5];
+                if ($_SESSION['cart'][$i][17] == $_SESSION['user_id']) {
+                    $tt += $_SESSION['cart'][$i][16] + $_SESSION['cart'][$i][5];
                 }
             }
         }
@@ -72,13 +73,25 @@ if (isset($_GET['cart'])) {
             if (isset($idbooking)) {
                 if (isset($_SESSION['cart']) && (is_array($_SESSION['cart']))) {
                     for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
-                        if ($_SESSION['cart'][$i][18] == $_SESSION['user_id']) {
+                        if ($_SESSION['cart'][$i][17] == $_SESSION['user_id']) {
                             $insert_bookingdt = Insert_bookingdt($_SESSION['cart'][$i][0], $idbooking);
                         }
                     }
                 }
             }
-            // $insert_bookdetail = Insert_bookingdt($id,);
+            $tongnd = 0;
+            for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
+                if ($_SESSION['cart'][$i][17] == $_SESSION['user_id']) {
+                    $tongnd ++;
+                }
+            }
+            for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
+                if ($_SESSION['cart'][$i][17] == $_SESSION['user_id']) {
+                    array_splice($_SESSION['cart'], $i, $tongnd);
+                }
+            }
+            // var_dump($_SESSION['cart']);
+            // exit;
             unset($_SESSION['addcart']);
             $_SESSION['addcart'] = [];
         }
@@ -96,6 +109,11 @@ if (isset($_GET['cart'])) {
     if (isset($_POST['find'])) {
         $_SESSION['checkin'] = $_POST['checkin'];
         $_SESSION['checkout'] = $_POST['checkout'];
+        $first_date = strtotime($_SESSION['checkin']);
+    $second_date = strtotime($_SESSION['checkout']);
+    $datediff = abs($first_date - $second_date);
+        $tongnd = floor($datediff / (60*60*24));
+        $_SESSION['$tongnd']= $tongnd;
         $selectfind = find_room($_SESSION['checkin'], $_SESSION['checkout']);
     } else {
         $selectfind = [];
@@ -161,6 +179,12 @@ if (isset($_GET['cart'])) {
         }
     }
     $VIEW_NAME = 'info_user.php';
+}  elseif (isset($_GET['booking_dt'])) {
+    if (isset($_GET['idbk']) && ($_GET['idbk'])) {
+        $id = $_GET['idbk'];
+        $bookinguserde = loadAll_bookingdt_booking($id);
+    }
+    $VIEW_NAME = 'booking_detail.php';
 } else {
     // s
     // $limit = $_GET['perpage'] ?? 9;
@@ -171,17 +195,23 @@ if (isset($_GET['cart'])) {
     // $room = read_room($limit,$offset);
 
     if (isset($_POST['login'])) {
-        session_start();
         $user = $_POST['user'];
         $password = $_POST['password'];
         $login = login($user, $password);
     }
     if (isset($_GET['action']) && $_GET['action'] == 'logout') {
-        session_unset();
-        header('Location:index.php');
-    }
-    if (isset($_GET['action']) && $_GET['action'] == 'logout') {
-        unset($_SESSION['addcart']);
+        unset($_SESSION['name']);
+       unset ($_SESSION['username']);
+      unset ($_SESSION['password']);
+      unset ($_SESSION['user_id']);
+      unset ($_SESSION['gender']);
+      unset ($_SESSION['email']);
+      unset ($_SESSION['images']);
+      unset ($_SESSION['address']);
+      unset ($_SESSION['phone']);
+      unset ($_SESSION['date']);
+      unset ($_SESSION['status']);
+        $_SESSION['status'];
         header('Location:index.php');
     }
     $VIEW_NAME = 'trang-chu.php';
