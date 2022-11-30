@@ -13,7 +13,6 @@ if (isset($_POST['block_user'])) {
         $choose_user_id = $_POST['user'];
 
         for ($i = 0; $i < count($choose_user_id); $i++) {
-            echo $choose_user_id[$i];
             $block_user = block_user($choose_user_id[$i]);
         }
     }
@@ -25,7 +24,6 @@ if (isset($_POST['block_user'])) {
         $choose_user_id = $_POST['user'];
 
         for ($i = 0; $i < count($choose_user_id); $i++) {
-            echo $choose_user_id[$i];
             $unlock_user = unlock_user($choose_user_id[$i]);
         }
     }

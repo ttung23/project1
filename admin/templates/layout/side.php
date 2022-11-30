@@ -43,9 +43,9 @@
                     <span class="link-name">Quản lý Feedbacks</span>
                 </a></li>
 
-            <li><a href="#">
+            <li><a href="../../admin/news/c_news.php">
                     <i class="uil uil-chart-pie"></i>
-                    <span class="link-name">Quản lý Thống Kê</span>
+                    <span class="link-name">Quản lý tin tức</span>
                 </a></li>
 
             <li><a href="#">

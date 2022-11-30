@@ -83,7 +83,7 @@ if (isset($_POST['btn_approve_new'])) {
             Approve_news($choose_new_id[$i]);
         }
     }
-    header("location:c_news.php");
+    header("location:c_feedback.php");
 } else if (isset($_POST['btn_prive_new'])) {
     if (isset($_POST['news'])) {
         $choose_new_id = $_POST['news'];
@@ -92,7 +92,7 @@ if (isset($_POST['btn_approve_new'])) {
             Prive_news($choose_new_id[$i]);
         }
     }
-    header("location:c_news.php");
+    header("location:c_feedback.php");
 }
 
 include_once '../templates/layout/layout.php';
