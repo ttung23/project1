@@ -12,7 +12,7 @@ function loadAll_bookingdt_booking($id){
 }
 function Insert_bookingdt($id_room,$id_booking)
 {
-    $sql = "insert into booking_detail(id_room,id_booking) value('$id_room','$id_booking')";
+    $sql = "insert into booking_detail(id_room,id_booking) values('$id_room','$id_booking')";
     $room = pdo_execute($sql);
 }
 
