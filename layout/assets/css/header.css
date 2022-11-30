@@ -35,6 +35,7 @@
 
 .nav-right ul li .dropdown-2:hover .noidung-index {
   display: block;
+  z-index: 2;
 }
 
 /* nav-menu con */

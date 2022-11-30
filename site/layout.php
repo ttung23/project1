@@ -17,6 +17,14 @@
     <link rel="stylesheet" href="../layout/assets/css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../layout/assets/owlcarousel/assets/owl.carousel.min.css" />
+    <link
+      rel="stylesheet"
+      href="../layout/assets/owlcarousel/assets/owl.theme.default.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="../layout/assets/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../layout/assets/js/slider.js"></script>
 </head>
 
 <body>
