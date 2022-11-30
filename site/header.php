@@ -163,23 +163,30 @@
         </div>
         <!-- banenr -->
         <div class="banner">
-            <div class="image containerr">
-                <img src="../layout/assets/img/banner/b1.webp" alt="">
-
-                <img src="../layout/assets/img/banner/b2.webp" alt="">
-
-                <img src="../layout/assets/img/banner/b3.webp" alt="">
-
-                <img src="../layout/assets/img/banner/b4.webp" alt="">
-
-                <img src="../layout/assets/img/banner/b5.webp" alt="">
-
-            </div>
+            <div style="padding-top: 10px; " class="wp-slider">
+                <div class="owl-carousel owl-theme">
+                  <div class="item">
+                    <img src="../layout/assets/img/banner/b1.webp" alt="" />
+                  </div>
+                  <div class="item">
+                    <img src="../layout/assets/img/banner/b2.webp" alt="" />
+                  </div>
+                  <div class="item">
+                    <img src="../layout/assets/img/banner/b3.webp" alt="" />
+                  </div>
+                  <div class="item">
+                    <img src="../layout/assets/img/banner/b4.webp" alt="" />
+                  </div>
+                  <div class="item">
+                    <img src="../layout/assets/img/banner/b5.webp" alt="" />
+                  </div>
+                </div>
+              </div>
 
             <div class="circle-banner-idx containerr">
                 <a href=""><i style="color: #ff6d70;" class="fa-solid fa-circle"></i></a>
                 <a href=""><i class="fa-solid fa-circle"></i></a>
                 <a href=""><i class="fa-solid fa-circle"></i></a>
-
+                
             </div>
         </div>
