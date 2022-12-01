@@ -8,7 +8,6 @@ require_once '../dao/comment_dao.php';
 require_once '../dao/news_dao.php';
 require_once '../dao/booking_dao.php';
 require_once '../dao/user_dao.php';
-require_once '../dao/bookingdt_dao.php';
 session_start();
 $roomAll = loadAll_room();
 $categoriesAll = loadAll_categories();
@@ -16,7 +15,6 @@ $service = loadAll_service();
 if (isset($_GET['cart'])) {
     // add cart
     if (isset($_SESSION['username'])) {
-
         $tt = 0;
         $service_room = [];
         $total_amount = 0;
@@ -46,11 +44,16 @@ if (isset($_GET['cart'])) {
             $room = [$id, $ten, $thumbnail, $des, $id_cate, $price, $star, $quantity, $location, $acreage, $status, $view, $likes, $id_service, $created_at, $namedichvu, $pricedichvu, $idnguoidung];
             $_SESSION['cart'][] = $room;
             // var_dump($_SESSION['cart']);
+            $room = [$id, $ten, $thumbnail, $des, $id_cate, $price, $star, $quantity, $location, $acreage, $status, $view, $likes, $id_service, $created_at, $id_admin, $namedichvu, $pricedichvu, $idnguoidung];
+            $_SESSION['cart'][] = $room;
+            // var_dump($_SESSION['cart']);
         }
         if (isset($_SESSION['cart']) && (is_array($_SESSION['cart']))) {
             for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
                 if ($_SESSION['cart'][$i][17] == $_SESSION['user_id']) {
                     $tt += $_SESSION['cart'][$i][16] + $_SESSION['cart'][$i][5];
+                if ($_SESSION['cart'][$i][18] == $_SESSION['user_id']) {
+                    $tt += $_SESSION['cart'][$i][17] + $_SESSION['cart'][$i][5];
                 }
             }
         }
@@ -88,16 +91,22 @@ if (isset($_GET['cart'])) {
             for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
                 if ($_SESSION['cart'][$i][17] == $_SESSION['user_id']) {
                     array_splice($_SESSION['cart'], $i, $tongnd);
+                if ($_SESSION['cart'][$i][18] == $_SESSION['user_id']) {
+                    array_splice($_SESSION['cart'], $i, 1);
                 }
             }
             // var_dump($_SESSION['cart']);
             // exit;
+            var_dump($insert_booking);
+            exit;
             unset($_SESSION['addcart']);
             $_SESSION['addcart'] = [];
         }
         if (isset($_GET['delid'])) {
             array_splice($_SESSION['cart'], $_GET['delid'], 1);
         }
+
+        $_TITLE = "Giỏ hàng";
         $VIEW_NAME = 'cart.php';
     } else {
         $VIEW_NAME = 'trang-chu.php';
@@ -175,6 +184,114 @@ if (isset($_GET['cart'])) {
                 }
 
                 header('location:index.php');
+    } else {
+
+        $_TITLE = "Trang chủ";
+        $VIEW_NAME = 'trang-chu.php';
+    }
+} elseif (isset($_GET['tin-tuc'])) {
+    $news = loadAll_news();
+
+    $_TITLE = "Tin tức StayyInn";
+    $VIEW_NAME = 'tin-tuc.php';
+} elseif (isset($_GET['list-room'])) {
+    if (isset($_POST['find'])) {
+        $checkin = $_POST['checkin'];
+        $checkout = $_POST['checkout'];
+        $selectfind = find_room($checkin, $checkout);
+    } else {
+        $selectfind = [];
+    }
+    $iddm = 0;
+    if (isset($_GET['iddm'])) {
+        $iddm = $_GET['iddm'];
+    }
+    if ($iddm == 0) {
+        $roomcategori = loadAll_room();
+    } else {
+        $roomcategori = load_room_categories($iddm);
+    }
+    $VIEW_NAME = 'list-room.php';
+} elseif (isset($_GET['product-detail'])) {
+    if (isset($_GET['id']) && ($_GET['id'])) {
+        $id = $_GET['id'];
+        $iddm = $_GET['iddm'];
+        $link = "product-detail&id=$id&iddm=$iddm";
+        $oneroom = loadOne_room($id);
+        $addview = room_tang_so_luot_xem($id);
+        $onecomment = loadOne_comment($id);
+        $room_categories = load_room_categories($iddm);
+        extract($oneroom);
+        extract($onecomment);
+        if (isset($_GET['addcomment']) && isset($_POST['addcomment'])) {
+            $content = $_POST['content'];
+            // $star = $_POST['star'];
+            $idroom = $_GET['id'];
+            $iduser = $_SESSION['user_id'];
+            $addcomment = Insert_conmment($content, $idroom, $iduser);
+            header("location:index.php?$link");
+        }
+    }
+
+    $_TITLE = "Thông tin phòng";
+    $VIEW_NAME = 'chi-tiet.php';
+    
+} elseif (isset($_GET['sign_up'])) {
+    if (isset($_POST['btn_sign_up'])) {
+        $name = $_POST['name'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $re_password = $_POST['re_password'];
+        $gender = $_POST['gender'];
+        $email = $_POST['email'];
+        $date = $_POST['date'];
+        $diachi = $_POST['diachi'];
+        $sdt = $_POST['sdt'];
+
+        $image = $_FILES['image'];
+        $image_name = 'user.jpg';
+
+        if ($name == "") {
+            $err['name'] = "Bạn chưa nhập họ tên";
+        }
+
+        if ($username == "") {
+            $err['username'] = "Bạn chưa nhập username";
+        }
+
+        if ($password == "") {
+            $err['password'] = "Bạn chưa nhập mật khẩu";
+        }
+
+        if ($re_password != $password) {
+            $err['re_password'] = "Mật khẩu không chính xác";
+        }
+
+        if ($email == "") {
+            $err['email'] = "Bạn chưa chọn nhập email";
+        }
+
+        if ($date == "") {
+            $err['date'] = "Bạn chưa chọn ngày sinh";
+        }
+
+        if ($diachi == "") {
+            $err['diachi'] = "Bạn chưa nhập địa chỉ";
+        }
+
+        if ($sdt == "") {
+            $err['sdt'] = "Bạn chưa nhập số điện thoại";
+        }
+
+        if ($image['size'] > 0) {
+            $image_name = $image['name'];
+
+            $ext = pathinfo($image_name, PATHINFO_EXTENSION);
+
+            if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
+                $err['img'] = "Ảnh không đúng định dạng";
+            } else if ($image['size'] >= 2 * 1024 * 1024) {
+                $err['img'] = "Ảnh không được quá 2MB";
             }
         }
     }
@@ -185,6 +302,74 @@ if (isset($_GET['cart'])) {
         $bookinguserde = loadAll_bookingdt_booking($id);
     }
     $VIEW_NAME = 'booking_detail.php';
+} else {
+    // s
+    // $limit = $_GET['perpage'] ?? 9;
+    // $current_page = $_GET['page'] ?? 1;
+    // $offset = ($current_page - 1) * $limit;
+    // $total_products = loadAll_room();
+    // $total_pages = ceil(count($total_products) / $limit);
+    // $room = read_room($limit,$offset);
+
+        if (!$err) {
+            $sign_up = signUp($name, $username, $password, $gender, $email, $image_name, $diachi, $sdt, $date);
+
+            if ($image['size'] > 0) {
+                move_uploaded_file($image['tmp_name'], '../../layout/assets/img/users/' . $image_name);
+            }
+
+            header("location:index.php");
+        }
+    }
+
+    $VIEW_CSS = '';
+    $_TITLE = "Đăng ký";
+    $VIEW_NAME = 'sign_up.php';
+} elseif (isset($_GET['forgot'])) {
+    if (isset($_POST['btn_forgot_pass'])) {
+        $name = $_POST['name'];
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $date = $_POST['date'];
+        $sdt = $_POST['sdt'];
+
+        $_SESSION['user_forgot'] = forgot_user($name, $username, $email, $date, $sdt);
+
+        if (empty($_SESSION['user_forgot'])) {
+            $err['sdt'] = "Thông tin chưa chính xác";
+        } else {
+            header("location:index.php?update_password");
+        }
+
+    }
+
+    $VIEW_CSS = '';
+    $_TITLE = "Quên mật khẩu";
+    $VIEW_NAME = 'forgot_password.php';
+} elseif (isset($_GET['update_password'])) {
+    if (isset($_POST['btn_update_password'])) {
+        $password = $_POST['password'];
+        $re_password = $_POST['re_password'];
+
+        if ($password == "") {
+            $err['password'] = "Bạn chưa nhập mật khẩu";
+        }
+
+        if ($password != $re_password) {
+            $err['re_password'] = "Mật khẩu không chính xác";
+        }
+
+        if (!isset($err)) {
+            $update_pass = update_pass($password, $_SESSION['user_forgot'][0]->user_id);
+
+            header("location:index.php");
+        }
+
+    }
+
+    $VIEW_CSS = '';
+    $_TITLE = "Quên mật khẩu";
+    $VIEW_NAME = 'update_password.php';
 } else {
     // s
     // $limit = $_GET['perpage'] ?? 9;
@@ -217,3 +402,25 @@ if (isset($_GET['cart'])) {
     $VIEW_NAME = 'trang-chu.php';
 }
 include_once './layout.php';
+
+    if (isset($_POST['login'])) {
+        session_start();
+        $user = $_POST['user'];
+        $password = $_POST['password'];
+        $login = login($user, $password);
+    }
+    if (isset($_GET['action']) && $_GET['action'] == 'logout') {
+        session_unset();
+        header('Location:index.php');
+    }
+    if (isset($_GET['action']) && $_GET['action'] == 'logout') {
+        unset($_SESSION['addcart']);
+        header('Location:index.php');
+    }
+
+    $_TITLE = "Trang chủ";
+    $VIEW_NAME = 'trang-chu.php';
+}
+include_once './layout.php';
+}
+}
