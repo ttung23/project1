@@ -32,8 +32,8 @@ function loadAll_admin(){
     return $listuser;
 }
 function loadOne_admins($id){
-    $query = "select * from user where admin_id = ? desc";
-    $listuser = pdo_query_all($query,$id);
+    $query = "select * from admins where admin_id = ?";
+    $listuser = pdo_query_one($query,$id);
     return $listuser;
 }
 
@@ -46,14 +46,14 @@ function admin_order_by_id($user_id){
     $listuser = pdo_query_all($query,$user_id);
     return $listuser;
 }
-function Insert_admins($name,$email,$password,$gender,$thumbnail,$address,$phone,$id_permission){
-    $query = "Insert into admins(name,email,password,gender,thumbnail,adress,phone,id_permission) values(?,?,?,?,?,?,?)";
-    pdo_execute($query, $name,$email,$password,$gender,$thumbnail,$address,$phone,$id_permission);
+function Insert_admins($name_admin,$email,$password,$gender,$image_name,$address,$phone,$status){
+    $query = "Insert into admins(name,email,password,gender,thumbnail,address,phone,status,id_permission) values(?,?,?,?,?,?,?,?,3)";
+    pdo_execute($query,$name_admin,$email,$password,$gender,$image_name,$address,$phone,$status);
 }
-function Update_admins($admin_id,$name,$email,$password,$gender,$thumbnail,$address,$phone,$id_permission)
+function Update_admins($name_admin,$email,$password,$gender,$image,$address,$phone,$status,$id_permission,$id)
 {
-    $query = "Update admins set name = ? , email = ?,password = ?,gender = ?,thumbnail = ?, address = ?, phone = ?, id_permission = ? where user_id = ?";
-    pdo_execute($query, $name,$email,$password,$gender,$thumbnail,$address,$phone,$id_permission,$admin_id);
+    $query = "Update admins set name = ? , email = ?,password = ?,gender = ?,thumbnail = ?, address = ?, phone = ?,status = ?, id_permission = ? where admin_id = ?";
+    pdo_execute($query,$name_admin,$email,$password,$gender,$image,$address,$phone,$status,$id_permission,$id);
 }
 
 ?>
