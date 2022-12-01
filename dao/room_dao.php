@@ -10,6 +10,16 @@ function loadAll_room4(){
     $listroom = pdo_query_all($query);
     return $listroom;
 }
+function loadAll_room_price(){
+    $query = "SELECT MIN(r.price) as 'min',MAX(r.price) as 'max' FROM room r;";
+    $listroom = pdo_query_all($query);
+    return $listroom;
+}
+function loadAll_room_price_list($id){
+    $query = "SELECT r.*,ct.name as 'tendt' FROM room r inner join categories_room ct  on ct.categories_id=r.id_category_room where r.price =" .$id;
+    $listroom = pdo_query_all($query);
+    return $listroom;
+}
 function loadOne_room_status($id)
 {
     $sql = "select r.*from room r   where r.status =" . $id;

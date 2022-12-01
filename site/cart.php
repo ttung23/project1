@@ -33,7 +33,7 @@
                             <div class="font-medium mb-1 text-[14px]">số lượng người</div>
 
                             <div class="checkin-date">
-                                <span class="block font-bold text-[14px]"><input type="number" name="quantity" min="1" max="" value=""></span>
+                                <span class="block font-bold text-[14px]"><input type="number" name="quantity" min="1" max="" value="1"></span>
                             </div>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                             <div class="font-medium text-[14px]">Tổng thời gian lưu trú:</div>
 
                             <div class="checkin-date inline-block">
-                                <span class="block font-bold text-[14px]"><?php echo $_SESSION['$tongnd'] ?></span>
+                                <span class="block font-bold text-[14px]"><?= $_SESSION['$tongnd'] ?? 0 ?></span>
                             </div>
                         </div>
                     </div>
@@ -276,7 +276,7 @@
                 </div>
 
                 <div class="pay text-right">
-                    <a type="submit" onclick="confirm('bạn có chắc chắn đặt hàng không')" name="addbooking"  data-modal-toggle="popup-modal">Thanh toán ngay</a>
+                    <a type="submit"  name="addbooking"  data-modal-toggle="popup-modal">Thanh toán ngay</a>
                 </div>
                       <!--Popup xác nhận-->
                       <div id="popup-modal" tabindex="-1"
@@ -346,7 +346,7 @@
                                     <p class="text-[16px] text-gray-500 pt-2">
                                         Vui lòng chờ xác nhận
                                     </p>
-                                    <button type="submit" onclick="confirm('bạn có chắc chắn đặt hàng không')" name="addbooking"  data-modal-toggle="popup-modal">Thanh toán ngay</button>
+                                    <button type="submit" onclick="confirm('bạn có chắc chắn đặt hàng không')" name="addbooking"  data-modal-toggle="popup-modal">Xác Nhận</button>
 
                                 </div>
                             </div>
