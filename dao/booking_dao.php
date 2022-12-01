@@ -25,6 +25,11 @@ function loadAll_bookingdt1(){
     $listroom = pdo_query_all($query);
     return $listroom;
 }
+
+function load_booking_newest () {
+    
+}
+
 function booking_remove_by_id($cate_id){
     $query = "delete from bookings where booking_id = ?";
     pdo_execute($query, $cate_id);
