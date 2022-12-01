@@ -1,8 +1,9 @@
 <?php
 function loadAll_feedbacks(){
-    $query = "SELECT vr.*, us.name as user_name, r.name as room_name from users us 
-    RIGHT JOIN vote_room vr on vr.id_user = us.user_id
-    LEFT JOIN room r on vr.id_room = r.room_id";
+    $query = "SELECT fb.*, us.username, ad.name as admin_name, room.name as room_name 
+    FROM `feedbacks` fb LEFT JOIN users us ON fb.id_user = us.user_id 
+    LEFT JOIN admins ad on fb.id_admin = ad.admin_id 
+    LEFT JOIN room ON fb.id_room = room.room_id";
     $feedbacks = pdo_query_all($query);
     return $feedbacks;
 }

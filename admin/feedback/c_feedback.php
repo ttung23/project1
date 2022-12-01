@@ -2,7 +2,7 @@
 // MODEL
 require_once '../global.php';
 require_once '../../dao/pdo.php';
-require_once '../../dao/news_dao.php';
+require_once '../../dao/feedbacks_dao.php';
 
 // CONTROLLER
 if (isset($_GET['add_new'])) {
@@ -57,7 +57,7 @@ if (isset($_GET['add_new'])) {
     $VIEW_CSS = 'admin_add_danhmuc.css'; // edit dùng chung css
     $VIEW_ADMIN_NAME = '../danh-muc/edit_cate.php';
 } else {
-    $news = loadAll_news();
+    $feedbacks = loadAll_feedbacks();
     if (isset($_POST['btn_delete_new'])) {
         if (isset($_POST['news'])) {
             $choose_news = $_POST['news'];
@@ -69,9 +69,9 @@ if (isset($_GET['add_new'])) {
             header('location:c_news.php');
         }
     }
-    $VIEW_TITLE = "Danh sách tin tức";
+    $VIEW_TITLE = "Danh sách Feedback";
     $VIEW_CSS = 'admin-booking.css';
-    $VIEW_ADMIN_NAME = '../news/list_news.php';
+    $VIEW_ADMIN_NAME = '../feedback/list_feedback.php';
 }
 
 // SET STATUS OF NEW

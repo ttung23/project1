@@ -15,10 +15,11 @@
                 <tr>
                     <th>#</th>
                     <th style="width: 65px;">ID</th>
-                    <th>Đánh giá sao</th>
-                    <th>Nội dung phản hồi</th>
+                    <th>Nội dung</th>
                     <th>Trạng thái</th>
-                    <th>Người phản hồi</th>
+                    <th>Ngày trả lời</th>
+                    <th>Người dùng phản hồi</th>
+                    <th>QTV trả lời</th>
                     <th>Phòng</th>
                     <th>Ngày phản hồi</th>
                     <th>Ngày cập nhập</th>
@@ -26,9 +27,9 @@
                 <?php foreach ($feedbacks as $value) { ?>
                     <tr>
                         <td>
-                            <input type="checkbox" name="news[]" value="<?= $value->vote_room_id ?>" id="">
+                            <input type="checkbox" name="news[]" value="<?= $value->feedback_id ?>" id="">
                         </td>
-                        <td><?= $value->star ?></td>
+                        <td><?= $value->feedback_id ?></td>
                         <td>
                             <p>
                                 <?= $value->content ?>
@@ -43,7 +44,9 @@
                                 echo "Ẩn";
                             }
                         ?></td>
-                        <td><?= $value->user_name ?></td>
+                        <td><?= $value->reply_date ?></td>
+                        <td><?= $value->username ?></td>
+                        <td><?= $value->admin_name ?></td>
                         <td><?= $value->room_name ?></td>
                         <td><?= $value->created_at ?></td>
                         <td><?= $value->updated_at ?></td>
