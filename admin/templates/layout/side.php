@@ -16,20 +16,11 @@
             <li><a href="../../admin/user/c_user.php">
                     <i class="uil uil-user"></i>
                     <span class="link-name">Quản lý người dùng</span>
-                </a></li>
-            <li><a href="#">
-                    <i class="uil uil-comment-alt-dots"></i>
-                    <span class="link-name">Quản lý Comment</span>
-                </a></li>
-            <li><a href="#">
-                    <i class="uil uil-apps"></i>
-                    <span class="link-name">Quản lý Service</span>
-                </a></li>
+            </a></li>
             <li><a href="../../admin/room/c_room.php">
                     <i class="uil uil-bed-double"></i>
                     <span class="link-name">Quản lý room</span>
                 </a></li>
-            <li><a href="../../admin/booking/c_booking.php">
             <li><a href="../../admin/comment/c_cmt.php">
                     <i class="uil uil-comment-alt-dots"></i>
                     <span class="link-name">Quản lý Comment</span>
@@ -38,11 +29,7 @@
                     <i class="uil uil-apps"></i>
                     <span class="link-name">Quản lý Service</span>
                 </a></li>
-            <li><a href="#">
-                    <i class="uil uil-bed-double"></i>
-                    <span class="link-name">Quản lý room</span>
-                </a></li>
-            <li><a href="#">
+            <li><a href="../../admin/booking/c_booking.php">
                     <i class="uil uil-book-medical"></i>
                     <span class="link-name">Quản lý Booking</span>
                 </a></li>
@@ -60,7 +47,6 @@
                     <i class="uil uil-chart-pie"></i>
                     <span class="link-name">Quản lý Thống Kê</span>
                 </a></li>
-
             <li><a href="../../admin/admin/c_admin.php">
                     <i class="uil uil-head-side"></i>
                     <span class="link-name">Quản lý Admin</span>
@@ -72,11 +58,6 @@
             <li><a href="../../admin/news/c_news.php">
                     <i class="uil uil-chart-pie"></i>
                     <span class="link-name">Quản lý tin tức</span>
-                </a></li>
-
-            <li><a href="#">
-                    <i class="uil uil-head-side"></i>
-                    <span class="link-name">Quản lý Admin</span>
                 </a></li>
 
         </ul>

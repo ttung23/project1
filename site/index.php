@@ -97,8 +97,7 @@ if (isset($_GET['cart'])) {
             }
             // var_dump($_SESSION['cart']);
             // exit;
-            var_dump($insert_booking);
-            exit;
+    
             unset($_SESSION['addcart']);
             $_SESSION['addcart'] = [];
         }
