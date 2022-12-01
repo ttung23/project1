@@ -48,6 +48,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="tomtat">
                     <p class="chi-tiet-dat-phong text-[16px] font-bold">
                         Tóm tắt giá
@@ -80,10 +81,10 @@
                     ?>
                                 <div class="tomtat-detail">
                                     <div>
-                                        Phòng <?php echo $_SESSION['cart'][$i][15] ?>
+                                        Phòng <?php echo $_SESSION['cart'][$i][16] ?>
                                     </div>
                                     <div>
-                                        VND <?php echo $_SESSION['cart'][$i][16] ?>
+                                        VND <?php echo $_SESSION['cart'][$i][17] ?>
                                     </div>
                                 </div>
                     <?php

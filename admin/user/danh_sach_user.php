@@ -47,6 +47,7 @@
                 <div class="action">
                     <button type="submit" name="block_user">Block</button>
                     <button type="submit" name="unlock_user">Unlock</button>
+                    <button type="submit" name="unlock_user">Sửa thông tin user</button>
                 </div>
 
                 <table>
