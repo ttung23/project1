@@ -10,6 +10,13 @@ function loadAll_room4(){
     $listroom = pdo_query_all($query);
     return $listroom;
 }
+function loadOne_room_status($id)
+{
+    $sql = "select r.*from room r   where r.status =" . $id;
+    $room = pdo_query_one($sql);
+    return $room;
+}
+
 // select theo likes
 function loadAll_room_by_likes(){
     $query = "select r.*,st.star,count(sv.id_room) as 'sv',COUNT(st.id_room) as 'tbl' from room r left join vote_room st on st.id_room = r.room_id left join service sv on sv.id_room=r.room id GROUP BY likes desc limit 0,10;";

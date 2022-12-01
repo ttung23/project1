@@ -18,7 +18,7 @@
                             <button type="submit" onclick="hamDropdown()" class="nut_dropdown">
                                 <img src="../layout/assets/img/logo/co.png" alt=""> VND <i style="color:black; font-size: 11px; padding-left: 4px;padding-top: 5px;" class="fa-solid fa-chevron-down"></i>
                             </button>
-                            <div class="noidung_dropdown">
+                            <div class="noidung_dropdown" id="money">
                                 <div class="nation">
                                     <h2>Tên quốc gia & ngôn ngữ</h2>
                                     <span>Indonesia (Bahasha indonesia) </span>
@@ -55,12 +55,12 @@
                     <?php if (isset($_SESSION['username'])) { ?>
                         <li >
                             <div class="anh-dangnhap">
-                                <div class="flex-anh-dn"> 
+                                <div class="flex-anh-dn" onclick="drop_info()"> 
                                         <img class="anh-user" src="../layout/assets/img/product/<?= $_SESSION['images'] ?>" width="50px" alt=""> <span><?= $_SESSION['name'] ?></span><i
                                         style="color:black; font-size: 11px; padding-left: 4px;padding-top: 5px;"
                                         class="fa-solid fa-chevron-down"></i>
                                 </div>
-                                <div class="noidung-anh-dangnhap">
+                                <div class="noidung-anh-dangnhap" id="info">
                                         <h3>Tài khoản</h3>
                                         <div class="a"><i class="fa-regular fa-user"></i> <span><a href="<?= SITE_URL . "?info-user&id=". $_SESSION['user_id']?>">thông tin người dùng</a></span><br></div>
                                         <div class="a"><i class="fa-solid fa-money-bill"></i> <span>Điểm thưởng của tôi</span><br></div>

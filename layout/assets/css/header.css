@@ -31,6 +31,7 @@
   display: grid !important;
   grid-template-columns: 2.5fr 1.5fr;
   grid-gap: 12px;
+  z-index: 2;
 }
 
 .nav-right ul li .dropdown-2:hover .noidung-index {
@@ -227,7 +228,7 @@
 }
 /* menu-ảnh sau đăng nhập */
 .anh-dangnhap {
-  /* display: none; */
+  cursor: pointer;
 }
 .flex-anh-dn {
   display: flex;
@@ -238,13 +239,24 @@
   width: 20px;
   height: 20px;
 }
+
+.hien_info {
+  display: block !important;
+}
+
 .noidung-anh-dangnhap {
+  display: none;
+  position: absolute;
+  right: 25px;
+  top: 30px;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
     rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   width: 250px;
   border-radius: 5px;
   padding-bottom: 10px;
   line-height: 40px;
+  z-index: 2;
+  background-color: #fff;
 }
 .noidung-anh-dangnhap h3 {
   font-weight: 700;

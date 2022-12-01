@@ -56,7 +56,5 @@
                     $(this).data("isopen", !open);
                 });
             </script>
-
-            <script src="../layout/assets/js/main.js"></script>
 </body>
 </html>
