@@ -23,51 +23,34 @@
                 <label for="">Trạng Thái Phòng</label>
                 <div class="col-sm-2 m-4 hover-bg-[#78C2B5]">
                     <div>
-                        <button
+                        <a href="c_room.php"
                             class="border btn btn-outline-success border-[#D0D7DE] w-100 h-100 text-primary px-3 py-1 shadow-lg">
                             Tất Cả
-                        </button>
+                        </a>
                     </div>
                 </div>
-                <div class="col-sm-2 m-4">
+                <div class="col-sm-2 m-4 hover-bg-[#78C2B5]">
                     <div>
-                        <button
-                            class="border btn btn-outline-danger border-[#D0D7DE] w-100 h-100 text-primary px-3 py-1 shadow-lg">
-                            <i class="fa-solid fa-person-walking-luggage text-primary"></i>
-                            Phòng Đang Đến
-                        </button>
+                        <a href="c_room.php?id=0"
+                            class="border btn btn-outline-success border-[#D0D7DE] w-100 h-100 text-primary px-3 py-1 shadow-lg">
+                            Phòng Đang Sửa
+                        </a>
                     </div>
                 </div>
-                <div class="col-sm-2 m-4">
+                <div class="col-sm-2 m-4 hover-bg-[#78C2B5]">
                     <div>
-                        <button
-                            class="border border-[#D0D7DE] btn btn-outline-warning btn btn-outline-danger w-100 h-100 text-primary px-3 py-1 shadow-lg">
-                            <i class="fa-solid fa-person-walking-luggage text-success"></i>
-
-                            phòng Đang Sửa
-                        </button>
+                        <a href="c_room.php?id=1"
+                            class="border btn btn-outline-success border-[#D0D7DE] w-100 h-100 text-primary px-3 py-1 shadow-lg">
+                          Phòng Kích Hoạt
+                        </a>
                     </div>
                 </div>
-                <div class="col-sm-2 m-4">
+                <div class="col-sm-2 m-4 hover-bg-[#78C2B5]">
                     <div>
-                        <button
-                            class="border border-[#D0D7DE] btn btn-outline-warning btn btn-outline-danger w-100 h-100 text-primary px-3 py-1 shadow-lg">
-                            <i class="fa-solid fa-person-walking-luggage text-success"></i>
-
-
-                            phòng Đang Sửa
-                        </button>
-                    </div>
-                </div>
-                <div class="col-sm-2 m-4">
-                    <div>
-                        <button
-                            class="border border-[#D0D7DE] btn btn-outline-warning btn btn-outline-danger w-100 h-100 text-primary px-3 py-1 shadow-lg">
-                            <i class="fa-solid fa-person-walking-luggage text-success"></i>
-
-
-                            phòng Đang Sửa
-                        </button>
+                        <a href="c_room.php?id=2"
+                            class="border btn btn-outline-success border-[#D0D7DE] w-100 h-100 text-primary px-3 py-1 shadow-lg">
+                          Phòng   Phòng Khóa
+                        </a>
                     </div>
                 </div>
                 <div class="col-sm-2 m-4">
@@ -108,12 +91,14 @@
         </div>
         <form action="/danh-muc/index.php" method="post">
             <div class="row px-5">
-                <?php foreach ($roomAll as $key => $value) : ?>
+                <?php foreach ($loadone as $key => $value) : ?>
 
                 <div class="col-sm-1  py-2 text-center py-5 h-25 w-25 <?php if($value->status == 1){
-                        echo "bg-danger";
-                    }else{
                         echo "bg-success";
+                    }if($value->status == 0){
+                        echo "bg-warning";
+                    }else{
+                        echo "bg-danger";
                     }
                     
                     ?> bg-success border border-[#D0D7DE] shadow-lg rounded">
@@ -124,9 +109,11 @@
                     <div class="  text-white">
                         <h1 class="fs-4"><?php echo $value->name?></h1>
                         <h2 class="fs-5"><?php if($value->status == 1){
-                        echo "Tạm Khóa";
-                    }else{
                         echo "Kích Hoạt";
+                    }else if($value->status == 0){
+                        echo "Đang Sửa";
+                    }else{
+                        echo "Tạm Khóa";
                     }
                     
                     ?></h2>
@@ -143,7 +130,6 @@
                         </div>
                     </div>
                 </div>
-
                 <?php endforeach ?>
         </form>
     </div>
