@@ -55,6 +55,20 @@ function pdo_query_one($query){
 
 }
 
+function pdo_query_one_person($query){
+    // select * from users where email = ? or role_id = ?
+    $args = func_get_args();
+    $args = array_slice($args, 1);
+    
+    $conn = getConnect();
+    
+    $stmt = $conn->prepare($query);
+    $stmt->execute($args);
+    $data = $stmt->fetch(PDO::FETCH_OBJ);
+    return $data;
+
+}
+
 
 function pdo_execute_get_id($query){
 

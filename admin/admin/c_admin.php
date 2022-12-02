@@ -155,5 +155,3 @@ if(isset($_GET['add-admin'])){
 }
 
 include_once '../templates/layout/layout.php';
-
-?>
