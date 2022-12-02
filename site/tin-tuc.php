@@ -6,7 +6,7 @@
                     <a href="">
                         <h3 class="absolute px-2 text-white">Khách sạn
                         <br> <b><?php echo $value->name?></b> </h3>
-                        <img src="../layout/assets/img/product/<?php echo $value->images?>" alt="" class="">
+                        <img src="../layout/assets/img/news/<?php echo $value->images?>" alt="" class="">
                     </a>
                 </div>                
                 <?php endforeach ?>
@@ -29,7 +29,7 @@
                     <div class="">
                     <?php foreach ($news as $key => $value) : ?>
                         <div class="flex pt-3">
-                            <a href=""><img src="../layout/assets/img/product/<?php echo $value->images?>" alt="" class="h-32"></a>
+                            <a href=""><img src="../layout/assets/img/news/<?php echo $value->images?>" alt="" class="h-32"></a>
                             <p class="px-2"><a href=""><span class="font-bold text-[#0194f3]"> <?php echo $value->name?></span></a>
                                 <br>
                                 <span><?php echo $value->created_at?></span>

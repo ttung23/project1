@@ -147,11 +147,9 @@
                 </li>
                 <li>
                     <div class="menu-con4">
-                        <button> <a href="<?= SITE_URL . "?product-detail" ?>">Chi Tiết Sản Phẩm</a><i class="fa-solid fa-caret-down"></i></button>
                         <button> <a href="<?= SITE_URL . "?cart" ?>">Giỏ Hàng</a><i class="fa-solid fa-caret-down"></i></button>
                         <button> <a href="<?= SITE_URL . "?tin-tuc" ?>">Tin Tức</a><i class="fa-solid fa-caret-down"></i></button>
                         <button> <a href="<?= SITE_URL . "?list-room" ?>">Danh sách phòng</a><i class="fa-solid fa-caret-down"></i></button>
-                        <button> <a href="<?= SITE_URL . "?info-user" ?>">thông tin người dùng</a><i class="fa-solid fa-caret-down"></i></button>
                         <div class="nd-mn4">
                             <i style="color: rgb(208, 148, 70);" class="fa-solid fa-coins"></i> Điểm thưởng của tôi <br>
                             <i style="color: red;" class="fa-solid fa-gift"></i> Đổi quà tặng

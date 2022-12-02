@@ -83,7 +83,7 @@ $permis =  loadAll_permissions();
                             $add_room = insert_room($name_room, $description, $image_name,$category_id,$price_room,$star, $quantity,$status,$location,$acreage_room,$view,$likes,$service_id);
                 
                             if ($image['size'] > 0) {
-                                move_uploaded_file($image['tmp_name'], '../../layout/assets/img/' . $image_name);
+                                move_uploaded_file($image['tmp_name'], '../../layout/assets/img/products/' . $image_name);
                             }
                 
                             header('location:c_room.php');
@@ -161,7 +161,7 @@ $permis =  loadAll_permissions();
             
                        $update = update_room($name_room,$description,$image['name'],$category_id,$price_room,$star, $quantity,$status,$location,$acreage_room,$view,$likes,$service_id,$id);
                        if ($image['size'] > 0) {
-                           move_uploaded_file($image['tmp_name'], '../../layout/assets/img/' . $image_name);
+                           move_uploaded_file($image['tmp_name'], '../../layout/assets/img/products/' . $image_name);
                        }
             
                        header('location:c_room.php');
