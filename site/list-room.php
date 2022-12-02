@@ -19,25 +19,21 @@
           <br />
           <input type="radio" name="gender" value="other" />
           <span>Tất cả</span>
-      
+          <?php endforeach ?>
       </div>
-      <?php endforeach ?>
-
+   
       <div class="convenient-l-pro">
         <div class="text-c">
-          <h2>Lọc theo kết quả</h2>
-          <button  type="submit" name="loc">Hiển thị theo kết quả lọc :</button>
-        </div>
-        </form>
+ 
         <div class="cs-l-pro">
           <h2>Chính sách đặt phòng</h2>
-          <form>
+
             <input type="checkbox" name="vehicle1" value="mienphi" />Hoàn trả
             phòng miễn phí
             <br />
             <input type="checkbox" name="vehicle2" value="matphi" />Hoàn trả
             phòng mất 10% <br /><br />
-          </form>
+       
         </div>
         <div class="gia-l-pro">
           <h2>Giá mỗi đêm khoảng</h2>
@@ -46,50 +42,21 @@
         </div>
         <div class="ks-l-pro">
           <h2>Loại phòng khách sạn</h2>
-          <form action="">
-            <input type="checkbox" name="vehicle1" value="mienphi" />Tất cả
-            các phòng
-            <br />
-            <input type="checkbox" name="vehicle2" value="matphi" /> Phòng
-            thương gia <br />
-            <input type="checkbox" name="vehicle1" value="mienphi" />Phòng đôi
-            <br />
-            <input type="checkbox" name="vehicle2" value="matphi" />Phòng đơn
-            <br />
-            <input type="checkbox" name="vehicle2" value="matphi" />Phòng tình
-            yêu <br />
-          </form>
+          <?php foreach ($categoriesAll  as $key => $value) : ?>
+          <input type="radio" name="cate" value="<?= $value->categories_id?>" checked /> 
+          <span><?= $value->name?></span><br />
+          <?php endforeach ?>
         </div>
         <div class="tiennghi-l-pro">
           <h2>Tiện Nghi</h2>
-          <form action="">
-            <input type="checkbox" name="tn1" value="mienphi" />Có Wifi
-            <br />
-            <input type="checkbox" name="tn2" value="matphi" /> Có thang máy
-            <br />
-            <input type="checkbox" name="tn3" value="mienphi" />Lễ tân 24/24
-            <br />
-            <input type="checkbox" name="tn3" value="matphi" /> bồn tắm
-            <br />
-            <input type="checkbox" name="tn5" value="matphi" /> Chỗ để xe rộng
-            <br />
-            <input type="checkbox" name="tn5" value="matphi" /> Bể bơi
-            <br />
-            <input type="checkbox" name="tn5" value="matphi" /> Phòng tập GYM
-            <br />
-            <input type="checkbox" name="tn5" value="matphi" /> Massag
-            <br />
-          </form>
+          <?php foreach ($categoriesAll  as $key => $value) : ?>
+          <input type="radio" name="services" value="<?= $value->service_id?>" checked /> 
+          <span><?= $value->name?></span><br />
+          <?php endforeach ?>
+  
         </div>
-        <div class="luutru-l-pro">
-          <h2>Loại hình lưu trú</h2>
-          <form action="">
-            <input type="radio" name="gender" value="male" checked /> Theo
-            giờ<br />
-            <input type="radio" name="gender" value="female" /> Qua đêm<br />
-            <input type="radio" name="gender" value="other" /> Theo tuần
-            <br />
-            <input type="radio" name="gender" value="other" /> Tất cả
+        <h2>Lọc theo kết quả</h2>
+          <button  type="submit" name="loc">Hiển thị theo kết quả lọc :</button>
           </form>
         </div>
       </div>

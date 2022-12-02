@@ -15,8 +15,8 @@ function loadAll_room_price(){
     $listroom = pdo_query_all($query);
     return $listroom;
 }
-function loadAll_room_price_list($id){
-    $query = "SELECT r.*,ct.name as 'tendt' FROM room r inner join categories_room ct  on ct.categories_id=r.id_category_room where r.price =" .$id;
+function loadAll_room_price_list($id,$cate){
+    $query = "SELECT r.*,ct.name as 'tendt' FROM room r inner join categories_room ct  on ct.categories_id=r.id_category_room where r.price =" .$id." and r.id_category_room = ".$cate;
     $listroom = pdo_query_all($query);
     return $listroom;
 }

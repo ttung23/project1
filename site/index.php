@@ -19,8 +19,6 @@ if (isset($_SESSION['username'])) {
     $tt = 0;
     $service_room = [];
     $total_amount = 0;
-    // echo <pre>";
-    // var_dump($_SESSION['cart']);
     $idnguoidung = $_SESSION['user_id'];
     if (!isset($_SESSION['cart'])) $_SESSION['cart'] = [];
     if (isset($_POST['addcart'])) {
@@ -43,9 +41,6 @@ if (isset($_SESSION['username'])) {
         $pricedichvu = $_POST['pricedichvu'];
         $service_room = loadAll_service_room($id);
         $room = [$id, $ten, $thumbnail, $des, $id_cate, $price, $star, $quantity, $location, $acreage, $status, $view, $likes, $id_service, $created_at, $namedichvu, $pricedichvu, $idnguoidung];
-        $_SESSION['cart'][] = $room;
-        // var_dump($_SESSION['cart']);
-        $room = [$id, $ten, $thumbnail, $des, $id_cate, $price, $star, $quantity, $location, $acreage, $status, $view, $likes, $id_service, $created_at, $id_admin, $namedichvu, $pricedichvu, $idnguoidung];
         $_SESSION['cart'][] = $room;
         // var_dump($_SESSION['cart']);
     }
@@ -143,7 +138,9 @@ if (isset($_SESSION['username'])) {
         }
         if(isset($_POST['loc'])){
             $gia = $_POST['gender'];
-            $logroom = loadAll_room_price_list($gia);
+            $cate = $_POST['cate'];
+
+            $logroom = loadAll_room_price_list($gia,$cate);
         }else{
             $logroom = [];
         }

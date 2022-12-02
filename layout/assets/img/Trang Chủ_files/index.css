@@ -1,0 +1,743 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container-index {
+  /* height: auto; */
+  position: relative;
+  overflow-x: hidden;
+}
+
+.containerr {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* banner  */
+.banner {
+  background-color: #3ba6e3;
+  height: 360px;
+}
+
+.banner .image {
+  display: flex;
+}
+
+.banner .image img {
+  border-radius: 10px;
+  margin-top: 30px;
+  margin-right: 20px;
+}
+
+.circle-banner-idx {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px
+}
+
+.circle-banner-idx i {
+  color: white;
+}
+
+/* Tìm kiếm */
+.search {
+  background-color: white;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  position: absolute;
+  height: 235px;
+  width: 1200px;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  top: 450px;
+  left: 0;
+  right: 0;
+}
+
+.search .search-time {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  position: relative;
+  gap: 30px;
+}
+
+.search-time .a {
+  text-align: center;
+}
+
+.search-time .a i {
+  font-size: 23px;
+  color: #0194f3;
+}
+
+.search .search-check {
+  display: flex;
+  border: 1px solid black;
+  margin-top: 20px;
+  height: 70px;
+  border-radius: 55px;
+  position: relative;
+}
+
+.search-check .check {
+  margin-left: 0px;
+  margin-right: 60px;
+  display: flex;
+  margin-top: 8px;
+  position: relative;
+}
+
+.check input {
+  margin-left: 0px;
+  height: 66px;
+  margin-top: -7px;
+  width: 360px;
+  border-bottom-left-radius: 55px;
+  border-top-left-radius: 55px;
+  padding-left: 60px;
+  padding-top: 14px;
+}
+
+.search-check .check p {
+  position: absolute;
+  left: 60px;
+  top: 0px;
+}
+
+.search-check .check .i {
+  left: 30px;
+  margin-top: 6px;
+  font-size: 22px;
+  position: absolute;
+  color: #0194f3;
+}
+
+.search-check .book {
+  padding-right: 100px;
+  padding-top: 10px;
+}
+
+.book input {
+  width: 170px;
+  height: 30px;
+  font-size: 13px;
+  font-weight: bold;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-left: -58px;
+}
+
+.search-check .book i {
+  position: absolute;
+  top: 15px;
+  left: 390px;
+  font-size: 20px;
+  color: #0194f3;
+}
+
+.search-check .book1 {
+  padding-right: 50px;
+  padding-top: 10px;
+}
+
+.book1 input {
+  width: 170px;
+  height: 30px;
+  font-size: 13px;
+  font-weight: bold;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-left: -40px;
+}
+
+.search-check .book1 i {
+  position: absolute;
+  top: 14px;
+  left: 600px;
+  font-size: 20px;
+  color: #0194f3;
+}
+
+.search-check .book2 {
+  padding-right: 90px;
+  padding-top: 10px;
+}
+
+.text {
+  color: #03121a;
+  font-weight: 650;
+  padding-top: 2px;
+}
+
+.search-check button {
+  background-color: #0194f3;
+  color: white;
+  height: 50px;
+  width: 120px;
+  margin-top: 10px;
+  border-radius: 55px;
+  margin-left: 10px;
+}
+
+.sale-index {
+  padding-top: 280px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.sale-index .sale-flex {
+  display: flex;
+  align-items: center;
+}
+
+.sale-flex img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.sale-flex h2 {
+  font-size: 24px;
+  font-weight: 700;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+.sale-index img {
+  margin-top: 20px;
+  border-radius: 7px;
+}
+
+/*  */
+
+.discount-index {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 100px;
+}
+
+.discount-index img {
+  padding-right: 20px;
+  width: 34%;
+}
+
+/* sale 11.11 */
+.sale-11-index {
+  max-width: 1200px;
+  padding-top: 100px;
+  margin: 0 auto;
+}
+
+.sale-11-index h2 {
+  font-size: 24px;
+  font-weight: 700;
+  padding-left: 10px;
+  padding-bottom: 20px;
+}
+
+.sale-11-index img {
+  border-radius: 10px;
+  margin-top: 7px;
+}
+
+/* sale phòng khách sạn */
+.sale-ks-index {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+.sale-ks-index .text-ks {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.sale-ks-index p {
+  padding-bottom: 30px;
+  font-size: 18px;
+}
+
+.text-ks h2 {
+  font-size: 24px;
+  font-weight: 700;
+  padding-left: 10px;
+}
+
+.text-ks i {
+  font-size: 24px;
+  color: #0194f3;
+  padding-right: 10px;
+}
+
+.ks-flex {
+  display: flex;
+}
+
+.ks-flex img {
+  width: 18.7%;
+  margin-right: 20px;
+  border-radius: 7px;
+}
+
+/* chọn phòng khách sạn */
+.choose-index {
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 100px;
+}
+
+.text-choose {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.text-choose h2 {
+  font-size: 24px;
+  font-weight: 700;
+  padding-left: 10px;
+}
+
+.choose-index p {
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+
+.text-choose i {
+  font-size: 24px;
+  color: #0194f3;
+  padding-right: 10px;
+}
+
+.room {
+  padding-bottom: 30px;
+  display: flex;
+}
+
+.room a {
+  margin-right: 40px;
+  background-color: #f7f9fa;
+  color: #0194f3;
+  font-weight: 640;
+  font-size: 18px;
+  padding: 12px;
+  border-radius: 7px;
+}
+
+.flex-choose {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-gap: 10px;
+}
+
+.flex-choose img {
+  width: 18.8%;
+  margin-right: 20px;
+  border-radius: 7px;
+}
+
+.chitiet {
+  position: relative;
+}
+
+.chitiet img {
+  width: 100%;
+}
+
+.chitiet .a0 {
+  font-size: 18px;
+  color: #076eb3;
+  font-weight: 600;
+  padding-left: 5px;
+}
+
+.chitiet .i {
+  color: #e4ab55;
+  font-size: 12px;
+  margin-top: 30px;
+  margin-left: 5px;
+}
+
+.chitiet .i span {
+  margin-left: 100px;
+  font-size: 15px;
+  color: red;
+  font-weight: 600;
+  position: absolute;
+  left: 80px;
+}
+
+.chitiet .diachi {
+  padding-top: 25px;
+  align-items: center;
+  font-size: 13px;
+  left: 5px;
+  position: absolute;
+}
+
+.diachi i i {
+  color: #076eb3;
+}
+
+.chitiet .sao {
+  display: flex;
+  padding-top: 20px;
+}
+
+.chitiet .text-dg {
+  padding-left: 40px;
+}
+
+.text-dg .a {
+  margin-right: -20px;
+  position: absolute;
+  left: 183px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.text-dg .a1 {
+  font-size: 11px;
+  position: absolute;
+  left: 180px;
+  margin-top: 3px;
+}
+
+/* hover ảnh */
+.chitiet .snip0016 figcaption .p {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.chitiet .snip0016 figcaption .p1 {
+  font-size: 12px;
+  color: wheat;
+}
+
+.chitiet .snip0016 figcaption .p1 i {
+  color: #3ba6e3;
+}
+
+/* dịch vụ */
+.dv-ks-index {
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 150px;
+}
+
+.chitiet-dv {
+  margin-right: 20px;
+  position: relative;
+}
+
+.text-dv {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.text-dv h2 {
+  font-size: 24px;
+  font-weight: 700;
+  padding-left: 10px;
+}
+
+.dv-ks-index p {
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+
+.text-dv i {
+  font-size: 24px;
+  color: #0194f3;
+  padding-right: 10px;
+}
+
+.room-dv {
+  padding-bottom: 30px;
+  display: flex;
+}
+
+.room-dv a {
+  margin-right: 40px;
+  background-color: #f7f9fa;
+  color: #ff6d70;
+  font-weight: 640;
+  font-size: 18px;
+  padding: 12px;
+  border-radius: 7px;
+}
+
+.flex-dv {
+  display: flex;
+}
+
+.flex-dv img {
+  width: 18.8%;
+  margin-right: 20px;
+  border-radius: 7px;
+}
+
+.chitiet-dv img {
+  width: 100%;
+}
+
+.chitiet-dv .a0 {
+  font-size: 18px;
+  color: #076eb3;
+  font-weight: 600;
+  padding-left: 5px;
+}
+
+.chitiet-dv .i {
+  color: #e4ab55;
+  font-size: 12px;
+  margin-top: 30px;
+  margin-left: 5px;
+}
+
+.chitiet-dv .i span {
+  margin-left: 100px;
+  font-size: 15px;
+  color: red;
+  font-weight: 600;
+  position: absolute;
+  left: -94px;
+}
+
+.chitiet-dv .diachi-dv {
+  padding-top: 25px;
+  align-items: center;
+  font-size: 13px;
+  left: 5px;
+  position: absolute;
+}
+
+.diachi-dv i i {
+  color: #076eb3;
+}
+
+.chitiet-dv .sao-dv {
+  display: flex;
+  padding-top: 20px;
+}
+
+.chitiet-dv .text-dg {
+  padding-left: 40px;
+}
+
+.text-dg .a {
+  margin-right: -20px;
+  position: absolute;
+  left: 183px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.text-dg .a1 {
+  font-size: 11px;
+  position: absolute;
+  left: 180px;
+  margin-top: 3px;
+}
+
+/* hover ảnh */
+.chitiet-dv .snip0016 figcaption .p {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.chitiet-dv .snip0016 figcaption .p1 {
+  font-size: 12px;
+  color: wheat;
+}
+
+.chitiet-dv .snip0016 figcaption .p1 i {
+  color: #3ba6e3;
+}
+
+/* trải nghiệm */
+.trainghiem {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 180px;
+}
+
+.trainghiem h2 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.flex-tn {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-gap: 10px;
+  padding-top: 20px;
+}
+
+.flex-tn img {
+  border-radius: 7px;
+  width: 95%;
+}
+
+.flex-tn .img1 {
+  position: relative;
+}
+
+.flex-tn .img1 a {
+  position: absolute;
+  background-color: white;
+  color: #03121a;
+  padding: 7px;
+  border-radius: 7px;
+  top: 200px;
+  left: 50px;
+  font-weight: 500;
+}
+
+.flex-tn .img2 {
+  position: relative;
+}
+
+.flex-tn .img2 a {
+  position: absolute;
+  background-color: white;
+  color: #03121a;
+  padding: 7px;
+  border-radius: 7px;
+  top: 200px;
+  left: 50px;
+  font-weight: 500;
+}
+
+/* số phòng đặt nhiều trong tháng 11 */
+
+/* thanh toán */
+.thanhtoan {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 2.5fr;
+  grid-gap: 10px;
+  padding-top: 150px;
+  border-bottom: 1px solid black;
+  padding-bottom: 60px;
+}
+
+.text-tt h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-gap: 15px;
+}
+
+/* vận chuyển */
+.vanchuyen {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 2.5fr;
+  grid-gap: 10px;
+  padding-top: 150px;
+  border-bottom: 1px solid black;
+  padding-bottom: 60px;
+}
+
+.text-vc h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.grid-vc {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-gap: 15px;
+}
+
+/* nhà hàng */
+.nhahang {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 2.5fr;
+  grid-gap: 10px;
+  padding-top: 150px;
+  border-bottom: 1px solid black;
+  padding-bottom: 60px;
+}
+
+.text-nh h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.grid-nh {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-gap: 15px;
+}
+
+/* tại sao nên đặt phòng ở đây */
+.why {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 100px;
+}
+
+.why .h2 {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.why .grid-w {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-gap: 15px;
+}
+
+.grid-w .img-w img {
+  margin-left: 28px;
+  margin-bottom: 40px;
+}
+
+.img-w h2 {
+  font-size: 20px;
+  font-weight: 600;
+  padding-bottom: 30px;
+}
+.chitiet .datphong-index {
+  display: flex;
+  position: absolute;
+  top: 400px;
+  justify-content: left;
+  width: 100%;
+  padding: 0 20px 0 0;
+}
+.chitiet .datphong-index a {
+  padding: 4px;
+  border: 2px solid #0194f3;
+  color: #0194f3;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 6px;
+}
+.chitiet .datphong-index a:hover {
+  background-color: #0194f3;
+  color: white;
+}
