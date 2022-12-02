@@ -2,27 +2,27 @@
  function login($username, $password)
 {
     $sql = "select * from users where username = '$username' and password = '$password' limit 1";
-    $user = pdo_query_all($sql);
+    $user = pdo_query_one_person($sql);
 
         if(($user != [])){
-            // $_SESSION['user'] = $user;
-            // var_dump($_SESSION['user']['username']);
-            // exit;
-           foreach($user as $key => $value){
-                $_SESSION['username'] = $value->username;
-                $_SESSION['password'] = $value->password;
-                $_SESSION['name'] = $value->name;
-                $_SESSION['user_id'] = $value->user_id;
-                $_SESSION['gender'] = $value->gender;
-                $_SESSION['email'] = $value->email;
-                $_SESSION['images'] = $value->images;
-                $_SESSION['address'] = $value->address;
-                $_SESSION['phone'] = $value->phone;
-                $_SESSION['date'] = $value->date;
-                $_SESSION['status'] = $value->status;
-                header("location:index.php?");
-           }
-        }else{
+            $_SESSION['user'] = $user;
+
+            header("location:index.php?");
+        //    foreach($user as $key => $value){
+        //         $_SESSION['username'] = $value->username;
+        //         $_SESSION['password'] = $value->password;
+        //         $_SESSION['name'] = $value->name;
+        //         $_SESSION['user_id'] = $value->user_id;
+        //         $_SESSION['gender'] = $value->gender;
+        //         $_SESSION['email'] = $value->email;
+        //         $_SESSION['images'] = $value->images;
+        //         $_SESSION['address'] = $value->address;
+        //         $_SESSION['phone'] = $value->phone;
+        //         $_SESSION['date'] = $value->date;
+        //         $_SESSION['status'] = $value->status;
+                
+        //    }
+        } else {
             echo "bạn Đã sai tài khoản or mật khẩu";
         }
 }
@@ -163,4 +163,3 @@ function getinfo($client) {
         }
     }
 }
-?>

@@ -5,6 +5,12 @@ function loadAll_categories(){
     return $listcategories;
 }
 
+function loadOne_category ($id) {{
+    $query = "select * from categories_room where categories_id = ?";
+    $listcategories = pdo_query_one_person($query, $id);
+    return $listcategories;
+}}
+
 function category_remove_by_id ($cate_id){
     $query = "delete from categories_room where categories_id= ?";
     pdo_execute($query, $cate_id);
@@ -14,10 +20,10 @@ function Insert_category($name,$status,$description,$images){
     $query = "Insert into categories_room (name, status, description, images) values(?,?,?,?)";
     pdo_execute($query, $name, $status, $description, $images);
 }
-function Update_feedbacks($name,$status,$description,$images)
+function Update_category($name,$status,$description,$images, $id_cate)
 {
-    $query = "Update categories_room set name = ? ,status = ?,description = ?,images = ?, where categories_id = ?";
-    pdo_execute($query,$name,$status,$description,$images);
+    $query = "UPDATE categories_room set name = ? ,status = ?,description = ?,images = ?, created_at = current_timestamp() where categories_id = ?";
+    pdo_execute($query,$name,$status,$description,$images, $id_cate);
 }
 
 ?>

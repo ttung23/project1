@@ -56,7 +56,7 @@
                     <?php
                     if (isset($_SESSION['cart']) && (is_array($_SESSION['cart']))) {
                         for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
-                            if ($_SESSION['cart'][$i][17] == $_SESSION['user_id']) {
+                            if ($_SESSION['cart'][$i][17] == $_SESSION['user']->user_id) {
                     ?>
                                 <div class="tomtat-detail">
                                     <div>
@@ -77,7 +77,7 @@
                     <?php
                     if (isset($_SESSION['cart']) && (is_array($_SESSION['cart']))) {
                         for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
-                            if ($_SESSION['cart'][$i][17] == $_SESSION['user_id']) {
+                            if ($_SESSION['cart'][$i][17] == $_SESSION['user']->user_id) {
                     ?>
                                 <div class="tomtat-detail">
                                     <div>
@@ -114,7 +114,7 @@
                 <?php
                 if (isset($_SESSION['cart']) && (is_array($_SESSION['cart']))) {
                     for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
-                        if ($_SESSION['cart'][$i][17] == $_SESSION['user_id']) {
+                        if ($_SESSION['cart'][$i][17] == $_SESSION['user']->user_id) {
                 ?>
                             <form action="index.php?cart" method="post">
                                 <input type="hidden" name="id" value="<?php echo $_SESSION['cart'][$i][0] ?>">
@@ -171,8 +171,8 @@
                         </h2>
 
                         <div class="flex gap-1 bg-white p-1 rounded">
-                            <img src="../layout/assets/img/product/<?php echo $_SESSION['images'] ?>" alt="">
-                            <span><?php echo $_SESSION['name'] ?></span>
+                            <img src="../layout/assets/img/product/<?php echo $_SESSION['user']->images ?>" alt="">
+                            <span><?php echo $_SESSION['user']->name ?></span>
                         </div>
                     </div>
 
