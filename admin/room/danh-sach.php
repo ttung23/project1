@@ -105,6 +105,8 @@
                     <td><input type="checkbox" name="room[]" class="rounded" value="<?= $value->room_id ?>" />
                         <a href="c_room.php?edit-room&id=<?php echo $value->room_id ?>"><i
                                 class="fa-solid fa-pen-to-square"></i>Sửa</a>
+                                <a type="submit" name="addbooking" data-modal-toggle="popup-modal<?= $value->room_id ?>">Thanh toán ngay</a>
+
                     </td>
                     <div class="  text-white">
                         <h1 class="fs-4"><?php echo $value->name?></h1>
@@ -173,5 +175,69 @@
         labels: ['Value']
     });
     </script>
+                <?php foreach ($loadone as $key => $value) : ?>
+
+<div id="popup-modal<?= $value->room_id?>" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 p-4 md:inset-0 h-modal md:h-full">
+             <!-- thanh toán bằng qr-code -->
+<div class="thanhtoan_tc" style="background-color:white">
+  <div class="flex_tt">
+      <img src="assets/img/icon/images.png" alt=""><h2>Stayyin</h2>
+  </div>
+  <div class="tt_qr">
+     <div class="thanhtoan_qr_code">
+     </div>
+     <div class="thongtin_phong row">
+        <div class="col-sm-6">
+        <h3>Thông Tin Phòng : <?= $value->description?> </h3>
+        </div>
+        <div class="col-sm-6">
+      
+      <span>Tên Phòng :<?= $value->name?></span><br>
+      </div>
+      <div class="col-sm-6">
+
+      <span>Giá :<?= $value->price?> </span> <br>
+      </div>
+      <div class="col-sm-6">
+
+      <span>Ảnh phòng</span><br> <br><img width="w-25" src="../../layout/assets/img/product/<?= $value->thumbnail?>" alt=""><br>
+      </div>
+      <div class="col-sm-6">
+
+      <span>Địa Chỉ</span><span ><?= $value->location?></span>
+      </div>
+      <div class="col-sm-6">
+
+      <span>Diện Tích</span><span ><?= $value->acreage?></span>
+      </div>
+      <div class="col-sm-6">
+
+      <span>Trạng Thái</span><span ><?php if($value->status == 1){
+                        echo "Kích Hoạt";
+                    }else if($value->status == 0){
+                        echo "Đang Sửa";
+                    }else{
+                        echo "Tạm Khóa";
+                    }
+                    
+                    ?></span>
+      </div>
+      <div class="col-sm-6">
+
+      <span>Lượt Xem</span><span ><?= $value->view?></span>
+                </div>
+      <div class="col-sm-6">
+
+      <span>Yêu Thích</span><span ><?= $value->likes?></span>
+      </div>
+
+      </div>
+  </div>
+  
+</div>
+     
+      <!--End popup-->
+  </div>
+  <?php endforeach?>
 </div>
 </div>

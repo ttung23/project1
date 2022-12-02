@@ -47,17 +47,11 @@ if (isset($_GET['cart'])) {
             $room = [$id, $ten, $thumbnail, $des, $id_cate, $price, $star, $quantity, $location, $acreage, $status, $view, $likes, $id_service, $created_at, $namedichvu, $pricedichvu, $idnguoidung];
             $_SESSION['cart'][] = $room;
             // var_dump($_SESSION['cart']);
-            $room = [$id, $ten, $thumbnail, $des, $id_cate, $price, $star, $quantity, $location, $acreage, $status, $view, $likes, $id_service, $created_at, $id_admin, $namedichvu, $pricedichvu, $idnguoidung];
-            $_SESSION['cart'][] = $room;
-            // var_dump($_SESSION['cart']);
         }
         if (isset($_SESSION['cart']) && (is_array($_SESSION['cart']))) {
             for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
                 if ($_SESSION['cart'][$i][17] == $_SESSION['user']->user_id) {
                     $tt += $_SESSION['cart'][$i][16] + $_SESSION['cart'][$i][5];
-                    if ($_SESSION['cart'][$i][17] == $_SESSION['user']->user_id) {
-                        $tt += $_SESSION['cart'][$i][16] + $_SESSION['cart'][$i][5];
-                    }
                 }
             }
         }
@@ -96,19 +90,12 @@ if (isset($_GET['cart'])) {
             for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
                 if ($_SESSION['cart'][$i][17] == $_SESSION['user']->user_id) {
                     array_splice($_SESSION['cart'], $i, $tongnd);
-                    if ($_SESSION['cart'][$i][17] == $_SESSION['user']->user_id) {
-                        array_splice($_SESSION['cart'], $i, 1);
-                    }
                 }
-                // var_dump($_SESSION['cart']);
-                // exit;
-
-                unset($_SESSION['addcart']);
-                $_SESSION['addcart'] = [];
             }
-            if (isset($_GET['delid'])) {
-                array_splice($_SESSION['cart'], $_GET['delid'], 1);
-            }
+          
+        }
+        if (isset($_GET['delid'])) {
+            array_splice($_SESSION['cart'], $_GET['delid'], 1);
         }
         $_TITLE = "Giỏ hàng";
         $VIEW_NAME = 'cart.php';
