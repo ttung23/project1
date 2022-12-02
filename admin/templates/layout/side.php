@@ -16,7 +16,7 @@
             <li><a href="../../admin/user/c_user.php">
                     <i class="uil uil-user"></i>
                     <span class="link-name">Quản lý người dùng</span>
-            </a></li>
+                </a></li>
             <li><a href="../../admin/room/c_room.php">
                     <i class="uil uil-bed-double"></i>
                     <span class="link-name">Quản lý room</span>
@@ -41,11 +41,6 @@
             <li><a href="#">
                     <i class="uil uil-feedback"></i>
                     <span class="link-name">Quản lý Feedbacks</span>
-                </a></li>
-
-            <li><a href="#">
-                    <i class="uil uil-chart-pie"></i>
-                    <span class="link-name">Quản lý Thống Kê</span>
                 </a></li>
             <li><a href="../../admin/admin/c_admin.php">
                     <i class="uil uil-head-side"></i>
