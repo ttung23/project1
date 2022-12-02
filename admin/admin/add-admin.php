@@ -88,7 +88,7 @@
 
                     <div>
                         <label for="">quyền</label>
-                 <select>
+                 <select name="permission">
                     <?php foreach ($per as $key => $value) : ?>
                              
                             <option value="<?php echo $value->permission_id?>"><?php echo $value->name?></option>

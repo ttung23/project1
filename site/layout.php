@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../layout/assets/css/cart.css" />
     <link rel="stylesheet" href="../layout/assets/css/hover-index.css">
     <link rel="stylesheet" href="../layout/assets/css/header.css">
+    <link rel="stylesheet" href="../layout/assets/css/thanhtoan_nganhang.css">
     <link rel="stylesheet" href="../layout/assets/css/chi-tiet.css">
     <link rel="stylesheet" href="../layout/assets/css/list-product.css">
     <link rel="stylesheet" href="../layout/assets/css/footer.css">

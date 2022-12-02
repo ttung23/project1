@@ -180,7 +180,7 @@
         <?php foreach ($service as $key => $value) : ?>
             <div class="chitiet-dv">
                 <figure class="snip0016">
-                    <img src="../layout/assets/img/product/<?php echo $value->images ?>" alt="sample41" />
+                    <img src="../layout/assets/img/dichvu/<?php echo $value->images ?>" alt="sample41" />
                     <figcaption>
                         <p class="p"><?php echo $value->status ?></p>
                         <p class="p">Số Lượng: <?php echo $value->quantity ?></p>

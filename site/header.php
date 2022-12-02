@@ -152,7 +152,6 @@
                 </li>
                 <li>
                     <div class="menu-con4">
-                        <button> <a href="<?= SITE_URL . "?product-detail" ?>">Chi Tiết Sản Phẩm</a><i class="fa-solid fa-caret-down"></i></button>
                         <button> <a href="<?= SITE_URL . "?cart" ?>">Giỏ Hàng</a><i class="fa-solid fa-caret-down"></i></button>
                         <button> <a href="<?= SITE_URL . "?tin-tuc" ?>">Tin Tức</a><i class="fa-solid fa-caret-down"></i></button>
                         <button> <a href="<?= SITE_URL . "?list-room" ?>">Danh sách phòng</a><i class="fa-solid fa-caret-down"></i></button>

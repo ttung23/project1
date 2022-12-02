@@ -21,7 +21,9 @@ if(isset($_GET['add-admin'])){
         $gender = $_POST['gender'];      
          $status = $_POST['status'];
        $image = $_FILES['image'];
-       $image_name = $image['name'];       $err=[];
+       $image_name = $image['name'];      
+       $id_permission = $_POST['permission'];
+        $err=[];
        if ($name_admin == "") {
         $err['name_admin'] = "Bạn chưa nhập tên Phòng";
     }    
@@ -57,10 +59,10 @@ if(isset($_GET['add-admin'])){
             }
     
             if (!$err) {
-                $update = Insert_admins($name_admin,$email,$password,$gender,$image_name,$address,$phone,$status);
+                $update = Insert_admins($name_admin,$email,$password,$gender,$image_name,$address,$phone,$status,$id_permission);
     
                 if ($image['size'] > 0) {
-                    move_uploaded_file($image['tmp_name'], '../../layout/assets/img/' . $image_name);
+                    move_uploaded_file($image['tmp_name'], '../../layout/assets/img/admins/' . $image_name);
                 }
     
                 header('location:c_admin.php');
@@ -83,7 +85,8 @@ if(isset($_GET['add-admin'])){
          $status = $_POST['status'];
        $image = $_FILES['image'];
        $image_name = $image['name'];
-    //    $per = $_POST['permission'];
+       $id_permission = $_POST['permission'];
+
        $err=[];
 
        if ($name_admin == "") {
@@ -123,9 +126,9 @@ if(isset($_GET['add-admin'])){
 
        if (!$err) {
 
-           $update = Insert_admins($name_admin,$email,$password,$gender,$image_name,$address,$phone,$status);
+           $update = Update_admins($name_admin,$email,$password,$gender,$image_name,$address,$phone,$status,$id_permission,$id);
            if ($image['size'] > 0) {
-               move_uploaded_file($image['tmp_name'], '../layout/assets/img/' . $image_name);
+               move_uploaded_file($image['tmp_name'], '../layout/assets/img/admins/' . $image_name);
            }
 
            header('location:c_admin.php');
@@ -152,5 +155,3 @@ if(isset($_GET['add-admin'])){
 }
 
 include_once '../templates/layout/layout.php';
-
-?>

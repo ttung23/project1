@@ -23,7 +23,7 @@
                             <div class="font-medium mb-1 text-[14px]">Trả phòng</div>
 
                             <div class="checkout-date">
-                                <span class="block font-bold text-[14px]"><input type="date" value="<?= $_SESSION['checkout']?? "" ?>" name="check_out"></span>
+                                <span class="block font-bold text-[14px]"><input type="date" value="<?= $_SESSION['checkout'] ?? "" ?>" name="check_out"></span>
                                 <span class="text-[#6b6b6b] text-[12px]">00h - 12h</span>
                             </div>
                         </div>
@@ -33,7 +33,7 @@
                             <div class="font-medium mb-1 text-[14px]">số lượng người</div>
 
                             <div class="checkin-date">
-                                <span class="block font-bold text-[14px]"><input type="number" name="quantity" min="1" max="" value=""></span>
+                                <span class="block font-bold text-[14px]"><input type="number" name="quantity" min="1" max="" value="1"></span>
                             </div>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                             <div class="font-medium text-[14px]">Tổng thời gian lưu trú:</div>
 
                             <div class="checkin-date inline-block">
-                                <span class="block font-bold text-[14px]"><?php echo $_SESSION['$tongnd'] ?></span>
+                                <span class="block font-bold text-[14px]"><?= $_SESSION['$tongnd'] ?? 0 ?></span>
                             </div>
                         </div>
                     </div>
@@ -81,10 +81,10 @@
                     ?>
                                 <div class="tomtat-detail">
                                     <div>
-                                        Phòng <?php echo $_SESSION['cart'][$i][16] ?>
+                                        Phòng <?php echo $_SESSION['cart'][$i][15] ?>
                                     </div>
                                     <div>
-                                        VND <?php echo $_SESSION['cart'][$i][17] ?>
+                                        VND <?php echo $_SESSION['cart'][$i][16] ?>
                                     </div>
                                 </div>
                     <?php
@@ -171,7 +171,7 @@
                         </h2>
 
                         <div class="flex gap-1 bg-white p-1 rounded">
-                            <img src="../layout/assets/img/product/<?php echo $_SESSION['user']->images ?>" alt="">
+                            <img src="../layout/assets/img/users/<?php echo $_SESSION['user']->images ?>" alt="">
                             <span><?php echo $_SESSION['user']->name ?></span>
                         </div>
                     </div>
@@ -276,83 +276,116 @@
                 </div>
 
                 <div class="pay text-right">
-                    <a type="submit" onclick="confirm('bạn có chắc chắn đặt hàng không')" name="addbooking"  data-modal-toggle="popup-modal">Thanh toán ngay</a>
+                <a type="submit" name="addbookingonlien" data-modal-toggle="popup-modal1">Thanh Toán Online</a>
+                 <a type="submit" name="addbooking" data-modal-toggle="popup-modal">Thanh toán ngay</a>
                 </div>
-                      <!--Popup xác nhận-->
-                      <div id="popup-modal" tabindex="-1"
-                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 p-4 md:inset-0 h-modal md:h-full">
-                        <div class="relative w-full max-w-md h-full md:h-auto">
-                            <!--Nền-->
-                            <div class="relative bg-white rounded-lg shadow dark:bg-white">
-                                <!--Dấu X-->
-                                <button type="button"
-                                    class="absolute top-3 right-2.5 text-white-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
-                                    data-modal-toggle="popup-modal">
-                                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    <span class="sr-only">Close modal</span>
-                                </button>
-                                <div class="p-6 text-center">
-                                    <!--Chấm than-->
-                                    <svg aria-hidden="true"
-                                        class="mx-auto mb-4 w-14 h-14 text-gray-700 dark:text-gray-500" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                    <!--Nội dung-->
-                                    <div class="text-center text-2xl py-2 text-green-500 font-bold">THANH TOÁN THÀNH CÔNG</div>
-                                    <div class="booking-detail">
-                                        <p class="chi-tiet-dat-phong text-[16px] tieu-de font-bold">
-                                            Chi tiết đặt phòng của bạn
-                                        </p>
-                    
-                                        <div class="date">
-                                            <div class="checkin pr-4">
-                                                <div class="font-medium mb-1 text-[14px]">Nhận phòng</div>
-                    
-                                                <div class="checkin-date">
-                                                    <span class="block font-bold text-[14px]">T4, 23 tháng 11 2022</span>
-                                                    <span class="text-[#6b6b6b] text-[12px]">12h - 00h</span>
-                                                </div>
-                                            </div>
-                    
-                                            <div class="border-l-[1px] bl-[#ccc] "></div>
-                    
-                                            <div class="checkout pl-4">
-                                                <div class="font-medium mb-1 text-[14px]">Trả phòng</div>
-                    
-                                                <div class="checkout-date">
-                                                    <span class="block font-bold text-[14px]">T5, 24 tháng 11 2022</span>
-                                                    <span class="text-[#6b6b6b] text-[12px]">00h - 12h</span>
-                                                </div>
+                <!--Popup xác nhận-->
+                <div id="popup-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 p-4 md:inset-0 h-modal md:h-full">
+                    <div class="relative w-full max-w-md h-full md:h-auto">
+                        <!--Nền-->
+                        <div class="relative bg-white rounded-lg shadow dark:bg-white">
+                            <!--Dấu X-->
+                            <button type="button" class="absolute top-3 right-2.5 text-white-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="popup-modal">
+                                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="sr-only">Close modal</span>
+                            </button>
+                            <div class="p-6 text-center">
+                                <!--Chấm than-->
+                                <svg aria-hidden="true" class="mx-auto mb-4 w-14 h-14 text-gray-700 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <!--Nội dung-->
+                                <div class="text-center text-2xl py-2 text-green-500 font-bold">THANH TOÁN THÀNH CÔNG</div>
+                                <div class="booking-detail">
+                                    <p class="chi-tiet-dat-phong text-[16px] tieu-de font-bold">
+                                        Chi tiết đặt phòng của bạn
+                                    </p>
+
+                                    <div class="date">
+                                        <div class="checkin pr-4">
+                                            <div class="font-medium mb-1 text-[14px]">Nhận phòng</div>
+
+                                            <div class="checkin-date">
+                                                <span class="block font-bold text-[14px]"><input value="<?= $_SESSION['checkin'] ?? ""  ?>" type="date" name="check_in"></span>
+                                                <span class="text-[#6b6b6b] text-[12px]">12h - 00h</span>
                                             </div>
                                         </div>
-                    
-                                        <div class="mt-4 time">
-                                            <div class="checkin pr-4">
-                                                <div class="font-medium text-[14px]">Tổng thời gian lưu trú:</div>
-                    
-                                                <div class="checkin-date inline-block">
-                                                    <span class="block font-bold text-[14px]">1 ngày</span>
-                                                </div>
+
+                                        <div class="border-l-[1px] bl-[#ccc] "></div>
+
+                                        <div class="checkout pl-4">
+                                            <div class="font-medium mb-1 text-[14px]">Trả phòng</div>
+
+                                            <div class="checkout-date">
+                                                <span class="block font-bold text-[14px]"><input type="date" value="<?= $_SESSION['checkout'] ?? "" ?>" name="check_out"></span>
+                                                <span class="text-[#6b6b6b] text-[12px]">00h - 12h</span>
                                             </div>
                                         </div>
                                     </div>
-                                    <p class="text-[16px] text-gray-500 pt-2">
-                                        Vui lòng chờ xác nhận
-                                    </p>
-                                    <button type="submit" onclick="confirm('bạn có chắc chắn đặt hàng không')" name="addbooking"  data-modal-toggle="popup-modal">Thanh toán ngay</button>
 
+                                    <div class="mt-4 time">
+                                        <div class="checkin pr-4">
+                                            <div class="font-medium text-[14px]">Tổng thời gian lưu trú:</div>
+
+                                            <div class="checkin-date inline-block">
+                                                <span class="block font-bold text-[14px]"><?= $_SESSION['$tongnd'] ?? 0 ?></span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                <p class="text-[16px] text-gray-500 pt-2">
+                                    Vui lòng chờ xác nhận
+                                </p>
+                                <button type="submit" onclick="confirm('bạn có chắc chắn đặt hàng không')" name="addbooking" data-modal-toggle="popup-modal">Xác Nhận</button>
                             </div>
                         </div>
                     </div>
-                    <!--End popup-->
+                </div>
+                <!--End popup-->
+                <div id="popup-modal1" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 p-4 md:inset-0 h-modal md:h-full">
+                       <!-- thanh toán bằng qr-code -->
+        <div class="thanhtoan_tc" style="background-color:white">
+            <div class="flex_tt">
+                <img src="assets/img/icon/images.png" alt=""><h2>Stayyin</h2>
+            </div>
+            <div class="tt_qr">
+               <div class="thanhtoan_qr_code">
+                    <div class="qr_code">
+                        <span>Thanh toán phòng bằng Mobi backing</span>
+                        <img  src="../layout/assets/img/1669965608246.5232.png" alt="">
+                        <span style="margin-left: 90px; color: #0770cd; font-size: 18px;">Hướng dẫn thanh toán ?</span>
+                    </div>
+                    <h4>Chọn ngân hàng</h4>
+                    <div class="nganhang">
+                    
+                        <img src="../layout/assets/img/thanhtoan/t7.webp" alt="">
+                        <img src="../layout/assets/img/thanhtoan/t9.webp" alt="">
+                        <img src="../layout/assets/img/thanhtoan/t5.webp" alt="">
+                        <img src="../layout/assets/img/thanhtoan/t4.webp" alt="">
+                        <img src="../layout/assets/img/thanhtoan/t5.webp" alt="">
+                        <img src="../layout/assets/img/thanhtoan/t6.webp" alt="">
+                        <img src="../layout/assets/img/thanhtoan/t7.webp" alt="">
+                        <img src="../layout/assets/img/thanhtoan/t8.webp" alt="">
+                        <img src="../layout/assets/img/thanhtoan/t9.webp" alt="">
+                        <img src="../layout/assets/img/thanhtoan/t10.webp" alt="">
+                        <img src="../layout/assets/img/thanhtoan/t11.webp" alt="">
+                        <img src="../layout/assets/img/thanhtoan/t4.webp" alt="">
+                    </div>
+               </div>
+               <div class="thongtin_phong">
+                <h3>Thông Tin Phòng </h3>
+                <span>Loại phòng :</span><br>
+                <span>Số người :</span> <br>
+                <span>Ảnh phòng</span><br> <br><img src="../layout/assets/img/product/tg2.jpg" alt=""><br>
+                <span>Số tiền phải thanh toán: </span><span style="color: red;"><?php echo $tt ?></span>
+                </div>
+            </div>
+            
+        </div>
+               
+                <!--End popup-->
             </div>
     </form>
 

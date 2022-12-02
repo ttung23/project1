@@ -29,7 +29,7 @@
                     <i class="uil uil-apps"></i>
                     <span class="link-name">Quản lý Service</span>
                 </a></li>
-                <li><a href="../../admin/booking/c_booking.php">
+            <li><a href="../../admin/booking/c_booking.php">
                     <i class="uil uil-book-medical"></i>
                     <span class="link-name">Quản lý Booking</span>
                 </a></li>

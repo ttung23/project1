@@ -3,7 +3,7 @@
         <?php foreach ($oneusrer as $key => $value) : ?>
             <div>
                     <div class="">
-                        <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="../layout/assets/img/product/<?php echo $value->images ?>"><span class="font-weight-bold"><?php echo $value->name ?></span><span class="text-black-50"><?php echo $value->username ?></span><span> </span></div>
+                        <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="../layout/assets/img/users/<?php echo $value->images ?>"><span class="font-weight-bold"><?php echo $value->name ?></span><span class="text-black-50"><?php echo $value->username ?></span><span> </span></div>
                     </div>
                     <div class="">
                         <div class="p-3 py-5">
