@@ -77,35 +77,26 @@ if (isset($_GET['add_cate'])) {
 
         for ($i = 0; $i < $len_cate_edit; $i++) {
             if ($name_cate[$i] == "") {
-                $err['name_cate'] = "Bạn chưa nhập tên danh mục";
+                $err['name_cate'][$i] = "Bạn chưa nhập tên danh mục";
             }
 
             if ($status[$i] == "") {
-                $err['status'] = "Bạn chưa nhập trạng thái của danh mục";
+                $err['status'][$i] = "Bạn chưa nhập trạng thái của danh mục";
             }
 
             if ($description[$i] == "") {
-                $err['description'] = "Bạn chưa nhập mô tả của danh mục";
+                $err['description'][$i] = "Bạn chưa nhập mô tả của danh mục";
             }
 
-            if ($image['size'][$i] > 0) {
-                // echo "<pre>";
-                // echo $i;
-                // var_dump($image['size'][$i]);
-                // exit;
-                
+            if ($image['size'][$i] > 0) {                
                 $image_name[$i] = $image['name'][$i];
                 $ext = pathinfo($image_name[$i], PATHINFO_EXTENSION);
 
                 if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
-                    $err['img'] = "Ảnh không đúng định dạng";
+                    $err['img'][$i] = "Ảnh không đúng định dạng";
                 } else if ($image['size'][$i] >= 2 * 1024 * 1024) {
-                    $err['img'] = "Ảnh không được quá 2MB";
+                    $err['img'][$i] = "Ảnh không được quá 2MB";
                 }
-
-                // echo "<pre>";
-                // var_dump($image_name[$i]);
-                // continue;
             }
 
             // var_dump($image_name[$i]);
@@ -138,8 +129,12 @@ if (isset($_GET['add_cate'])) {
             header('location:c_danh_muc.php');
         }
     } elseif (isset($_POST['edit_cate'])) {
-        $_SESSION['cates_edit'] = $_POST['danh_muc'];
-        header('location:c_danh_muc.php?edit_cate');
+        if (isset($_POST['danh_muc'])) {
+            $_SESSION['cates_edit'] = $_POST['danh_muc'];
+            header('location:c_danh_muc.php?edit_cate');
+        } else {
+            header('location:c_danh_muc.php');
+        }
     }
     $VIEW_TITLE = "Danh sách danh mục";
     $VIEW_CSS = 'admin_dm.css';

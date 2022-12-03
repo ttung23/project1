@@ -26,23 +26,23 @@
                             <div>
                                 <label for="">Name</label>
                                 <input value="<?= $cates_edit[$i]->name ?>" type="text" name="name_cate[]" class="border rounded border-sky-400 w-full p-2" />
-                                <?php if (isset($err['name_cate'])) { ?>
-                                    <span class="text-red-500"><?= $err['name_cate'] ?></span>
+                                <?php if (isset($err['name_cate'][$i])) { ?>
+                                    <span class="text-red-500"><?= $err['name_cate'][$i] ?></span>
                                 <?php } ?>
                             </div>
 
                             <div>
                                 <label for="">Trạng thái</label>
                                 <input value="<?= $cates_edit[$i]->status ?>" type="text" name="status[]" class="border rounded border-sky-400 w-full p-2" />
-                                <?php if (isset($err['status'])) { ?>
-                                    <span class="text-red-500"><?= $err['status'] ?></span>
+                                <?php if (isset($err['status'][$i])) { ?>
+                                    <span class="text-red-500"><?= $err['status'][$i] ?></span>
                                 <?php } ?>
                             </div>
                             <div>
                                 <label for="">Mô tả</label>
                                 <textarea class="border rounded border-sky-400 w-full p-2" name="description[]" id="" cols="30" rows="5"><?= $cates_edit[$i]->description ?></textarea>
-                                <?php if (isset($err['description'])) { ?>
-                                    <span class="text-red-500"><?= $err['description'] ?></span>
+                                <?php if (isset($err['description'][$i])) { ?>
+                                    <span class="text-red-500"><?= $err['description'][$i] ?></span>
                                 <?php } ?>
                             </div>
                             
@@ -55,8 +55,8 @@
                             <div>
                                 <label for="">Images</label>
                                 <input type="file" name="image[]" class="w-full p-2" />
-                                <?php if (isset($err['img'])) { ?>
-                                    <span class="text-red-500"><?= $err['img'] ?></span>
+                                <?php if (isset($err['img'][$i])) { ?>
+                                    <span class="text-red-500"><?= $err['img'][$i] ?></span>
                                 <?php } ?>
                             </div>
                         <?php } ?>

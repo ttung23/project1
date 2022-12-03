@@ -44,6 +44,12 @@ function loadOne_admins($id){
     return $listuser;
 }
 
+function load_Admin ($id_user) {
+    $query = "select * from admins where admin_id = ?";
+    $listuser = pdo_query_one_person($query,$id_user);
+    return $listuser;
+}
+
 function admin_remove_by_id($user_id){
     $query = "delete from admins where admin_id = ?";
     pdo_execute($query, $user_id);
