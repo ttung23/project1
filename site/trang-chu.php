@@ -212,11 +212,11 @@
     <div class="flex-tn">
         <div class="img1">
             <img src="../layout/assets/img/banner/tn0.jpg" alt="">
-            <a href="<?= SITE_URL . "?listproduct" ?>">Xem thêm</a>
+            <a href="<?= SITE_URL . "?list-room" ?>">Xem thêm</a>
         </div>
         <div class="img2">
             <img src="../layout/assets/img/banner/tn1.jpg" alt="">
-            <a href="<?= SITE_URL . "?listservice" ?>">Xem thêm</a>
+            <a href="<?= SITE_URL . "?tin-tuc" ?>">Xem thêm</a>
         </div>
     </div>
 </div>
