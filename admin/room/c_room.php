@@ -178,9 +178,28 @@ $permis =  loadAll_permissions();
                         for ($i = 0; $i < count($choose_cate); $i++) {
                             $delete_room = room_remove($choose_cate[$i]);
                         }
-                
                         header('location:c_room.php');
                     }
+                }
+                if (isset($_POST['unlock_room'])) {
+                    if (isset($_POST['room'])) {
+                        $choose_user_id = $_POST['room'];
+                        for ($i = 0; $i < count($choose_user_id); $i++) {
+                            $unblock_user = unlock_room($choose_user_id[$i]);
+                        }
+                    }
+                    header("location:c_room.php");
+                
+                    // unlock user
+                } else if (isset($_POST['lock_room'])) {
+                    if (isset($_POST['room'])) {
+                        $choose_user_id = $_POST['room'];
+                
+                        for ($i = 0; $i < count($choose_user_id); $i++) {
+                            $lock_user = block_room($choose_user_id[$i]);
+                        }
+                    }
+                    header("location:c_room.php");
                 }
                 $VIEW_TITLE = "Danh sách danh mục";
                 $VIEW_CSS = 'admin_room.css';
