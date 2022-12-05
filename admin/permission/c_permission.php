@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 
 require_once '../global.php';
 require_once '../../dao/pdo.php';
@@ -65,7 +67,7 @@ if(isset($_GET['add-per'])){
             header('location:c_permission.php');
         }
     }
-    $VIEW_TITLE = "Danh sách danh mục";
+    $VIEW_TITLE = "Danh sách chức vụ";
     $VIEW_CSS = 'admin_room.css';
     $VIEW_ADMIN_NAME = '../permission/danh-sach.php';
 }

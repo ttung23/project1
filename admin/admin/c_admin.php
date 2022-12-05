@@ -92,10 +92,10 @@ if (isset($_GET['add-admin'])) {
         $address = $_POST['address'];
         $phone = $_POST['phone'];
         $gender = $_POST['gender'];
-        $status = $_POST['status'];
         $image = $_FILES['image'];
         $image_name = $image['name'];
         $id_permission = $_POST['permission'];
+        $image_name = $_POST['image'];
 
         $err = [];
 
@@ -121,9 +121,6 @@ if (isset($_GET['add-admin'])) {
             if ($gender[$i] == "") {
                 $err['gender'][$i] = "Bạn chưa nhập gender";
             }
-            if ($status[$i] == "") {
-                $err['status'][$i] = "Bạn chưa nhập trạng thái của Phòng";
-            }
     
             if ($image['size'][$i] > 0) {                
                 $image_name[$i] = $image['name'][$i];
@@ -137,9 +134,8 @@ if (isset($_GET['add-admin'])) {
             }
     
             if (!$err) {
-    
-                $update = Update_admins($name_admin[$i], $email[$i], $password[$i], $gender[$i], $image_name[$i], $address[$i], $phone[$i], $status[$i], $id_permission[$i], $admins[$i]->admin_id);
-                move_uploaded_file($image['tmp_name'][$i], '../layout/assets/img/admins/' . $image_name[$i]);
+                $update = Update_admins($name_admin[$i], $email[$i], $password[$i], $gender[$i], $image_name[$i], $address[$i], $phone[$i], $id_permission[$i], $admins[$i]->admin_id);
+                move_uploaded_file($image['tmp_name'][$i], '../../layout/assets/img/admins/' . $image_name[$i]);
     
                 header('location:c_admin.php');
             }

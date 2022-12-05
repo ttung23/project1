@@ -11,82 +11,25 @@ body{
     min-height: 100vh;
 }
 
-.dashboard{
-    position: relative;
-    background-color: var(--panel-color);
-    min-height: 100vh;
-    width: calc(100% - 250px);
-    padding: 10px 14px;
-    margin-left: 30px;
-    transition: var(--tran-05);
-    z-index: -1;
+.dashboard {
+  position: relative;
+  background-color: var(--panel-color);
+  min-height: 100vh;
+  width: calc(100% - 250px);
+  padding: 10px;
+  margin-left: 30px;
+  transition: var(--tran-05);
 }
+
 nav.close ~ .dashboard{
     left: 73px;
     width: calc(100% - 73px);
 }
-.dashboard .top{
-    position: fixed;
-    top: 0;
-    left: 250px;
-    display: flex;
-    width: calc(100% - 250px);
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 14px;
-    margin-left: 30px;
-    background-color: var(--panel-color);
-    transition: var(--tran-05);
-    z-index: 10;
-}
-nav.close ~ .dashboard .top{
-    left: 73px;
-    width: calc(100% - 73px);
-}
-.dashboard .top .sidebar-toggle{
-    font-size: 26px;
-    color: var(--text-color);
-    cursor: pointer;
-}
-.dashboard .top .search-box{
-    position: relative;
-    height: 45px;
-    max-width: 600px;
-    width: 100%;
-    margin: 0 30px;
-}
-.top .search-box input{
-    position: absolute;
-    border: 1px solid var(--border-color);
-    background-color: var(--panel-color);
-    padding: 0 25px 0 50px;
-    border-radius: 5px;
-    height: 100%;
-    width: 100%;
-    color: var(--text-color);
-    font-size: 15px;
-    font-weight: 400;
-    outline: none;
-}
-.top .search-box i{
-    position: absolute;
-    left: 15px;
-    font-size: 22px;
-    z-index: 10;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--black-light-color);
-    padding-right: 20px;
-}
-.top img{
-    width: 40px;
-    border-radius: 50%;
-    margin-right: 30px;
+
+.dash-content {
+  padding: 10px 20px 40px 20px;
 }
 
-.dashboard .dash-content{
-    padding-top: 50px;
-}
 .dash-content .title{
     display: flex;
     align-items: center;
@@ -180,14 +123,6 @@ nav.close ~ .dashboard .top{
         left: 250px;
         width: calc(100% - 250px);
     }
-    nav ~ .dashboard .top{
-        left: 73px;
-        width: calc(100% - 73px);
-    }
-    nav.close ~ .dashboard .top{
-        left: 250px;
-        width: calc(100% - 250px);
-    }
     .activity .activity-data{
         overflow-X: scroll;
     }
@@ -234,14 +169,6 @@ nav.close ~ .dashboard .top{
     nav.close ~ .dashboard{
         left: 73px;
         width: calc(100% - 73px);
-    }
-    nav ~ .dashboard .top{
-        left: 0;
-        width: 100%;
-    }
-    nav.close ~ .dashboard .top{
-        left: 0;
-        width: 100%;
     }
 }
 

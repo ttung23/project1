@@ -92,7 +92,6 @@ if (isset($_GET['cart'])) {
                     array_splice($_SESSION['cart'], $i, $tongnd);
                 }
             }
-          
         }
         if (isset($_GET['delid'])) {
             array_splice($_SESSION['cart'], $_GET['delid'], 1);
@@ -107,64 +106,64 @@ if (isset($_GET['cart'])) {
     $_TITLE = "Tin tức StayyInn";
     $VIEW_NAME = 'tin-tuc.php';
 } elseif (isset($_GET['list-room'])) {
-   
-        if (isset($_POST['find'])) {
-            $_SESSION['checkin'] = $_POST['checkin'];
-            $_SESSION['checkout'] = $_POST['checkout'];
-            $first_date = strtotime($_SESSION['checkin']);
-            $second_date = strtotime($_SESSION['checkout']);
-            $datediff = abs($first_date - $second_date);
-            $tongnd = floor($datediff / (60 * 60 * 24));
-            $_SESSION['$tongnd'] = $tongnd;
-            $selectfind = find_room($_SESSION['checkin'], $_SESSION['checkout']);
-        } else {
-            $selectfind = [];
-        }
-        $iddm = 0;
-        if (isset($_GET['iddm'])) {
-            $iddm = $_GET['iddm'];
-        }
-        if ($iddm == 0) {
-            $roomcategori = loadAll_room();
-        } else {
-            $roomcategori = load_room_categories($iddm);
-        }
-        if(isset($_POST['loc'])){
-            $gia = $_POST['gender'];
-            $cate = $_POST['cate'];
 
-            $logroom = loadAll_room_price_list($gia,$cate);
-        }else{
-            $logroom = [];
-        }
-        $loadroomprice =  loadAll_room_price();
-        $_TITLE = "Thông Tin Phòng";
+    if (isset($_POST['find'])) {
+        $_SESSION['checkin'] = $_POST['checkin'];
+        $_SESSION['checkout'] = $_POST['checkout'];
+        $first_date = strtotime($_SESSION['checkin']);
+        $second_date = strtotime($_SESSION['checkout']);
+        $datediff = abs($first_date - $second_date);
+        $tongnd = floor($datediff / (60 * 60 * 24));
+        $_SESSION['$tongnd'] = $tongnd;
+        $selectfind = find_room($_SESSION['checkin'], $_SESSION['checkout']);
+    } else {
+        $selectfind = [];
+    }
+    $iddm = 0;
+    if (isset($_GET['iddm'])) {
+        $iddm = $_GET['iddm'];
+    }
+    if ($iddm == 0) {
+        $roomcategori = loadAll_room();
+    } else {
+        $roomcategori = load_room_categories($iddm);
+    }
+    if (isset($_POST['loc'])) {
+        $gia = $_POST['gender'];
+        $cate = $_POST['cate'];
 
-        $VIEW_NAME = 'list-room.php';
-}elseif (isset($_GET['info-user'])) {
-        if (isset($_GET['id']) && ($_GET['id'])) {
-            $id = $_GET['id'];
-            $bookinguser = loadAll_booking_user($id);
-            $oneusrer = loadOne_user($id);
-            if (isset($_POST['edit_user'])) {
-                $id = $_SESSION['id'];
-                $name = $_POST['name'];
-                $username = $_POST['username'];
-                $email = $_POST['email'];
-                $password = $_POST['password'];
-                $address = $_POST['address'];
-                $phone = $_POST['phone'];
-                $date = $_POST['date'];
-                $image = $_FILES['image'];
-                $image_name = $image['name'];
-                //    $per = $_POST['permission'];
-                $err = [];
-                if (!$err) {
+        $logroom = loadAll_room_price_list($gia, $cate);
+    } else {
+        $logroom = [];
+    }
+    $loadroomprice =  loadAll_room_price();
+    $_TITLE = "Thông Tin Phòng";
 
-                    $update = Update_users($name, $username, $password, $email, $image_name, $address, $phone, $date, $id);
-                    if ($image['size'] > 0) {
-                        move_uploaded_file($image['tmp_name'], '../layout/assets/img/users' . $image_name);
-                    }
+    $VIEW_NAME = 'list-room.php';
+} elseif (isset($_GET['info-user'])) {
+    if (isset($_GET['id']) && ($_GET['id'])) {
+        $id = $_GET['id'];
+        $bookinguser = loadAll_booking_user($id);
+        $oneusrer = loadOne_user($id);
+        if (isset($_POST['edit_user'])) {
+            $id = $_SESSION['id'];
+            $name = $_POST['name'];
+            $username = $_POST['username'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $address = $_POST['address'];
+            $phone = $_POST['phone'];
+            $date = $_POST['date'];
+            $image = $_FILES['image'];
+            $image_name = $image['name'];
+            //    $per = $_POST['permission'];
+            $err = [];
+            if (!$err) {
+
+                $update = Update_users($name, $username, $password, $email, $image_name, $address, $phone, $date, $id);
+                if ($image['size'] > 0) {
+                    move_uploaded_file($image['tmp_name'], '../layout/assets/img/users' . $image_name);
+                }
 
                 header('location:index.php');
             }
@@ -196,56 +195,56 @@ if (isset($_GET['cart'])) {
     $_TITLE = "Thông tin phòng";
     $VIEW_NAME = 'chi-tiet.php';
 } elseif (isset($_GET['sign_up'])) {
-                if (isset($_POST['btn_sign_up'])) {
-                    $name = $_POST['name'];
-                    $username = $_POST['username'];
-                    $password = $_POST['password'];
-                    $re_password = $_POST['re_password'];
-                    $gender = $_POST['gender'];
-                    $email = $_POST['email'];
-                    $date = $_POST['date'];
-                    $diachi = $_POST['diachi'];
-                    $sdt = $_POST['sdt'];
+    if (isset($_POST['btn_sign_up'])) {
+        $name = $_POST['name'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $re_password = $_POST['re_password'];
+        $gender = $_POST['gender'];
+        $email = $_POST['email'];
+        $date = $_POST['date'];
+        $diachi = $_POST['diachi'];
+        $sdt = $_POST['sdt'];
 
-                    $image = $_FILES['image'];
-                    $image_name = 'user.jpg';
+        $image = $_FILES['image'];
+        $image_name = 'user.jpg';
 
-                    if ($name == "") {
-                        $err['name'] = "Bạn chưa nhập họ tên";
-                    }
+        if ($name == "") {
+            $err['name'] = "Bạn chưa nhập họ tên";
+        }
 
-                    if ($username == "") {
-                        $err['username'] = "Bạn chưa nhập username";
-                    }
+        if ($username == "") {
+            $err['username'] = "Bạn chưa nhập username";
+        }
 
-                    if ($password == "") {
-                        $err['password'] = "Bạn chưa nhập mật khẩu";
-                    }
+        if ($password == "") {
+            $err['password'] = "Bạn chưa nhập mật khẩu";
+        }
 
-                    if ($re_password != $password) {
-                        $err['re_password'] = "Mật khẩu không chính xác";
-                    }
+        if ($re_password != $password) {
+            $err['re_password'] = "Mật khẩu không chính xác";
+        }
 
-                    if ($email == "") {
-                        $err['email'] = "Bạn chưa chọn nhập email";
-                    }
+        if ($email == "") {
+            $err['email'] = "Bạn chưa chọn nhập email";
+        }
 
-                    if ($date == "") {
-                        $err['date'] = "Bạn chưa chọn ngày sinh";
-                    }
+        if ($date == "") {
+            $err['date'] = "Bạn chưa chọn ngày sinh";
+        }
 
-                    if ($diachi == "") {
-                        $err['diachi'] = "Bạn chưa nhập địa chỉ";
-                    }
+        if ($diachi == "") {
+            $err['diachi'] = "Bạn chưa nhập địa chỉ";
+        }
 
-                    if ($sdt == "") {
-                        $err['sdt'] = "Bạn chưa nhập số điện thoại";
-                    }
+        if ($sdt == "") {
+            $err['sdt'] = "Bạn chưa nhập số điện thoại";
+        }
 
-                    if ($image['size'] > 0) {
-                        $image_name = $image['name'];
+        if ($image['size'] > 0) {
+            $image_name = $image['name'];
 
-                        $ext = pathinfo($image_name, PATHINFO_EXTENSION);
+            $ext = pathinfo($image_name, PATHINFO_EXTENSION);
 
             if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
                 $err['img'] = "Ảnh không đúng định dạng";
@@ -276,14 +275,14 @@ if (isset($_GET['cart'])) {
     $_TITLE = 'Lịch sử đặt hàng';
     $VIEW_NAME = 'booking_detail.php';
 } elseif (isset($_GET['forgot'])) {
-            if (isset($_POST['btn_forgot_pass'])) {
-                $name = $_POST['name'];
-                $username = $_POST['username'];
-                $email = $_POST['email'];
-                $date = $_POST['date'];
-                $sdt = $_POST['sdt'];
+    if (isset($_POST['btn_forgot_pass'])) {
+        $name = $_POST['name'];
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $date = $_POST['date'];
+        $sdt = $_POST['sdt'];
 
-                $_SESSION['user_forgot'] = forgot_user($name, $username, $email, $date, $sdt);
+        $_SESSION['user_forgot'] = forgot_user($name, $username, $email, $date, $sdt);
 
         if (empty($_SESSION['user_forgot'])) {
             $err['sdt'] = "Thông tin chưa chính xác";
@@ -295,20 +294,20 @@ if (isset($_GET['cart'])) {
     $_TITLE = "Quên mật khẩu";
     $VIEW_NAME = 'forgot_password.php';
 } elseif (isset($_GET['update_password'])) {
-            if (isset($_POST['btn_update_password'])) {
-                $password = $_POST['password'];
-                $re_password = $_POST['re_password'];
+    if (isset($_POST['btn_update_password'])) {
+        $password = $_POST['password'];
+        $re_password = $_POST['re_password'];
 
-                if ($password == "") {
-                    $err['password'] = "Bạn chưa nhập mật khẩu";
-                }
+        if ($password == "") {
+            $err['password'] = "Bạn chưa nhập mật khẩu";
+        }
 
-                if ($password != $re_password) {
-                    $err['re_password'] = "Mật khẩu không chính xác";
-                }
+        if ($password != $re_password) {
+            $err['re_password'] = "Mật khẩu không chính xác";
+        }
 
-                if (!isset($err)) {
-                    $update_pass = update_pass($password, $_SESSION['user_forgot'][0]->user_id);
+        if (!isset($err)) {
+            $update_pass = update_pass($password, $_SESSION['user_forgot'][0]->user_id);
 
             header("location:index.php");
         }
@@ -317,20 +316,31 @@ if (isset($_GET['cart'])) {
     $_TITLE = "Quên mật khẩu";
     $VIEW_NAME = 'update_password.php';
 } elseif (isset($_GET['login_admin'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    if (isset($_POST['login_admin'])) {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
 
-    loginadmin($username, $password);
-    $_TITLE = 'Đăng nhập phần admin';
-    $VIEW_NAME = 'login.php';
+        $admin = loginadmin($username, $password);
+
+        if ($admin != []) {
+            $_SESSION['admin'] = $admin;
+            header("location: ../admin/index.php");
+        } else {
+            echo "sai";
+        }
+    }
+
+    $_TITLE = "Đăng nhập trang quản trị";
+    $VIEW_NAME = "login.php";
+
 } else {
-            // s
-            // $limit = $_GET['perpage'] ?? 9;
-            // $current_page = $_GET['page'] ?? 1;
-            // $offset = ($current_page - 1) * $limit;
-            // $total_products = loadAll_room();
-            // $total_pages = ceil(count($total_products) / $limit);
-            // $room = read_room($limit,$offset);
+    // s
+    // $limit = $_GET['perpage'] ?? 9;
+    // $current_page = $_GET['page'] ?? 1;
+    // $offset = ($current_page - 1) * $limit;
+    // $total_products = loadAll_room();
+    // $total_pages = ceil(count($total_products) / $limit);
+    // $room = read_room($limit,$offset);
 
     if (isset($_POST['login'])) {
         $user = $_POST['user'];
@@ -339,6 +349,7 @@ if (isset($_GET['cart'])) {
     }
     if (isset($_GET['action']) && $_GET['action'] == 'logout') {
         unset($_SESSION['user']);
+        unset($_SESSION['admin']);
         header('Location:index.php');
     }
 

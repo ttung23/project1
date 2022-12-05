@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // MODEL
 require_once '../global.php';
 require_once '../../dao/pdo.php';

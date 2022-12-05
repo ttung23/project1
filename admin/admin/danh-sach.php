@@ -1,14 +1,5 @@
-<section class="dashboard">
-    <div class="w-full flex justify-between p-3 items-center">
-        <i class="uil uil-bars sidebar-toggle text-3xl"></i>
-
-        <div class="search-box">
-            <i class="uil uil-search"></i>
-            <input type="text" placeholder="Search here..." class="border-sky-400 px-3">
-        </div>
-
-        <img src="./assets/img/anh3.jpg" alt="" width="50px" class="rounded-full">
-    </div>
+<section class="dash-content">
+    
 
     <div class="content">
         <div class="danh_sach">
@@ -17,27 +8,25 @@
             </h3>
             <form action="" method="post">
                 <div class="action flex items-center">
-                    <a href="c_admin.php?add-admin" class="mx-3">Thêm</a>
-                    <button type="submit" name="delete_admin" onclick="return confirm('Bạn muốn xóa danh mục ko?')">Xóa Nhân Viên</button>
-                    <button type="submit" name="edit_admin">Sửa thông tin nhân viên</button>
+                    <a class="bg-green-500" href="c_admin.php?add-admin" class="mx-3">Thêm nhân viên</a>
+                    <button class="bg-yellow-500" type="submit" name="edit_admin">Sửa thông tin nhân viên</button>
+                    <button class="bg-red-500" type="submit" name="delete_admin" onclick="return confirm('Bạn muốn xóa danh mục ko?')">Xóa Nhân Viên</button>
                 </div>
 
                 <table>
                     <tr>
                         <th>#</th>
                         <th>ID</th>
-                        <th>Name</th>
+                        <th>Tên</th>
                         <!-- <th>PassWord</th> -->
-                        <th>Gender</th>
+                        <th>Giới tính</th>
                         <th>Email</th>
-                        <th>Images</th>
-                        <th>Address</th>
-                        <th>Phone</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                        <!-- <th>Created_at</th>
-                            <th>Updated_at</th> -->
-                        <th></th>
+                        <th>Ảnh đại diện</th>
+                        <th>Địa chỉ</th>
+                        <th>Số điện thoại</th>
+                        <th>Chức vụ</th>
+                        <th>Ngày tạo</th>
+                        <th>Ngày cập nhập</th>
                     </tr>
                     <?php foreach ($admin as $key => $value) : ?>
                         <tr>
@@ -46,18 +35,14 @@
                             </td>
                             <td><?php echo $value->admin_id ?></td>
                             <td><?php echo $value->name ?></td>
-                            <!-- <td>123</td> -->
                             <td><?php echo $value->gender ?></td>
                             <td><?php echo $value->email ?></td>
-                            <td><img src="../layout/assets/img/<?php echo $value->thumbnail ?>" alt="" width="50px"></td>
+                            <td><img src="../../layout/assets/img/admins/<?php echo $value->thumbnail ?>" alt="" width="50px"></td>
                             <td><?php echo $value->address ?></td>
                             <td><?php echo $value->phone ?></td>
-                            <td>11/11/2022</td>
-                            <td>
-                                <div class="action flex items-center">
-                                    <a href="c_admin.php?edit_admin&id=<?php echo $value->admin_id ?>" class="mx-3">Sửa</a>
-                                </div>
-                            </td>
+                            <td><?= $value->name_permission ?></td>
+                            <td><?= $value->created_at ?></td>
+                            <td><?= $value->updated_at ?></td>
                         </tr>
                     <?php endforeach ?>
                 </table>

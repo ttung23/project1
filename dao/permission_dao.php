@@ -1,6 +1,6 @@
 <?php
 function loadAll_permissions(){
-    $query = "select * from permissions order by permission_id desc";
+    $query = "select * from permissions";
     $listservice = pdo_query_all($query);
     return $listservice;
 }

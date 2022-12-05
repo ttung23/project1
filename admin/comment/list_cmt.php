@@ -1,4 +1,5 @@
-<div class="content">
+<div class="dash-content">
+    <div class="content">
 
     <div class="danh_sach">
         <h3>
@@ -7,7 +8,7 @@
 
         <form action="" method="post">
             <div class="action">
-                <button type="submit" name="btn_delete_cmt" onclick="return confirm('Bạn muốn xóa bình luận ko?')">Xóa bình luận</button>
+                <button class="bg-red-500" type="submit" name="btn_delete_cmt" onclick="return confirm('Bạn muốn xóa bình luận ko?')">Xóa bình luận</button>
             </div>
 
             <table>
@@ -49,5 +50,6 @@
 
         <div id="myfirstchart" style="height: 250px;"></div>
 
+    </div>
     </div>
 </div>

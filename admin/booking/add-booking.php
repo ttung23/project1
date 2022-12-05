@@ -1,18 +1,8 @@
-<section class="dashboard w-full">
-    <div class="w-full flex justify-between p-3 items-center">
-        <i class="uil uil-bars sidebar-toggle text-3xl"></i>
-
-        <div class="search-box">
-            <i class="uil uil-search"></i>
-            <input type="text" placeholder="Search here..." class="border-sky-400 px-3" />
-        </div>
-
-        <img src="./assets/img/anh3.jpg" alt="" width="50px" class="rounded-full" />
-    </div>
+<section class="dash-content w-full">
 
     <div class="content">
         <div class="danh_sach">
-            <h3 class="text-3xl text-sky-500">add Phòng</h3>
+            <h3 class="text-3xl text-sky-500">THÊM ĐƠN HÀNG</h3>
             <div class="flex-from">
                 <form action="" method="post" enctype="multipart/form-data">
                     <div>
@@ -22,7 +12,7 @@
                     </div>
 
                     <div>
-                        <label for="">Name</label>
+                        <label for="">Tên</label>
                         <input value="<?= $_POST['name_booking'] ?? "" ?>" type="text" name="name_booking"
                             class="border rounded border-sky-400 w-full p-2" />
                         <?php if (isset($err['name_booking'])) { ?>
@@ -30,7 +20,7 @@
                         <?php } ?>
                     </div>
                     <div>
-                        <label for="">check_in_date</label>
+                        <label for="">Ngày vào</label>
                         <input value="<?= $_POST['check_in_date'] ?? "" ?>" type="date" name="check_in_date"
                             class="border rounded border-sky-400 w-full p-2" />
                             <?php if (isset($err['check_in_date'])) { ?>
@@ -38,7 +28,7 @@
                         <?php } ?>
                     </div>
                     <div>
-                        <label for="">check_out_date</label>
+                        <label for="">Ngày ra</label>
                         <input value="<?= $_POST['check_out_date'] ?? "" ?>" type="date" name="check_out_date"
                             class="border rounded border-sky-400 w-full p-2" />
                             <?php if (isset($err['check_out_date'])) { ?>
@@ -77,15 +67,6 @@
                         <span class="text-red-500"><?= $err['quantity'] ?></span>
                         <?php } ?>
                     </div>
-
-                    <div>
-                        <label for="">Tin Nhắn</label>
-                        <input placeholder="" value=" <?= $_POST['messeage'] ?? "" ?>" type="text" name="messeage"
-                            class="border rounded border-sky-400 w-full p-2" />
-                            <?php if (isset($err['messeage'])) { ?>
-                        <span class="text-red-500"><?= $err['messeage'] ?></span>
-                        <?php } ?>
-                    </div>
                     <div>
                         <label for="">Email</label>
                         <input placeholder="" value=" <?= $_POST['Email'] ?? "" ?>" type="text" name="Email"
@@ -94,6 +75,7 @@
                         <span class="text-red-500"><?= $err['Email'] ?></span>
                         <?php } ?>
                     </div>
+
                     <div>
                         <label for="">Phone</label>
                         <input placeholder="" value=" <?= $_POST['phone'] ?? "" ?>" type="text" name="phone"
@@ -103,11 +85,22 @@
                         <?php } ?>
                     </div>
 
-                    <div class="row-start-3 col-span-3 flex justify-between">
-                        <button name="add_booking" type="submit" class="border p-3 bg-blue-500 text-white rounded">
-                            Theem Phòng
+                    <div class="col-span-3">
+                        <label for="">Tin Nhắn</label>
+                        <textarea class="rounded border-sky-400 w-full p-2" name="description" id="ten" cols="30"
+                            rows="5"><?= $_POST['description'] ?? "" ?></textarea>
+      <script>CKEDITOR.replace('ten');</script>
+
+                        <?php if (isset($err['description'])) { ?>
+                        <span class="text-red-500"><?= $err['description'] ?></span>
+                        <?php } ?>
+                    </div>
+
+                    <div class="col-span-3 flex justify-between">
+                        <button name="add_booking" type="submit" class="p-3 bg-blue-500 text-white rounded">
+                            Thêm Phòng
                         </button>
-                        <a class="inline-block border p-3 bg-blue-500 text-white rounded" href="../room/c_room.php">Xem
+                        <a class="inline-block p-3 bg-blue-500 text-white rounded" href="../booking/c_booking.php">Xem
                             danh sách</a>
                     </div>
                 </form>

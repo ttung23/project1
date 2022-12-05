@@ -10,9 +10,7 @@
                     <li><a href=""><i class="fa-solid fa-download"></i></i> Tải ứng dụng <i><i class="fa-solid fa-chevron-down"></i></i></a></li>
                     <li><a href=""><i class="fa-solid fa-handshake"></i> Hợp tác với chúng tôi</a></li>
                     <li><a href=""><i class="fa-solid fa-clipboard-check"></i> Đã lưu</a></li>
-                    <li><a href=""><i class="fa-solid fa-list-check"></i> Đặt chỗ của tôi </a>
-
-                    </li>
+                    <li><a href=""><i class="fa-solid fa-list-check"></i> Đặt chỗ của tôi </a></li>
                     <li>
                         <div class="dropdown">
                             <button type="submit" id="money" class="nut_dropdown"> 
@@ -54,19 +52,38 @@
                     </li>
 
                     <?php if (isset($_SESSION['user'])) { ?>
-                        <li >
+                        <li class="flex items-center">
                             <div class="anh-dangnhap" onclick="drop_info_user()">
-                                <div class="flex-anh-dn"> 
+                                <div class="flex-anh-dn items-center"> 
                                         <img class="anh-user" src="../layout/assets/img/users/<?= $_SESSION['user']->images ?>" width="50px" alt=""> <span><?= $_SESSION['user']->name ?></span><i
-                                        style="color:black; font-size: 11px; padding-left: 4px;padding-top: 5px;"
+                                        style="color:black; font-size: 11px; padding-left: 4px"
                                         class="fa-solid fa-chevron-down"></i>
                                 </div>
                                 <div class="noidung-anh-dangnhap" id="noi_dung_info">
                                         <h3>Tài khoản</h3>
                                         <div class="a"><i class="fa-regular fa-user"></i> <span><a href="<?= SITE_URL . "?info-user&id=". $_SESSION['user']->user_id ?>">thông tin người dùng</a></span><br></div>
-                                        <?php if (!$_SESSION['admin']) {?>
-                                            <div class="a"><i class="fa-regular fa-user"></i> <span><a href="<?= SITE_URL . "?info-user&id=". $_SESSION['user']->user_id ?>">trang quản trị</a></span><br></div>
-                                        <?php } ?>
+                                        <div class="a"><i class="fa-solid fa-money-bill"></i> <span>Điểm thưởng của tôi</span><br></div>
+                                        <div class="a"><i class="fa-solid fa-person-booth"></i> <span>Dịch vụ khách sạn</span> <br></div>
+                                        <div class="a"><i class="fa-regular fa-bell"></i> <span>Thông báo của bạn</span> <br></div>
+                                        <div class="a"> <i class="fa-regular fa-credit-card"></i> <span>Thẻ của tôi</span> <br></div>
+                                        <div class="a"> <i class="fa-regular fa-envelope"></i> <span>Khuyến mãi</span> <br></div>
+                                        <div class="a"> <a href="index.php?action=logout"><i class="fa-solid fa-right-from-bracket"></i> <span>Đăng xuất</span></a><br></div>
+                                        
+                                </div>
+                            </div>
+                        </li>
+                    <?php } elseif (isset($_SESSION['admin'])) { ?>
+                        <li >
+                            <div class="anh-dangnhap" onclick="drop_info_user()">
+                                <div class="flex-anh-dn"> 
+                                        <img class="anh-user" src="../layout/assets/img/admins/<?= $_SESSION['admin']->thumbnail ?>" width="50px" alt=""> <span><?= $_SESSION['admin']->name ?></span><i
+                                        style="color:black; font-size: 11px; padding-left: 4px;padding-top: 5px;"
+                                        class="fa-solid fa-chevron-down"></i>
+                                </div>
+                                <div class="noidung-anh-dangnhap" id="noi_dung_info">
+                                        <h3>Tài khoản</h3>
+                                        <div class="a"><i class="fa-regular fa-user"></i> <span><a href="<?= SITE_URL . "?info-user&id=". $_SESSION['admin']->admin_id ?>">thông tin người dùng</a></span><br></div>
+                                        <div class="a"><i class="fa-regular fa-user"></i> <span><a href="../admin/index.php">trang quản trị</a></span><br></div>
 
                                         <div class="a"><i class="fa-solid fa-money-bill"></i> <span>Điểm thưởng của tôi</span><br></div>
                                         <div class="a"><i class="fa-solid fa-person-booth"></i> <span>Dịch vụ khách sạn</span> <br></div>
@@ -156,7 +173,7 @@
                         <button> <a href="<?= SITE_URL . "?tin-tuc" ?>">Tin Tức</a><i class="fa-solid fa-caret-down"></i></button>
                         <button> <a href="<?= SITE_URL . "?list-room" ?>">Danh sách phòng</a><i class="fa-solid fa-caret-down"></i></button>
                         <button> <a href="<?= SITE_URL . "?info-user" ?>">thông tin người dùng</a><i class="fa-solid fa-caret-down"></i></button>
-                        <button> <a href="<?= "?login_admin" ?>">admin đăng nhập</a><i class="fa-solid fa-caret-down"></i></button>
+                        <button> <a href="<?= ADMIN_BASE ?>">admin đăng nhập</a><i class="fa-solid fa-caret-down"></i></button>
                         <div class="nd-mn4">
                             <i style="color: rgb(208, 148, 70);" class="fa-solid fa-coins"></i> Điểm thưởng của tôi <br>
                             <i style="color: red;" class="fa-solid fa-gift"></i> Đổi quà tặng

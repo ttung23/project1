@@ -1,18 +1,7 @@
-<section class="dashboard w-full">
-    <div class="w-full flex justify-between p-3 items-center">
-        <i class="uil uil-bars sidebar-toggle text-3xl"></i>
-
-        <div class="search-box">
-            <i class="uil uil-search"></i>
-            <input type="text" placeholder="Search here..." class="border-sky-400 px-3" />
-        </div>
-
-        <img src="./assets/img/anh3.jpg" alt="" width="50px" class="rounded-full" />
-    </div>
-
+<section class="dash-content w-full">
     <div class="content">
         <div class="danh_sach">
-            <h3 class="text-3xl text-sky-500">Thêm Phòng</h3>
+            <h3 class="text-3xl text-sky-500">THÊM PHÒNG</h3>
 
             <div class="flex-from">
                 <form action="" method="post" enctype="multipart/form-data">
@@ -38,14 +27,29 @@
                             <?php endforeach ?>
                         </select>
                         <?php if (isset($err['category_id'])) { ?>
-                        <span class="text-red-500"><?= $err['category_id'] ?></span>
+                            <span class="text-red-500"><?= $err['category_id'] ?></span>
                         <?php } ?>
                     </div>
                     <div>
                         <label for="">Giá</label>
-                        <input value="<?= $_POST['price_cate'] ?? "" ?>" type="text" name="price_room"
+                        <input value="<?= $_POST['price_room'] ?? "" ?>" type="text" name="price_room"
                             class="border rounded border-sky-400 w-full p-2" />
+                        
+                        <?php if (isset($err['price_room'])) { ?>
+                            <span class="text-red-500"><?= $err['price_room'] ?></span>
+                        <?php } ?>
                     </div>
+
+                    <div>
+                        <label for="">Phòng hạng (sao)</label>
+                        <input value="<?= $_POST['star'] ?? "" ?>" type="text" name="star"
+                            class="border rounded border-sky-400 w-full p-2" />
+
+                        <?php if (isset($err['star'])) { ?>
+                            <span class="text-red-500"><?= $err['star'] ?></span>
+                        <?php } ?>
+                    </div>
+
                     <div>
                         <label for="">Tầng</label>
                         <input value="<?= $_POST['location'] ?? "" ?>" type="text" name="location"
@@ -62,22 +66,10 @@
                             <?php endforeach ?>
                         </select>
                         <?php if (isset($err['service'])) { ?>
-                        <span class="text-red-500"><?= $err['service'] ?></span>
+                            <span class="text-red-500"><?= $err['service'] ?></span>    
                         <?php } ?>
                     </div>
-                    <div>
-                        <label for="">Đánh giá</label>
-                        <select name="star" id="" class="border rounded border-sky-400 w-full p-2">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                        <?php if (isset($err['service'])) { ?>
-                        <span class="text-red-500"><?= $err['service'] ?></span>
-                        <?php } ?>
-                    </div>
+
                     <div>
                         <label for="">Trạng thái</label>
                         <select name="status" id="" class="border rounded border-sky-400 w-full p-2">
@@ -85,11 +77,6 @@
                             <option value="1">Còn Trống</option>
                             <option value="2">Đã Hết Phòng</option>
                         </select>
-                    </div>
-                    <div>
-                        <label for="">Lượt Xem</label>
-                        <input placeholder="" value="0" type="text" name="views" disabled
-                            class="border rounded border-sky-400 w-full p-2" />
                     </div>
                     <div>
                         <label for="">Diện Tích</label>
@@ -100,12 +87,7 @@
                         <?php } ?>
                     </div>
                     <div>
-                        <label for="">Lượt Thích</label>
-                        <input placeholder="" value="0" type="text" name="likes" disabled
-                            class="border rounded border-sky-400 w-full p-2" />
-                    </div>
-                    <div>
-                        <label for="">max_people</label>
+                        <label for="">Tổng số lượng</label>
                         <input value="<?= $_POST['quantity'] ?? "" ?>" type="text" name="quantity"
                             class="border rounded border-sky-400 w-full p-2" />
                         <?php if (isset($err['quantity'])) { ?>
@@ -113,6 +95,14 @@
                         <?php } ?>
                     </div>
                     <div>
+                        <label for="">Ảnh</label>
+                        <input type="file" name="image" class="w-full p-2" />
+                        <?php if (isset($err['img'])) { ?>
+                        <span class="text-red-500"><?= $err['img'] ?></span>
+                        <?php } ?>
+                    </div>
+                    
+                    <div class="col-span-3">
                         <label for="">Mô tả</label>
                         <textarea class="border rounded border-sky-400 w-full p-2" name="description" id="ten" cols="30"
                             rows="5"><?= $_POST['description'] ?? "" ?></textarea>
@@ -122,19 +112,11 @@
                         <span class="text-red-500"><?= $err['description'] ?></span>
                         <?php } ?>
                     </div>
-
-                    <div>
-                        <label for="">Images</label>
-                        <input type="file" name="image" class="w-full p-2" />
-                        <?php if (isset($err['img'])) { ?>
-                        <span class="text-red-500"><?= $err['img'] ?></span>
-                        <?php } ?>
-                    </div>
-                    <div class="row-start-3 col-span-3 flex justify-between">
-                        <button name="add_room" type="submit" class="border p-3 bg-blue-500 text-white rounded">
+                    <div class="col-span-3 flex justify-between">
+                        <button name="add_room" type="submit" class="p-3 bg-blue-500 text-white rounded">
                             Thêm Phòng
                         </button>
-                        <a class="inline-block border p-3 bg-blue-500 text-white rounded" href="../room/c_room.php">Xem
+                        <a class="inline-block p-3 bg-blue-500 text-white rounded" href="../room/c_room.php">Xem
                             danh sách</a>
                     </div>
                 </form>

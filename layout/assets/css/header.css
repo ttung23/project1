@@ -47,7 +47,6 @@
 .dropdown button {
   display: flex;
   align-items: center;
-  padding-bottom: 10px;
 }
 
 .dropdown button img {
@@ -311,7 +310,6 @@
 
 .nav-right ul li i {
   color: #0194f3;
-  padding-right: 2px;
 }
 
 .nav-right ul li i i {

@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // MODEL
 require_once '../global.php';
 require_once '../../dao/pdo.php';
@@ -63,7 +65,7 @@ if (isset($_GET['add_service'])) {
     }
 
     $VIEW_TITLE = "Thêm dịch vụ";
-    $VIEW_CSS = 'admin_add_service.css';
+    $VIEW_CSS = 'admin_add.css';
     $VIEW_ADMIN_NAME = '../service/add_service.php';
 } else if (isset($_GET['edit_cate'])) {
 
@@ -84,7 +86,7 @@ if (isset($_GET['add_service'])) {
         }
     }
     $VIEW_TITLE = "Danh sách dịch vụ";
-    $VIEW_CSS_BOOSTRAP = '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">';
+    $VIEW_CSS = "admin_service.css";
     $VIEW_ADMIN_NAME = '../service/danh_sach_service.php';
 }
 

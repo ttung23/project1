@@ -57,11 +57,12 @@ body.dark .activity-data::-webkit-scrollbar-thumb:hover {
 nav {
     position: sticky;
     left: 0;
-    width: 250px;
+    min-width: 250px;
     padding: 10px 14px;
     background-color: var(--panel-color);
     border-right: 1px solid var(--border-color);
     transition: var(--tran-05);
+    z-index: 2;
 }
 
 nav.close {

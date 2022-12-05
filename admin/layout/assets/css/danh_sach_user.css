@@ -8,12 +8,13 @@ body {
     font-family: tahoma, sans-serif;
 }
 
-.container {
-    max-width: 1280px;
-}
-
-.content {
-    margin: 0 30px;
+.dashboard {
+    position: relative;
+    /* background-color: var(--panel-color); */
+    min-height: 100vh;
+    padding: 10px;
+    margin-left: 30px;
+    transition: var(--tran-05);
 }
 
 .danh_sach {
@@ -29,6 +30,8 @@ body {
     margin: 20px 0;
     color: var(--text-color);
     transition: var(--tran-05);
+    font-weight: 500;
+    font-size: 24px;
 }
 
 table {
@@ -52,29 +55,16 @@ th {
     padding: 10px 20px;
 }
 
-td p {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 420px;
-}
-
-td p:hover {
-    overflow: visible;
-    white-space: unset;
-    /* word-break: break-word; */
-}
-
 .action {
     margin: 20px 0;
 }
 
-.action a {
+.action button {
+    margin-right: 5px;
     display: inline-block;
     text-decoration: none;
     color: #fff;
     padding: 9px;
-    background-color: #cb2027;
     border-radius: 10px;
 }
 
@@ -101,46 +91,11 @@ table tr:nth-child(1) {
 }
 
 .bieu_do h3 {
-    color: var(--text-color);
     margin: 20px 0;
-    transition: var(--tran-05);
-}
-
-nav .logo-name {
-    margin: 20px 0;
-    text-align: center;
-}
-
-nav .logo-image {
-    display: flex;
-    justify-content: center;
-    min-width: 45px;
-}
-
-nav .logo-image img {
-    width: 40px;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-nav .logo-name .logo_name {
-    font-size: 22px;
-    font-weight: 600;
     color: var(--text-color);
     transition: var(--tran-05);
-}
-
-nav.close .logo_name {
-    opacity: 0;
-    pointer-events: none;
-}
-
-nav .menu-items {
-    margin-top: 40px;
-    height: calc(100% - 90px);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    font-weight: 500;
+    font-size: 24px;
 }
 
 .menu-items li {
@@ -248,11 +203,6 @@ body.dark .switch:before {
     left: 20px;
 }
 
-.dashboard .dash-content{
-    padding-top: 50px;
-    padding-left: 30px;
-    padding-right: 30px;
-}
 .dash-content .title{
     display: flex;
     align-items: center;

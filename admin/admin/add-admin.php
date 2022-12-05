@@ -1,18 +1,8 @@
-<section class="dashboard w-full">
-    <div class="w-full flex justify-between p-3 items-center">
-        <i class="uil uil-bars sidebar-toggle text-3xl"></i>
-
-        <div class="search-box">
-            <i class="uil uil-search"></i>
-            <input type="text" placeholder="Search here..." class="border-sky-400 px-3" />
-        </div>
-
-        <img src="./assets/img/anh3.jpg" alt="" width="50px" class="rounded-full" />
-    </div>
+<section class="dash-content w-full">
 
     <div class="content">
         <div class="danh_sach">
-            <h3 class="text-3xl text-sky-500">add Phòng</h3>
+            <h3 class="text-3xl text-sky-500">THÊM QTV</h3>
             <div class="flex-from">
                 <form action="" method="post" enctype="multipart/form-data">
                     <div>
@@ -84,24 +74,20 @@
                         <span class="text-red-500"><?= $err['img'] ?></span>
                         <?php } ?>
                     </div>
-                
-
+            
                     <div>
                         <label for="">quyền</label>
-                 <select name="permission">
-                    <?php foreach ($per as $key => $value) : ?>
-                             
-                            <option value="<?php echo $value->permission_id?>"><?php echo $value->name?></option>
+                        <select name="permission">
+                            <?php foreach ($per as $key => $value) : ?>
+                                <option value="<?php echo $value->permission_id?>"><?php echo $value->name?></option>
                             <?php endforeach ?>
-                  
-
                         </select>
                     </div>
-                    <div class="row-start-3 col-span-3 flex justify-between">
-                        <button name="add_admin" type="submit" class="border p-3 bg-blue-500 text-white rounded">
-                            Theem Phòng
+                    <div class="col-span-3 flex justify-between">
+                        <button name="add_admin" type="submit" class="p-3 bg-blue-500 text-white rounded">
+                            Thêm Phòng
                         </button>
-                        <a class="inline-block border p-3 bg-blue-500 text-white rounded" href="../room/c_room.php">Xem
+                        <a class="inline-block p-3 bg-blue-500 text-white rounded" href="../room/c_room.php">Xem
                             danh sách</a>
                     </div>
                 </form>
