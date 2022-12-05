@@ -12,25 +12,26 @@
 
     <div class="content">
         <div class="danh_sach">
-            <h3 class="text-3xl text-sky-500">Thêm Phòng</h3>
-
+            <h3 class="text-3xl text-sky-500">Sửa Phòng</h3>
+            <?php foreach ($oneroom as $key => $value) : ?>
             <div class="flex-from">
                 <form action="" method="post" enctype="multipart/form-data">
                     <div>
                         <label for="">ID</label>
-                        <input placeholder="ID sẽ tự động nhập" type="text" name="id" disabled
-                            class="border rounded border-sky-400 w-full p-2" />
+                        <input placeholder="ID sẽ tự động nhập" value="<?= $value->room_id ?>" type="text" name="id"
+                            disabled class="border rounded border-sky-400 w-full p-2" />
                     </div>
 
                     <div>
                         <label for="">Name</label>
-                        <input value="<?= $_POST['name'] ?? "" ?>" type="text" name="name_room"
+                        <input value="<?= $value->name ?>" type="text" name="name_room"
                             class="border rounded border-sky-400 w-full p-2" />
                         <?php if (isset($err['name_room'])) { ?>
                         <span class="text-red-500"><?= $err['name_room'] ?></span>
                         <?php } ?>
                     </div>
                     <div>
+                        <?php endforeach ?>
                         <label for="">Danh Mục</label>
                         <select name="category_id" id="" class="border rounded border-sky-400 w-full p-2">
                             <?php foreach ($categoryAll as $key => $value) : ?>
@@ -41,20 +42,22 @@
                         <span class="text-red-500"><?= $err['category_id'] ?></span>
                         <?php } ?>
                     </div>
+                    <?php foreach ($oneroom as $key => $value) : ?>
                     <div>
                         <label for="">Giá</label>
-                        <input value="<?= $_POST['price_cate'] ?? "" ?>" type="text" name="price_room"
+                        <input value="<?= $value->price ?>" type="text" name="price_room"
                             class="border rounded border-sky-400 w-full p-2" />
                     </div>
                     <div>
                         <label for="">Tầng</label>
-                        <input value="<?= $_POST['location'] ?? "" ?>" type="text" name="location"
+                        <input value="<?= $value->location ?>" type="text" name="location"
                             class="border rounded border-sky-400 w-full p-2" />
                         <?php if (isset($err['location'])) { ?>
                         <span class="text-red-500"><?= $err['location'] ?></span>
                         <?php } ?>
                     </div>
                     <div>
+                        <?php endforeach ?>
                         <label for="">Dịch Vụ</label>
                         <select name="service_id" id="" class="border rounded border-sky-400 w-full p-2">
                             <?php foreach ($service as $key => $value) : ?>
@@ -65,6 +68,8 @@
                         <span class="text-red-500"><?= $err['service'] ?></span>
                         <?php } ?>
                     </div>
+                    <?php foreach ($oneroom as $key => $value) : ?>
+
                     <div>
                         <label for="">Đánh giá</label>
                         <select name="star" id="" class="border rounded border-sky-400 w-full p-2">
@@ -88,12 +93,12 @@
                     </div>
                     <div>
                         <label for="">Lượt Xem</label>
-                        <input placeholder="" value="0" type="text" name="views" disabled
+                        <input placeholder="" value="<?= $value->view ?>" type="text" name="view"
                             class="border rounded border-sky-400 w-full p-2" />
                     </div>
                     <div>
                         <label for="">Diện Tích</label>
-                        <input value="<?= $_POST['acreage_room'] ?? "" ?>" type="text" name="acreage_room"
+                        <input value="<?= $value->acreage ?>" type="text" name="acreage_room"
                             class="border rounded border-sky-400 w-full p-2" />
                         <?php if (isset($err['acreage_room'])) { ?>
                         <span class="text-red-500"><?= $err['acreage_room'] ?></span>
@@ -101,12 +106,12 @@
                     </div>
                     <div>
                         <label for="">Lượt Thích</label>
-                        <input placeholder="" value="0" type="text" name="likes" disabled
+                        <input placeholder="" value="<?= $value->likes ?>" type="text" name="likes"
                             class="border rounded border-sky-400 w-full p-2" />
                     </div>
                     <div>
                         <label for="">max_people</label>
-                        <input value="<?= $_POST['quantity'] ?? "" ?>" type="text" name="quantity"
+                        <input value="<?= $value->quantity ?>" type="text" name="quantity"
                             class="border rounded border-sky-400 w-full p-2" />
                         <?php if (isset($err['quantity'])) { ?>
                         <span class="text-red-500"><?= $err['quantity'] ?></span>
@@ -114,10 +119,8 @@
                     </div>
                     <div>
                         <label for="">Mô tả</label>
-                        <textarea class="border rounded border-sky-400 w-full p-2" name="description" id="ten" cols="30"
-                            rows="5"><?= $_POST['description'] ?? "" ?></textarea>
-      <script>CKEDITOR.replace('ten');</script>
-
+                        <textarea class="border rounded border-sky-400 w-full p-2" name="description" id="" cols="30"
+                            rows="5" value=""><?= $value->description ?></textarea>
                         <?php if (isset($err['description'])) { ?>
                         <span class="text-red-500"><?= $err['description'] ?></span>
                         <?php } ?>
@@ -131,8 +134,8 @@
                         <?php } ?>
                     </div>
                     <div class="row-start-3 col-span-3 flex justify-between">
-                        <button name="add_room" type="submit" class="border p-3 bg-blue-500 text-white rounded">
-                            Thêm Phòng
+                        <button name="edit_room" type="submit" class="border p-3 bg-blue-500 text-white rounded">
+                            Sửa Phòng
                         </button>
                         <a class="inline-block border p-3 bg-blue-500 text-white rounded" href="../room/c_room.php">Xem
                             danh sách</a>
@@ -142,3 +145,4 @@
         </div>
     </div>
 </section>
+<?php endforeach ?>
