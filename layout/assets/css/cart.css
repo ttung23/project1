@@ -1,17 +1,17 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .containerr {
-    max-width: 1200px;
-    margin: 0 auto;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* nav-2 */
 .nav-2-index {
-    box-shadow: 0px 3px 5px rgb(3 18 26 / 15%);
+  box-shadow: 0px 3px 5px rgb(3 18 26 / 15%);
 }
 
 /* menu-con */
@@ -19,216 +19,214 @@
 .menu-con2 .nd-mn2,
 .menu-con3 .nd-mn3,
 .menu-con4 .nd-mn4 {
-    box-shadow: 0px 4px 10px rgb(3 18 26 / 15%);
+  box-shadow: 0px 4px 10px rgb(3 18 26 / 15%);
 }
 
 .main {
-    display: flex;
-    gap: 20px;
-    padding: 8px 0;
-    margin: 16px 0;
+  display: flex;
+  gap: 20px;
+  padding: 8px 0;
+  margin: 16px 0;
 }
 
 .side {
-    width: 360px;
-    padding: 16px 0;
+  width: 360px;
+  padding: 16px 0;
 }
 
 .booking-detail {
-    border: 1px solid #e7e7e7;
-    padding: 16px;
+  border: 1px solid #e7e7e7;
+  padding: 16px;
 }
 
 .tomtat {
-    border: 1px solid #e7e7e7;
-    margin-top: 16px;
-    padding: 16px;
+  border: 1px solid #e7e7e7;
+  margin-top: 16px;
+  padding: 16px;
 }
 
 .chi-tiet-dat-phong {
-    margin-bottom: 16px;
+  margin-bottom: 16px;
 }
 
 .date {
-    display: flex;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .tomtat-detail {
-    display: flex;
-    justify-content: space-between;
-    font-size: 14px;
-    margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-top: 8px;
 }
 
 .content {
-    width: calc(100% - 380px);
-    padding: 16px 0;
+  width: calc(100% - 380px);
+  padding: 16px 0;
 }
 
 .room-choosed {
-    border: 1px solid #e7e7e7;
-    padding: 16px;
-    display: flex;
-    margin-bottom: 30px;
+  border: 1px solid #e7e7e7;
+  padding: 16px;
+  display: flex;
+  margin-bottom: 30px;
 }
 
 .room-name {
-    margin: 0 0 4px;
+  margin: 0 0 4px;
 }
 
 .descrip {
-    display: flex;
-    gap: 8px;
-    font-size: 14px;
-    margin: 8px 0 16px;
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+  margin: 8px 0 16px;
 }
 
 .rate {
-    display: flex;
-    gap: 8px;
-    font-size: 12px;
-    align-items: center;
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
+  align-items: center;
 }
 
 .rate div:first-child {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #3ba6e3;
-    color: #fff;
-    border-radius: 4px 4px 4px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3ba6e3;
+  color: #fff;
+  border-radius: 4px 4px 4px 0;
 }
 
 .delete-room {
-    position: relative;
-    margin-top: 52px;
-    color: #fff;
-    background-color: #0194f3;
-    overflow: hidden;
-    text-align: center;
-    font-weight: 700;
-    border-radius: 4px;
-    transition: all 1s ease-in-out;
-    cursor: pointer;
+  position: relative;
+  margin-top: 52px;
+  color: #fff;
+  background-color: #0194f3;
+  overflow: hidden;
+  text-align: center;
+  font-weight: 700;
+  border-radius: 4px;
+  transition: all 1s ease-in-out;
+  cursor: pointer;
 }
 
 .delete-room a {
-    display: block;
-    padding: 5px 15px;
+  display: block;
+  padding: 5px 15px;
 }
 
 .delete-room::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 100%;
-    background-color: red;
-    transition: all 0.5s ease-in-out;
-    z-index: -1;
-    cursor: pointer;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: red;
+  transition: all 0.5s ease-in-out;
+  z-index: -1;
+  cursor: pointer;
 }
 
 .delete-room:hover {
-    background-color: unset;
+  background-color: unset;
 }
 
 .delete-room:hover:before {
-    width: 100%;
-    transition: all 0.5s ease-in-out;
+  width: 100%;
+  transition: all 0.5s ease-in-out;
 }
 
 .delete-room a {
-    display: inline-block;
-    padding: 5px 15px;
+  display: inline-block;
+  padding: 5px 15px;
 }
 
 .information {
-    border: 1px solid #e7e7e7;
-    padding: 16px;
-    margin-bottom: 30px;
+  border: 1px solid #e7e7e7;
+  padding: 16px;
+  margin-bottom: 30px;
 }
 
 .information .head {
-    display: flex;
-    justify-content: space-between;
-
+  display: flex;
+  justify-content: space-between;
 }
 
 .information .head img {
-    max-width: 22px;
-    max-height: 22px;
+  max-width: 22px;
+  max-height: 22px;
 }
 
 .true-false {
-    display: flex;
-    gap: 16px;
+  display: flex;
+  gap: 16px;
 }
 
 .input {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-
 .border-input {
-    border: 1px solid #aaa;
-    border-radius: 3px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
 }
 
 .service {
-    border: 1px solid #e7e7e7;
-    padding: 16px;
-    margin-bottom: 30px;
+  border: 1px solid #e7e7e7;
+  padding: 16px;
+  margin-bottom: 30px;
 }
 
 .dichvu-dangco {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
 }
 
 .dichvu-dangco > a {
-    display: flex;
-    align-items: center;
-    gap: 2px;
-    padding: 2px 4px;
-    background-color: #e7fde9;
-    border: 1px solid #97e59c;
-    color: #006607;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 4px;
+  background-color: #e7fde9;
+  border: 1px solid #97e59c;
+  color: #006607;
 }
 
 .dichvu-muonco {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
 }
 
 .dichvu-muonco > a {
-    display: flex;
-    align-items: center;
-    gap: 2px;
-    padding: 2px 4px;
-    background-color: #e7fde9;
-    border: 1px solid #97e59c;
-    color: #006607;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 4px;
+  background-color: #e7fde9;
+  border: 1px solid #97e59c;
+  color: #006607;
 }
 
 label {
-    /* position: relative; */
-    cursor: pointer;
+  /* position: relative; */
+  cursor: pointer;
 }
 
 .pay > a {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 10px 0;
-    background-color: #0194f3;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 500;
-    border-radius: 3px;
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px 0;
+  background-color: #0194f3;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 3px;
 }
