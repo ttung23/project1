@@ -17,6 +17,9 @@ $categoriesAll = loadAll_categories();
 $service = loadAll_service();
 if (isset($_GET['cart'])) {
     // add cart
+    $format = "d/m/2022";
+  $check_indefauil = date($format, time());
+    echo $check_indefauil;
     if (isset($_SESSION['user'])) {
         $tt = 0;
         $service_room = [];
@@ -107,7 +110,6 @@ if (isset($_GET['cart'])) {
     $_TITLE = "Tin tức StayyInn";
     $VIEW_NAME = 'tin-tuc.php';
 } elseif (isset($_GET['list-room'])) {
-   
         if (isset($_POST['find'])) {
             $_SESSION['checkin'] = $_POST['checkin'];
             $_SESSION['checkout'] = $_POST['checkout'];

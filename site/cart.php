@@ -12,7 +12,6 @@
                     <div class="date">
                         <div class="checkin pr-4">
                             <div class="font-medium mb-1 text-[14px]">Nhận phòng</div>
-
                             <div class="checkin-date">
                                 <span class="block font-bold text-[14px]"><input value="<?= $_SESSION['checkin'] ?? ""  ?>" type="date" name="check_in"></span>
                                 <span class="text-[#6b6b6b] text-[12px]">12h - 00h</span>

@@ -185,7 +185,6 @@
               </span>
               <br />
               <br />
-
               <a href="<?= SITE_URL . "?product-detail&id=$value->room_id&iddm=$value->id_category_room" ?>">Đặt phòng</a>
             </div>
           </div>
