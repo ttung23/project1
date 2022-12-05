@@ -24,6 +24,9 @@
 .nav-right ul li {
   padding-right: 15px;
 }
+.nav-right ul li a {
+  text-decoration: none;
+}
 /* sau đăng nhập */
 .nav-right ul li .anh-user {
 }
@@ -151,7 +154,13 @@
   padding-top: 10px;
   padding-left: 10px;
 }
-
+.noidung-index .nd-dn .dn-tqt {
+  text-decoration: none;
+  color: #000;
+  padding-left: 7px;
+  font-size: 13px;
+  font-weight: bold;
+}
 .noidung-index span {
   font-weight: 500;
   padding-left: 10px;
@@ -176,7 +185,7 @@
 
 .noidung-index i i {
   position: absolute;
-  top: 188px;
+  top: 180px;
   left: 280px;
 }
 
@@ -254,7 +263,6 @@
   line-height: 40px;
   z-index: 2;
   background-color: #fff;
-
 }
 
 .hien_noi_dung_info {
@@ -333,7 +341,9 @@
 .nav-2-index ul li {
   padding-right: 32px;
 }
-
+.menu-con4 button a i {
+  margin-right: 30px;
+}
 /* hover */
 .nav-2-index ul li .menu-con1:hover .nd-mn1 {
   display: block;

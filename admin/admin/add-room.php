@@ -114,10 +114,8 @@
                     </div>
                     <div>
                         <label for="">Mô tả</label>
-                        <textarea class="border rounded border-sky-400 w-full p-2" name="description" id="ten" cols="30"
+                        <textarea class="border rounded border-sky-400 w-full p-2" name="description" id="" cols="30"
                             rows="5"><?= $_POST['description'] ?? "" ?></textarea>
-      <script>CKEDITOR.replace('ten');</script>
-
                         <?php if (isset($err['description'])) { ?>
                         <span class="text-red-500"><?= $err['description'] ?></span>
                         <?php } ?>

@@ -40,8 +40,7 @@
 
 <body>
     <main class="container" style="display: flex;">
-        <?php include_once "side.php" ?>    
-
+        <?php include_once "side.php" ?>
         <?php include_once $VIEW_ADMIN_NAME ?>
 
     </main>
