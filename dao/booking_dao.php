@@ -5,26 +5,44 @@ function loadAll_booking(){
     $listroom = pdo_query_all($query);
     return $listroom;
 }
+function Load_one($id){
+    $query = "select * from bookings where booking_id = ?";
+    $listuser = pdo_query_one($query,$id);
+    return $listuser;
+}
 function loadAll_booking_user($id){
     $query = "SELECT * from bookings bk WHERE id_user = '$id' GROUP BY booking_id DESC;";
     $listroom = pdo_query_all($query);
     return $listroom;
+}
+function loadAll_booking_userct($id){
+    $query = "SELECT * from bookings bk WHERE id_user = '$id' GROUP BY booking_id DESC;";
+    $listroom = pdo_query_all($query);
+    return $listroom;
+}
+function loadAll_bookingdt1(){
+    $query = "SELECT * FROM bookings WHERE 1 order by booking_id desc limit 1;";
+    $listroom = pdo_query_all($query);
+    return $listroom;
+}
+
+function load_booking_newest () {
+    
 }
 
 function booking_remove_by_id($cate_id){
     $query = "delete from bookings where booking_id = ?";
     pdo_execute($query, $cate_id);
 }
-function Insert_booking($check_in_date,$check_out_date,$status,$quantity_people,$total_amount,$message,$phone,$email,$names)
+function Insert_booking($check_in_date,$check_out_date,$status,$quantity_people,$total_amount,$message,$phone,$email,$names,$id_user)
 {
-    $sql = "insert into bookings(check_in_date,check_out_date,status,quantity_people,total_amount,message,phone,email,name) value('$check_in_date','$check_out_date','$status','$quantity_people','$total_amount','$message','$phone','$email','$names')";
+    $sql = "insert into bookings(check_in_date,check_out_date,status,quantity_people,total_amount,message,phone,email,name,id_user) value('$check_in_date','$check_out_date','$status','$quantity_people','$total_amount','$message','$phone','$email','$names','$id_user')";
     $room = pdo_execute($sql);
-    return $room;
 }
-function  update_booking($check_in_date,$check_out_date,$status,$quantity_people,$total_amount,$messege,$phone,$email,$names)
+function  update_booking($check_in_date,$check_out_date,$status,$quantity_people,$total_amount,$message,$phone,$email,$names,$id_user,$id)
 {
-        $sql = "update bookings set check_in_date = ? ,check_out_date = ?,status = ?,quantity_people = ?,total_amount = ?,message = ?,phone = ?,email = ?, name = ?";
-    pdo_execute($sql,$check_in_date,$check_out_date,$quantity_people,$total_amount,$messege,$phone,$email,$names);
+        $sql = "update bookings set check_in_date = ? ,check_out_date = ?,status = ?,quantity_people = ?,total_amount = ?,message = ?,phone = ?,email = ?, name = ?,id_user=? where booking_id=?";
+    pdo_execute($sql,$check_in_date,$check_out_date,$status,$quantity_people,$total_amount,$message,$phone,$email,$names,$id_user,$id);
 }
 function booking_remove_by_cate_id($cate_id){
     $query = "delete from products where category_id = ?";

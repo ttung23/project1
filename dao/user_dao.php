@@ -2,25 +2,27 @@
  function login($username, $password)
 {
     $sql = "select * from users where username = '$username' and password = '$password' limit 1";
-    $user = pdo_query_all($sql);
+    $user = pdo_query_one_person($sql);
 
         if(($user != [])){
-           foreach($user as $key => $value){
-                $_SESSION['username'] = $value->username;
-                $_SESSION['password'] = $value->password;
-                $_SESSION['name'] = $value->name;
-                $_SESSION['user_id'] = $value->user_id;
-                $_SESSION['gender'] = $value->gender;
-                $_SESSION['email'] = $value->email;
-                $_SESSION['images'] = $value->images;
-                $_SESSION['address'] = $value->address;
-                $_SESSION['phone'] = $value->phone;
-                $_SESSION['date'] = $value->date;
-                $_SESSION['status'] = $value->status;
-                $_SESSION['bookingdetail_id'] = $value->bookingdetail_id;
-                 header("location:index.php?");
-           }
-        }else{
+            $_SESSION['user'] = $user;
+
+            header("location:index.php?");
+        //    foreach($user as $key => $value){
+        //         $_SESSION['username'] = $value->username;
+        //         $_SESSION['password'] = $value->password;
+        //         $_SESSION['name'] = $value->name;
+        //         $_SESSION['user_id'] = $value->user_id;
+        //         $_SESSION['gender'] = $value->gender;
+        //         $_SESSION['email'] = $value->email;
+        //         $_SESSION['images'] = $value->images;
+        //         $_SESSION['address'] = $value->address;
+        //         $_SESSION['phone'] = $value->phone;
+        //         $_SESSION['date'] = $value->date;
+        //         $_SESSION['status'] = $value->status;
+                
+        //    }
+        } else {
             echo "bạn Đã sai tài khoản or mật khẩu";
         }
 }
@@ -33,20 +35,33 @@ function loginforgot($username)
             header("Location: loginforgot.php");
         }
 }
+
+function forgot_user ($name, $username, $date, $email, $phone) {
+    $query = "select * from users where name = ? and username = ? and email = ? and date = ? and phone = ?";
+    $user = pdo_query_one($query, $name, $username, $date, $email, $phone);
+    return $user;
+}
+
+function update_pass ($pass, $user_id) {
+    $query = "update users set password = ? where user_id = ?";
+    pdo_execute($query, $pass, $user_id);
+}
+
 function register($username,$password){
     $query = "Insert into users(username,password) values(?,?)";
     pdo_execute($query,$username,$password);
 }
+
 function loadAll_users() {
     $query = "select * from users";
     $listuser = pdo_query_all($query);
     return $listuser;
 }
 
-function loadOne_users($id){
-    $query = "select * from user where user_id = ? desc";
-    $listuser = pdo_query_all($query,$id);
-    return $listuser;
+function loadOne_user($id){
+    $query = "select * from users where user_id = ?";
+    $user = pdo_query_one($query, $id);
+    return $user;
 }
 
 function block_user($user_id){
@@ -65,21 +80,21 @@ function list_user_block () {
     return $listuser;
 }
 
-function user_order_by_id($user_id){
-    $query = "select * from user order by ? desc";
-    $listuser = pdo_query_all($query,$user_id);
-    return $listuser;
+function signUp($name, $username, $password, $gender, $email, $images, $address, $phone, $date){
+    $query = "INSERT into users (name, username, password, gender, email, images, address, phone, date) 
+    VALUES (?,?,?,?,?,?,?,?,?)";
+    pdo_execute($query, $name, $username, $password, $gender, $email, $images, $address, $phone, $date);
 }
 
-function Insert_user($name,$username,$password,$gender,$email,$images,$address,$phone,$date){
-    $query = "Insert into users(name,username,password,gender,email,adress,phone,date) values(?,?,?,?,?,?,?)";
-    pdo_execute($query, $name,$username,$password,$gender,$email,$images,$address,$phone,$date);
-}
-
-function Update_user($id,$name,$username,$password,$gender,$email,$images,$address,$phone,$date)
+function Update_user($name, $username, $gender, $email, $images, $address, $phone, $date, $id)
 {
-    $query = "Update users set name = ? , username = ?,password = ?,gender = ?,email = ?, images = ?, address = ?, phone = ?, date = ? where user_id = ?";
-    pdo_execute($query, $name,$username,$password,$gender,$email,$images,$address,$phone,$date,$id);
+    $query = "UPDATE users SET name = ? , username = ?, gender = ?, email = ?, images = ?, address = ?, phone = ?, date = ?, updated_at = current_timestamp() where user_id = ?";
+    pdo_execute($query, $name, $username, $gender, $email, $images, $address, $phone, $date, $id);
+}
+function Update_users($name, $username,$password, $email, $images, $address, $phone, $date, $id)
+{
+    $query = "UPDATE users SET name = ? , username = ?,password = ? , email = ?, images = ?, address = ?, phone = ?, date = ?, updated_at = current_timestamp() where user_id = ?";
+    pdo_execute($query ,$name, $username,$password, $email, $images, $address, $phone, $date, $id);
 }
 
 function getinfo($client) {
@@ -148,4 +163,3 @@ function getinfo($client) {
         }
     }
 }
-?>

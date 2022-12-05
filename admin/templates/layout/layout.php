@@ -8,7 +8,10 @@
     <title><?= $VIEW_TITLE ?></title>
 
     <!-- TAILWIND -->
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 
     <!-- CSS -->
     <link rel="stylesheet" href="../layout/assets/css/side.css">
@@ -31,7 +34,8 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
-
+    <script src="//cdn.ckeditor.com/4.20.1/standard/ckeditor.js"></script>
+    
 </head>
 
 <body>
@@ -96,8 +100,23 @@
     });
     </script>
 
+<script src="../../layout/assets/js/main.js"></script>
+            <script src="../../layout/assets/js/list-room.js"></script>
+            <script src="jquery-3.6.0.min.js"></script>
+            <script>
+                $("select").click(function() {
+                    var open = $(this).data("isopen");
+                    if (open) {
+                        window.location.href = $(this).val()
+                    }
+                    //set isopen to opposite so next time when use clicked select box
+                    //it wont trigger this event
+                    $(this).data("isopen", !open);
+                });
+            </script>
 
-
+            <script src="../../layout/assets/js/main.js"></script>
+            <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
 </body>
 
 </html>

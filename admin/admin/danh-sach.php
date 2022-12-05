@@ -1,191 +1,80 @@
-<div class="content">
-    <div>
 
-        <div class="form-group shadow-lg flex">
-            <i class="fa-solid fa-magnifying-glass mt-2"></i> <input type="text" name="find" class="form-control w-50">
-            <button class="form-control w-25 bg-success ms-5">Tìm Kiếm</button>
-        </div>
-    </div>
-    <div class="border border-[#D0D7DE] fs-6">
-        <div class="pb-4 m-4">
-            <h1 class="fs-6 text-primary"><i class="fa-solid fa-hotel mr-4"></i>Sơ Đồ Phòng</h1>
-            <div class="col-sm-2">
-                <label for="">Loại Phòng:</label>
-                <select name="" id="" class="form-control">
-                    <option value="">Tất Cả</option>
-                    <option value="">Tất Cả</option>
-                    <option value="">Tất Cả</option>
-                    <option value="">Tất Cả</option>
-                    <option value="">Tất Cả</option>
-                </select>
+
+        <section class="dashboard">
+            <div class="w-full flex justify-between p-3 items-center">
+                <i class="uil uil-bars sidebar-toggle text-3xl"></i>
+
+                <div class="search-box">
+                    <i class="uil uil-search"></i>
+                    <input type="text" placeholder="Search here..." class="border-sky-400 px-3">
+                </div>
+
+                <img src="./assets/img/anh3.jpg" alt="" width="50px" class="rounded-full">
             </div>
-            <div class="my-4 row">
-                <label for="">Trạng Thái Phòng</label>
-                <div class="col-sm-2 m-4 hover-bg-[#78C2B5]">
-                    <div>
-                        <button
-                            class="border btn btn-outline-success border-[#D0D7DE] w-100 h-100 text-primary px-3 py-1 shadow-lg">
-                            Tất Cả
-                        </button>
+
+            <div class="content">
+                <div class="danh_sach">
+                    <h3>
+                        DANH SÁCH ADMIN
+                    </h3>
+<form action="" method="post">
+                    <div class="action flex items-center">
+                        <a href="c_admin.php?add-admin" class="mx-3">Thêm</a>
+                        <button type="submit" name="delete_admin" onclick="return confirm('Bạn muốn xóa danh mục ko?')">Xóa Nhân Viên</button>
                     </div>
+
+                    <table>
+                        <tr>
+                            <th>#</th>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <!-- <th>PassWord</th> -->
+                            <th>Gender</th>
+                            <th>Email</th>
+                            <th>Images</th>
+                            <th>Address</th>
+                            <th>Phone</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <!-- <th>Created_at</th>
+                            <th>Updated_at</th> -->
+                            <th></th>
+                        </tr>
+                        <?php foreach ($admin as $key => $value) : ?>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="admin[]" value="<?php echo $value->admin_id?>">
+                            </td>
+                            <td><?php echo $value->admin_id?></td>
+                            <td><?php echo $value->name?></td>                         
+                            <!-- <td>123</td> -->
+                            <td><?php echo $value->gender?></td>
+                            <td><?php echo $value->email?></td>
+                            <td><img src="../layout/assets/img/<?php echo $value->thumbnail?>" alt="" width="50px"></td>
+                            <td><?php echo $value->address?></td>
+                            <td><?php echo $value->phone?></td>
+                            <td>11/11/2022</td>
+                            <td>
+                                <div class="action flex items-center">
+                                    <a href="c_admin.php?edit_admin&id=<?php echo $value->admin_id ?>" class="mx-3">Sửa</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <?php endforeach ?>
+                    </table>
                 </div>
-                <div class="col-sm-2 m-4">
-                    <div>
-                        <button
-                            class="border btn btn-outline-danger border-[#D0D7DE] w-100 h-100 text-primary px-3 py-1 shadow-lg">
-                            <i class="fa-solid fa-person-walking-luggage text-primary"></i>
-                            Phòng Đang Đến
-                        </button>
-                    </div>
-                </div>
-                <div class="col-sm-2 m-4">
-                    <div>
-                        <button
-                            class="border border-[#D0D7DE] btn btn-outline-warning btn btn-outline-danger w-100 h-100 text-primary px-3 py-1 shadow-lg">
-                            <i class="fa-solid fa-person-walking-luggage text-success"></i>
+                </form>
+                <div class="bieu_do">
+                    <h3>
+                        CÁC THỐNG KÊ VỀ ADMIN
+                    </h3>
 
-                            phòng Đang Sửa
-                        </button>
-                    </div>
-                </div>
-                <div class="col-sm-2 m-4">
-                    <div>
-                        <button
-                            class="border border-[#D0D7DE] btn btn-outline-warning btn btn-outline-danger w-100 h-100 text-primary px-3 py-1 shadow-lg">
-                            <i class="fa-solid fa-person-walking-luggage text-success"></i>
+                    <div id="myfirstchart" style="height: 250px;"></div>
 
-
-                            phòng Đang Sửa
-                        </button>
-                    </div>
-                </div>
-                <div class="col-sm-2 m-4">
-                    <div>
-                        <button
-                            class="border border-[#D0D7DE] btn btn-outline-warning btn btn-outline-danger w-100 h-100 text-primary px-3 py-1 shadow-lg">
-                            <i class="fa-solid fa-person-walking-luggage text-success"></i>
-
-
-                            phòng Đang Sửa
-                        </button>
-                    </div>
-                </div>
-                <div class="col-sm-2 m-4">
-                    <form action="" method="post">
-                        <div>
-                            <a
-                                class="border border-[#D0D7DE] btn btn-outline-warning btn btn-outline-danger w-100 h-100 text-primary px-3 py-1 shadow-lg">
-                                <i class="fa-solid fa-person-walking-luggage text-success"></i>
-
-
-                                Sửa
-                            </a>
-                        </div>
-                </div>
-                <div class="col-sm-2 m-4">
-                    <div>
-                        <a href="c_room.php?add-room"
-                            class="border border-[#D0D7DE] btn btn-outline-warning btn btn-outline-danger w-100 h-100 text-primary px-3 py-1 shadow-lg">
-                            <i class="fa-solid fa-person-walking-luggage text-success"></i>
-                            Thêm
-                        </a>
-                    </div>
-                </div>
-                <div class="col-sm-2 m-4">
-
-                    <div>
-                        <button type="submit" name="delete_room" onclick="return confirm('Bạn muốn xóa danh mục ko?')"
-                            class="border border-[#D0D7DE] btn btn-outline-warning btn btn-outline-danger w-100 h-100 text-primary px-3 py-1 shadow-lg">
-                            <i class="fa-solid fa-person-walking-luggage text-success"></i>
-                            Xóa
-                        </button>
-                    </div>
                 </div>
             </div>
-            <div>
-                *<a class="text-primary px-4">di chuyển con trỏ chọn hình ảnh để xem thông tin phòng</a>
-            </div>
-        </div>
-        <form action="/danh-muc/index.php" method="post">
-            <div class="row px-5">
-                <?php foreach ($roomAll as $key => $value) : ?>
+        </section>
 
-                <div class="col-sm-1  py-2 text-center py-5 h-25 w-25 <?php if($value->status == 1){
-                        echo "bg-danger";
-                    }else{
-                        echo "bg-success";
-                    }
-                    
-                    ?> bg-success border border-[#D0D7DE] shadow-lg rounded">
-                    <td><input type="checkbox" name="room[]" class="rounded" value="<?= $value->room_id ?>" />
-                        <a href="c_room.php?edit-room&id=<?php echo $value->room_id ?>"><i
-                                class="fa-solid fa-pen-to-square"></i>Sửa</a>
-                    </td>
-                    <div class="  text-white">
-                        <h1 class="fs-4"><?php echo $value->name?></h1>
-                        <h2 class="fs-5"><?php if($value->status == 1){
-                        echo "Tạm Khóa";
-                    }else{
-                        echo "Kích Hoạt";
-                    }
-                    
-                    ?></h2>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <h1 class="fs-4"><?php echo $value->quantity?></h1>
-                                <i class="fa-solid fa-user"></i><i class="fa-solid fa-user"></i><i
-                                    class="fa-solid fa-user"></i><i class="fa-solid fa-user"></i>
-                            </div>
 
-                            <div class="col-sm-6 bg-light rounded-circle w-25 text-center  ms-5">
-                                <h3 class="fs-5 "><i class="fa-solid fa-check text-success"></i></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    </main>
 
-                <?php endforeach ?>
-        </form>
-    </div>
-</div>
-<div class="col-sm-6">
-    <h1 class="fs-5 text-center">Biểu Đồ Thống Kê Đặt Phòng Theo Tháng</h1>
-    <div id="myfirstchart" style="height: 250px;"></div>
-    <script>
-    new Morris.Donut({
-        // ID of the element in which to draw the chart.
-        element: 'myfirstchart',
-        // Chart data records -- each entry in this array corresponds to a point on
-        // the chart.
-        data: [{
-                year: '2008',
-                value: 20
-            },
-            {
-                year: '2009',
-                value: 10
-            },
-            {
-                year: '2010',
-                value: 5
-            },
-            {
-                year: '2011',
-                value: 5
-            },
-            {
-                year: '2012',
-                value: 20
-            }
-        ],
-        // The name of the data record attribute that contains x-values.
-        xkey: 'year',
-        // A list of names of data record attributes that contain y-values.
-        ykeys: ['value'],
-        // Labels for the ykeys -- will be displayed when you hover over the
-        // chart.
-        labels: ['Value']
-    });
-    </script>
-</div>
-</div>

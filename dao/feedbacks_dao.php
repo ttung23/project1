@@ -1,12 +1,15 @@
 <?php
 function loadAll_feedbacks(){
-    $query = "select * from feedbacks order by feedbacks desc";
+    $query = "SELECT fb.*, us.username, ad.name as admin_name, room.name as room_name 
+    FROM `feedbacks` fb LEFT JOIN users us ON fb.id_user = us.user_id 
+    LEFT JOIN admins ad on fb.id_admin = ad.admin_id 
+    LEFT JOIN room ON fb.id_room = room.room_id";
     $feedbacks = pdo_query_all($query);
     return $feedbacks;
 }
 
 function loadAll_feedbacks_user($id,$idroom){
-    $query = "select * from feedbacks order by feedbacks where id_user = '$id' and id_room = '$idroom' desc";
+    $query = "SELECT * from feedbacks order by feedbacks where id_user = '$id' and id_room = '$idroom' desc";
     $feedbacks = pdo_query_one($query);
     return $feedbacks;
 }

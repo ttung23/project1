@@ -1,4 +1,5 @@
 <?php
+    session_start();
     // MODEL
     require_once '../global.php';
     require_once '../../dao/pdo.php';
@@ -11,11 +12,15 @@
     require_once '../../dao/user_dao.php';
 
     // CONTROLLER
-    $VIEW_TITLE = "Bảng điều khiển";
-    $VIEW_CSS = 'index-admin.css';
-    $VIEW_ADMIN_NAME = '../dashboard/admin_index.php';
+    // if (isset($_SESSION['admin'])) {
+        $VIEW_TITLE = "Bảng điều khiển";
+        $VIEW_CSS = 'index-admin.css';
+        $VIEW_ADMIN_NAME = '../dashboard/admin_index.php';
 
-    include_once '../templates/layout/layout.php';
+        include_once '../templates/layout/layout.php';
+    // } else {
+    //     header("location: ../index.php");
+    // }
 
 
 ?>

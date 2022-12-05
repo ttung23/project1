@@ -40,10 +40,10 @@
         Tuyển dụng <br>
         Về chúng tôi <br>
         <h2>Theo dõi chúng tôi </h2>
-        Twitter <br>
-        Facebook <br>
-        Instagram <br>
-        Youtube <br>
+        <i class="fa-brands fa-twitter"></i> Twitter <br>
+        <i class="fa-brands fa-facebook"></i> Facebook <br>
+        <i class="fa-brands fa-instagram"></i> Instagram <br>
+        <i class="fa-brands fa-youtube"></i> Youtube <br>
     </div>
     <div class="ft-3">
         <h2>Sản phẩm</h2>
@@ -70,14 +70,16 @@
         <img src="../layout/assets/img/logo/gg.svg" alt="">
         <img src="../layout/assets/img/logo/ap.svg" alt="">
     </div>
+    <script src="assets/js/main.js"></script>
+    <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function(event) { 
-            var scrollpos = localStorage.getItem('scrollpos');
-            if (scrollpos) window.scrollTo(0, scrollpos);
-        });
- 
-        window.onbeforeunload = function(e) {
-            localStorage.setItem('scrollpos', window.scrollY);
-        };
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var scrollpos = localStorage.getItem('scrollpos');
+        if (scrollpos) window.scrollTo(0, scrollpos);
+    });
+
+    window.onbeforeunload = function(e) {
+        localStorage.setItem('scrollpos', window.scrollY);
+    };
     </script>
 </div>
