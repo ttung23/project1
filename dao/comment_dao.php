@@ -1,7 +1,7 @@
 <?php
 function load_comment_database()
 {
-    $sql = "SELECT users.name, vr.vote_room_id, vr.comment, vr.star, room.name as room_name, vr.created_at 
+    $sql = "SELECT users.name, vr.vote_room_id, vr.comment, vr.star, room.name as room_name, vr.created_at, vr.status 
     FROM room 
     INNER JOIN vote_room vr ON room.room_id = vr.id_room 
     INNER JOIN users ON vr.id_user = users.user_id;";
@@ -21,6 +21,26 @@ function load_room_comment($id)
     $sql = "select * from room where id_category_room=" . $id;
     $room = pdo_query_all($sql);
     return $room;
+}
+
+function load_sum_cmt () {
+    $sql = "SELECT COUNT(*) as tong_cmt FROM `vote_room`";
+    $sum_cmt = pdo_query_one_person($sql);
+    return $sum_cmt;
+}
+
+function load_cmt_by_status ($status) {
+    $sql = "SELECT users.name, vr.vote_room_id, vr.comment, vr.star, room.name as room_name, vr.created_at, vr.status
+    FROM room 
+    INNER JOIN vote_room vr ON room.room_id = vr.id_room 
+    INNER JOIN users ON vr.id_user = users.user_id where vr.status = ?";
+    $sum_cmt = pdo_query_all($sql, $status);
+    return $sum_cmt;
+}
+
+function set_status_cmt ($status, $id_cmt) {
+    $sql = "UPDATE vote_room set status = ?, updated_at = current_timestamp() where vote_room_id = ?";
+    pdo_execute($sql, $status, $id_cmt);
 }
 
 function Insert_conmment($content,$idroom,$id_user)

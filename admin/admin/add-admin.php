@@ -1,20 +1,9 @@
-<section class="dashboard w-full">
-    <div class="w-full flex justify-between p-3 items-center">
-        <i class="uil uil-bars sidebar-toggle text-3xl"></i>
-
-        <div class="search-box">
-            <i class="uil uil-search"></i>
-            <input type="text" placeholder="Search here..." class="border-sky-400 px-3" />
-        </div>
-
-        <img src="./assets/img/anh3.jpg" alt="" width="50px" class="rounded-full" />
-    </div>
-
+<section class="dash-content w-full">
     <div class="content">
         <div class="danh_sach">
-            <h3 class="text-3xl text-sky-500">add Phòng</h3>
-            <div class="flex-from">
-                <form action="" method="post" enctype="multipart/form-data">
+            <h3 class="text-3xl text-sky-500">THÊM QTV</h3>
+            <form action="" method="post" enctype="multipart/form-data">
+                <div class="flex-from">
                     <div>
                         <label for="">ID</label>
                         <input placeholder="ID sẽ tự động nhập" value="" type="text" name="id"
@@ -22,7 +11,7 @@
                     </div>
 
                     <div>
-                        <label for="">Name</label>
+                        <label for="">Tên QTV</label>
                         <input value="<?= $_POST['name_admin'] ?? "" ?>" type="text" name="name_admin"
                             class="border rounded border-sky-400 w-full p-2" />
                         <?php if (isset($err['name_admin'])) { ?>
@@ -30,7 +19,7 @@
                         <?php } ?>
                     </div>
                     <div>
-                        <label for="">email</label>
+                        <label for="">Email</label>
                         <input value="<?= $_POST['email'] ?? "" ?>" type="text" name="email"
                             class="border rounded border-sky-400 w-full p-2" />
                             <?php if (isset($err['email'])) { ?>
@@ -38,21 +27,14 @@
                         <?php } ?>
                     </div>
                     <div>
-                        <label for="">password</label>
+                        <label for="">Mật khẩu</label>
                         <input value="<?= $_POST['password'] ?? "" ?>" type="text" name="password"
                             class="border rounded border-sky-400 w-full p-2" />
                         <?php if (isset($err['password'])) { ?>
                         <span class="text-red-500"><?= $err['password'] ?></span>
                         <?php } ?>
                     </div>
-                    <div>
-                        <label for="">Trạng thái</label>
-                        <select name="status" id="" class="border rounded border-sky-400 w-full p-2">
-                            <option value="0">Đang Sửa</option>
-                            <option value="1">Còn Trống</option>
-                            <option value="2">Đã Hết Phòng</option>
-                        </select>
-                    </div>
+
                     <div>
                         <label for="">Địa Chỉ</label>
                         <input placeholder="" value="<?= $_POST['address'] ?? "" ?>" type="text" name="address"
@@ -61,14 +43,16 @@
                         <span class="text-red-500"><?= $err['address'] ?></span>
                         <?php } ?>
                     </div>
+
                     <div>
                         <label for="">Số Điện Thoại</label>
-                        <input placeholder="" value=" <?= $_POST['phone'] ?? "" ?>" type="text" name="phone"
+                        <input placeholder="" value="<?= $_POST['phone'] ?? "" ?>" type="text" name="phone"
                             class="border rounded border-sky-400 w-full p-2" />
-                            <?php if (isset($err['phone'])) { ?>
-                        <span class="text-red-500"><?= $err['phone'] ?></span>
+                        <?php if (isset($err['phone'])) { ?>
+                            <span class="text-red-500"><?= $err['phone'] ?></span>
                         <?php } ?>
                     </div>
+
                     <div>
                         <label for="">Giới Tính</label>
                         <input value="<?= $_POST['gender'] ?? "" ?>" type="text" name="gender"
@@ -77,35 +61,37 @@
                         <span class="text-red-500"><?= $err['gender'] ?></span>
                         <?php } ?>
                     </div>
+
                     <div>
-                        <label for="">Images</label>
+                        <label for="">Ảnh</label>
                         <input type="file" name="image" class="w-full p-2" />
                         <?php if (isset($err['img'])) { ?>
-                        <span class="text-red-500"><?= $err['img'] ?></span>
+                            <span class="text-red-500"><?= $err['img'] ?></span>
                         <?php } ?>
                     </div>
-                
 
                     <div>
-                        <label for="">quyền</label>
-                 <select name="permission">
-                    <?php foreach ($per as $key => $value) : ?>
-                             
-                            <option value="<?php echo $value->permission_id?>"><?php echo $value->name?></option>
-                            <?php endforeach ?>
-                  
-
+                        <label for="">Chức vụ</label>
+                        <select name="id_permission" id="" class="border rounded border-sky-400 w-full p-2">
+                            <?php foreach ($permission as $value) { ?>
+                                <option value="<?= $value->permission_id ?>"><?= $value->name ?></option>
+                            <?php } ?>
                         </select>
+                        <?php if (isset($err['img'])) { ?>
+                            <span class="text-red-500"><?= $err['img'] ?></span>
+                        <?php } ?>
                     </div>
-                    <div class="row-start-3 col-span-3 flex justify-between">
-                        <button name="add_admin" type="submit" class="border p-3 bg-blue-500 text-white rounded">
-                            Theem Phòng
+            
+                    <div class="col-span-3 flex justify-between">
+                        <button name="add_admin" type="submit" class="p-3 bg-blue-500 text-white rounded">
+                            Thêm QTV
                         </button>
-                        <a class="inline-block border p-3 bg-blue-500 text-white rounded" href="../room/c_room.php">Xem
+                        <a class="inline-block p-3 bg-blue-500 text-white rounded" href="../room/c_room.php">Xem
                             danh sách</a>
                     </div>
-                </form>
-            </div>
+                
+                </div>
+            </form>
         </div>
     </div>
 </section>

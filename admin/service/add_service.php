@@ -1,28 +1,18 @@
-<section class="dashboard w-full">
-    <div class="w-full flex justify-between p-3 items-center">
-        <i class="uil uil-bars sidebar-toggle text-3xl"></i>
-
-        <div class="search-box">
-            <i class="uil uil-search"></i>
-            <input type="text" placeholder="Search here..." class="border-sky-400 px-3" />
-        </div>
-
-        <img src="./assets/img/anh3.jpg" alt="" width="50px" class="rounded-full" />
-    </div>
-
+<section class="dash-content w-full">
     <div class="content">
         <div class="danh_sach">
-            <h3 class="text-3xl text-sky-500">Thêm Danh Mục</h3>
+            <h3 class="text-3xl text-sky-500">THÊM DỊCH VỤ</h3>
 
-            <div class="flex-from">
-                <form action="" method="post" enctype="multipart/form-data">
+            <form action="" method="post" enctype="multipart/form-data">
+                <div class="flex-from">
+                
                     <div>
                         <label for="">ID</label>
                         <input placeholder="ID sẽ tự động nhập" type="text" name="id" disabled class="border rounded border-sky-400 w-full p-2" />
                     </div>
 
                     <div>
-                        <label for="">Name</label>
+                        <label for="">Tên danh mục</label>
                         <input value="<?= $_POST['name_service'] ?? "" ?>" type="text" name="name_service" class="border rounded border-sky-400 w-full p-2" />
                         <?php if (isset($err['name_service'])) { ?>
                             <span class="text-red-500"><?= $err['name_service'] ?></span>
@@ -30,18 +20,10 @@
                     </div>
 
                     <div>
-                        <label for="">Images</label>
+                        <label for="">Ảnh</label>
                         <input type="file" name="image" class="w-full p-2" />
                         <?php if (isset($err['img'])) { ?>
                             <span class="text-red-500"><?= $err['img'] ?></span>
-                        <?php } ?>
-                    </div>
-
-                    <div>
-                        <label for="">Mô tả</label>
-                        <textarea class="border rounded border-sky-400 w-full p-2" name="description" id="" cols="30" rows="5"><?= $_POST['description'] ?? "" ?></textarea>
-                        <?php if (isset($err['description'])) { ?>
-                            <span class="text-red-500"><?= $err['description'] ?></span>
                         <?php } ?>
                     </div>
 
@@ -54,18 +36,10 @@
                     </div>
 
                     <div>
-                        <label for="">Số lượng</label>
+                        <label for="">Số lượng người</label>
                         <input value="<?= $_POST['quantity'] ?? "" ?>" type="text" name="quantity" class="border rounded border-sky-400 w-full p-2" />
                         <?php if (isset($err['quantity'])) { ?>
                             <span class="text-red-500"><?= $err['quantity'] ?></span>
-                        <?php } ?>
-                    </div>
-
-                    <div>
-                        <label for="">Trạng thái</label>
-                        <input value="<?= $_POST['status'] ?? "" ?>" type="text" name="status" class="border rounded border-sky-400 w-full p-2" />
-                        <?php if (isset($err['status'])) { ?>
-                            <span class="text-red-500"><?= $err['status'] ?></span>
                         <?php } ?>
                     </div>
 
@@ -77,16 +51,25 @@
                         <?php } ?>
                     </div>
 
-                    <div class="row-start-3 col-span-3 flex justify-between">
-                        <button name="btn_add_service" type="submit" class="border p-3 bg-blue-500 text-white rounded">
+                    <div class="col-span-3">
+                        <label for="">Mô tả</label>
+                        <textarea class="border rounded border-sky-400 w-full p-2" name="description" id="ten" cols="30"
+                            rows="5"><?= $_POST['description'] ?? "" ?></textarea>
+                        <script>CKEDITOR.replace('ten');</script>
+
+                        <?php if (isset($err['description'])) { ?>
+                        <span class="text-red-500"><?= $err['description'] ?></span>
+                        <?php } ?>
+                    </div>
+
+                    <div class="col-span-3 flex justify-between">
+                        <button name="btn_add_service" type="submit" class="p-3 bg-blue-500 text-white rounded">
                             Thêm dịch vụ
                         </button>
-                        <a class="inline-block border p-3 bg-blue-500 text-white rounded" href="../danh-muc/c_danh_muc.php">Xem danh sách</a>
+                        <a class="inline-block p-3 bg-blue-500 text-white rounded" href="../danh-muc/c_danh_muc.php">Xem danh sách</a>
                     </div>
-                </form>
-
-
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 </section>

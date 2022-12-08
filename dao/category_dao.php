@@ -11,6 +11,17 @@ function loadOne_category ($id) {{
     return $listcategories;
 }}
 
+function load_cate_by_status ($status) {
+    $query = "select * from categories_room where status = ?";
+    $listcategories = pdo_query_all($query, $status);
+    return $listcategories;
+}
+
+function set_status_cate ($status, $id_cate) {
+    $sql = "UPDATE categories_room set status = ? where categories_id = ?";
+    pdo_execute($sql, $status, $id_cate);
+}
+
 function category_remove_by_id ($cate_id){
     $query = "delete from categories_room where categories_id= ?";
     pdo_execute($query, $cate_id);

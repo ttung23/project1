@@ -1,0 +1,65 @@
+.dashboard .top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--panel-color);
+    transition: var(--tran-05);
+    border-radius: 7px;
+}
+nav.close ~ .dashboard .top{
+    left: 73px;
+    width: calc(100% - 73px);
+}
+.dashboard .top .sidebar-toggle{
+    font-size: 26px;
+    color: var(--text-color);
+    cursor: pointer;
+}
+.dashboard .top .search-box{
+    position: relative;
+    height: 45px;
+    max-width: 600px;
+    width: 100%;
+    margin: 0 30px;
+}
+.top .search-box input{
+    position: absolute;
+    border: 1px solid var(--border-color);
+    background-color: var(--panel-color);
+    padding: 0 25px 0 50px;
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+    color: var(--text-color);
+    font-size: 15px;
+    font-weight: 400;
+    outline: none;
+}
+
+.top div span.name {
+    color: var(--text-color);
+}
+
+.top img{
+    width: 30px;
+    border-radius: 50%;
+}
+
+nav ~ .dashboard .top{
+    left: 73px;
+    width: calc(100% - 73px);
+}
+nav.close ~ .dashboard .top{
+    left: 250px;
+    width: calc(100% - 250px);
+}
+
+nav ~ .dashboard .top{
+    left: 0;
+    width: 100%;
+}
+nav.close ~ .dashboard .top{
+    left: 0;
+    width: 100%;
+}

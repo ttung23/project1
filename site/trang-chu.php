@@ -90,89 +90,51 @@
      <div class="room">
          <a style="background-color: #0770cd; color: white;" href="">Tất cả các phòng</a>
          <?php foreach ($categoriesAll as $key => $value) : ?>
-         <a href="">Phòng <?php echo $value->name ?></a>
+             <a href="">Phòng <?php echo $value->name ?></a>
          <?php endforeach ?>
      </div>
      <div class="flex-choose">
          <?php foreach ($roomAll as $key => $value) : ?>
-         <div class="chitiet">
-             <figure class="snip0016">
-                 <img src="../layout/assets/img/product/<?php echo $value->thumbnail ?>" alt="sample41" />
-                 <figcaption>
-                     <p class="p">Diện tích: <?php echo $value->acreage ?></p>
-                     <p class="p">Tầng: <?php echo $value->location ?></p>
-                     <p class="p"> <?php echo $value->sv ?> dịch vụ đi kèm</p>
-                     <p>
-                     <p class="p1"><i class="fa-solid fa-thumbs-up"></i><?php echo $value->likes ?> Lượt like</p>
-                     <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> <?php echo $value->tbl ?> Lượt Comment
+             <div class="chitiet">
+                 <figure class="snip0016">
+                     <img style="width: 300px; height: 220px;" src="../layout/assets/img/product/<?php echo $value->thumbnail ?>" alt="sample41" />
+                     <figcaption>
+                         <p class="p">Diện tích: <?php echo $value->acreage ?></p>
+                         <p class="p">Tầng: <?php echo $value->location ?></p>
+                         <p class="p"> <?php echo $value->sv ?> dịch vụ đi kèm</p>
+                         <p>
+                         <p class="p1"><i class="fa-solid fa-thumbs-up"></i><?php echo $value->likes ?> Lượt like</p>
+                         <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> <?php echo $value->tbl ?> Lượt Comment
+                         </p>
+                         <p class="p1"><i class="fa-solid fa-eye"></i> <?php echo $value->view ?> lượt xem</p>
+                         </p>
+                         <a href="#"></a>
+                     </figcaption>
+                 </figure>
+                 <div class="sao">
+                     <a class="a0" href="<?= SITE_URL . "?product-detail" ?>"><?php echo $value->name ?></a>
+                     <p class="diachi">
+                         <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
                      </p>
-                     <p class="p1"><i class="fa-solid fa-eye"></i> <?php echo $value->view ?> lượt xem</p>
-                     </p>
-                     <a href="#"></a>
-                 </figcaption>
-             </figure>
-             <div class="sao">
-                 <a class="a0" href="<?= SITE_URL . "?product-detail" ?>"><?php echo $value->name ?></a>
-                 <p class="diachi">
-                     <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
-                 </p>
-                 <div class="text-dg">
-                     <a class="a" href=""><?php echo $value->star ?> tuyệt vời</a><br>
-                     <a class="a1"
-                         href="<?= SITE_URL . "?product-detail&id=$value->room_id&iddm=$value->id_category_room" ?>">Qua
-                         1257 đánh giá</a>
+                     <div class="text-dg">
+                         <a class="a" href=""><?php echo $value->star ?> tuyệt vời</a><br>
+                         <a class="a1" href="<?= SITE_URL . "?product-detail&id=$value->room_id&iddm=$value->id_category_room" ?>">Qua
+                             1257 đánh giá</a>
+                     </div>
+                     <div class="datphong-index">
+                         <a href="<?= SITE_URL . "?product-detail&id=$value->room_id&iddm=$value->id_category_room" ?>">Xem
+                             chi tiết</a>
+                     </div>
                  </div>
-                 <div class="datphong-index">
-                     <a href="<?= SITE_URL . "?product-detail&id=$value->room_id&iddm=$value->id_category_room" ?>">Xem
-                         chi tiết</a>
+                 <div class="i">
+                     <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
+                     <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
+                     <i class="fa-sharp fa-solid fa-star"></i>
+                     <span><?php echo $value->price ?></span>
                  </div>
              </div>
-             <div class="i">
-                 <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
-                 <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
-                 <i class="fa-sharp fa-solid fa-star"></i>
-                 <span><?php echo $value->price ?></span>
-             </div>
-         </div>
          <?php endforeach ?>
-         <!-- <div class="page-number">
-                            <ul>
-                                <?php if ($current_page > 1) { ?>
-                                    <li>
-                                        <a href="?perpage=<?= $limit ?>&page=<?= $current_page - 1 ?>"><</a>
-                                    </li>
-                                <?php } ?>
-
-                                <?php for ($i = 1; $i <= $total_pages; $i++) : ?>
-                                    <?php if ($current_page != $i) { ?>
-                                        <?php if ($i > $current_page - 3 && $i < $current_page + 3) { ?>
-                                            <li>
-                                                <a href="?perpage=<?= $limit ?>&page=<?= $i ?>"><?= $i ?></a>
-                                            </li>
-                                        <?php } ?>
-                                    <?php } else { ?>
-                                        <li>
-                                            <strong><?= $i ?></strong>
-                                        </li>
-                                    <?php } ?>
-                                <?php endfor ?>
-
-                                <?php if ($current_page < $total_pages) { ?>
-                                    <li>
-                                        <a href="?perpage=<?= $limit ?>&page=<?= $current_page + 1 ?>">></a>
-                                    </li>
-                                <?php } ?>
-
-                                <!-- <li>
-                                    <a href="?perpage=9&page=2">2</a>
-                                </li>
-
-                                <li>
-                                    <a href="?perpage=9&page=3">></a>
-                                </li> -->
-         </ul>
      </div>
- </div>
 
  </div>
  <!-- dịch vụ khách sạn -->
@@ -185,41 +147,38 @@
      <div class="room-dv">
          <a style="background-color: #ff6d70; color: white;" href="">Tất cả các dịch vụ</a>
          <?php foreach ($service as $key => $value) : ?>
-         <a href="">Phòng <?php echo $value->name ?></a>
+             <a href="">Phòng <?php echo $value->name ?></a>
          <?php endforeach ?>
 
      </div>
      <div class="flex-dv">
          <?php foreach ($service as $key => $value) : ?>
-         <div class="chitiet-dv">
-             <figure class="snip0016">
-                 <img src="../layout/assets/img/dichvu/<?php echo $value->images ?>" alt="sample41" />
-                 <figcaption>
-                     <p class="p"><?php echo $value->status ?></p>
-                     <p class="p">Số Lượng: <?php echo $value->quantity ?></p>
-                     <p class="p">Giá: <?php echo $value->price ?></p>
-                     <a href="#"></a>
-                 </figcaption>
-             </figure>
-             <div class="sao-dv">
-                 <a class="a0" href=""> <?php echo $value->name ?></a>
-                 <p class="diachi-dv">
-                     <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
-                 </p>
-                 <div class="text-dg">
-                     <a class="a" href="">8.9 tuyệt vời</a><br>
-                     <a class="a1" href="">Qua 144 phản hổi</a>
-                 </div>
-                 <div class="datphong-index">
-                     <a href="<?= SITE_URL . "?product-detail&id=$value->room_id&iddm=$value->id_category_room" ?>">Xem
-                         chi tiết</a>
-                 </div>
-             </div>
-             <div class="i">
+             <div class="chitiet-dv">
+                 <figure class="snip0016">
+                     <img style="width: 280px; height: 220px;" src="../layout/assets/img/dichvu/<?php echo $value->images ?>" alt="sample41" />
+                     <figcaption>
+                         <p class="p"><?php echo $value->status ?></p>
+                         <p class="p">Số Lượng: <?php echo $value->quantity ?></p>
+                         <p class="p">Giá: <?php echo $value->price ?></p>
+                         <a href="#"></a>
+                     </figcaption>
+                 </figure>
+                 <div class="sao-dv">
+                     <a class="a0" href=""> <?php echo $value->name ?></a>
+                     <p class="diachi-dv">
+                         <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
+                     </p>
+                     <div class="text-dg">
+                         <a class="a" href="">8.9 tuyệt vời</a><br>
+                         <a class="a1" href="">Qua 144 phản hổi</a>
+                     </div>
 
-                 <span> <?php echo $value->price ?></span>
+                 </div>
+                 <div class="i">
+
+                     <span> <?php echo $value->price ?></span>
+                 </div>
              </div>
-         </div>
          <?php endforeach ?>
      </div>
  </div>
@@ -247,48 +206,48 @@
      <div class="room">
          <a style="background-color: #0770cd; color: white;" href="">Tất cả các phòng</a>
          <?php foreach ($categoriesAll as $key => $value) : ?>
-         <a href="">Phòng <?php echo $value->name ?></a>
+             <a href="">Phòng <?php echo $value->name ?></a>
          <?php endforeach ?>
      </div>
      <div class="flex-choose">
          <?php foreach ($roomAll as $key => $value) : ?>
-         <div class="chitiet">
-             <figure class="snip0016">
-                 <img src="../layout/assets/img/product/<?php echo $value->thumbnail ?>" alt="sample41" />
-                 <figcaption>
-                     <p class="p"><?php echo $value->acreage ?></p>
-                     <p class="p">Tầng: <?php echo $value->location ?></p>
-                     <p class="p"> <?php echo $value->sv ?> dịch vụ đi kèm</p>
-                     <p>
-                     <p class="p1"><i class="fa-solid fa-thumbs-up"></i><?php echo $value->likes ?></p>
-                     <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> <?php echo $value->tbl ?> Lượt Comment
+             <div class="chitiet">
+                 <figure class="snip0016">
+                     <img style="width: 300px; height: 220px;" src="../layout/assets/img/product/<?php echo $value->thumbnail ?>" alt="sample41" />
+                     <figcaption>
+                         <p class="p"><?php echo $value->acreage ?></p>
+                         <p class="p">Tầng: <?php echo $value->location ?></p>
+                         <p class="p"> <?php echo $value->sv ?> dịch vụ đi kèm</p>
+                         <p>
+                         <p class="p1"><i class="fa-solid fa-thumbs-up"></i><?php echo $value->likes ?></p>
+                         <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> <?php echo $value->tbl ?> Lượt Comment
+                         </p>
+                         <p class="p1"><i class="fa-solid fa-eye"></i> <?php echo $value->view ?> lượt xem</p>
+                         </p>
+                         <a href="#"></a>
+                     </figcaption>
+                 </figure>
+                 <div class="sao">
+                     <a class="a0" href=""><?php echo $value->name ?></a>
+                     <p class="diachi">
+                         <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
                      </p>
-                     <p class="p1"><i class="fa-solid fa-eye"></i> <?php echo $value->view ?> lượt xem</p>
-                     </p>
-                     <a href="#"></a>
-                 </figcaption>
-             </figure>
-             <div class="sao">
-                 <a class="a0" href=""><?php echo $value->name ?></a>
-                 <p class="diachi">
-                     <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
-                 </p>
-                 <div class="text-dg">
-                     <a class="a" href=""><?php echo $value->star ?> tuyệt vời</a><br>
-                     <a class="a1" href="">Qua 1257 đánh giá</a>
+                     <div class="text-dg">
+                         <a class="a" href=""><?php echo $value->star ?> tuyệt vời</a><br>
+                         <a class="a1" href="">Qua 1257 đánh giá</a>
+                     </div>
+                     <div class="datphong-index">
+                         <a href="<?= SITE_URL . "?product-detail&id=$value->room_id&iddm=$value->id_category_room" ?>">Xem
+                             chi tiết</a>
+                     </div>
                  </div>
-                 <div class="datphong-index">
-                     <a href="<?= SITE_URL . "?product-detail&id=$value->room_id&iddm=$value->id_category_room" ?>">Xem
-                         chi tiết</a>
+                 <div class="i">
+                     <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
+                     <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
+                     <i class="fa-sharp fa-solid fa-star"></i>
+                     <span><?php echo $value->price ?></span>
                  </div>
              </div>
-             <div class="i">
-                 <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
-                 <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
-                 <i class="fa-sharp fa-solid fa-star"></i>
-                 <span><?php echo $value->price ?></span>
-             </div>
-         </div>
          <?php endforeach ?>
      </div>
  </div>

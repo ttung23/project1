@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 
 require_once '../global.php';
 require_once '../../dao/pdo.php';
@@ -10,62 +12,73 @@ $permission = loadAll_permissions();
 
 if(isset($_GET['add-per'])){
     if(isset($_POST['add_per'])){
-             $name_per = $_POST['name_per'];
-            $description = $_POST['description'];
-            $err=[];
-    
-            if ($name_per == "") {
-                $err['name_per'] = "Bạn chưa nhập tên Phòng";
-            }    
-            if ($description == "") {
-                $err['description'] = "Bạn chưa nhập mô tả của Phòng";
-            }
-            if (!$err) {
-                $add_room = Insert_permissions($name_per, $description);
-                header('location:c_permission.php');
+        $name_per = $_POST['name_per'];
+        $description = $_POST['description'];
+        $err=[];
+
+        if ($name_per == "") {
+            $err['name_per'] = "Bạn chưa nhập tên chức vụ";
+        }    
+        if ($description == "") {
+            $err['description'] = "Bạn chưa nhập mô tả của chức vụ";
+        }
+        if (!$err) {
+            $add_room = Insert_permissions($name_per, $description);
+            header('location:c_permission.php');
+        }
     }
-}
     $VIEW_TITLE = "Thêm danh mục";
     $VIEW_CSS = 'admin_add_danhmuc.css';
     $VIEW_ADMIN_NAME = 'add-permission.php';
 
-}elseif(isset($_GET['edit-permission'])){
-    
-    $id = $_GET['id'];
-    $permissionone = loadAll_permissionsone($id);
-    if(isset($_POST['edit_permission'])){
-        $id = $_GET['id'];
-        $name_permission = $_POST['name_permission'];
-       $des = $_POST['des'];
-       $err = [];
+} elseif (isset($_GET['edit_per'])){
+    $len_per_edit = count($_SESSION['per_edit']);
 
-       if ($name_permission == "") {
-           $err['name_permission'] = "Bạn chưa nhập tên Phòng";
-       }    
-       if ($des == "") {
-           $err['des'] = "Bạn chưa nhập Giá Phòng";
-       }
-       if (!$err) {
-        $add_room = Update_permissions($name_permission, $des,$id);
-        header('location:c_permission.php');
-}
+    for ($i = 0; $i < $len_per_edit; $i++) {
+        $per_edit[$i] = load_permission_by_id($_SESSION['per_edit'][$i]);
     }
-    $VIEW_TITLE = "Sửa danh mục";
-    $VIEW_CSS = 'admin_add_danhmuc.css';
+
+    if(isset($_POST['edit_permission'])){
+        $name_permission = $_POST['name_permission'];
+        $des = $_POST['des'];
+        $err = [];
+
+        for ($i = 0; $i < $len_per_edit; $i++) {
+            if ($name_permission[$i] == "") {
+                $err['name_permission'][$i] = "Bạn chưa nhập tên chức vụ";
+            }    
+            if ($des[$i] == "") {
+                $err['des'][$i] = "Bạn chưa nhập mô tả cho chức vụ";
+            }
+            if (empty($err)) {
+                $add_room = Update_permissions($name_permission[$i], $des[$i], $per_edit[$i]->permission_id);
+                header('location:c_permission.php');
+            }
+        }
+    }
+    $VIEW_TITLE = "Sửa Thông Tin Chức Vụ";
+    $VIEW_CSS = 'admin_add.css';
     $VIEW_ADMIN_NAME = 'edit-permission.php';
-}else{
+} else {
     if (isset($_POST['delete_per'])) {
         if (isset($_POST['permission'])) {
-            $choose_cate = $_POST['permission'];
+            $choose_per = $_POST['permission'];
     
-            for ($i = 0; $i < count($choose_cate); $i++) {
-                $delete_permission = permissions_remove_by_id($choose_cate[$i]);
+            for ($i = 0; $i < count($choose_per); $i++) {
+                $delete_permission = permissions_remove_by_id($choose_per[$i]);
             }
     
             header('location:c_permission.php');
         }
+    } elseif (isset($_POST['edit_per'])) {
+        if (isset($_POST['permission'])) {
+            $_SESSION['per_edit'] = $_POST['permission'];
+            header("location:c_permission.php?edit_per");
+        } else {
+            header("location:c_permission.php");
+        }
     }
-    $VIEW_TITLE = "Danh sách danh mục";
+    $VIEW_TITLE = "Danh sách chức vụ";
     $VIEW_CSS = 'admin_room.css';
     $VIEW_ADMIN_NAME = '../permission/danh-sach.php';
 }
