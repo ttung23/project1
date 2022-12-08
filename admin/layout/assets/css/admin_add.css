@@ -82,14 +82,14 @@ table tr:nth-child(1) {
 
 /* from thêm danh mục */
 .flex-from {
-  margin-top: 60px;
+  margin: 50px 0;
 }
 
 .flex-from label {
   color: var(--text-color);
 }
 
-.flex-from form {
+.flex-from {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-gap: 60px;

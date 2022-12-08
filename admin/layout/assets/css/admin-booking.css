@@ -26,12 +26,6 @@ body {
     transition: var(--tran-05);
 }
 
-.danh_sach h3 {
-    margin: 20px 0;
-    color: var(--text-color);
-    transition: var(--tran-05);
-}
-
 table,
 th,
 td {
@@ -102,9 +96,12 @@ table tr:nth-child(1) {
 
 }
 
+.danh_sach h3,
 .bieu_do h3 {
-    color: var(--text-color);
     margin: 20px 0;
+    color: var(--text-color);
     transition: var(--tran-05);
+    font-weight: 500;
+    font-size: 24px;
 }
 

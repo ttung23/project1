@@ -59,6 +59,7 @@ th {
     margin: 20px 0;
 }
 
+.action a,
 .action button {
     margin-right: 5px;
     display: inline-block;

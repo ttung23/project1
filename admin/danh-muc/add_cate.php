@@ -3,8 +3,9 @@
         <div class="danh_sach">
             <h3 class="text-3xl text-sky-500">THÊM DANH MỤC</h3>
 
-            <div class="flex-from">
-                <form action="" method="post" enctype="multipart/form-data">
+            <form action="" method="post" enctype="multipart/form-data">
+                <div class="flex-from">
+                
                     <div>
                         <label for="id">ID</label>
                         <input placeholder="ID sẽ tự động nhập" type="text" name="id" id="id" disabled class="border rounded border-sky-400 w-full p-2" />
@@ -19,24 +20,18 @@
                     </div>
 
                     <div>
-                        <label for="status">Trạng thái</label>
-                        <input value="<?= $_POST['status'] ?? "" ?>" type="text" name="status" id="status" class="border rounded border-sky-400 w-full p-2" />
-                        <?php if (isset($err['status'])) { ?>
-                            <span class="text-red-500"><?= $err['status'] ?></span>
-                        <?php } ?>
-                    </div>
-                    <div>
-                        <label for="description">Mô tả</label>
-                        <textarea class="border rounded border-sky-400 w-full p-2" name="description" id="description" cols="30" rows="5"><?= $_POST['description'] ?? "" ?></textarea>
-                        <?php if (isset($err['description'])) { ?>
-                            <span class="text-red-500"><?= $err['description'] ?></span>
-                        <?php } ?>
-                    </div>
-                    <div>
                         <label for="image">Images</label>
                         <input type="file" name="image" id="image" class="w-full p-2" />
                         <?php if (isset($err['img'])) { ?>
                             <span class="text-red-500"><?= $err['img'] ?></span>
+                        <?php } ?>
+                    </div>
+
+                    <div class="col-span-3">
+                        <label for="description">Mô tả</label>
+                        <textarea class="border rounded border-sky-400 w-full p-2" name="description" id="description" cols="30" rows="5"><?= $_POST['description'] ?? "" ?></textarea>
+                        <?php if (isset($err['description'])) { ?>
+                            <span class="text-red-500"><?= $err['description'] ?></span>
                         <?php } ?>
                     </div>
 
@@ -48,10 +43,11 @@
                         </button>
                         <a class="inline-block p-3 bg-blue-500 text-white rounded" href="../danh-muc/c_danh_muc.php">Xem danh sách</a>
                     </div>
-                </form>
+                
 
                 
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 </section>

@@ -3,8 +3,9 @@
         <div class="danh_sach">
             <h3 class="text-3xl text-sky-500">THÊM DỊCH VỤ</h3>
 
-            <div class="flex-from">
-                <form action="" method="post" enctype="multipart/form-data">
+            <form action="" method="post" enctype="multipart/form-data">
+                <div class="flex-from">
+                
                     <div>
                         <label for="">ID</label>
                         <input placeholder="ID sẽ tự động nhập" type="text" name="id" disabled class="border rounded border-sky-400 w-full p-2" />
@@ -67,10 +68,8 @@
                         </button>
                         <a class="inline-block p-3 bg-blue-500 text-white rounded" href="../danh-muc/c_danh_muc.php">Xem danh sách</a>
                     </div>
-                </form>
-
-
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 </section>

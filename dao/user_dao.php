@@ -31,9 +31,9 @@ function loginforgot($username)
     $sql = "select * from users where username = '$username' limit 1";
     $user = pdo_query_all($sql);
 
-        if(is_array($user)){
-            header("Location: loginforgot.php");
-        }
+    if(is_array($user)){
+        header("Location: loginforgot.php");
+    }
 }
 
 function forgot_user ($name, $username, $date, $email, $phone) {
@@ -64,14 +64,27 @@ function loadOne_user($id){
     return $user;
 }
 
-function block_user($user_id){
-    $query = "update users set status = 0 where user_id = ?";
-    pdo_execute($query, $user_id);
+function load_one_user ($id) {
+    $query = "select * from users where user_id = ?";
+    $user = pdo_query_one_person($query, $id);
+    return $user;
 }
 
-function unlock_user($user_id){
-    $query = "update users set status = 1 where user_id = ?";
-    pdo_execute($query, $user_id);
+function load_user_by_status ($status) {
+    $query = "select * from users where status = ?";
+    $listuser = pdo_query_all($query, $status);
+    return $listuser;
+}
+
+function load_sum_users () {
+    $query = "select count(*) as tong_user from users";
+    $listuser = pdo_query_one_person($query);
+    return $listuser;
+}
+
+function set_status_user ($user_id, $status){
+    $query = "UPDATE users set status = ?, updated_at = current_timestamp() where user_id = ?";
+    pdo_execute($query, $user_id, $status);
 }
 
 function list_user_block () {
@@ -84,6 +97,11 @@ function signUp($name, $username, $password, $gender, $email, $images, $address,
     $query = "INSERT into users (name, username, password, gender, email, images, address, phone, date) 
     VALUES (?,?,?,?,?,?,?,?,?)";
     pdo_execute($query, $name, $username, $password, $gender, $email, $images, $address, $phone, $date);
+}
+
+function delete_user ($id_user) {
+    $sql = "DELETE FROM users where user_id = ?";
+    pdo_execute($sql, $id_user);
 }
 
 function Update_user($name, $username, $gender, $email, $images, $address, $phone, $date, $id)

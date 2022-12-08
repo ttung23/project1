@@ -3,14 +3,16 @@ session_start();
 
 require_once '../global.php';
 require_once '../../dao/pdo.php';
-require_once '../../dao/category_dao.php';
-require_once '../../dao/room_dao.php';
-require_once '../../dao/service_dao.php';
 require_once '../../dao/admin_dao.php';
 require_once '../../dao/permission_dao.php';
-$categoryAll = loadAll_categories();
-$per = loadAll_permissions();
-$admin = loadAll_admin();
+
+$permission = loadAll_permissions();
+
+if (isset($_GET['id_permission'])) {
+    $admin = load_admin_by_permission($_GET['id_permission']);
+} else {
+    $admin = loadAll_admin();
+}
 
 if (isset($_GET['add-admin'])) {
     if (isset($_POST['add_admin'])) {
@@ -20,17 +22,18 @@ if (isset($_GET['add-admin'])) {
         $address = $_POST['address'];
         $phone = $_POST['phone'];
         $gender = $_POST['gender'];
-        $status = $_POST['status'];
         $image = $_FILES['image'];
         $image_name = $image['name'];
-        $id_permission = $_POST['permission'];
+        $id_permission = $_POST['id_permission'];
         $err = [];
         if ($name_admin == "") {
-            $err['name_admin'] = "Bạn chưa nhập tên Phòng";
+            $err['name_admin'] = "Bạn chưa nhập tên phòng";
         }
+
         if ($email == "") {
             $err['email'] = "Bạn chưa nhập email";
         }
+
         if ($password == "") {
             $err['password'] = "Bạn chưa nhập password";
         }
@@ -44,10 +47,7 @@ if (isset($_GET['add-admin'])) {
         }
 
         if ($gender == "") {
-            $err['gender'] = "Bạn chưa nhập gender";
-        }
-        if ($status == "") {
-            $err['status'] = "Bạn chưa nhập trạng thái của Phòng";
+            $err['gender'] = "Bạn chưa nhập giới tính";
         }
         $ext = pathinfo($image_name, PATHINFO_EXTENSION);
 
@@ -60,7 +60,7 @@ if (isset($_GET['add-admin'])) {
         }
 
         if (!$err) {
-            $update = Insert_admins($name_admin, $email, $password, $gender, $image_name, $address, $phone, $status, $id_permission);
+            $update = Insert_admins($name_admin, $email, $password, $gender, $image_name, $address, $phone, $id_permission);
 
             if ($image['size'] > 0) {
                 move_uploaded_file($image['tmp_name'], '../../layout/assets/img/admins/' . $image_name);
@@ -70,16 +70,9 @@ if (isset($_GET['add-admin'])) {
         }
     }
     $VIEW_TITLE = "Thêm nhân viên";
-    $VIEW_CSS = 'admin_add_danhmuc.css';
+    $VIEW_CSS = 'admin_add.css';
     $VIEW_ADMIN_NAME = 'add-admin.php';
 } elseif (isset($_GET['edit_admin'])) {
-    // var_dump($_SESSION['admins_edit']);
-    // exit;
-
-    // $id = $_GET['id'];
-
-    // $oneroom = loadOne_admins($id);
-
     $len_admin_edit = count($_SESSION['admins_edit']);
     for ($i = 0; $i < $len_admin_edit; $i++) {
         $admins[$i] = load_Admin($_SESSION['admins_edit'][$i]);
@@ -142,7 +135,7 @@ if (isset($_GET['add-admin'])) {
         }
     }
     $VIEW_TITLE = "Sửa thông tin nhân viên";
-    $VIEW_CSS = 'admin_add_danhmuc.css';
+    $VIEW_CSS = 'admin_add.css';
     $VIEW_ADMIN_NAME = 'edit-admin.php';
 } else {
     if (isset($_POST['delete_admin'])) {

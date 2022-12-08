@@ -7,7 +7,8 @@
             <form action="" method="post">
                 <div class="action">
                     <a class="bg-green-500" href="c_permission.php?add-per">Thêm</a>
-                    <button class="bg-red-500" type="submit" name="delete_per" onclick="return confirm('Bạn muốn xóa danh mục ko?')">Xóa</button>
+                    <button class="bg-yellow-500" name="edit_per" type="submit">Sửa thông tin</button>
+                    <button class="bg-red-500" type="submit" name="delete_per" onclick="return confirm('Bạn muốn xóa chức vụ đã chọn không?')">Xóa</button>
                 </div>
 
                 <table>
@@ -34,14 +35,5 @@
 
             </table>
         </div>
-    </div>
-
-    <div class="bieu_do">
-        <h3>
-            CÁC THỐNG KÊ VỀ CHỨC VỤ
-        </h3>
-
-        <div id="myfirstchart" style="height: 250px;"></div>
-
     </div>
 </div>

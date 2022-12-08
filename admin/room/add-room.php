@@ -3,8 +3,9 @@
         <div class="danh_sach">
             <h3 class="text-3xl text-sky-500">THÊM PHÒNG</h3>
 
-            <div class="flex-from">
-                <form action="" method="post" enctype="multipart/form-data">
+            <form action="" method="post" enctype="multipart/form-data">
+                <div class="flex-from">
+                
                     <div>
                         <label for="">ID</label>
                         <input placeholder="ID sẽ tự động nhập" type="text" name="id" disabled
@@ -58,11 +59,12 @@
                         <span class="text-red-500"><?= $err['location'] ?></span>
                         <?php } ?>
                     </div>
+                    
                     <div>
                         <label for="">Dịch Vụ</label>
                         <select name="service_id" id="" class="border rounded border-sky-400 w-full p-2">
                             <?php foreach ($service as $key => $value) : ?>
-                            <option value="<?php echo $value->service_id ?>"><?php echo $value->name ?></option>
+                                <option value="<?php echo $value->service_id ?>"><?php echo $value->name ?></option>
                             <?php endforeach ?>
                         </select>
                         <?php if (isset($err['service'])) { ?>
@@ -70,14 +72,6 @@
                         <?php } ?>
                     </div>
 
-                    <div>
-                        <label for="">Trạng thái</label>
-                        <select name="status" id="" class="border rounded border-sky-400 w-full p-2">
-                            <option value="0">Đang Sửa</option>
-                            <option value="1">Còn Trống</option>
-                            <option value="2">Đã Hết Phòng</option>
-                        </select>
-                    </div>
                     <div>
                         <label for="">Diện Tích</label>
                         <input value="<?= $_POST['acreage_room'] ?? "" ?>" type="text" name="acreage_room"
@@ -106,7 +100,7 @@
                         <label for="">Mô tả</label>
                         <textarea class="border rounded border-sky-400 w-full p-2" name="description" id="ten" cols="30"
                             rows="5"><?= $_POST['description'] ?? "" ?></textarea>
-      <script>CKEDITOR.replace('ten');</script>
+                        <script>CKEDITOR.replace('ten');</script>
 
                         <?php if (isset($err['description'])) { ?>
                         <span class="text-red-500"><?= $err['description'] ?></span>
@@ -119,8 +113,9 @@
                         <a class="inline-block p-3 bg-blue-500 text-white rounded" href="../room/c_room.php">Xem
                             danh sách</a>
                     </div>
-                </form>
-            </div>
+                
+                </div>
+            </form>
         </div>
     </div>
 </section>

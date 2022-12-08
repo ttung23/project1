@@ -25,7 +25,7 @@
                 </a></li>
             <li><a href="../../admin/comment/c_cmt.php">
                     <i class="uil uil-comment-alt-dots"></i>
-                    <span class="link-name">Quản lý đánh giá</span>
+                    <span class="link-name">Quản lý bình luận</span>
                 </a></li>
             <li><a href="../../admin/service/c_service.php">
                     <i class="uil uil-apps"></i>

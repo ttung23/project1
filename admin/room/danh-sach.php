@@ -36,9 +36,9 @@
                         </div>
 
                         <div class="">
-                            <a class="bg-yellow-500 text-center px-3 py-[12px] shadow-lg w-[200px]">
+                            <button type="submit" name="edit_room" class="bg-yellow-500 text-center px-3 py-[12px] shadow-lg w-[200px]">
                                 Sửa
-                            </a>
+                            </button>
                         </div>
 
                         <div class="">
@@ -108,7 +108,7 @@
                     <!-- thanh toán bằng qr-code -->
                     <div class="thanhtoan_tc max-w-[800px] max-h-[500px] px-3" style="background-color:white">
                         <div class="flex_tt text-center py-3">
-                            <img class="inline-block" src="assets/img/icon/images.png" alt="ảnh logo">
+                            <img class="inline-block" src="../../layout/assets/img/logo/logo_chuong.png" width="50px" alt="ảnh logo">
                             <span class="font-semibold text-[20px]">StayyInn</span>
                         </div>
                         <div class="tt_qr">
@@ -175,13 +175,5 @@
                 </div>
             <?php endforeach ?>
         </div>
-    </div>
-
-    <div class="bieu_do">
-        <h3>
-            Biểu Đồ Thống Kê Đặt Phòng Theo Tháng
-        </h3>
-
-        <div id="myfirstchart" style="height: 250px;"></div>
     </div>
 </div>

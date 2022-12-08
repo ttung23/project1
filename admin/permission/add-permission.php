@@ -2,8 +2,8 @@
     <div class="content">
         <div class="danh_sach">
             <h3 class="text-3xl text-sky-500">THÊM CHỨC VỤ</h3>
-            <div class="flex-from">
-                <form action="" method="post" enctype="multipart/form-data">
+            <form action="" method="post" enctype="multipart/form-data">
+                <div class="flex-from">
                     <div>
                         <label for="">ID</label>
                         <input placeholder="ID sẽ tự động nhập" type="text" name="id" disabled
@@ -15,7 +15,7 @@
                         <input value="<?= $_POST['name_per'] ?? "" ?>" type="text" name="name_per"
                             class="border rounded border-sky-400 w-full p-2" />
                         <?php if (isset($err['name_per'])) { ?>
-                        <span class="text-red-500"><?= $err['name_per'] ?></span>
+                            <span class="text-red-500"><?= $err['name_per'] ?></span>
                         <?php } ?>
                     </div>
 
@@ -26,7 +26,7 @@
                         <script>CKEDITOR.replace('ten');</script>
 
                         <?php if (isset($err['description'])) { ?>
-                        <span class="text-red-500"><?= $err['description'] ?></span>
+                            <span class="text-red-500"><?= $err['description'] ?></span>
                         <?php } ?>
                     </div>
                     <div class="col-span-3 flex justify-between">
@@ -37,8 +37,8 @@
                             href="../permission/c_permission.php">Xem
                             danh sách</a>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 </section>
