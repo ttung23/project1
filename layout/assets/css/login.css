@@ -1,0 +1,86 @@
+.user-dn-admin{
+    position: relative;
+}
+.user-dn-admin i{
+    position: absolute;
+    top:20px;
+    font-size:18px;
+    left: 5px;
+}
+.pass-dn-admin{
+    position: relative;
+}
+.pass-dn-admin i{
+    position: absolute;
+    top:20px;
+    font-size:18px;
+    left: 5px;
+}
+.dn-khac{
+    background-color: #ff3366;
+    padding: 6px;
+    border-radius: 50%;
+    color: white;
+    font-size: 12px;
+    margin-left: 140px;
+}
+.fb-dn-admin{
+    background-color: #3b62a3;
+    width: 140px;
+    height: 30px;
+    border-radius: 4px;
+}
+.fb-dn-admin  i{
+    color: white;
+    font-size: 18px;
+    border-right: 1px solid white;
+    padding-left: 7px;
+    padding-right: 7px;
+    margin-top: 5px;
+}
+.fb-dn-admin span{
+   padding-left: 10px;
+   color: white;
+   font-size: 14px;
+   
+   
+}
+.tw-dn-admin{
+    background-color: #19b0e7;
+    width: 140px;
+    height: 30px;
+    border-radius: 4px;
+}
+.tw-dn-admin  i{
+    color: white;
+    font-size: 18px;
+    border-right: 1px solid white;
+    padding-left: 7px;
+    padding-right: 7px;
+    margin-top: 5px;
+}
+.tw-dn-admin span{
+   padding-left: 10px;
+   color: white;
+   font-size: 14px;
+   
+   
+}
+/* from */
+.form-login{
+    background-image: linear-gradient(-225deg, white 50%, #3ba6e3 50%);
+    margin-top: 40px;
+    border-radius: 5px;
+    box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
+}
+.form-login input{
+    border-radius: 5px;
+}
+.bg-color-login{
+    background-image: linear-gradient(-225deg, white 0%, #3ba6e3 100%);
+    background-image: linear-gradient(to top, white 0%, #3ba6e3 100%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 600px;
+}
+
