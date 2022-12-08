@@ -388,7 +388,7 @@
                             <img src="../layout/assets/img/icon/images.png" alt="">
                             <h2>Stayyin</h2>
                         </div>
-                        <div class="tt_qr">
+                        <div style="margin:10px 20px 50px 20px; padding-bottom:10px;" class="tt_qr">
                             <div class="thanhtoan_qr_code">
                                 <div class="qr_code">
                                     <span style="margin-left:120px;">Thanh toán phòng bằng Mobi backing</span>
@@ -397,32 +397,26 @@
                                     <span style="margin-left: 190px; color: #0770cd; font-size: 18px;">Hướng dẫn thanh
                                         toán ?</span>
                                 </div>
-                                <h4>Chọn ngân hàng</h4>
-                                <div class="nganhang">
 
-                                    <img src="../layout/assets/img/thanhtoan/t7.webp" alt="">
-                                    <img src="../layout/assets/img/thanhtoan/t9.webp" alt="">
-                                    <img src="../layout/assets/img/thanhtoan/t5.webp" alt="">
-                                    <img src="../layout/assets/img/thanhtoan/t4.webp" alt="">
-                                    <img src="../layout/assets/img/thanhtoan/t5.webp" alt="">
-                                    <img src="../layout/assets/img/thanhtoan/t6.webp" alt="">
-                                    <img src="../layout/assets/img/thanhtoan/t7.webp" alt="">
-                                    <img src="../layout/assets/img/thanhtoan/t8.webp" alt="">
-                                    <img src="../layout/assets/img/thanhtoan/t9.webp" alt="">
-                                    <img src="../layout/assets/img/thanhtoan/t10.webp" alt="">
-                                    <img src="../layout/assets/img/thanhtoan/t11.webp" alt="">
-                                    <img src="../layout/assets/img/thanhtoan/t4.webp" alt="">
-                                </div>
+
                             </div>
-                            <div class="thongtin_phong">
-                                <h3>Thông Tin Phòng </h3>
-                                <span>Số phòng :</span><br>
-                                <span>Loại phòng :</span><br>
-                                <span>Số người :</span> <br>
-                                <span>Ảnh phòng</span><br> <br><img style="width: 590px;"
-                                    src="../layout/assets/img/product/tg2.jpg" alt=""><br>
-                                <span>Số tiền phải thanh toán: </span><span style="color: red;"><?php echo $tt ?></span>
+
+                            <div class="nganhang">
+
+                                <img src="../layout/assets/img/thanhtoan/t7.webp" alt="">
+                                <img src="../layout/assets/img/thanhtoan/t9.webp" alt="">
+                                <img src="../layout/assets/img/thanhtoan/t5.webp" alt="">
+                                <img src="../layout/assets/img/thanhtoan/t4.webp" alt="">
+                                <img src="../layout/assets/img/thanhtoan/t5.webp" alt="">
+                                <img src="../layout/assets/img/thanhtoan/t6.webp" alt="">
+                                <img src="../layout/assets/img/thanhtoan/t7.webp" alt="">
+                                <img src="../layout/assets/img/thanhtoan/t8.webp" alt="">
+                                <img src="../layout/assets/img/thanhtoan/t9.webp" alt="">
+                                <img src="../layout/assets/img/thanhtoan/t10.webp" alt="">
+                                <img src="../layout/assets/img/thanhtoan/t11.webp" alt="">
+                                <img src="../layout/assets/img/thanhtoan/t4.webp" alt="">
                             </div>
+
                         </div>
 
                     </div>

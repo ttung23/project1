@@ -16,16 +16,17 @@
     <link rel="stylesheet" href="../layout/assets/css/chi-tiet.css">
     <link rel="stylesheet" href="../layout/assets/css/list-product.css">
     <link rel="stylesheet" href="../layout/assets/css/footer.css">
+    <link rel="stylesheet" href="../layout/assets/css/login.css">
+    <link rel="stylesheet" href="../layout/assets/css/sign_up.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../layout/assets/owlcarousel/assets/owl.carousel.min.css" />
-    <link
-      rel="stylesheet"
-      href="../layout/assets/owlcarousel/assets/owl.theme.default.min.css"
-    />
+    <link rel="stylesheet" href="../layout/assets/owlcarousel/assets/owl.theme.default.min.css" />
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="../layout/assets/owlcarousel/owl.carousel.min.js"></script>
     <script src="../layout/assets/js/slider.js"></script>
+    <script src="../layout/assets/js/mat.js"></script>
+
 </head>
 
 <body>
@@ -47,15 +48,15 @@
             <script src="../layout/assets/js/list-room.js"></script>
             <script src="jquery-3.6.0.min.js"></script>
             <script>
-                $("select").click(function() {
-                    var open = $(this).data("isopen");
-                    if (open) {
-                        window.location.href = $(this).val()
-                    }
-                    //set isopen to opposite so next time when use clicked select box
-                    //it wont trigger this event
-                    $(this).data("isopen", !open);
-                });
+            $("select").click(function() {
+                var open = $(this).data("isopen");
+                if (open) {
+                    window.location.href = $(this).val()
+                }
+                //set isopen to opposite so next time when use clicked select box
+                //it wont trigger this event
+                $(this).data("isopen", !open);
+            });
             </script>
 
             <script src="../layout/assets/js/main.js"></script>

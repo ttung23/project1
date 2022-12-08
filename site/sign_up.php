@@ -1,16 +1,15 @@
-<div class="max-w-4xl mx-auto items-center mt-[150px] shadow shadow-lg bg-blue-300 opacity-90">
+<div class="bg-color-signup ">
 
     <div class="flex justify-center items-center">
-        <div class="w-full">
+        <!-- <div class="w-full">
             <img src="../layout/assets/img/product/p3.webp" alt="" class="w-full">
-        </div>
+        </div> -->
 
-        <div class="w-full">
-            <h1 class="text-center text-uppercase text-4xl text-blue-500">Đăng ký</h1>
-            <form action="" method="post" enctype="multipart/form-data" class="pt-2 px-[100px] bg-blue-300">
-
+        <div class=" mb-5">
+            <form  action="" method="post" enctype="multipart/form-data" class="form-signup pt-2 px-[150px] ">
+            <h1 class="text-center text-uppercase text-4xl text-blue-500 mt-4 mb-3">Đăng ký</h1>
                 <div class="mb-3">
-                    <input value="<?= $_POST['name'] ?? "" ?>" type="text" id="name" name="name" placeholder="Họ và tên" class="border-b-2 w-full py-2 bg-blue-300 border-blue-500 transition ease-in-out m-0 focus:text-black outline-none placeholder:text-blue-500 ">
+                    <input value="<?= $_POST['name'] ?? "" ?>" type="text" id="name" name="name" placeholder="Họ và tên" class="border-b-2 w-full py-2 bg-blue-300 border-blue-500 transition ease-in-out m-0 focus:text-black outline-none placeholder:text-blue-500  ">
                     <?php if (isset($err['name'])) { ?>
                         <span class="text-red-500"><?= $err['name'] ?></span>
                     <?php } ?>
@@ -90,7 +89,7 @@
                     Đã có tài khoản?<a href="index.php?login" class="px-2 hover:text-blue-500">Đăng nhập</a>
                 </p>
 
-                <button type="submit" name="btn_sign_up" class="btn-primary btn btn-block bg-blue-500">Đăng ký</button>
+                <button type="submit" name="btn_sign_up" class="btn-primary btn btn-block bg-blue-500 ">Đăng ký</button><br>
 
             </form>
         </div>
