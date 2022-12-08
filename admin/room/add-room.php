@@ -3,8 +3,9 @@
         <div class="danh_sach">
             <h3 class="text-3xl text-sky-500">THÊM PHÒNG</h3>
 
-            <form action="" method="post" enctype="multipart/form-data">
-                <div class="flex-from">
+            
+            <div class="flex-from">
+                <form action="" method="post" enctype="multipart/form-data">
                 
                     <div>
                         <label for="">ID</label>
@@ -114,8 +115,10 @@
                             danh sách</a>
                     </div>
                 
-                </div>
-            </form>
+                </form>
+            </div>
+
+            
         </div>
     </div>
 </section>

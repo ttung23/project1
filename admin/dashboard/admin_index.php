@@ -68,7 +68,7 @@
             // { month: '9', value: 50 },
             // { month: '10', value: 55 },
             // { month: '11', value: 60 },
-            // { month: '1211', value: 20 },
+            // { month: '12', value: 20 },
 
             <?php for ($i = 1; $i <= 12; $i++) { ?>
                 { month: '<?= $i ?>', tong_luot_dat: <?= $thongke[$i]->tong_luot_dat ?>},
@@ -83,17 +83,17 @@
         labels: ['Tháng', 'Tổng lượt đặt']
     });
 
-    new Morris.Area({
+    new Morris.Bar({
         // ID of the element in which to draw the chart.
         element: 'myfirstchart2',
         // Chart data records -- each entry in this array corresponds to a point on
         // the chart.
         data: [
-            // { year: '2008', value: 20 },
-            // { year: '2009', value: 10 },
-            // { year: '2010', value: 5 },
-            // { year: '2011', value: 5 },
-            // { year: '2012', value: 20 }
+            // { month: '2008', tong_tien: 20 },
+            // { month: '2009', tong_tien: 10 },
+            // { month: '2010', tong_tien: 5 },
+            // { month: '2011', tong_tien: 5 },
+            // { month: '2012', tong_tien: 20 }
             <?php for ($i = 1; $i <= 12; $i++) { ?>
                 { month: '<?= $i ?>', tong_tien: <?= $tong_tien[$i]->tong_doanh_thu ?? 0 ?>},
             <?php } ?>
@@ -115,11 +115,11 @@
         // Chart data records -- each entry in this array corresponds to a point on
         // the chart.
         data: [
-            // { year: '2008', value: 20 },
-            // { year: '2009', value: 10 },
-            // { year: '2010', value: 5 },
-            // { year: '2011', value: 5 },
-            // { year: '2012', value: 20 }
+            // { month: '2008', tong_tien: 20 },
+            // { month: '2009', tong_tien: 10 },
+            // { month: '2010', tong_tien: 5 },
+            // { month: '2011', tong_tien: 5 },
+            // { month: '2012', tong_tien: 20 }
             <?php for ($i = 1; $i <= 12; $i++) { ?>
                 { month: '<?= $i ?>', tong_tien: <?= $tong_tien[$i]->tong_doanh_thu ?? 0 ?>},
             <?php } ?>
