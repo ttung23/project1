@@ -1,10 +1,15 @@
 <?php
 
-function loadAll_bookingdt(){
-    $query = "SELECT * from bookings bk GROUP BY bk.booking_id DESC;";
-    $listroom = pdo_query_all($query);
+function loadAll_bookingdt_user($id){
+    $query = "SELECT * from bookings bk inner join booking_detail dt on dt.id_booking = bk.booking_id INNER JOIN room r on r.room_id = dt.id_room where bk.id_user = ?;";
+    $listroom = pdo_query_all($query,$id);
     return $listroom;
 }
+// function loadAll_bookingdt_user(){
+//     $query = "SELECT * from bookings bk GROUP BY bk.booking_id DESC;";
+//     $listroom = pdo_query_all($query);
+//     return $listroom;
+// }
 function loadAll_bookingdt_booking($id){
     $query = "SELECT r.name as 'tenphong',bk.* from bookings bk inner join booking_detail dt on dt.id_booking = bk.booking_id INNER JOIN room r on r.room_id = dt.id_room where bk.booking_id = ?;";
     $listroom = pdo_query_one($query,$id);

@@ -1,12 +1,17 @@
 <?php
 // select theo room
 function loadAll_room(){
-    $query = "select r.*,st.star,count(sv.id_room) as 'sv',COUNT(st.id_room) as 'tbl' from room r left join vote_room st on st.id_room = r.room_id left join service sv on sv.id_room=r.room_id GROUP BY room_id desc limit 0,4;";
+    $query = "select r.*,st.star,count(sv.id_room) as 'sv',COUNT(st.id_room) as 'tbl' from room r left join vote_room st on st.id_room = r.room_id left join service_detail sv on sv.id_room=r.room_id where r.status = 1 GROUP BY room_id desc limit 4";
     $listroom = pdo_query_all($query);
     return $listroom;
 }
 function loadAll_room4(){
-    $query = "select r.*,st.star,count(sv.id_room) as 'sv',COUNT(st.id_room) as 'tbl' from room r left join vote_room st on st.id_room = r.room_id left join service sv on sv.id_room=r.room_id GROUP BY room_id desc;";
+    $query = "select r.*,st.star,count(sv.id_room) as 'sv',COUNT(st.id_room) as 'tbl' from room r left join vote_room st on st.id_room = r.room_id left join service_detail sv on sv.id_room=r.room_id where r.status = 1  GROUP BY room_id desc ";
+    $listroom = pdo_query_all($query);
+    return $listroom;
+}
+function loadAll_room5(){
+    $query = "SELECT r.*, vt.star,count(dt.id_room) as 'sld', COUNT(vt.id_room) as 'tong_cmt' FROM room r LEFT JOIN vote_room vt ON r.room_id = vt.id_room LEFT JOIN booking_detail dt ON dt.id_room = r.room_id LEFT JOIN bookings bk ON dt.id_booking = bk.booking_id WHERE month(bk.check_in_date) = 12 and  r.status = 1  GROUP BY r.room_id;";
     $listroom = pdo_query_all($query);
     return $listroom;
 }
@@ -16,41 +21,41 @@ function loadAll_room_price(){
     return $listroom;
 }
 function loadAll_room_price_list($id,$cate){
-    $query = "SELECT r.*,ct.name as 'tendt' FROM room r inner join categories_room ct  on ct.categories_id=r.id_category_room where r.price =" .$id." and r.id_category_room = ".$cate;
+    $query = "SELECT r.*,ct.name as 'tendt' FROM room r inner join categories_room ct  on ct.categories_id=r.id_category_room where r.price =" .$id." and r.id_category_room = ".$cate." and  r.status = 1 ";
     $listroom = pdo_query_all($query);
     return $listroom;
 }
 function loadOne_room_status($id)
 {
-    $sql = "select r.*from room r   where r.status =" . $id;
+    $sql = "select r.* from room r   where r.status =" . $id;
     $room = pdo_query_one($sql);
     return $room;
 }
 
 // select theo likes
 function loadAll_room_by_likes(){
-    $query = "select r.*,st.star,count(sv.id_room) as 'sv',COUNT(st.id_room) as 'tbl' from room r left join vote_room st on st.id_room = r.room_id left join service sv on sv.id_room=r.room id GROUP BY likes desc limit 0,10;";
+    $query = "select r.*,st.star,count(sv.id_room) as 'sv',COUNT(st.id_room) as 'tbl' from room r left join vote_room st on st.id_room = r.room_id left join service_detail sv on sv.id_room=r.room_id GROUP BY likes desc limit 0,10;";
     $listroom = pdo_query_all($query);
     return $listroom;
 }
 // select 1 room
 function loadOne_room($id)
 {
-    $sql = "select r.*,sv.name as 'namedichvu',sv.price as 'pricedichvu' from room r  inner join service sv on sv.service_id = r.id_service where room_id =" . $id;
+    $sql = "select r.* from room r where room_id =" . $id." and r.status = 1 ";
     $room = pdo_query_one($sql);
     return $room;
 }
 // load phong theo dich vu
 function load_room_service($id)
 {
-    $sql = "select r.* from room r inner join categories_room sv on sv.id_room= r.room_id  where id_category_room= " . $id;
+    $sql = "select r.* from room r inner join categories_room sv on sv.id_room= r.room_id  where id_category_room= " . $id." and  r.status = 1" ;
     $room = pdo_query_all($sql);
     return $room;
 }
 // hien thi theo sap xep
 function load_room_order($id)
 {
-    $sql = "select * from room order by '$id' desc";
+    $sql = "select * from room where r.status = 1  order by '$id' desc";
     $room = pdo_query_all($sql);
     return $room;
 }
@@ -64,8 +69,8 @@ function load_room_order_add($id)
 // load phong theo danh muc
 function load_room_categories($id)
 {
-    $sql = "select * from room where id_category_room=" . $id;
-    $room = pdo_query_all($sql);
+    $sql = "select * from room r  where id_category_room=? and  r.status = 1 ";
+    $room = pdo_query_all($sql,$id);
     return $room;
 }
 

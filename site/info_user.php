@@ -51,7 +51,8 @@
         </div>
         <?php endforeach ?>
     </form>
-
+            <form action="" method="post">
+            <button type="submit" name="block_bk">Hủy Booking</button>      
     <div class="">
         <h4 class="text-align font-weight-bold text-2xl">Lịch Sử Đặt Hàng</h4>
         <div class="p-3 py-5">
@@ -59,6 +60,7 @@
 
                 <table border="1" class="table">
                     <tr>
+                    <th></th>
                         <th style="width: 65px;">MÃ Đơn Hàng</th>
                         <th>check_in_date</th>
                         <th>check_out_date</th>
@@ -71,16 +73,19 @@
                     </tr>
                     <?php foreach ($bookinguser as $key => $value) : ?>
                     <tr>
+                    <td>
+                                <input type="checkbox" name="bk[]" value="<?= $value->booking_id ?>" id="">
+                            </td>
                         <td><?php echo $value->booking_id?></td>
                         <td><?php echo $value->check_in_date?></td>
                         <td><?php echo $value->check_out_date?></td>
                         <td class=''><?php  if(($value->status) == 0){
                     echo "<div class=''>Chờ Xác Nhận</div>";   
             }else if(($value->status) == 1){
-                echo "<div class=''>Chờ Xác Nhận</div>";   
+                echo "<div class=''>Xác Nhận</div>";   
 
             }else{
-                echo "<div >Chờ Xác Nhận</div>";   
+                echo "<div >Hủy Xác Nhận</div>";   
 
             }
                 ?></td>
@@ -99,7 +104,7 @@
                 </table>
             </div>
         </div>
-
+        </form>
     </div>
 
 </div>
