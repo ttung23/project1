@@ -40,7 +40,10 @@ function set_status_booking ($status, $id_booking) {
     $sql = "UPDATE bookings set status = ?, updated_at = current_timestamp() where booking_id = ?";
     $booking = pdo_execute($sql, $status, $id_booking);
 }
-
+function block_bk($bk_id){
+    $query = "update bookings set status = 2 where booking_id = ?";
+    pdo_execute($query, $bk_id);
+}
 function booking_remove_by_id($cate_id){
     $query = "delete from bookings where booking_id = ?";
     pdo_execute($query, $cate_id);

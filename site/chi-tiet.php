@@ -1,4 +1,8 @@
 <section class="mx-auto max-w-[1200px] p-2">
+<div class="giamgia-r" style="margin:20px 0px 20px 0px">
+                <span>StayInn/</span> <span style="">Nhận Phòng  : <?php echo $_SESSION['checkin'] ?? $ngay ?></span> /
+                <span> Trả Phòng : <?= $_SESSION['checkout']?? $day ?></span><br />
+            </div>
     <?php foreach ($oneroom as $key => $value) : ?>
     <h1 class="text-2xl font-bold text-[#0194f3] pb-2"><?php echo $value->name?></h1>
     <div class="text-xl items-center pb-3 flex">
@@ -16,11 +20,7 @@
             <input type="hidden" name="status" value="<?php echo $value->status?>">
             <input type="hidden" name="view" value="<?php echo $value->view?>">
             <input type="hidden" name="likes" value="<?php echo $value->likes?>">
-            <input type="hidden" name="id_service" value="<?php echo $value->id_service?>">
             <input type="hidden" name="created_at" value="<?php echo $value->created_at?>">
-            <input type="hidden" name="namedichvu" value="<?php echo $value->namedichvu?>">
-            <input type="hidden" name="pricedichvu" value="<?php echo $value->pricedichvu?>">
-
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                 class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
                 <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
@@ -33,20 +33,11 @@
             <img src="../layout/assets/img/product/<?php echo $value->thumbnail?>" alt="" width="750"
                 class="w-fulll mr-5 ml-4 rounded">
             <div class="flex mx-20 ">
+   <?php foreach ($loadanh as $key => $values) : ?>
                 <div class="column py-3 ">
-                    <img src="../layout/assets/img/product/<?php echo $value->thumbnail?>" alt="" class=" rounded">
+                    <img width="300px" height="250px" src="../layout/assets/img/product/<?php echo $values->image?>" alt="" class=" rounded">
                 </div>
-                <div class="column py-3  ">
-                    <img src="../layout/assets/img/product/<?php echo $value->thumbnail?>" alt=""
-                        class="w-90 ml-2 rounded">
-                </div>
-                <div class="column py-3 ">
-                    <img src="../layout/assets/img/product/<?php echo $value->thumbnail?>" alt="" class="ml-3 rounded">
-                </div>
-                <div class="column py-3 ">
-                    <img src="../layout/assets/img/product/<?php echo $value->thumbnail?>" alt=""
-                        class="w-90 ml-4 rounded">
-                </div>
+<?php endforeach ?>
             </div>
         </div>
         <div>
@@ -60,44 +51,21 @@
             <h2 class="font-weight-bold text-300 mt-3">Giới thiệu phòng</h2>
             <h3 class=" py-3"><?php echo $value->description?></h3>
             <hr>
-            <h3 class="font-bold py-3">Tiện nghi phòng</h3>
+            <h3 class="font-bold py-3">Dịch Vụ</h3>
             <div class="grid grid-cols-2 gap-4 pb-3">
                 <div class="column ">
                     <ul class="list-disc pl-5">
-                        <li>Máy lạnh</li>
-                        <li>TV</li>
-                        <li>Két an toàn tại phòng</li>
-                    </ul>
-                </div>
-                <div class="column">
-                    <ul class="list-disc pl-5">
-                        <li>Quầy bar mini</li>
-                        <li>Bàn làm việc</li>
-                        <li>Rèm cửa / màn che</li>
+                    <?php foreach ($servicedt as $key => $valuesa) : ?>
+                        <li><?= $valuesa->name?></li>
+                        <?php endforeach ?>
                     </ul>
                 </div>
             </div>
             <hr>
-            <h3 class="font-bold py-3">Tiện nghi phòng tắm</h3>
-            <div class="grid grid-cols-2 gap-4 pb-3">
-                <div class="column ">
-                    <ul class="list-disc pl-5">
-                        <li>Nước nóng</li>
-                        <li>Vòi tắm đứng</li>
-                        <li>Máy sấy tóc</li>
-                    </ul>
-                </div>
-                <div class="column">
-                    <ul class="list-disc pl-5">
-                        <li>Phòng tắm riêng</li>
-                        <li>Bộ vệ sinh cá nhân</li>
-                    </ul>
-                </div>
-            </div>
             <hr>
             <div>
                 <p class="py-3 font-weight-bold">Khởi điểm từ:</p>
-                <h3> <span class="text-2xl font-bold text-[#0194f3]"><?php echo $value->price?>D</span> <span
+                <h3> <span class="text-2xl font-bold text-[#0194f3]"><?php echo number_format($value->price,0,",",".")?> Đ</span> <span
                         class="text-xl">/ phòng / đêm</span> </h3>
             </div>
             <div class="flex justify-center">
@@ -115,14 +83,19 @@
     <?php foreach ($room_categories as $key => $value) : ?>
     <div class="grid grid-cols-4 gap-8 px-1 py-3 border-b border-black">
         <div class="column">
+            
             <a href=""><img src="../layout/assets/img/product/<?php echo $value->thumbnail?>" alt="" width="230"></a>
         </div>
         <div class="column">
             <h1 class="font-bold text-2xl">Thông tin phòng</h1>
+            <h1>Phòng <?= $value->name?></h1>
             <h1 class=" py-5"><?php echo $value->description?></h1>
             <h1 class="font-bold text-2xl">Dịch vụ</h1>
-            <h3 class="mt-2 pb-10">Không có</h3>
-
+            <?php $service_room = loadAll_service_room($value->room_id)
+              ?>
+            <?php foreach ($service_room as $key => $value) : ?>
+            <h1 class="mt-2 pb-10"><?=$value->name?></h1>
+            <?php endforeach ?>
         </div>
         <div class="column">
             <h1 class="font-bold text-xl">Đặc điểm nổi bật</h1>
@@ -143,11 +116,10 @@
         <div class="column">
             <h1 class="font-bold text-xl">Giá phòng</h1>
             <h1 class="font-bold text-xl py-5 text-red-600">2 Giờ</h1>
-            <h1><span class="font-bold pr-2 text-xl"><?php echo number_format($value->price,0,",",".")?>đ</span> <span
-                    class="text-xl line-through">200.000đ</span></h1>
-            <button
-                class="border border-2 rounded-md my-3 px-8 py-3 border-blue-500 text-[#0194f3] hover:bg-blue-500 hover:text-white"
-                name="submit" type="submit">Đặt phòng</button>
+            <h1><span class="font-bold pr-2 m-4 text-xl"><?php echo number_format($value->price,0,",",".")?>đ</span> <span                    class="text-xl line-through">200.000đ</span></h1>
+            <a style=" display: inline-block"
+                class="border border-2 rounded-md my-3 px-8 py-3 mt-5 border-blue-500 text-[#0194f3] hover:bg-blue-500 hover:text-white"
+             href="index.php?product-detail&id=<?= $value->room_id?>&iddm=<?php echo $_GET['iddm']?>">Đặt phòng</a>
         </div>
     </div>
     <?php endforeach ?>
