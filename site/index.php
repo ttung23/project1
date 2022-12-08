@@ -17,6 +17,9 @@ $categoriesAll = loadAll_categories();
 $service = loadAll_service();
 if (isset($_GET['cart'])) {
     // add cart
+    $format = "d/m/2022";
+  $check_indefauil = date($format, time());
+    echo $check_indefauil;
     if (isset($_SESSION['user'])) {
         $tt = 0;
         $service_room = [];
@@ -106,31 +109,30 @@ if (isset($_GET['cart'])) {
     $_TITLE = "Tin tức StayyInn";
     $VIEW_NAME = 'tin-tuc.php';
 } elseif (isset($_GET['list-room'])) {
-
-    if (isset($_POST['find'])) {
-        $_SESSION['checkin'] = $_POST['checkin'];
-        $_SESSION['checkout'] = $_POST['checkout'];
-        $first_date = strtotime($_SESSION['checkin']);
-        $second_date = strtotime($_SESSION['checkout']);
-        $datediff = abs($first_date - $second_date);
-        $tongnd = floor($datediff / (60 * 60 * 24));
-        $_SESSION['$tongnd'] = $tongnd;
-        $selectfind = find_room($_SESSION['checkin'], $_SESSION['checkout']);
-    } else {
-        $selectfind = [];
-    }
-    $iddm = 0;
-    if (isset($_GET['iddm'])) {
-        $iddm = $_GET['iddm'];
-    }
-    if ($iddm == 0) {
-        $roomcategori = loadAll_room();
-    } else {
-        $roomcategori = load_room_categories($iddm);
-    }
-    if (isset($_POST['loc'])) {
-        $gia = $_POST['gender'];
-        $cate = $_POST['cate'];
+        if (isset($_POST['find'])) {
+            $_SESSION['checkin'] = $_POST['checkin'];
+            $_SESSION['checkout'] = $_POST['checkout'];
+            $first_date = strtotime($_SESSION['checkin']);
+            $second_date = strtotime($_SESSION['checkout']);
+            $datediff = abs($first_date - $second_date);
+            $tongnd = floor($datediff / (60 * 60 * 24));
+            $_SESSION['$tongnd'] = $tongnd;
+            $selectfind = find_room($_SESSION['checkin'], $_SESSION['checkout']);
+        } else {
+            $selectfind = [];
+        }
+        $iddm = 0;
+        if (isset($_GET['iddm'])) {
+            $iddm = $_GET['iddm'];
+        }
+        if ($iddm == 0) {
+            $roomcategori = loadAll_room();
+        } else {
+            $roomcategori = load_room_categories($iddm);
+        }
+        if(isset($_POST['loc'])){
+            $gia = $_POST['gender'];
+            $cate = $_POST['cate'];
 
         $logroom = loadAll_room_price_list($gia, $cate);
     } else {

@@ -105,13 +105,16 @@
                         <div class="flex-nd">
                             <span>Mật khẩu</span> <a href="index.php?forgot">Quên mật khẩu</a>
 
-                        </div>
-                        <input type="text" name="password"><i><i class="fa-solid fa-eye"></i></i>
-
-                        <div class="nd-dn">
-                            <button type="submit" name="login">Đăng nhập</button><span>Bạn đã có tài khản chưa? <a href="index.php?register">Đăng
-                                    kí</a> <a class="dn-tqt" href="<?= SITE_URL ?>?login_admin">Đăng nhập quản trị</a></span>
-                        </div>
+                            </div>
+                            <input type="text" name="password" id="ipnPassword" autocomplete="off">
+                            <i><i class="fa-regular fa-eye" onclick="changeTypePassword()"></i></i>
+                            
+                            
+                            <div class="nd-dn">
+                                <button type="submit" name="login">Đăng nhập</button><span>Bạn đã có tài khản chưa? <a
+                                        href="index.php?register">Đăng
+                                        kí</a> <a class="dn-tqt" href="<?= SITE_URL ?>?login_admin">Đăng nhập quản trị</a></span>
+                            </div>
 
                         <div class="fb-gg">
                             <p>Hoặc đăng nhập bằng</p><br>
@@ -143,3 +146,8 @@
     </ul>
 
 </div>
+<script>
+        function changeTypePassword(){
+            document.getElementById('ipnPassword').type = document.getElementById('ipnPassword').type == 'text' ? 'password' : 'text';
+        }
+</script>
