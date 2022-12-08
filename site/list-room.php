@@ -127,7 +127,7 @@
                     font-size: 18px;
                     margin-top: 50px;
                   ">
-                                <?php echo $value->price ?>
+                                <?php echo number_format($value->price,0,",",".") ?> đ
                             </span>
                             <br />
                             <br />
@@ -165,7 +165,7 @@
                     font-size: 18px;
                     margin-top: 50px;
                   ">
-                                <?php echo $value->price ?>
+                                <?php echo number_format($value->price,0,",",".") ?> đ
                             </span>
                             <br />
                             <br />
@@ -210,7 +210,7 @@
                     font-size: 18px;
                     margin-top: 50px;
                   ">
-                                <?php echo $value->price ?>
+                                <?php echo number_format($value->price,0,",",".") ?> đ
                             </span>
                             <br />
                             <br />

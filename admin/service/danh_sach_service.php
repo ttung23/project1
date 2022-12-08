@@ -1,81 +1,108 @@
-<div class="border border-[#D0D7DE] fs-6">
-    <form action="" method="post">
-        <div class="pb-4 m-4">
-            <h1 class="fs-6 text-primary"><i class="fa-solid fa-hotel mr-4"></i>Sơ Đồ Phòng</h1>
-            <div class="col-sm-2">
-                <label for="">Loại Dịch Vụ:</label>
-                <select name="" id="" class="form-control">
-                    <option value="">Tất Cả</option>
-                    <option value="">Tất Cả</option>
-                    <option value="">Tất Cả</option>
-                    <option value="">Tất Cả</option>
-                    <option value="">Tất Cả</option>
-                </select>
-            </div>
-            <div class="my-4 row">
-                <label for="">Trạng Thái service</label>
-                <div class="col-sm-2 m-4 hover-bg-[#78C2B5]">
-                    <div>
-                        <a href="../service/c_service.php?add_service" class="border btn btn-outline-success border-[#D0D7DE] w-100 h-100 text-primary px-3 py-1 shadow-lg">
-                            Thêm
-                        </a>
-                    </div>
-                </div>
-                <div class="col-sm-2 m-4">
-                    <div>
-                        <button class="border btn btn-outline-danger border-[#D0D7DE] w-100 h-100 text-primary px-3 py-1 shadow-lg">
-                            <i class="fa-solid fa-person-walking-luggage text-primary"></i>
-                            Sửa
-                        </button>
-                    </div>
-                </div>
-                <div class="col-sm-2 m-4">
-                    <div>
-                        <button type="submit" name="btn_delete_service" class="border border-[#D0D7DE] btn btn-outline-warning btn btn-outline-danger w-100 h-100 text-primary px-3 py-1 shadow-lg">
-                            <i class="fa-solid fa-person-walking-luggage text-success"></i>
-                            xóa
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div>
-                *<a class="text-primary px-4">di chuyển con trỏ chọn hình ảnh để xem thông tin phòng</a>
-            </div>
-        </div>
+<div class="dash-content">
+    <div class="content">
+        <div class="danh_sach border border-[#D0D7DE] fs-6">
+            <h3>DANH SÁCH DỊCH VỤ</h3>
+            <form action="" method="post">
+                <!-- <div class="action">
+                    <a href="?add_service" class="bg-green-500" type="submit" name="add_service">Thêm dịch vụ</a>
+                    <button class="bg-yellow-500" type="submit" name="edit_service">Sửa thông tin dịch vụ</button>
+                    <button class="bg-red-500" type="submit" name="delete_service">Xóa dịch vụ</button>
+                </div> -->
 
-        <section>
-            <div class="row">
-                <table class="table table-hover">
-                    <tr class="" scope="col">
-                        <th class="">#</th>
-                        <th class="table-primary">ID</th>
-                        <th class="">Name</th>
-                        <th class="table-primary">Images</th>
-                        <th class="">description</th>
-                        <th class="table-primary">price</th>
-                        <th class="">quantity</th>
-                        <th class="table-primary">status</th>
-                        <th class="">room_id</th>
-                        <th class="table-primary">Ngày tạo</th>
-                        <th class="table-primary">Ngày cập nhập</th>
-                    </tr>
-                    <?php foreach ($service as $value) { ?>
-                        <tr>
-                            <td><input type="checkbox" name="service[]" value="<?= $value->service_id ?>"></td>
-                            <td class="table-success"><?= $value->service_id ?></td>
-                            <td class="table-danger"><?= $value->name ?></td>
-                            <td class="table-warning"><img src="../../layout/assets/img/<?= $value->images ?>" width="100px" alt="" /></td>
-                            <td class="table-info"><?= $value->description ?></td>
-                            <td class="table-secondary"><?= $value->price ?></td>
-                            <td class="table-danger"><?= $value->quantity ?></td>
-                            <td class="table-warning"><?= $value->status ?></td>
-                            <td class="table-info"><?= $value->room_name ?></td>
-                            <td class="table-secondary"><?= $value->created_at ?></td>
-                            <td class="table-secondary"><?= $value->updated_at ?></td>
-                        </tr>
-                    <?php } ?>
-                </table>
-            </div>
-        </section>
-    </form>
+                <div class="action">
+                    <div class="grid grid-cols-4 gap-[20px] my-3">
+                        <div class="">
+                            <a href="c_service.php" class="bg-[#0194f3] capitalize text-center btn-outline- px-3 py-[12px] shadow-lg w-[200px]">
+                                Tất Cả
+                            </a>
+                        </div>
+
+                        <div class="">
+                            <a href="c_service.php?status=1" class="bg-green-500 capitalize text-center btn-outline- px-3 py-[12px] shadow-lg w-[200px]">
+                                dịch vụ kích hoạt
+                            </a>
+                        </div>
+
+                        <div class="">
+                            <a href="c_service.php?status=0" class="bg-red-500 capitalize text-center btn-outline- px-3 py-[12px] shadow-lg w-[200px]">
+                                dịch vụ tạm khóa
+                            </a>
+                        </div>
+
+                        <div></div>
+
+                        <div class="">
+                            <button type="submit" name="unlock_service" class="capitalize bg-green-500 text-center text-white px-3 py-[12px] shadow-lg w-[200px]">
+                                kích hoạt
+                            </button>
+                        </div>
+
+                        <div class="">
+                            <button type="submit" name="block_service" class="capitalize bg-red-500 text-center px-3 py-[12px] shadow-lg w-[200px]">
+                                Khóa
+                            </button>
+                        </div>
+
+                        <div></div>
+                        <div></div>
+
+                        <div class="">
+                            <a href="?add_service" class="capitalize bg-green-500 text-center px-3 py-[12px] shadow-lg w-[200px]" type="submit" name="add_service">Thêm dịch vụ</a>
+                        </div>
+
+                        <div class="">
+                            <button type="submit" name="edit_service" class="capitalize bg-yellow-500 text-center px-3 py-[12px] shadow-lg w-[200px]">
+                                Sửa thông tin
+                            </button>
+                        </div>
+
+                        <div class="">
+                            <button type="submit" name="delete_service" class="capitalize bg-rose-700 text-center px-3 py-[12px] shadow-lg w-[200px]" onclick="return confirm('Bạn muốn xóa người dùng đã chọn không?')">
+                                Xóa
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <section>
+                    <div class="">
+                        <table class="">
+                            <tr class="">
+                                <th>#</th>
+                                <th>ID</th>
+                                <th>Tên dịch vụ</th>
+                                <th>Ảnh</th>
+                                <th>Mô tả</th>
+                                <th>Giá</th>
+                                <th>Số lượng</th>
+                                <th>Trạng thái</th>
+                                <th>Phòng</th>
+                                <th>Ngày tạo</th>
+                                <th>Ngày cập nhập</th>
+                            </tr>
+                            <?php foreach ($service as $value) { ?>
+                                <tr>
+                                    <td><input type="checkbox" name="service[]" value="<?= $value->service_id ?>"></td>
+                                    <td><?= $value->service_id ?></td>
+                                    <td><?= $value->name ?></td>
+                                    <td><img src="../../layout/assets/img/dichvu/<?= $value->images ?>" width="100px" alt="" /></td>
+                                    <td><?= $value->description ?></td>
+                                    <td><?= $value->price ?></td>
+                                    <td><?= $value->quantity ?></td>
+                                    <td><?php if ($value->status == 0) {
+                                        echo "Tạm khóa";
+                                    } elseif ($value->status == 1) {
+                                        echo "Kích hoạt";
+                                    } ?></td>
+                                    <td><?= $value->room_name ?></td>
+                                    <td><?= $value->created_at ?></td>
+                                    <td><?= $value->updated_at ?></td>
+                                </tr>
+                            <?php } ?>
+                        </table>
+                    </div>
+                </section>
+            </form>
+        </div>
+    </div>
 </div>

@@ -45,6 +45,13 @@ function loadOne_room($id)
     $room = pdo_query_one($sql);
     return $room;
 }
+
+function load_one_room($id)
+{
+    $sql = "select r.*,sv.name as 'namedichvu', sv.price as 'pricedichvu', cate.name as name_cate from room r inner join service sv on sv.service_id = r.id_service INNER JOIN categories_room cate on r.id_category_room = cate.categories_id where room_id =" . $id;
+    $room = pdo_query_one_person($sql);
+    return $room;
+}
 // load phong theo dich vu
 function load_room_service($id)
 {
@@ -69,9 +76,15 @@ function load_room_order_add($id)
 // load phong theo danh muc
 function load_room_categories($id)
 {
-    $sql = "select * from room r  where id_category_room=? and  r.status = 1 ";
+    $sql = "select r.*,st.star,count(sv.id_room) as 'sv',COUNT(st.id_room) as 'tbl' from room r left join vote_room st on st.id_room = r.room_id left join service_detail sv on sv.id_room=r.room_id where id_category_room= ? and r.status = 1; ";
     $room = pdo_query_all($sql,$id);
     return $room;
+}
+
+function load_sum_like () {
+    $sql = "SELECT SUM(likes) as tong_like FROM `room`";
+    $sum_like = pdo_query_one_person($sql);
+    return $sum_like;
 }
 
 // xoa phong 
@@ -101,17 +114,19 @@ function insert_room($name, $des, $thumbnail, $id_cate, $price, $star, $quantity
     $sql = "insert into room(name, description, thumbnail, id_category_room, price, star, quantity,status,location,acreage,view,likes,id_service) value('$name', '$des', '$thumbnail', '$id_cate', '$price', '$star', '$quantity','$status','$location','$acreage','$view','$likes','$id_service')";
     pdo_execute($sql);
 }
-function  update_room($name, $des, $thumbnail, $id_cate, $price, $star, $quantity,$status,$location,$acreage,$view,$likes,$id_service,$id)
+function update_room($name, $des, $thumbnail, $id_cate, $price, $star, $quantity,$location,$acreage,$view,$likes,$id_service,$id)
 {
-        $sql = "update room set name= ?, description=?, thumbnail= ?, id_category_room= ?,price= ?,star= ?, quantity=?,status =?, location= ?, acreage=?, view= ?, likes= ?, id_service=? where room_id =?";
-    pdo_execute($sql,$name, $des, $thumbnail, $id_cate, $price, $star, $quantity,$status,$location,$acreage,$view,$likes,$id_service,$id);
+    $sql = "update room set name= ?, description=?, thumbnail= ?, id_category_room= ?, price= ?, star= ?, quantity=?, location= ?, acreage=?, view= ?, likes= ?, id_service=? where room_id =?";
+    pdo_execute($sql,$name, $des, $thumbnail, $id_cate, $price, $star, $quantity,$location,$acreage,$view,$likes,$id_service,$id);
 }
+
 function  find_room($checkin,$checkout)
 {
-    $sql = "SELECT r.*,ct.name as 'tendt' FROM room r inner join categories_room ct on ct.categories_id=r.id_category_room where room_id not in (select r.room_id from room r INNER join booking_detail bd on bd.id_room = r.room_id left JOIN bookings bk on bk.booking_id = bd.id_booking where bk.check_in_date >= '$checkin' and bk.check_in_date <= '$checkout' or bk.check_out_date <= '$checkin' and bk.check_out_date >= '$checkout') and r.status = 1 order by room_id";
+    $sql = "SELECT r.*,ct.name as 'tendt' FROM room r inner join categories_room ct on ct.categories_id = r.id_category_room where room_id not in (select r.room_id from room r INNER join booking_detail bd on bd.id_room = r.room_id left JOIN bookings bk on bk.booking_id = bd.id_booking where bk.check_in_date >= '$checkin' and bk.check_in_date <= '$checkout' or bk.check_out_date <= '$checkin' and bk.check_out_date >= '$checkout') and r.status = 1 order by room_id";
     $room = pdo_query_one($sql);
     return $room;
 }
+
 function load_room_like($id)
 {
     $sql = "select * room order by likes desc";

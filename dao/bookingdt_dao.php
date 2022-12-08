@@ -15,6 +15,19 @@ function loadAll_bookingdt_booking($id){
     $listroom = pdo_query_one($query,$id);
     return $listroom;
 }
+
+function load_statistic_by_month ($month) {
+    $sql = "SELECT COUNT(*) as tong_luot_dat FROM booking_detail WHERE month(created_at) = ?";
+    $statistic = pdo_query_one_person($sql, $month);
+    return $statistic;
+}
+
+function load_sales_by_month ($month) {
+    $sql = "SELECT SUM(bk.total_amount) as tong_doanh_thu FROM `booking_detail` dt LEFT JOIN bookings bk on dt.id_booking = bk.booking_id WHERE MOnth(dt.created_at) = ?";
+    $sales = pdo_query_one_person($sql, $month);
+    return $sales;
+}
+
 function Insert_bookingdt($id_room,$id_booking)
 {
     $sql = "insert into booking_detail(id_room,id_booking) values('$id_room','$id_booking')";

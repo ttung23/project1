@@ -392,10 +392,19 @@ if (isset($_GET['cart'])) {
     $_TITLE = "Quên mật khẩu";
     $VIEW_NAME = 'update_password.php';
 } elseif (isset($_GET['login_admin'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    if (isset($_POST['login_admin'])) {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
 
-    loginadmin($username, $password);
+        $admin = loginadmin($username, $password);
+
+        if ($admin != []) {
+            $_SESSION['admin'] = $admin;
+            header("location: ../admin/index.php");
+        } else {
+            echo "sai";
+        }
+    }
     $_TITLE = 'Đăng nhập phần admin';
     $VIEW_NAME = 'login.php';
 } else {
@@ -414,6 +423,7 @@ if (isset($_GET['cart'])) {
     }
     if (isset($_GET['action']) && $_GET['action'] == 'logout') {
         unset($_SESSION['user']);
+        unset($_SESSION['admin']);
         header('Location:index.php');
     }
     if (isset($_GET['alert'])) {

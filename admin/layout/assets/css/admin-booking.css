@@ -8,12 +8,13 @@ body {
     font-family: tahoma, sans-serif;
 }
 
-.container {
-    max-width: 1280px;
-}
-
-.content {
-    margin: 0 30px;
+.dashboard {
+    position: relative;
+    /* background-color: var(--panel-color); */
+    min-height: 100vh;
+    padding: 10px;
+    margin-left: 30px;
+    transition: var(--tran-05);
 }
 
 .danh_sach {
@@ -23,17 +24,6 @@ body {
     border-radius: 7px;
     background-color: var(--panel-color);
     transition: var(--tran-05);
-}
-
-.danh_sach h3 {
-    margin: 20px 0;
-    color: var(--text-color);
-    transition: var(--tran-05);
-}
-
-table {
-    max-width: 1000px;
-    border-collapse: collapse;
 }
 
 table,
@@ -71,14 +61,16 @@ td p:hover {
 }
 
 .action {
-    margin: 30px 0;
+    margin: 20px 0;
 }
 
+.action button,
 .action a {
+    margin-right: 5px;
+    display: inline-block;
     text-decoration: none;
     color: #fff;
     padding: 9px;
-    background-color: #cb2027;
     border-radius: 10px;
 }
 
@@ -104,9 +96,12 @@ table tr:nth-child(1) {
 
 }
 
+.danh_sach h3,
 .bieu_do h3 {
-    color: var(--text-color);
     margin: 20px 0;
+    color: var(--text-color);
     transition: var(--tran-05);
+    font-weight: 500;
+    font-size: 24px;
 }
 

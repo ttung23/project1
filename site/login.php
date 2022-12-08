@@ -27,7 +27,7 @@
                             class="hover:text-blue-500">Đăng kí</a>
                     </div>
 
-                    <button type="submit" name="login" class="btn-primary btn btn-block bg-blue-500 mb-3">Đăng nhập</button>
+                    <button type="submit" name="login_admin" class="btn-primary btn btn-block bg-blue-500 mb-3">Đăng nhập</button>
 
                     <a class="dn-khac " href="">OR</a>
                     <div class="flex gap-6 justify-center mt-4">
