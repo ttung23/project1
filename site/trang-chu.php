@@ -33,7 +33,7 @@
              <div class="book">
                  <i class="fa-solid fa-right-from-bracket"></i>
                  <p>Nhận phòng</p>
-                 <input type="date" name="checkin">
+                 <input type="date" name="checkin" min="2022-12-08">
              </div>
              <div class="book1">
                  <i class="fa-solid fa-right-from-bracket"></i>
@@ -41,7 +41,8 @@
                  <input type="date" name="checkout">
              </div>
 
-             <button type="submit" name="find"><i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm</button>
+             <button type="submit" name="find"><i class="fa-solid fa-magnifying-glass"></i> Tìm
+                 kiếm</button>
          </div>
      </form>
  </div>
@@ -401,4 +402,5 @@
              </p>
          </div>
      </div>
+
  </div>
