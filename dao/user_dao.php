@@ -82,6 +82,12 @@ function load_sum_users () {
     return $listuser;
 }
 
+function load_thongke_user_by_month ($month) {
+    $sql = "SELECT COUNT(*) as tong_user FROM `users` WHERE month(created_at) = ?";
+    $user = pdo_query_one_person($sql, $month);
+    return $user;
+}
+
 function set_status_user ($user_id, $status){
     $query = "UPDATE users set status = ?, updated_at = current_timestamp() where user_id = ?";
     pdo_execute($query, $user_id, $status);

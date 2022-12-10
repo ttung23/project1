@@ -95,7 +95,6 @@ if (isset($_GET['admin_logout'])) {
     <script src="../../layout/assets/js/list-room.js"></script>
     <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
     
-
     <script>
         const body = document.querySelector("body"),
             modeToggle = body.querySelector(".mode-toggle");

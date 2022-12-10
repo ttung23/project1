@@ -26,7 +26,7 @@
                             <label for="">Danh Mục</label>
                             <select name="category_id[]" id="" class="border rounded border-sky-400 w-full p-2">
                                 <?php foreach ($categoryAll as $key => $value) { ?>
-                                    <option value="<?php echo $value->categories_id ?>"><?php echo $value->name ?></option>
+                                    <option <?= $room_edit[$i]->id_category_room == $value->categories_id ? "selected" : "" ?> value="<?php echo $value->categories_id ?>"><?php echo $value->name ?></option>
                                 <?php } ?>
                             </select>
                             <?php if (isset($err['category_id'])) { ?>
@@ -50,25 +50,13 @@
                         </div>
 
                         <div>
-                            <label for="">Dịch Vụ</label>
-                            <select name="service_id[]" id="" class="border rounded border-sky-400 w-full p-2">
-                                <?php foreach ($service as $key => $value) : ?>
-                                    <option value="<?php echo $value->service_id ?>"><?php echo $value->name ?></option>
-                                <?php endforeach ?>
-                            </select>
-                            <?php if (isset($err['service'])) { ?>
-                                <span class="text-red-500"><?= $err['service'] ?></span>
-                            <?php } ?>
-                        </div>
-
-                        <div>
                             <label for="">Hạng sao</label>
                             <select name="star[]" id="" class="border rounded border-sky-400 w-full p-2">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
+                                <option <?= $room_edit[$i]->star == 1 ? "selected" : "" ?> value="1">1</option>
+                                <option <?= $room_edit[$i]->star == 2 ? "selected" : "" ?> value="2">2</option>
+                                <option <?= $room_edit[$i]->star == 3 ? "selected" : "" ?> value="3">3</option>
+                                <option <?= $room_edit[$i]->star == 4 ? "selected" : "" ?> value="4">4</option>
+                                <option <?= $room_edit[$i]->star == 5 ? "selected" : "" ?> value="5">5</option>
                             </select>
                             <?php if (isset($err['service'])) { ?>
                                 <span class="text-red-500"><?= $err['service'] ?></span>
@@ -96,7 +84,7 @@
                         <div>
                             <label for="">Ảnh hiện tại</label>
                             <input type="hidden" name="image[]" value="<?= $room_edit[$i]->thumbnail ?>" class="w-full p-2" />
-                            <img src="../../layout/assets/img//product/<?= $room_edit[$i]->thumbnail ?>" alt="">
+                            <img src="../../layout/assets/img//product/<?= $room_edit[$i]->thumbnail ?>" alt="" width="150px">
                             <?php if (isset($err['img'])) { ?>
                                 <span class="text-red-500"><?= $err['img'] ?></span>
                             <?php } ?>

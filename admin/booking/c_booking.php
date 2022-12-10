@@ -43,7 +43,7 @@ if (isset($_POST['delete_booking'])) {
         header('location:c_booking.php?status=2');
     }
 }
-$VIEW_TITLE = "Danh sách danh mục";
+$VIEW_TITLE = "Danh sách đơn hàng";
 $VIEW_CSS = 'admin_booking1.css';
 $VIEW_ADMIN_NAME = '../booking/danh-sach.php';
 

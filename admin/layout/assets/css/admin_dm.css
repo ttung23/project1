@@ -38,7 +38,8 @@ body {
 }
 
 .action button,
-.action a {
+.action a,
+.action .add {
     margin-right: 5px;
     display: inline-block;
     text-decoration: none;

@@ -46,6 +46,11 @@ function load_admin_by_permission ($per) {
     return $admin;
 }
 
+function set_status_admin ($status, $id_cate) {
+    $sql = "UPDATE admins set status = ?, updated_at = current_timestamp() where admin_id = ?";
+    pdo_execute($sql, $status, $id_cate);
+}
+
 function admin_remove_by_id($user_id){
     $query = "delete from admins where admin_id = ?";
     pdo_execute($query, $user_id);

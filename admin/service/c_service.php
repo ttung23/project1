@@ -10,63 +10,66 @@ require_once '../../dao/service_dao.php';
 if (isset($_GET['status'])) {
     $service = load_service_by_status($_GET['status']);
 } else {
-    $service = loadAll_service();
+    $service = load_all_service();
 }
 
 if (isset($_GET['add_service'])) {
+    $len_rows = $_SESSION['add_service'];
+
     if (isset($_POST['btn_add_service'])) {
         $name_service = $_POST['name_service'];
         $description = $_POST['description'];
         $price = $_POST['price'];
         $quantity = $_POST['quantity'];
         $status = 1;
-        $id_room = $_POST['id_room'];
 
         $image = $_FILES['image'];
         $image_name = $image['name'];
 
-        if ($name_service == "") {
-            $err['name_service'] = "Bạn chưa nhập tên dịch vụ";
-        }
-
-        if ($description == "") {
-            $err['description'] = "Bạn chưa nhập mô tả của dịch vụ";
-        }
-
-        if ($price == "") {
-            $err['price'] = "Bạn chưa nhập giá của dịch vụ";
-        }
-
-        if ($quantity == "") {
-            $err['quantity'] = "Bạn chưa nhập số lượng của dịch vụ";
-        }
-
-        if ($status == "") {
-            $err['status'] = "Bạn chưa nhập trạng thái của dịch vụ";
-        }
-
-        if ($id_room == "") {
-            $err['id_room'] = "Bạn chưa chọn phòng của dịch vụ";
-        }
-
-        $ext = pathinfo($image_name, PATHINFO_EXTENSION);
-
-        if ($image['size'] <= 0) {
-            $err['img'] = "Bạn chưa chọn ảnh cho dịch vụ";
-        } else if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
-            $err['img'] = "Ảnh không đúng định dạng";
-        } else if ($image['size'] >= 2 * 1024 * 1024) {
-            $err['img'] = "Ảnh không được quá 2MB";
-        }
-
-        if (!$err) {
-            $add_service = Insert_service($name_service, $image_name, $description, $price, $quantity, $status, $id_room);
-
-            if ($image['size'] > 0) {
-                move_uploaded_file($image['tmp_name'], '../../layout/assets/img/' . $image_name);
+        for ($i = 0; $i < $len_rows; $i++) {
+            if ($name_service[$i] == "") {
+                $err['name_service'][$i] = "Bạn chưa nhập tên dịch vụ";
             }
-
-            header('location:c_service.php');
+    
+            if ($description[$i] == "") {
+                $err['description'][$i] = "Bạn chưa nhập mô tả của dịch vụ";
+            }
+    
+            if ($price[$i] == "") {
+                $err['price'][$i] = "Bạn chưa nhập giá của dịch vụ";
+            } elseif (!is_numeric($price[$i])) {
+                $err['price'][$i] = "Giá của dịch vụ phải là số";
+            } elseif ($price[$i] <= 0) {
+                $err['price'][$i] = "Giá của dịch vụ phải lớn hơn 0";
+            }
+    
+            if ($quantity[$i] == "") {
+                $err['quantity'][$i] = "Bạn chưa nhập số lượng của dịch vụ";
+            } elseif (!is_numeric($quantity[$i])) {
+                $err['price'][$i] = "Số lượng của dịch vụ phải là số";
+            } elseif ($quantity[$i] <= 0) {
+                $err['quantity'][$i] = "Số lượng người của dịch vụ phải lớn hơn 0";
+            }
+    
+            $ext = pathinfo($image_name[$i], PATHINFO_EXTENSION);
+    
+            if ($image['size'][$i] <= 0) {
+                $err['img'][$i] = "Bạn chưa chọn ảnh cho dịch vụ";
+            } else if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
+                $err['img'][$i] = "Ảnh không đúng định dạng";
+            } else if ($image['size'][$i] >= 2 * 1024 * 1024) {
+                $err['img'][$i] = "Ảnh không được quá 2MB";
+            }
+    
+            if (empty($err)) {
+                $add_service = Insert_service($name_service[$i], $image_name[$i], $description[$i], $price[$i], $quantity[$i], $status);
+    
+                if ($image['size'][$i] > 0) {
+                    move_uploaded_file($image['tmp_name'][$i], '../../layout/assets/img/dichvu/' . $image_name[$i]);
+                }
+    
+                header('location:c_service.php');
+            }
         }
     }
 
@@ -88,7 +91,6 @@ if (isset($_GET['add_service'])) {
         $description = $_POST['description'];
         $price = $_POST['price'];
         $quantity = $_POST['quantity'];
-        $id_room = $_POST['id_room'];
         $image_name = $_POST['image'];
 
         $image = $_FILES['image'];
@@ -104,14 +106,18 @@ if (isset($_GET['add_service'])) {
     
             if ($price[$i] == "") {
                 $err['price'][$i] = "Bạn chưa nhập giá của dịch vụ";
+            } elseif (!is_numeric($price[$i])) {
+                $err['price'][$i] = "Giá của dịch vụ phải là số";
+            } elseif ($price[$i] <= 0) {
+                $err['price'][$i] = "Giá của dịch vụ phải lớn hơn 0";
             }
     
             if ($quantity[$i] == "") {
                 $err['quantity'][$i] = "Bạn chưa nhập số lượng của dịch vụ";
-            }
-    
-            if ($id_room[$i] == "") {
-                $err['id_room'][$i] = "Bạn chưa chọn phòng của dịch vụ";
+            } elseif (!is_numeric($quantity[$i])) {
+                $err['price'][$i] = "Số lượng của dịch vụ phải là số";
+            } elseif ($quantity[$i] <= 0) {
+                $err['quantity'][$i] = "Số lượng người của dịch vụ phải lớn hơn 0";
             }
     
             if ($image['size'][$i] > 0) {
@@ -133,7 +139,7 @@ if (isset($_GET['add_service'])) {
             }
     
             if (empty($err)) {
-                $edit_service = Update_service($name_service[$i], $image_name[$i], $description[$i], $price[$i], $quantity[$i], $id_room[$i], $service_edit[$i]->service_id);
+                $edit_service = Update_service($name_service[$i], $image_name[$i], $description[$i], $price[$i], $quantity[$i], $service_edit[$i]->service_id);
     
                 if ($image['size'][$i] > 0) {
                     move_uploaded_file($image['tmp_name'][$i], '../../layout/assets/img/dichvu/' . $image_name[$i]);
@@ -183,6 +189,17 @@ if (isset($_GET['add_service'])) {
             }
         }
         header("location:c_service.php?status=0");
+    } elseif (isset($_POST['add_service'])) {
+        $quantity_rows = $_POST['quantity_rows'];
+
+        if ($quantity_rows <= 0) {
+            $loi = "Số lượng phải lớn hơn 1";
+        }
+
+        if (!isset($loi)) {
+            $_SESSION['add_service'] = $quantity_rows;
+            header('location:c_service.php?add_service');
+        }
     }
     $VIEW_TITLE = "Danh sách dịch vụ";
     $VIEW_CSS = "admin_service.css";

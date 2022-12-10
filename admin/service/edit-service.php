@@ -49,14 +49,6 @@
                             <?php } ?>
                         </div>
 
-                        <div>
-                            <label for="">Phòng</label>
-                            <input value="<?= $service_edit[$i]->id_room ?>" type="text" name="id_room[]" class="border rounded border-sky-400 w-full p-2" />
-                            <?php if (isset($err['id_room'][$i])) { ?>
-                                <span class="text-red-500"><?= $err['id_room'][$i] ?></span>
-                            <?php } ?>
-                        </div>
-
                         <div class="col-span-3">
                             <label for="">Mô tả</label>
                             <textarea class="border rounded border-sky-400 w-full p-2" name="description[]" id="ten" cols="30"
