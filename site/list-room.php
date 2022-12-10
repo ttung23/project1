@@ -25,11 +25,6 @@
                     </div>
                     <div>
                         <div class="checkin pr-4">
-                            <div class="font-medium mb-1 text-[14px]">số lượng người</div>
-
-                            <div class="checkin-date">
-                                <span class="block font-bold text-[14px]"><input type="number" name="quantity" min="1" max="" value="1"></span>
-                            </div>
                         </div>
                     </div>
 

@@ -42,7 +42,7 @@
              </div>
              <button type="submit" name="find"><i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm</button>
          </div>
-         <div>
+         <div style="text-align:center">
                 <?php if (isset( $err['find'] )) { ?>
                             <span class="text-red-500"><?=$err['find'] ?></span>
                  <?php } ?>
@@ -107,9 +107,7 @@
                          <p class="p">Tầng: <?php echo $value->location ?></p>
                          <p class="p"> <?php echo $value->sv ?> dịch vụ đi kèm</p>
                          <p>
-                         <p class="p1"><i class="fa-solid fa-thumbs-up"></i><?php echo $value->likes ?> Lượt like</p>
-                         <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> <?php echo $value->tbl ?> Lượt Comment
-                         </p>
+                         <p class="p1"><i class="fa-solid fa-thumbs-up"></i><?php echo $value->likes ?> Lượt like</p>                         </p>
                          <p class="p1"><i class="fa-solid fa-eye"></i> <?php echo $value->view ?> lượt xem</p>
                          </p>
                          <a href="#"></a>
@@ -217,7 +215,6 @@
                          <p class="p"> <?php echo $value->sld ?>Lượt Đặt Phòng</p>
                          <p>
                          <p class="p1"><i class="fa-solid fa-thumbs-up"></i><?php echo $value->likes ?></p>
-                         <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> <?php echo $value->tong_cmt ?> Lượt Comment
                          </p>
                          <p class="p1"><i class="fa-solid fa-eye"></i> <?php echo $value->view ?> lượt xem</p>
                          </p>

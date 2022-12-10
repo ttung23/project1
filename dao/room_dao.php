@@ -1,17 +1,17 @@
 <?php
 // select theo room
 function loadAll_room(){
-    $query = "select r.*,st.star,count(sv.id_room) as 'sv',COUNT(st.id_room) as 'tbl' from room r left join vote_room st on st.id_room = r.room_id left join service_detail sv on sv.id_room=r.room_id where r.status = 1 GROUP BY room_id desc limit 4";
+    $query = "select r.*,count(sv.id_room) as 'sv' from room r  left join service_detail sv on sv.id_room=r.room_id where r.status = 1 GROUP BY room_id desc limit 4";
     $listroom = pdo_query_all($query);
     return $listroom;
 }
 function loadAll_room4(){
-    $query = "select r.*,st.star,count(sv.id_room) as 'sv',COUNT(st.id_room) as 'tbl' from room r left join vote_room st on st.id_room = r.room_id left join service_detail sv on sv.id_room=r.room_id where r.status = 1  GROUP BY room_id desc ";
+    $query = "select r.*,st.star,count(sv.id_room) as 'sv' from room r left join vote_room st on st.id_room = r.room_id left join service_detail sv on sv.id_room=r.room_id where r.status = 1  GROUP BY room_id desc ";
     $listroom = pdo_query_all($query);
     return $listroom;
 }
 function loadAll_room5(){
-    $query = "SELECT r.*, vt.star,count(dt.id_room) as 'sld', COUNT(vt.id_room) as 'tong_cmt' FROM room r LEFT JOIN vote_room vt ON r.room_id = vt.id_room LEFT JOIN booking_detail dt ON dt.id_room = r.room_id LEFT JOIN bookings bk ON dt.id_booking = bk.booking_id WHERE month(bk.check_in_date) = 12 and  r.status = 1  GROUP BY r.room_id;";
+    $query = "SELECT r.*,count(dt.id_room) as 'sld' FROM room r LEFT JOIN booking_detail dt ON dt.id_room = r.room_id LEFT JOIN bookings bk ON dt.id_booking = bk.booking_id WHERE month(bk.check_in_date) = 12 and r.status = 1 GROUP BY r.room_id";
     $listroom = pdo_query_all($query);
     return $listroom;
 }

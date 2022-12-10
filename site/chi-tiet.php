@@ -35,7 +35,7 @@
             <div class="flex mx-20 ">
    <?php foreach ($loadanh as $key => $values) : ?>
                 <div class="column py-3 ">
-                    <img width="300px" height="250px" src="../layout/assets/img/product/<?php echo $values->image?>" alt="" class=" rounded">
+                    <img style="width: 150; height: 100px" src="../layout/assets/img/product/<?php echo $values->image?>" alt="" class=" rounded">
                 </div>
 <?php endforeach ?>
             </div>
@@ -184,6 +184,9 @@
             </div>
         </div>
         <?php endforeach ?>
+        <?php if (isset( $err['comment'] )) { ?>
+                                <span class="text-red-500"><?= $err['comment']?></span>
+                 <?php } ?>
         <a href="" class="underline font-bold text-xl hover:text-blue-600">Xem thêm đánh giá ></a>
     </div>
     <h1 class="max-w-[1200px] mb-2 flex items-center justify-center pt-3">Bạn đã sử dụng phòng chưa ?</h1>
@@ -257,9 +260,6 @@
                             " id="" rows="3" placeholder="Nêu cảm nhận của bạn" name="content"></textarea>
                                 </div>
                                 <div class="mb-6">
-                                    <input type="email"
-                                        class=" block w-full px-3  py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded  transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#0194f3] focus:outline-none"
-                                        id="" placeholder="Nhập email(để nhận thông báo phản hồi)">
                                 </div>
                                 <div class="mb-6">
                                     <input type="checkbox"
