@@ -39,18 +39,32 @@
 
                         <div class="add cursor-pointer capitalize bg-green-500 text-center px-3 py-[12px] shadow-lg w-[200px]"  data-modal-toggle="aa">
                             <!-- <a class="capitalize bg-green-500 text-center px-3 py-[12px] shadow-lg w-[200px]" href="c_admin.php?add-admin" class="mx-3">Thêm nhân viên</a> -->
-                            thêm nhân viên
+                            thêm
                         </div>
 
                         <div class="">
                             <button type="submit" name="edit_admin" class="capitalize bg-yellow-500 text-center px-3 py-[12px] shadow-lg w-[200px]">
-                                Sửa thông tin
+                                Sửa
                             </button>
                         </div>
 
                         <div class="">
                             <button type="submit" name="delete_admin" class="capitalize bg-rose-700 text-center px-3 py-[12px] shadow-lg w-[200px]" onclick="return confirm('Bạn muốn xóa nhân viên đã chọn không?')">
                                 Xóa
+                            </button>
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <button type="submit" name="unlock_admin" class="capitalize bg-green-500 text-center px-3 py-[12px] shadow-lg w-[200px]">
+                                Mở khóa / Xác nhận
+                            </button>
+                        </div>
+
+                        <div>
+                            <button type="submit" name="block_admin" class="capitalize bg-red-500 text-center px-3 py-[12px] shadow-lg w-[200px]">
+                                Khóa
                             </button>
                         </div>
                     </div>
@@ -85,6 +99,7 @@
                         <th>Địa chỉ</th>
                         <th>Số điện thoại</th>
                         <th>Chức vụ</th>
+                        <th>Trạng thái</th>
                         <th>Ngày tạo</th>
                         <th>Ngày cập nhập</th>
                     </tr>
@@ -101,6 +116,15 @@
                             <td><?php echo $value->address ?></td>
                             <td><?php echo $value->phone ?></td>
                             <td><?= $value->name_permission ?></td>
+                            <td><?php 
+                                if ($value->status == 0) {
+                                    echo "Chờ xác nhận";
+                                } elseif ($value->status == 1) {
+                                    echo "Xác nhận";
+                                } elseif ($value->status == 2) {
+                                    echo "Tạm khóa";
+                                }
+                            ?></td>
                             <td><?= $value->created_at ?></td>
                             <td><?= $value->updated_at ?></td>
                         </tr>

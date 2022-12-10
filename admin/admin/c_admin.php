@@ -166,6 +166,24 @@ if (isset($_GET['add-admin'])) {
             $_SESSION['add_admin'] = $quantity_rows;
             header('location:c_admin.php?add-admin');
         }
+    } elseif (isset($_POST['unlock_admin'])) {
+        if (isset($_POST['admin'])) {
+            $choose_admin = $_POST['admin'];
+            for ($i = 0; $i < count($choose_admin); $i++) {
+                $unlock_admin = set_status_admin(1, $choose_admin[$i]);
+            }
+    
+            header('location:c_admin.php?status=1');
+        }
+    } elseif (isset($_POST['block_admin'])) {
+        if (isset($_POST['admin'])) {
+            $choose_admin = $_POST['admin'];
+            for ($i = 0; $i < count($choose_admin); $i++) {
+                $block_admin = set_status_admin(2, $choose_admin[$i]);
+            }
+    
+            header('location:c_admin.php?status=2');
+        }
     }
     $VIEW_TITLE = "Danh sách nhân viên";
     $VIEW_CSS = 'admin_cmt.css';

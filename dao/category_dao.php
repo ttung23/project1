@@ -18,7 +18,7 @@ function load_cate_by_status ($status) {
 }
 
 function set_status_cate ($status, $id_cate) {
-    $sql = "UPDATE categories_room set status = ? where categories_id = ?";
+    $sql = "UPDATE categories_room set status = ?, updated_at = current_timestamp() where categories_id = ?";
     pdo_execute($sql, $status, $id_cate);
 }
 

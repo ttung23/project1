@@ -97,7 +97,6 @@
                                 <th>Giá</th>
                                 <th>Số lượng</th>
                                 <th>Trạng thái</th>
-                                <th>Phòng</th>
                                 <th>Ngày tạo</th>
                                 <th>Ngày cập nhập</th>
                             </tr>
@@ -108,14 +107,13 @@
                                     <td><?= $value->name ?></td>
                                     <td><img src="../../layout/assets/img/dichvu/<?= $value->images ?>" width="100px" alt="" /></td>
                                     <td><?= $value->description ?></td>
-                                    <td><?= $value->price ?></td>
+                                    <td><?= number_format($value->price, 0, ",", ".") ?></td>
                                     <td><?= $value->quantity ?></td>
                                     <td><?php if ($value->status == 0) {
                                         echo "Tạm khóa";
                                     } elseif ($value->status == 1) {
                                         echo "Kích hoạt";
                                     } ?></td>
-                                    <td><?= $value->room_name ?></td>
                                     <td><?= $value->created_at ?></td>
                                     <td><?= $value->updated_at ?></td>
                                 </tr>

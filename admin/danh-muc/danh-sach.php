@@ -98,6 +98,7 @@
                         <th style="width: 100px">Mô tả</th>
                         <th style="width: 100px">Ảnh đại diện</th>
                         <th style="width: 200px">Ngày khởi tạo</th>
+                        <th style="width: 200px">Ngày cập nhập</th>
                     </tr>
                     <?php foreach ($category as $value) { ?>
                         <tr>
@@ -112,6 +113,7 @@
                             <td><?= $value->description ?></td>
                             <td><img src="../../layout/assets/img/categories/<?= $value->images ?>" alt="" /></td>
                             <td><?= $value->created_at ?></td>
+                            <td><?= $value->updated_at ?></td>
 
                         </tr>
                     <?php } ?>

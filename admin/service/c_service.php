@@ -10,7 +10,7 @@ require_once '../../dao/service_dao.php';
 if (isset($_GET['status'])) {
     $service = load_service_by_status($_GET['status']);
 } else {
-    $service = loadAll_service();
+    $service = load_all_service();
 }
 
 if (isset($_GET['add_service'])) {
@@ -22,7 +22,6 @@ if (isset($_GET['add_service'])) {
         $price = $_POST['price'];
         $quantity = $_POST['quantity'];
         $status = 1;
-        $id_room = $_POST['id_room'];
 
         $image = $_FILES['image'];
         $image_name = $image['name'];
@@ -38,18 +37,18 @@ if (isset($_GET['add_service'])) {
     
             if ($price[$i] == "") {
                 $err['price'][$i] = "Bạn chưa nhập giá của dịch vụ";
+            } elseif (!is_numeric($price[$i])) {
+                $err['price'][$i] = "Giá của dịch vụ phải là số";
             } elseif ($price[$i] <= 0) {
                 $err['price'][$i] = "Giá của dịch vụ phải lớn hơn 0";
             }
     
             if ($quantity[$i] == "") {
                 $err['quantity'][$i] = "Bạn chưa nhập số lượng của dịch vụ";
+            } elseif (!is_numeric($quantity[$i])) {
+                $err['price'][$i] = "Số lượng của dịch vụ phải là số";
             } elseif ($quantity[$i] <= 0) {
                 $err['quantity'][$i] = "Số lượng người của dịch vụ phải lớn hơn 0";
-            }
-    
-            if ($id_room[$i] == "") {
-                $err['id_room'][$i] = "Bạn chưa chọn phòng của dịch vụ";
             }
     
             $ext = pathinfo($image_name[$i], PATHINFO_EXTENSION);
@@ -63,7 +62,7 @@ if (isset($_GET['add_service'])) {
             }
     
             if (empty($err)) {
-                $add_service = Insert_service($name_service[$i], $image_name[$i], $description[$i], $price[$i], $quantity[$i], $status, $id_room[$i]);
+                $add_service = Insert_service($name_service[$i], $image_name[$i], $description[$i], $price[$i], $quantity[$i], $status);
     
                 if ($image['size'][$i] > 0) {
                     move_uploaded_file($image['tmp_name'][$i], '../../layout/assets/img/dichvu/' . $image_name[$i]);
@@ -92,7 +91,6 @@ if (isset($_GET['add_service'])) {
         $description = $_POST['description'];
         $price = $_POST['price'];
         $quantity = $_POST['quantity'];
-        $id_room = $_POST['id_room'];
         $image_name = $_POST['image'];
 
         $image = $_FILES['image'];
@@ -108,14 +106,18 @@ if (isset($_GET['add_service'])) {
     
             if ($price[$i] == "") {
                 $err['price'][$i] = "Bạn chưa nhập giá của dịch vụ";
+            } elseif (!is_numeric($price[$i])) {
+                $err['price'][$i] = "Giá của dịch vụ phải là số";
+            } elseif ($price[$i] <= 0) {
+                $err['price'][$i] = "Giá của dịch vụ phải lớn hơn 0";
             }
     
             if ($quantity[$i] == "") {
                 $err['quantity'][$i] = "Bạn chưa nhập số lượng của dịch vụ";
-            }
-    
-            if ($id_room[$i] == "") {
-                $err['id_room'][$i] = "Bạn chưa chọn phòng của dịch vụ";
+            } elseif (!is_numeric($quantity[$i])) {
+                $err['price'][$i] = "Số lượng của dịch vụ phải là số";
+            } elseif ($quantity[$i] <= 0) {
+                $err['quantity'][$i] = "Số lượng người của dịch vụ phải lớn hơn 0";
             }
     
             if ($image['size'][$i] > 0) {
@@ -137,7 +139,7 @@ if (isset($_GET['add_service'])) {
             }
     
             if (empty($err)) {
-                $edit_service = Update_service($name_service[$i], $image_name[$i], $description[$i], $price[$i], $quantity[$i], $id_room[$i], $service_edit[$i]->service_id);
+                $edit_service = Update_service($name_service[$i], $image_name[$i], $description[$i], $price[$i], $quantity[$i], $service_edit[$i]->service_id);
     
                 if ($image['size'][$i] > 0) {
                     move_uploaded_file($image['tmp_name'][$i], '../../layout/assets/img/dichvu/' . $image_name[$i]);

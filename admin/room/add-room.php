@@ -14,8 +14,8 @@
                         </div>
 
                         <div>
-                            <label for="">Name</label>
-                            <input value="<?= $_POST['name'][$i] ?? "" ?>" type="text" name="name_room[]"
+                            <label for="">Tên phòng</label>
+                            <input placeholder="Tên phòng..." value="<?= $_POST['name'][$i] ?? "" ?>" type="text" name="name_room[]"
                                 class="border rounded border-sky-400 w-full p-2" />
                             <?php if (isset($err['name_room'][$i])) { ?>
                             <span class="text-red-500"><?= $err['name_room'][$i] ?></span>
@@ -25,16 +25,13 @@
                             <label for="">Danh Mục</label>
                             <select name="category_id[]" id="" class="border rounded border-sky-400 w-full p-2">
                                 <?php foreach ($categoryAll as $key => $value) : ?>
-                                <option value="<?php echo $value->categories_id ?>"><?php echo $value->name ?></option>
+                                    <option value="<?php echo $value->categories_id ?>"><?php echo $value->name ?></option>
                                 <?php endforeach ?>
                             </select>
-                            <?php if (isset($err['category_id'][$i])) { ?>
-                                <span class="text-red-500"><?= $err['category_id'][$i] ?></span>
-                            <?php } ?>
                         </div>
                         <div>
                             <label for="">Giá</label>
-                            <input value="<?= $_POST['price_room'][$i] ?? "" ?>" type="text" name="price_room[]"
+                            <input placeholder="Giá phòng mỗi đêm..." value="<?= $_POST['price_room'][$i] ?? "" ?>" type="text" name="price_room[]"
                                 class="border rounded border-sky-400 w-full p-2" />
                             
                             <?php if (isset($err['price_room'][$i])) { ?>
@@ -44,7 +41,7 @@
 
                         <div>
                             <label for="">Phòng hạng (sao)</label>
-                            <input value="<?= $_POST['star'][$i] ?? "" ?>" type="text" name="star[]"
+                            <input placeholder="Phòng hạng..." value="<?= $_POST['star'][$i] ?? "" ?>" type="text" name="star[]"
                                 class="border rounded border-sky-400 w-full p-2" />
 
                             <?php if (isset($err['star'][$i])) { ?>
@@ -54,39 +51,27 @@
 
                         <div>
                             <label for="">Tầng</label>
-                            <input value="<?= $_POST['location'][$i] ?? "" ?>" type="text" name="location[]"
+                            <input placeholder="Số tầng..." value="<?= $_POST['location'][$i] ?? "" ?>" type="text" name="location[]"
                                 class="border rounded border-sky-400 w-full p-2" />
                             <?php if (isset($err['location'][$i])) { ?>
                                 <span class="text-red-500"><?= $err['location'][$i] ?></span>
                             <?php } ?>
                         </div>
-                        
-                        <div>
-                            <label for="">Dịch Vụ</label>
-                            <select name="service_id[]" id="" class="border rounded border-sky-400 w-full p-2">
-                                <?php foreach ($service as $key => $value) : ?>
-                                    <option value="<?php echo $value->service_id ?>"><?php echo $value->name ?></option>
-                                <?php endforeach ?>
-                            </select>
-                            <?php if (isset($err['service'][$i])) { ?>
-                                <span class="text-red-500"><?= $err['service'][$i] ?></span>    
-                            <?php } ?>
-                        </div>
 
                         <div>
                             <label for="">Diện Tích</label>
-                            <input value="<?= $_POST['acreage_room'][$i] ?? "" ?>" type="text" name="acreage_room[]"
+                            <input placeholder="Diện tích..." value="<?= $_POST['acreage_room'][$i] ?? "" ?>" type="text" name="acreage_room[]"
                                 class="border rounded border-sky-400 w-full p-2" />
                             <?php if (isset($err['acreage_room'][$i])) { ?>
-                            <span class="text-red-500"><?= $err['acreage_room'][$i] ?></span>
+                                <span class="text-red-500"><?= $err['acreage_room'][$i] ?></span>
                             <?php } ?>
                         </div>
                         <div>
                             <label for="">Số lượng người</label>
-                            <input value="<?= $_POST['quantity'][$i] ?? "" ?>" type="text" name="quantity[]"
+                            <input placeholder="Số lượng người..." value="<?= $_POST['quantity'][$i] ?? "" ?>" type="text" name="quantity[]"
                                 class="border rounded border-sky-400 w-full p-2" />
                             <?php if (isset($err['quantity'][$i])) { ?>
-                            <span class="text-red-500"><?= $err['quantity'][$i] ?></span>
+                                <span class="text-red-500"><?= $err['quantity'][$i] ?></span>
                             <?php } ?>
                         </div>
                         <div>
@@ -99,7 +84,7 @@
                         
                         <div class="col-span-3">
                             <label for="">Mô tả</label>
-                            <textarea class="border rounded border-sky-400 w-full p-2" name="description[]" id="ten" cols="30"
+                            <textarea placeholder="Mô tả của phòng..." class="border rounded border-sky-400 w-full p-2" name="description[]" id="ten" cols="30"
                                 rows="5"><?= $_POST['description'][$i] ?? "" ?></textarea>
                             <script>CKEDITOR.replace('ten');</script>
 
