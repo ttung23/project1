@@ -15,6 +15,8 @@ if (isset($_GET['id_permission'])) {
 }
 
 if (isset($_GET['add-admin'])) {
+    $len_rows = $_SESSION['add_admin'];
+
     if (isset($_POST['add_admin'])) {
         $name_admin = $_POST['name_admin'];
         $email = $_POST['email'];
@@ -25,48 +27,50 @@ if (isset($_GET['add-admin'])) {
         $image = $_FILES['image'];
         $image_name = $image['name'];
         $id_permission = $_POST['id_permission'];
-        $err = [];
-        if ($name_admin == "") {
-            $err['name_admin'] = "Bạn chưa nhập tên phòng";
-        }
-
-        if ($email == "") {
-            $err['email'] = "Bạn chưa nhập email";
-        }
-
-        if ($password == "") {
-            $err['password'] = "Bạn chưa nhập password";
-        }
-
-        if ($address == "") {
-            $err['address'] = "Bạn chưa chọn address";
-        }
-
-        if ($phone == "") {
-            $err['phone'] = "Bạn chưa nhập phone";
-        }
-
-        if ($gender == "") {
-            $err['gender'] = "Bạn chưa nhập giới tính";
-        }
-        $ext = pathinfo($image_name, PATHINFO_EXTENSION);
-
-        if ($image['size'] <= 0) {
-            $err['img'] = "Bạn chưa chọn ảnh cho phòng";
-        } else if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
-            $err['img'] = "Ảnh không đúng định dạng";
-        } else if ($image['size'] >= 2 * 1024 * 1024) {
-            $err['img'] = "Ảnh không được quá 2MB";
-        }
-
-        if (!$err) {
-            $update = Insert_admins($name_admin, $email, $password, $gender, $image_name, $address, $phone, $id_permission);
-
-            if ($image['size'] > 0) {
-                move_uploaded_file($image['tmp_name'], '../../layout/assets/img/admins/' . $image_name);
+        
+        for ($i = 0; $i < $len_rows; $i++) {
+            if ($name_admin[$i] == "") {
+                $err['name_admin'][$i] = "Bạn chưa nhập tên phòng";
             }
-
-            header('location:c_admin.php');
+    
+            if ($email[$i] == "") {
+                $err['email'][$i] = "Bạn chưa nhập email";
+            }
+    
+            if ($password[$i] == "") {
+                $err['password'][$i] = "Bạn chưa nhập password";
+            }
+    
+            if ($address[$i] == "") {
+                $err['address'][$i] = "Bạn chưa chọn address";
+            }
+    
+            if ($phone[$i] == "") {
+                $err['phone'][$i] = "Bạn chưa nhập phone";
+            }
+    
+            if ($gender[$i] == "") {
+                $err['gender'][$i] = "Bạn chưa nhập giới tính";
+            } 
+            $ext = pathinfo($image_name[$i], PATHINFO_EXTENSION);
+    
+            if ($image['size'][$i] <= 0) {
+                $err['img'][$i] = "Bạn chưa chọn ảnh cho phòng";
+            } else if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
+                $err['img'][$i] = "Ảnh không đúng định dạng";
+            } else if ($image['size'][$i] >= 2 * 1024 * 1024) {
+                $err['img'][$i] = "Ảnh không được quá 2MB";
+            }
+    
+            if (!$err) {
+                $update = Insert_admins($name_admin[$i], $email[$i], $password[$i], $gender[$i], $image_name[$i], $address[$i], $phone[$i], $id_permission[$i]);
+    
+                if ($image['size'][$i] > 0) {
+                    move_uploaded_file($image['tmp_name'][$i], '../../layout/assets/img/admins/' . $image_name[$i]);
+                }
+    
+                header('location:c_admin.php');
+            }
         }
     }
     $VIEW_TITLE = "Thêm nhân viên";
@@ -94,25 +98,21 @@ if (isset($_GET['add-admin'])) {
 
         for ($i = 0; $i < $len_admin_edit; $i++) {
             if ($name_admin[$i] == "") {
-                $err['name_admin'][$i] = "Bạn chưa nhập tên Phòng";
+                $err['name_admin'][$i] = "Bạn chưa nhập tên nhân viên";
             }
             if ($email[$i] == "") {
                 $err['email'][$i] = "Bạn chưa nhập email";
             }
             if ($password[$i] == "") {
-                $err['password'][$i] = "Bạn chưa nhập password";
+                $err['password'][$i] = "Bạn chưa nhập mật khẩu";
             }
     
             if ($address[$i] == "") {
-                $err['address'][$i] = "Bạn chưa chọn address";
+                $err['address'][$i] = "Bạn chưa nhập địa chỉ";
             }
     
             if ($phone[$i] == "") {
-                $err['phone'][$i] = "Bạn chưa nhập phone";
-            }
-    
-            if ($gender[$i] == "") {
-                $err['gender'][$i] = "Bạn chưa nhập gender";
+                $err['phone'][$i] = "Bạn chưa nhập số điện thoại";
             }
     
             if ($image['size'][$i] > 0) {                
@@ -154,6 +154,17 @@ if (isset($_GET['add-admin'])) {
             header('location:c_admin.php?edit_admin');
         } else {
             header('location:c_admin.php');
+        }
+    } elseif (isset($_POST['add_admin'])) {
+        $quantity_rows = $_POST['quantity_rows'];
+
+        if ($quantity_rows <= 0) {
+            $loi = "Số lượng phải lớn hơn 1";
+        }
+
+        if (!isset($loi)) {
+            $_SESSION['add_admin'] = $quantity_rows;
+            header('location:c_admin.php?add-admin');
         }
     }
     $VIEW_TITLE = "Danh sách nhân viên";

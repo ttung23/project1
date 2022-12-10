@@ -46,13 +46,17 @@
                         <div></div>
                         <div></div>
 
-                        <div class="">
+                        <!-- <div class="">
                             <a href="?add_service" class="capitalize bg-green-500 text-center px-3 py-[12px] shadow-lg w-[200px]" type="submit" name="add_service">Thêm dịch vụ</a>
+                        </div> -->
+
+                        <div class="add cursor-pointer capitalize bg-green-500 text-center px-3 py-[12px] shadow-lg w-[200px]"  data-modal-toggle="aa">
+                            Thêm
                         </div>
 
                         <div class="">
                             <button type="submit" name="edit_service" class="capitalize bg-yellow-500 text-center px-3 py-[12px] shadow-lg w-[200px]">
-                                Sửa thông tin
+                                Sửa
                             </button>
                         </div>
 
@@ -61,6 +65,23 @@
                                 Xóa
                             </button>
                         </div>
+                    </div>
+                </div>
+
+                <div id="aa" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 p-4 md:inset-0 h-modal">
+                    <div class="bg-white p-5" id="popup">
+                        <div class="flex_tt text-center py-3">
+                            <img class="inline-block" src="../../layout/assets/img/logo/logo_chuong.png" width="50px" alt="ảnh logo">
+                            <span class="font-semibold text-[20px]">StayyInn</span>
+                        </div>
+
+                        <h4>NHẬP SỐ BẢN GHI MUỐN THÊM</h4>
+                        <input class="p-3 border border-[#0194f3] text-center outline-none rounded-[8px] w-full" type="number" name="quantity_rows" min="1" step="1" id="">
+                        <?php if (isset($loi)) { ?>
+                            <span class="text-red-700"><?= $loi ?></span>
+                        <?php } ?>
+                        <button name="add_service" class="block text-white rounded-[8px] mt-2 bg-[#0194f3] p-2 mx-auto" type="submit">Xác nhận</button>
+
                     </div>
                 </div>
 

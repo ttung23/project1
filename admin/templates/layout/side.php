@@ -41,7 +41,7 @@
                 </a></li>
             <li><a href="../../admin/admin/c_admin.php">
                     <i class="uil uil-head-side"></i>
-                    <span class="link-name">Quản lý QTV</span>
+                    <span class="link-name">Quản lý nhân viên</span>
                 </a></li>
             <li><a href="../../admin/permission/c_permission.php">
                     <i class="uil uil-award"></i>

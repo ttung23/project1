@@ -14,6 +14,8 @@ if (isset($_GET['status'])) {
 }
 
 if (isset($_GET['add_new'])) { // THÊM
+    $len_rows = $_SESSION['add_new'];
+
     if (isset($_POST['btn_add_new'])) {
         $name_new = $_POST['name_new'];
         $content = $_POST['content'];
@@ -23,36 +25,34 @@ if (isset($_GET['add_new'])) { // THÊM
         $image = $_FILES['image'];
         $image_name = $image['name'];
 
-        if ($name_new == "") {
-            $err['name_new'] = "Bạn chưa nhập tiêu đề của tin tức";
-        }
-
-        if ($content == "") {
-            $err['content'] = "Bạn chưa nhập nội dung của tin tức";
-        }
-
-        if ($id_admin == "") {
-            $err['id_admin'] = "Bạn chưa nhập id người đăng";
-        }
-
-        $ext = pathinfo($image_name, PATHINFO_EXTENSION);
-
-        if ($image['size'] <= 0) {
-            $err['img'] = "Bạn chưa chọn ảnh tin tức";
-        } else if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
-            $err['img'] = "Ảnh không đúng định dạng";
-        } else if ($image['size'] >= 2 * 1024 * 1024) {
-            $err['img'] = "Ảnh không được quá 2MB";
-        }
-
-        if (!$err) {
-            $add_new = Insert_new($name_new, $image_name, $content, $status, $id_admin);
-
-            if ($image['size'] > 0) {
-                move_uploaded_file($image['tmp_name'], '../../layout/assets/img/news/' . $image_name);
+        for ($i = 0; $i < $len_rows; $i++) {
+            if ($name_new[$i] == "") {
+                $err['name_new'][$i] = "Bạn chưa nhập tiêu đề của tin tức";
             }
-
-            header('location:c_news.php');
+    
+            if ($content[$i] == "") {
+                $err['content'][$i] = "Bạn chưa nhập nội dung của tin tức";
+            }
+    
+            $ext = pathinfo($image_name[$i], PATHINFO_EXTENSION);
+    
+            if ($image['size'][$i] <= 0) {
+                $err['img'][$i] = "Bạn chưa chọn ảnh tin tức";
+            } else if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
+                $err['img'][$i] = "Ảnh không đúng định dạng";
+            } else if ($image['size'][$i] >= 2 * 1024 * 1024) {
+                $err['img'][$i] = "Ảnh không được quá 2MB";
+            }
+    
+            if (empty($err)) {
+                $add_new = Insert_new($name_new[$i], $image_name[$i], $content[$i], $status, $id_admin);
+    
+                if ($image['size'][$i] > 0) {
+                    move_uploaded_file($image['tmp_name'][$i], '../../layout/assets/img/news/' . $image_name[$i]);
+                }
+    
+                header('location:c_news.php');
+            }
         }
     }
 
@@ -126,6 +126,17 @@ if (isset($_GET['add_new'])) { // THÊM
             header('location:c_news.php?edit_news');
         } else {
             header('location:c_news.php');
+        }
+    } elseif (isset($_POST['add_new'])) { // THÊM
+        $quantity_rows = $_POST['quantity_rows'];
+
+        if ($quantity_rows <= 0) {
+            $loi = "Số lượng phải lớn hơn 1";
+        }
+
+        if (!isset($loi)) {
+            $_SESSION['add_new'] = $quantity_rows;
+            header('location:c_news.php?add_new');
         }
     }
     $VIEW_TITLE = "Danh sách tin tức";
