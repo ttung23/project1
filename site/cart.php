@@ -27,14 +27,6 @@
                         </div>
                     </div>
                     <div>
-                        <div class="checkin pr-4">
-                            <div class="font-medium mb-1 text-[14px]">số lượng người</div>
-
-                            <div class="checkin-date">
-                                <span class="block font-bold text-[14px]"><input type="number" name="quantity" min="1"
-                                        max="" value="1"></span>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="mt-4 time">
@@ -202,44 +194,48 @@
                     <div class="input">
                         <div class="w-[25%] pt-[16px]">
                             <label for="surname" class="font-bold text-[14px]">Họ</label>
-                            <input class="w-[100%] border-input p-[5px]" value="<?= $value->name?>" type="text" placeholder="Họ của bạn..." name=""
+                            <input class="w-[100%] border-input p-[5px]" value="<?= $value->name?>" type="text" placeholder="Họ của bạn..." name="name"
                                 id="surname">
+                                <?php if (isset( $err['name'] )) { ?>
+                            <span class="text-red-500"><?=$err['name'] ?></span>
+                 <?php } ?>
                         </div>
                         <div class="w-[10%]"></div>
-                        <div class="w-[25%] pt-[16px]">
-                            <label for="name" class="font-bold text-[14px]">Tên</label>
-                            <input class="w-[100%] border-input p-[5px]" name="name" type="text"
-                                placeholder="Tên của bạn..." name="" id="name">
-                        </div>
-
                         <div class="w-[60%] pt-[16px]">
                             <label for="email" class="font-bold text-[14px]">Email</label>
                             <input name="email" value="<?= $value->email?>" class="w-[100%] border-input p-[5px]" type="text"
                                 placeholder="Email của bạn..." name="" id="email">
+                                <?php if (isset( $err['email'] )) { ?>
+                            <span class="text-red-500"><?=$err['email'] ?></span>
+                 <?php } ?>
                         </div>
 
                         <div class="w-[60%] pt-[16px]">
                             <label for="address" class="font-bold text-[14px]">Điện Thoại Của Bạn</label>
                             <input class="w-[100%] border-input p-[5px]" value="<?= $value->phone?>" type="text" placeholder="" name="phone"
                                 id="address">
+                                <?php if (isset( $err['phone'] )) { ?>
+                            <span class="text-red-500"><?=$err['phone'] ?></span>
+                 <?php } ?>
                         </div>
                         <div class="w-[60%] pt-[16px]">
                             <label for="address" class="font-bold text-[14px]">Tin Nhắn Của Bạn</label>
                             <input class="w-[100%] border-input p-[5px]" type="text" placeholder="" name="message"
                                 id="address">
+                                <?php if (isset( $err['message'] )) { ?>
+                            <span class="text-red-500"><?=$err['message'] ?></span>
+                 <?php } ?>
                         </div>
                     </div>
 
                     <div class="mt-4">
-                        <div class="text-[14px] font-bold mb-2">Bạn đặt phòng cho ai?</div>
-                        <div class="mb-1">
-                            <input type="radio" name="ai-dat-phong" id="">
-                            <span>Tôi là khách lưu trú chính</span>
-                        </div>
+                        <div class="checkin pr-4">
+                            <div class="font-medium mb-1 text-[14px]">số lượng người</div>
 
-                        <div>
-                            <input type="radio" name="ai-dat-phong" id="">
-                            <span>Đặt phòng này là cho người khác</span>
+                            <div class="checkin-date">
+                                <span class="block font-bold text-[14px]"><input type="number" name="quantity" min="1"
+                                        max="" value="1"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
