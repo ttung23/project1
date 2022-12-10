@@ -40,10 +40,13 @@
                  <p>Trả phòng </p>
                  <input type="date" name="checkout">
              </div>
-
-             <button type="submit" name="find"><i class="fa-solid fa-magnifying-glass"></i> Tìm
-                 kiếm</button>
+             <button type="submit" name="find"><i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm</button>
          </div>
+         <div style="text-align:center">
+                <?php if (isset( $err['find'] )) { ?>
+                            <span class="text-red-500"><?=$err['find'] ?></span>
+                 <?php } ?>
+                </div>
      </form>
  </div>
  <div class="sale-index">
@@ -88,14 +91,15 @@
      </div>
      <p>Dịch vụ 24/24 </p>
      <div class="room">
-         <a style="background-color: #0770cd; color: white;" href="">Tất cả các phòng</a>
+         <a style="background-color: #0770cd; color: white;" href="index.php">Tất cả các phòng</a>
          <?php foreach ($categoriesAll as $key => $value) : ?>
-             <a href="">Phòng <?php echo $value->name ?></a>
+         <a href="index.php?iddm=<?= $value->categories_id ?>">Phòng <?php echo $value->name ?></a>
          <?php endforeach ?>
      </div>
      <div class="flex-choose">
-         <?php foreach ($roomAll as $key => $value) : ?>
-             <div class="chitiet">
+         <?php foreach ($loadroom as $key => $value) : ?>
+            <div class="chitiet" style="margin-bottom:100px">
+
                  <figure class="snip0016">
                      <img style="width: 300px; height: 220px;" src="../layout/assets/img/product/<?php echo $value->thumbnail ?>" alt="sample41" />
                      <figcaption>
@@ -103,9 +107,7 @@
                          <p class="p">Tầng: <?php echo $value->location ?></p>
                          <p class="p"> <?php echo $value->sv ?> dịch vụ đi kèm</p>
                          <p>
-                         <p class="p1"><i class="fa-solid fa-thumbs-up"></i><?php echo $value->likes ?> Lượt like</p>
-                         <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> <?php echo $value->tbl ?> Lượt Comment
-                         </p>
+                         <p class="p1"><i class="fa-solid fa-thumbs-up"></i><?php echo $value->likes ?> Lượt like</p>                         </p>
                          <p class="p1"><i class="fa-solid fa-eye"></i> <?php echo $value->view ?> lượt xem</p>
                          </p>
                          <a href="#"></a>
@@ -130,7 +132,7 @@
                      <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
                      <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
                      <i class="fa-sharp fa-solid fa-star"></i>
-                     <span><?php echo $value->price ?></span>
+                     <span><?php echo number_format($value->price,0,",",".") ?> đ</span>
                  </div>
              </div>
          <?php endforeach ?>
@@ -146,10 +148,6 @@
      <p>Dịch vụ 24/24 </p>
      <div class="room-dv">
          <a style="background-color: #ff6d70; color: white;" href="">Tất cả các dịch vụ</a>
-         <?php foreach ($service as $key => $value) : ?>
-             <a href="">Phòng <?php echo $value->name ?></a>
-         <?php endforeach ?>
-
      </div>
      <div class="flex-dv">
          <?php foreach ($service as $key => $value) : ?>
@@ -159,7 +157,7 @@
                      <figcaption>
                          <p class="p"><?php echo $value->status ?></p>
                          <p class="p">Số Lượng: <?php echo $value->quantity ?></p>
-                         <p class="p">Giá: <?php echo $value->price ?></p>
+                         <p class="p">Giá: <?php echo number_format($value->price,0,",",".")?> đ</p>
                          <a href="#"></a>
                      </figcaption>
                  </figure>
@@ -176,7 +174,7 @@
                  </div>
                  <div class="i">
 
-                     <span> <?php echo $value->price ?></span>
+                     <span> <?php echo number_format($value->price,0,",",".") ?> đ</span>
                  </div>
              </div>
          <?php endforeach ?>
@@ -200,27 +198,23 @@
  <div class="choose-index">
      <div class="text-choose">
          <i class="fa-solid fa-gift"></i>
-         <h2>Số phòng đặt nhiều trong tháng 11</h2>
+         <h2>Số phòng đặt nhiều trong tháng 12</h2>
      </div>
      <p>Dịch vụ 24/24 </p>
      <div class="room">
          <a style="background-color: #0770cd; color: white;" href="">Tất cả các phòng</a>
-         <?php foreach ($categoriesAll as $key => $value) : ?>
-             <a href="">Phòng <?php echo $value->name ?></a>
-         <?php endforeach ?>
      </div>
      <div class="flex-choose">
-         <?php foreach ($roomAll as $key => $value) : ?>
-             <div class="chitiet">
+         <?php foreach ($loadAll_room5 as $key => $value) : ?>
+             <div class="chitiet" style="margin-bottom:100px">
                  <figure class="snip0016">
                      <img style="width: 300px; height: 220px;" src="../layout/assets/img/product/<?php echo $value->thumbnail ?>" alt="sample41" />
                      <figcaption>
                          <p class="p"><?php echo $value->acreage ?></p>
                          <p class="p">Tầng: <?php echo $value->location ?></p>
-                         <p class="p"> <?php echo $value->sv ?> dịch vụ đi kèm</p>
+                         <p class="p"> <?php echo $value->sld ?>Lượt Đặt Phòng</p>
                          <p>
                          <p class="p1"><i class="fa-solid fa-thumbs-up"></i><?php echo $value->likes ?></p>
-                         <p class="p1"><i class="fa-sharp fa-solid fa-comments"></i> <?php echo $value->tbl ?> Lượt Comment
                          </p>
                          <p class="p1"><i class="fa-solid fa-eye"></i> <?php echo $value->view ?> lượt xem</p>
                          </p>
@@ -245,7 +239,7 @@
                      <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
                      <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
                      <i class="fa-sharp fa-solid fa-star"></i>
-                     <span><?php echo $value->price ?></span>
+                     <span><?php echo number_format($value->price,0,",",".") ?> đ</span>
                  </div>
              </div>
          <?php endforeach ?>

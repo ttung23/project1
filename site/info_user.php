@@ -16,24 +16,40 @@
                     <div class="row mt-2">
                         <div class="col-md-6"><label class="labels">Tên</label><input type="text" name="name"
                                 class="form-control" value="<?php echo $value->name ?>" placeholder="Thien"></div>
-                        <div class="col-md-6"><label class="labels">Họ</label><input type="text" class="form-control"
-                                value="" placeholder="Nguyen"></div>
                     </div>
+                    <?php if (isset( $err['name'] )) { ?>
+                                <span class="text-red-500"><?= $err['name']?></span>
+                 <?php } ?>
                     <div class="row mt-3">
                         <div class="col-md-12"><label class="labels">Tên đăng nhập</label><input type="text"
                                 class="form-control" value="<?php echo $value->username ?>" name="username"
                                 placeholder="Ten dang nhap"></div>
+                                <?php if (isset( $err['user'] )) { ?>
+                                <span class="text-red-500"><?= $err['user']?></span>
+                 <?php } ?>
                         <div class="col-md-12"><label class="labels">password</label><input type="text"
                                 class="form-control" value="<?php echo $value->password ?>" name="password"
                                 placeholder="Ten dang nhap"></div>
+                                <?php if (isset( $err['password'] )) { ?>
+                                <span class="text-red-500"><?= $err['password']?></span>
+                 <?php } ?>
                         <div class="col-md-12"><label class="labels">Email</label><input type="text"
                                 class="form-control" value="<?php echo $value->email ?>" name="email"
                                 placeholder="thienyet149@gmail.com"></div>
+                                <?php if (isset( $err['email'] )) { ?>
+                                <span class="text-red-500"><?= $err['email']?></span>
+                 <?php } ?>
                         <div class="col-md-12"><label class="labels">Địa chỉ</label><input type="text"
                                 class="form-control" value="<?php echo $value->address ?>" name="address"
                                 placeholder=""></div>
+                                <?php if (isset( $err['address'] )) { ?>
+                                <span class="text-red-500"><?= $err['address']?></span>
+                 <?php } ?>
                         <div class="col-md-12"><label class="labels">Số điện thoại</label><input type="text"
                                 class="form-control" value="<?php echo $value->phone ?>" name="phone" placeholder="">
+                                <?php if (isset( $err['phone'] )) { ?>
+                                <span class="text-red-500"><?= $err['phone']?></span>
+                 <?php } ?>
                         </div>
                         <div class="col-md-12"><label class="labels">Ảnh Đại Diện</label><input type="file"
                                 class="form-control" value="" name="image" placeholder=""></div>
@@ -51,7 +67,8 @@
         </div>
         <?php endforeach ?>
     </form>
-
+            <form action="" method="post">
+            <button type="submit" name="block_bk">Hủy Booking</button>      
     <div class="">
         <h4 class="text-align font-weight-bold text-2xl">Lịch Sử Đặt Hàng</h4>
         <div class="p-3 py-5">
@@ -59,6 +76,7 @@
 
                 <table border="1" class="table">
                     <tr>
+                    <th></th>
                         <th style="width: 65px;">MÃ Đơn Hàng</th>
                         <th>check_in_date</th>
                         <th>check_out_date</th>
@@ -70,17 +88,21 @@
                         <th>Ngày Đặt</th>
                     </tr>
                     <?php foreach ($bookinguser as $key => $value) : ?>
+                        <input type="hidden" name="status" value="<?= $value->status ?>">
                     <tr>
+                    <td>
+                                <input type="checkbox" name="bk[]" value="<?= $value->booking_id ?>" id="">
+                            </td>
                         <td><?php echo $value->booking_id?></td>
                         <td><?php echo $value->check_in_date?></td>
                         <td><?php echo $value->check_out_date?></td>
                         <td class=''><?php  if(($value->status) == 0){
                     echo "<div class=''>Chờ Xác Nhận</div>";   
             }else if(($value->status) == 1){
-                echo "<div class=''>Chờ Xác Nhận</div>";   
+                echo "<div class=''>Xác Nhận</div>";   
 
             }else{
-                echo "<div >Chờ Xác Nhận</div>";   
+                echo "<div >Hủy Xác Nhận</div>";   
 
             }
                 ?></td>
@@ -99,7 +121,7 @@
                 </table>
             </div>
         </div>
-
+        </form>
     </div>
 
 </div>

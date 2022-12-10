@@ -3,7 +3,6 @@
 {
     $sql = "select * from admins where email = ? and password = ?";
     $admin = pdo_query_one_person($sql,$username,$password);
-
     return $admin;
 }
 

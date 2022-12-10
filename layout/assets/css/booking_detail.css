@@ -1,0 +1,33 @@
+.bang-bk-dtail{
+   
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 60px;
+   margin-bottom: 60px;
+   border-radius: 7px;
+}
+.bang-bk-dtail h4{
+    font-weight: bold;
+}
+
+.table-2 {
+   width: 1200px;
+    border-collapse: collapse;
+  
+}
+
+.table-2 tr:nth-child(odd) {
+    
+    background-color: white;
+}
+
+.table-2 tr:nth-child(even) {
+   
+    background-color: rgba(204, 204, 204, 0.667);
+}
+
+.table-2 tr:nth-child(1) {
+    background-color: #0194f3;
+}

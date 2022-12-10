@@ -1,43 +1,32 @@
 <main class="containerr">
     <!-- chinhsuacarrt -->
     <form action="index.php?cart" method="post">
-        <input type="hidden" name="total_amount" value="<?php echo $total_amount ?>">
         <div class="main">
             <div class="side">
                 <div class="booking-detail">
                     <p class="chi-tiet-dat-phong text-[16px] tieu-de font-bold">
                         Chi tiết đặt phòng của bạn
                     </p>
-
                     <div class="date">
                         <div class="checkin pr-4">
                             <div class="font-medium mb-1 text-[14px]">Nhận phòng</div>
                             <div class="checkin-date">
                                 <span class="block font-bold text-[14px]"><input
-                                        value="<?= $_SESSION['checkin'] ?? ""  ?>" type="date" name="check_in"></span>
+                                        value="<?= $_SESSION['checkin']  ?? $ngay  ?>" type="date" name="check_in" disabled></span>
                                 <span class="text-[#6b6b6b] text-[12px]">12h - 00h</span>
                             </div>
                         </div>
                         <div class="border-l-[1px] bl-[#ccc] "></div>
                         <div class="checkout pl-4">
                             <div class="font-medium mb-1 text-[14px]">Trả phòng</div>
-
                             <div class="checkout-date">
                                 <span class="block font-bold text-[14px]"><input type="date"
-                                        value="<?= $_SESSION['checkout'] ?? "" ?>" name="check_out"></span>
+                                        value="<?= $_SESSION['checkout'] ?? $day ?>" name="check_out" disabled></span>
                                 <span class="text-[#6b6b6b] text-[12px]">00h - 12h</span>
                             </div>
                         </div>
                     </div>
                     <div>
-                        <div class="checkin pr-4">
-                            <div class="font-medium mb-1 text-[14px]">số lượng người</div>
-
-                            <div class="checkin-date">
-                                <span class="block font-bold text-[14px]"><input type="number" name="quantity" min="1"
-                                        max="" value="1"></span>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="mt-4 time">
@@ -58,7 +47,7 @@
                     <?php
                     if (isset($_SESSION['cart']) && (is_array($_SESSION['cart']))) {
                         for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
-                            if ($_SESSION['cart'][$i][17] == $_SESSION['user']->user_id) {
+                            if ($_SESSION['cart'][$i][14] == $_SESSION['user']->user_id) {
                     ?>
                     <div class="tomtat-detail">
                         <div>
@@ -77,22 +66,23 @@
                         <div>Không bao gồm phụ phí:</div>
                     </div>
                     <?php
-                    if (isset($_SESSION['cart']) && (is_array($_SESSION['cart']))) {
-                        for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
-                            if ($_SESSION['cart'][$i][17] == $_SESSION['user']->user_id) {
+                    if (isset($_SESSION['service']) && (is_array($_SESSION['service']))) {
+                        for ($i = 0; $i < sizeof($_SESSION['service']); $i++) {
                     ?>
-                    <div class="tomtat-detail">
+                                      <div class="tomtat-detail">
                         <div>
-                            Phòng <?php echo $_SESSION['cart'][$i][15] ?>
+                            Dịch Vụ <?php echo $_SESSION['service'][$i][1] ?>
                         </div>
                         <div>
-                            VND <?php echo $_SESSION['cart'][$i][16] ?>
+                            VND <?php echo $_SESSION['service'][$i][2] ?>
                         </div>
+                        <a class=""
+                           href="index.php?cart&&delidsv=<?php echo $i ?>"> <i class="fa-solid fa-x"></i></a>
+                       
                     </div>
                     <?php
                             }
                         }
-                    }
                     ?>
                     <div class="tomtat-detail">
                     </div>
@@ -105,7 +95,7 @@
                         <div>
                         </div>
                         <div>
-                            VND <?php echo $tt ?>
+                        <input type="hidden" name="total_amount" value="<?php echo $tongtien ?>"> <?php echo $tongtien ?>
                         </div>
                     </div>
                     <div class="tomtat-detail">
@@ -116,7 +106,7 @@
                 <?php
                 if (isset($_SESSION['cart']) && (is_array($_SESSION['cart']))) {
                     for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
-                        if ($_SESSION['cart'][$i][17] == $_SESSION['user']->user_id) {
+                        if ($_SESSION['cart'][$i][14] == $_SESSION['user']->user_id) {
                 ?>
                 <form action="index.php?cart" method="post">
                     <input type="hidden" name="id" value="<?php echo $_SESSION['cart'][$i][0] ?>">
@@ -172,6 +162,7 @@
                 ?>
                 <div class="information bg-[#ebf3ff]">
                     <div class="head">
+                    <?php foreach ($oneusrer as $key => $value) : ?>
                         <h2 class="text-[20px] font-bold">
                             Nhập thông tin chi tiết của bạn
                         </h2>
@@ -203,44 +194,48 @@
                     <div class="input">
                         <div class="w-[25%] pt-[16px]">
                             <label for="surname" class="font-bold text-[14px]">Họ</label>
-                            <input class="w-[100%] border-input p-[5px]" type="text" placeholder="Họ của bạn..." name=""
+                            <input class="w-[100%] border-input p-[5px]" value="<?= $value->name?>" type="text" placeholder="Họ của bạn..." name="name"
                                 id="surname">
+                                <?php if (isset( $err['name'] )) { ?>
+                            <span class="text-red-500"><?=$err['name'] ?></span>
+                 <?php } ?>
                         </div>
                         <div class="w-[10%]"></div>
-                        <div class="w-[25%] pt-[16px]">
-                            <label for="name" class="font-bold text-[14px]">Tên</label>
-                            <input class="w-[100%] border-input p-[5px]" name="name" type="text"
-                                placeholder="Tên của bạn..." name="" id="name">
-                        </div>
-
                         <div class="w-[60%] pt-[16px]">
                             <label for="email" class="font-bold text-[14px]">Email</label>
-                            <input name="email" class="w-[100%] border-input p-[5px]" type="text"
+                            <input name="email" value="<?= $value->email?>" class="w-[100%] border-input p-[5px]" type="text"
                                 placeholder="Email của bạn..." name="" id="email">
+                                <?php if (isset( $err['email'] )) { ?>
+                            <span class="text-red-500"><?=$err['email'] ?></span>
+                 <?php } ?>
                         </div>
 
                         <div class="w-[60%] pt-[16px]">
                             <label for="address" class="font-bold text-[14px]">Điện Thoại Của Bạn</label>
-                            <input class="w-[100%] border-input p-[5px]" type="text" placeholder="" name="phone"
+                            <input class="w-[100%] border-input p-[5px]" value="<?= $value->phone?>" type="text" placeholder="" name="phone"
                                 id="address">
+                                <?php if (isset( $err['phone'] )) { ?>
+                            <span class="text-red-500"><?=$err['phone'] ?></span>
+                 <?php } ?>
                         </div>
                         <div class="w-[60%] pt-[16px]">
                             <label for="address" class="font-bold text-[14px]">Tin Nhắn Của Bạn</label>
                             <input class="w-[100%] border-input p-[5px]" type="text" placeholder="" name="message"
                                 id="address">
+                                <?php if (isset( $err['message'] )) { ?>
+                            <span class="text-red-500"><?=$err['message'] ?></span>
+                 <?php } ?>
                         </div>
                     </div>
 
                     <div class="mt-4">
-                        <div class="text-[14px] font-bold mb-2">Bạn đặt phòng cho ai?</div>
-                        <div class="mb-1">
-                            <input type="radio" name="ai-dat-phong" id="">
-                            <span>Tôi là khách lưu trú chính</span>
-                        </div>
+                        <div class="checkin pr-4">
+                            <div class="font-medium mb-1 text-[14px]">số lượng người</div>
 
-                        <div>
-                            <input type="radio" name="ai-dat-phong" id="">
-                            <span>Đặt phòng này là cho người khác</span>
+                            <div class="checkin-date">
+                                <span class="block font-bold text-[14px]"><input type="number" name="quantity" min="1"
+                                        max="" value="1"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -271,18 +266,23 @@
 
                         <div class="my-4">
                             <div class="font-medium mb-2 text-[14px]">Dịch vụ muốn có</div>
-
                             <div class="dichvu-muonco">
-                                <?php foreach ($service as $key => $value) : ?>
+                            <?php foreach ($service as $key => $value) : ?>
+                                <form action="index.php?cart&addservice" method="post">
+                                <input type="hidden" value="<?= $value->service_id?>" name="id">
+                                <input type="hidden" value="<?= $value->name?>" name="name">
+                                <input type="hidden" value="<?= $value->price?>" name="price">
                                 <a href="facebook.com" class="relative">
                                     <img class="inline-block max-w-[16px] max-h-[16px]"
                                         src="assets/img/icon/svg_diachi.svg" alt="">
-                                    <span class="text-[12px]"><?php echo $value->name ?></span>
+                                        <button type="submit" name="addserive"> <span class="text-[12px]"><?php echo $value->name ?></span></button>
                                     <a href="">
                                         <i id="icon" class="fa-light fa-xmark"></i>
                                     </a>
                                 </a>
+                                </form>
                                 <?php endforeach ?>
+                               
                             </div>
                         </div>
                     </div>
@@ -294,6 +294,7 @@
                     <a style="color: #fff;" type="submit" name="addbooking" data-modal-toggle="popup-modal">Thanh toán
                         ngay</a>
                 </div>
+                <?php endforeach ?>
                 <!--Popup xác nhận-->
                 <div id="popup-modal" tabindex="-1"
                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 p-4 md:inset-0 h-modal md:h-full">

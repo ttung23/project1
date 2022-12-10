@@ -10,23 +10,41 @@ require_once '../dao/booking_dao.php';
 require_once '../dao/bookingdt_dao.php';
 require_once '../dao/user_dao.php';
 require_once '../dao/admin_dao.php';
+require_once '../dao/list_image_dao.php';
 
 session_start();
 $roomAll = loadAll_room();
 $categoriesAll = loadAll_categories();
 $service = loadAll_service();
+$loadAll_room5 = loadAll_room5();
+if (isset($_GET['iddm'])) {
+    $loadroomcate =  load_room_categories($_GET['iddm']);
+    $loadroom = $loadroomcate;
+} else {
+    $loadroom = $roomAll;
+}
+$ngay = date("Y-m-d");
+$day = strtotime(date("Y-m-d", strtotime($ngay)) . " +1 day");
+$day = strftime("%Y-%m-%d", $day);
+if (!isset($_SESSION['checkin'])) {
+    $_SESSION['checkin'] = $ngay;
+    $_SESSION['checkout'] = $day;
+}
+$first_date = strtotime($_SESSION['checkin']);
+$second_date = strtotime($_SESSION['checkout']);
+$datediff = abs($first_date - $second_date);
+$tongnd = floor($datediff / (60 * 60 * 24));
+$_SESSION['$tongnd'] = $tongnd;
 if (isset($_GET['cart'])) {
     // add cart
-    $format = "d/m/2022";
-  $check_indefauil = date($format, time());
-    echo $check_indefauil;
+
     if (isset($_SESSION['user'])) {
         $tt = 0;
+        $tt1 = 0;
         $service_room = [];
         $total_amount = 0;
-        // echo <pre>";
-        // var_dump($_SESSION['cart']);
         $idnguoidung = $_SESSION['user']->user_id;
+        $oneusrer = loadOne_user($idnguoidung);
         if (!isset($_SESSION['cart'])) $_SESSION['cart'] = [];
         if (isset($_POST['addcart'])) {
             $id = $_POST['id'];
@@ -42,97 +60,145 @@ if (isset($_GET['cart'])) {
             $status = $_POST['status'];
             $view = $_POST['view'];
             $likes = $_POST['likes'];
-            $id_service = $_POST['id_service'];
             $created_at = $_POST['created_at'];
-            $namedichvu = $_POST['namedichvu'];
-            $pricedichvu = $_POST['pricedichvu'];
-            $service_room = loadAll_service_room($id);
-            $room = [$id, $ten, $thumbnail, $des, $id_cate, $price, $star, $quantity, $location, $acreage, $status, $view, $likes, $id_service, $created_at, $namedichvu, $pricedichvu, $idnguoidung];
+            $err = [];
+            $room = [$id, $ten, $thumbnail, $des, $id_cate, $price, $star, $quantity, $location, $acreage, $status, $view, $likes, $created_at, $idnguoidung];
             $_SESSION['cart'][] = $room;
-            // var_dump($_SESSION['cart']);
         }
         if (isset($_SESSION['cart']) && (is_array($_SESSION['cart']))) {
             for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
-                if ($_SESSION['cart'][$i][17] == $_SESSION['user']->user_id) {
-                    $tt += $_SESSION['cart'][$i][16] + $_SESSION['cart'][$i][5];
+                if ($_SESSION['cart'][$i][14] == $_SESSION['user']->user_id) {
+                    $service_room = loadAll_service_room($_SESSION['cart'][$i][0]);
                 }
             }
         }
+        if (!isset($_SESSION['service'])) $_SESSION['service'] = [];
+        $iduser = $_SESSION['user']->user_id;
+        if (isset($_POST['addserive'])) {
+            $id = $_POST['id'];
+            $name = $_POST['name'];
+            $price = $_POST['price'];
+            $servicesa = [$id, $name, $price, $iduser];
+            $_SESSION['service'][] = $servicesa;
+        }
+        if (isset($_SESSION['cart']) && (is_array($_SESSION['cart']))) {
+            for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
+                if ($_SESSION['cart'][$i][14] == $_SESSION['user']->user_id) {
+                    $tien = $_SESSION['cart'][$i][5];
+                    $tt += $tien;
+                }
+            }
+        }
+        if (isset($_SESSION['service']) && (is_array($_SESSION['service']))) {
+            for ($i = 0; $i < sizeof($_SESSION['service']); $i++) {
 
+                $tien1 = $_SESSION['service'][$i][2];
+                $tt1 += $tien1;
+            }
+        }
+        $tongtien = $tt + $tt1;
         if (isset($_POST['addbooking'])) {
             $check_in = $_POST['check_in'];
             $check_out = $_POST['check_out'];
             $status = 0;
             $quantity = $_POST['quantity'];
-            $total_amount = $total_amount;
+            $total_amount = $_POST['total_amount'];
             $message = $_POST['message'];
             $phone = $_POST['phone'];
             $email = $_POST['email'];
             $name = $_POST['name'];
-            //    $id_user = $_SESSION['name'];
-            $insert_booking = Insert_booking($check_in, $check_out, $status, $quantity, $total_amount, $message, $phone, $email, $name, $_SESSION['user']->user_id);
-            $selectbooking = loadAll_bookingdt1();
-            foreach ($selectbooking as $key => $value) {
-                $idbooking = $value->booking_id;
+            if ($name == "") {
+                $err['name'] = "Tên Không Được Để Trống";
             }
-            if (isset($idbooking)) {
-                if (isset($_SESSION['cart']) && (is_array($_SESSION['cart']))) {
-                    for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
-                        if ($_SESSION['cart'][$i][17] == $_SESSION['user']->user_id) {
-                            $insert_bookingdt = Insert_bookingdt($_SESSION['cart'][$i][0], $idbooking);
+            if ($message == "") {
+                $err['message'] = "Tin Nhắn Không Được Để Trống";
+            }
+            if ($quantity == "") {
+                $err['quantity'] = "Số Lượng Không Để Trống";
+            }
+            if (!preg_match ("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+\.[A-Za-z]{2,6}$/",$email)) 
+            {
+                $err['email'] = "Sai Định Dạng";           
+            }
+            if (!preg_match ("/^[0][0-9]{9}$/",$phone)) 
+            {
+                $err['phone'] = "Bạn Phải Nhập Số Và Đúng Định Dạng";           
+            }
+            if(!$err){
+                $insert_booking = Insert_booking($check_in, $check_out, $status, $quantity, $total_amount, $message, $phone, $email, $name, $_SESSION['user']->user_id);
+                $selectbooking = loadAll_bookingdt1();
+                foreach ($selectbooking as $key => $value) {
+                    $idbooking = $value->booking_id;
+                }
+                if (isset($idbooking)) {
+                    if (isset($_SESSION['cart']) && (is_array($_SESSION['cart']))) {
+                        for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
+                            if ($_SESSION['cart'][$i][14] == $_SESSION['user']->user_id) {
+                                $insert_bookingdt = Insert_bookingdt($_SESSION['cart'][$i][0], $idbooking);
+                            }
                         }
                     }
                 }
-            }
-            $tongnd = 0;
-            for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
-                if ($_SESSION['cart'][$i][17] == $_SESSION['user']->user_id) {
-                    $tongnd++;
+                $tongnd = 0;
+                for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
+                    if ($_SESSION['cart'][$i][14] == $_SESSION['user']->user_id) {
+                        $tongnd++;
+                    }
                 }
-            }
-            for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
-                if ($_SESSION['cart'][$i][17] == $_SESSION['user']->user_id) {
-                    array_splice($_SESSION['cart'], $i, $tongnd);
+                for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
+                    if ($_SESSION['cart'][$i][14] == $_SESSION['user']->user_id) {
+                        array_splice($_SESSION['cart'], $i, $tongnd);
+                    }
                 }
+                $tt = 0;
+                $tt1 = 0;
+                header("location:index.php?info-user&id=" . $_SESSION['user']->user_id);
             }
         }
         if (isset($_GET['delid'])) {
             array_splice($_SESSION['cart'], $_GET['delid'], 1);
         }
+        if (isset($_GET['delidsv'])) {
+            array_splice($_SESSION['service'], $_GET['delidsv'], 1);
+            header("location:index.php?cart");
+        }
         $_TITLE = "Giỏ hàng";
         $VIEW_NAME = 'cart.php';
     } else {
-        header('Location:index.php');
+        header('Location:index.php?login-user');
     }
 } elseif (isset($_GET['tin-tuc'])) {
     $news = loadAll_news();
     $_TITLE = "Tin tức StayyInn";
     $VIEW_NAME = 'tin-tuc.php';
 } elseif (isset($_GET['list-room'])) {
-        if (isset($_POST['find'])) {
+
+    if (isset($_POST['find'])) {
+        $checkin = $_POST['checkin'];
+        $checkout = $_POST['checkout'];
+        if ($checkin < $checkout) {
             $_SESSION['checkin'] = $_POST['checkin'];
             $_SESSION['checkout'] = $_POST['checkout'];
-            $first_date = strtotime($_SESSION['checkin']);
-            $second_date = strtotime($_SESSION['checkout']);
-            $datediff = abs($first_date - $second_date);
-            $tongnd = floor($datediff / (60 * 60 * 24));
-            $_SESSION['$tongnd'] = $tongnd;
             $selectfind = find_room($_SESSION['checkin'], $_SESSION['checkout']);
         } else {
-            $selectfind = [];
+            header("location:index.php?alert");
         }
-        $iddm = 0;
-        if (isset($_GET['iddm'])) {
-            $iddm = $_GET['iddm'];
-        }
-        if ($iddm == 0) {
-            $roomcategori = loadAll_room();
-        } else {
-            $roomcategori = load_room_categories($iddm);
-        }
-        if(isset($_POST['loc'])){
-            $gia = $_POST['gender'];
-            $cate = $_POST['cate'];
+    } else {
+        $selectfind = [];
+    }
+
+    $iddm = 0;
+    if (isset($_GET['iddm'])) {
+        $iddm = $_GET['iddm'];
+    }
+    if ($iddm == 0) {
+        $roomcategori = loadAll_room();
+    } else {
+        $roomcategori = load_room_categories($iddm);
+    }
+    if (isset($_POST['loc'])) {
+        $gia = $_POST['gender'];
+        $cate = $_POST['cate'];
 
         $logroom = loadAll_room_price_list($gia, $cate);
     } else {
@@ -144,11 +210,28 @@ if (isset($_GET['cart'])) {
     $VIEW_NAME = 'list-room.php';
 } elseif (isset($_GET['info-user'])) {
     if (isset($_GET['id']) && ($_GET['id'])) {
+        if (isset($_POST['block_bk'])) {
+            if (isset($_POST['bk'])) {
+                $choose_user_id = $_POST['bk'];
+                for ($i = 0; $i < count($choose_user_id); $i++) {
+                    $loadbooking = Load_one($choose_user_id[$i]);
+                    foreach ($loadbooking as $key => $value) {
+                        $statusbooking = $value->status;
+                        if ($statusbooking == 1) {
+                        
+                        } else {
+                            $block_user = block_bk($choose_user_id[$i]);
+                        }
+                    }
+                }
+            }
+            // unlock user
+        }
         $id = $_GET['id'];
         $bookinguser = loadAll_booking_user($id);
         $oneusrer = loadOne_user($id);
         if (isset($_POST['edit_user'])) {
-            $id = $_SESSION['id'];
+            $id =  $_SESSION['user']->user_id;
             $name = $_POST['name'];
             $username = $_POST['username'];
             $email = $_POST['email'];
@@ -158,16 +241,35 @@ if (isset($_GET['cart'])) {
             $date = $_POST['date'];
             $image = $_FILES['image'];
             $image_name = $image['name'];
-            //    $per = $_POST['permission'];
             $err = [];
+            if ($name == "") {
+                $err['name'] = "Tên Không Được Để Trống";
+            }
+            if ($username == "") {
+                $err['user'] = "Tên Đăng Nhập Không Được Để Trống";
+            }
+            if ($password == "") {
+                $err['password'] = "Mật Khẩu Không Để Trống";
+            }
+            if ($address == "") {
+                $err['address'] = "Địa Chỉ Không Để Trống";
+            }
+            if (!preg_match ("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+\.[A-Za-z]{2,6}$/",$email)) 
+            {
+                $err['email'] = "Sai Định Dạng";           
+            }
+            if (!preg_match ("/^[0][0-9]{9}$/",$phone)) 
+            {
+                $err['phone'] = "Bạn Phải Nhập Số Và Đúng Định Dạng";           
+            }
+            //    $per = $_POST['permission'];
             if (!$err) {
-
                 $update = Update_users($name, $username, $password, $email, $image_name, $address, $phone, $date, $id);
                 if ($image['size'] > 0) {
                     move_uploaded_file($image['tmp_name'], '../layout/assets/img/users' . $image_name);
                 }
 
-                header('location:index.php');
+                header('location:index.php?info-user&id='.$_SESSION['user']->user_id);
             }
         }
     }
@@ -180,18 +282,46 @@ if (isset($_GET['cart'])) {
         $iddm = $_GET['iddm'];
         $link = "product-detail&id=$id&iddm=$iddm";
         $oneroom = loadOne_room($id);
+        $loadanh = loadAll_image($id);
         $addview = room_tang_so_luot_xem($id);
         $onecomment = loadOne_comment($id);
+        $servicedt =  loadAll_service_room($id);
         $room_categories = load_room_categories($iddm);
         extract($oneroom);
         extract($onecomment);
-        if (isset($_GET['addcomment']) && isset($_POST['addcomment'])) {
-            $content = $_POST['content'];
-            // $star = $_POST['star'];
-            $idroom = $_GET['id'];
+        if (isset($_SESSION['user']->user_id)) {
             $iduser = $_SESSION['user']->user_id;
-            $addcomment = Insert_conmment($content, $idroom, $iduser);
-            header("location:index.php?$link");
+            $selectbookingcomment = loadAll_bookingdt_user($iduser);
+            foreach ($selectbookingcomment as $key => $value) {
+                $idbookingcomment = $value->booking_id;
+                if (isset($idbookingcomment)) {
+                    $insertcommet = true;
+                }
+            }
+        } else {
+        }
+
+        if (isset($_GET['addcomment']) && isset($_POST['addcomment'])) {
+            if (isset($insertcommet)) {
+                if (isset($_SESSION['user'])) {
+                    $content = $_POST['content'];
+                    $err = [];
+                    $idroom = $_GET['id'];
+                    $iduser = $_SESSION['user']->user_id;
+                    if($content == ""){
+                        $err['comment'] = "Bạn Không Nên Bỏ Trống";
+                    }
+                    if(!$err){
+                        $addcomment = Insert_conmment($content, $idroom, $iduser);
+                        header("location:index.php?$link");
+                        
+                    }
+                  
+            
+                }
+            }else{
+                header("location:index.php");
+            }
         }
     }
     $_TITLE = "Thông tin phòng";
@@ -274,6 +404,7 @@ if (isset($_GET['cart'])) {
         $bookinguserde = loadAll_bookingdt_booking($id);
     }
 
+    $VIEW_CSS = 'booking_detail.css';
     $_TITLE = 'Lịch sử đặt hàng';
     $VIEW_NAME = 'booking_detail.php';
 } elseif (isset($_GET['forgot'])) {
@@ -331,11 +462,25 @@ if (isset($_GET['cart'])) {
             echo "sai";
         }
     }
+    $_TITLE = 'Đăng nhập phần admin';
+    $VIEW_NAME = 'login.php';
+} elseif (isset($_GET['login-user'])) {
+    if (isset($_POST['login_user'])) {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
 
-    $_TITLE = "Đăng nhập trang quản trị";
-    $VIEW_NAME = "login.php";
+        $user = login($username, $password);
 
-} else {
+        if ($user != []) {
+            $_SESSION['user'] = $user;
+            header("location: index.php");
+        } else {
+            echo "sai";
+        }
+    }
+    $_TITLE = 'Đăng nhập phần Đăng Nhập User';
+    $VIEW_NAME = 'login_user.php';
+}  else {
     // s
     // $limit = $_GET['perpage'] ?? 9;
     // $current_page = $_GET['page'] ?? 1;
@@ -354,7 +499,9 @@ if (isset($_GET['cart'])) {
         unset($_SESSION['admin']);
         header('Location:index.php');
     }
-
+    if (isset($_GET['alert'])) {
+        $err['find'] = "Sai Checkout Vui Lòng Tìm Lại";
+    }
     $_TITLE = 'Trang chủ';
     $VIEW_NAME = 'trang-chu.php';
 }

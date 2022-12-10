@@ -1,11 +1,11 @@
 <?php
 function loadAll_service() {
-    $query = "SELECT sv.*, room.name as room_name FROM `service` sv LEFT JOIN room on sv.id_room = room.room_id;";
+    $query = "SELECT se.*, room.name as room_name FROM `service_detail` sv LEFT JOIN room on sv.id_room = room.room_id LEFT JOIN service se on se.service_id = sv.id_service GROUP by se.service_id;    ";
     $listservice = pdo_query_all($query);
     return $listservice;
 }
 function loadAll_service_room($id){
-    $query = "select * from service where id_room=".$id;
+    $query = "select sv.* from service sv left join service_detail dt on dt.id_service = sv.service_id left join room r on r.room_id = dt.id_room where dt.id_room =".$id;
     $listservice = pdo_query_one($query);
     return $listservice;
 }
