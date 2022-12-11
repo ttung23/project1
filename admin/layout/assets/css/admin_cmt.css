@@ -76,7 +76,8 @@ td p:hover {
 }
 
 .action a,
-.action button {
+.action button,
+.action .add {
     margin-right: 5px;
     display: inline-block;
     text-decoration: none;

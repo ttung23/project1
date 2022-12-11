@@ -39,7 +39,7 @@
                     </div>
                     
                     <div>
-                        <p class="text-[20px]">THỐNG KÊ GÌ ĐẤY THEO THÁNG</p>
+                        <p class="text-[20px]">THỐNG KÊ LƯỢT ĐĂNG KÝ THEO THÁNG</p>
                         <div id="myfirstchart3" style="height: 250px;"></div>
                     </div>
                 </div>
@@ -77,10 +77,10 @@
         // The name of the data record attribute that contains x-values.
         xkey: 'month',
         // A list of names of data record attributes that contain y-values.
-        ykeys: ['month', 'tong_luot_dat'],
+        ykeys: ['tong_luot_dat'],
         // Labels for the ykeys -- will be displayed when you hover over the
         // chart.
-        labels: ['Tháng', 'Tổng lượt đặt']
+        labels: ['Tổng lượt đặt theo tháng']
     });
 
     new Morris.Bar({
@@ -103,10 +103,10 @@
         // The name of the data record attribute that contains x-values.
         xkey: 'month',
         // A list of names of data record attributes that contain y-values.
-        ykeys: ['month', 'tong_tien'],
+        ykeys: ['tong_tien'],
         // Labels for the ykeys -- will be displayed when you hover over the
         // chart.
-        labels: ['Tháng', 'Doanh thu theo tháng']
+        labels: ['Doanh thu theo tháng']
     });
 
     new Morris.Bar({
@@ -121,17 +121,17 @@
             // { month: '2011', tong_tien: 5 },
             // { month: '2012', tong_tien: 20 }
             <?php for ($i = 1; $i <= 12; $i++) { ?>
-                { month: '<?= $i ?>', tong_tien: <?= $tong_tien[$i]->tong_doanh_thu ?? 0 ?>},
+                { month: '<?= $i ?>', so_luong: <?= $user_by_month[$i]->tong_user ?? 0 ?>},
             <?php } ?>
         ],
 
-        //, tong_tien: <?= $tong_tien[$i]->tong_doanh_thu ?? 0 ?>
+        //, tong_tien: <?= $user_by_month[$i]->tong_user ?? 0 ?>
         // The name of the data record attribute that contains x-values.
         xkey: 'month',
         // A list of names of data record attributes that contain y-values.
-        ykeys: ['month', 'tong_tien'],
+        ykeys: ['so_luong'],
         // Labels for the ykeys -- will be displayed when you hover over the
         // chart.
-        labels: ['Tháng', 'Doanh thu theo tháng']
+        labels: ['Người dùng đăng ký theo tháng']
     });
 </script>

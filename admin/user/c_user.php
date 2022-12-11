@@ -70,16 +70,12 @@ if (isset($_POST['block_user'])) { // BLOCK USER
                 $err['username'][$i] = "Bạn chưa nhập tên tài khoản";
             }
     
-            if ($gender[$i] == "") {
-                $err['gender'][$i] = "Bạn chưa chọn giới tính";
-            }
-    
             if ($email[$i] == "") {
                 $err['email'][$i] = "Bạn chưa nhập email";
             }
     
             if ($address[$i] == "") {
-                $err['address'][$i] = "Bạn chưa nhập địa";
+                $err['address'][$i] = "Bạn chưa nhập địa chỉ";
             }
     
             if ($phone[$i] == "") {
@@ -91,14 +87,7 @@ if (isset($_POST['block_user'])) { // BLOCK USER
             }
     
             if ($avatar['size'][$i] > 0) {
-                // echo "<pre>";
-                // var_dump($image_name[$i]);
-                // exit;
                 $image_name[$i] = $avatar['name'][$i];
-
-                // echo "<pre>";
-                // var_dump($image_name[$i]);
-                // exit;
                 $ext = pathinfo($image_name[$i], PATHINFO_EXTENSION);
     
                 if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {

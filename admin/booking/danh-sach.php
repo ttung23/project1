@@ -55,8 +55,8 @@
                     <tr>
                         <th>#</th>
                         <th style="width: 65px;">ID</th>
-                        <th>Check in</th>
-                        <th>check out</th>
+                        <th>Ngày nhận phòng</th>
+                        <th>Ngày trả phòng</th>
                         <th>Trạng thái</th>
                         <th>Số lượng người</th>
                         <th>Tổng tiền</th>

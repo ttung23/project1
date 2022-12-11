@@ -22,11 +22,14 @@
             $thongke[$i] = load_statistic_by_month($i);
 
             $tong_tien[$i] = load_sales_by_month($i);
+
+            $user_by_month[$i] = load_thongke_user_by_month($i);
         }
 
         $tong_like = load_sum_like();
         $tong_cmt = load_sum_cmt();
         $tong_user = load_sum_users();
+        
 
         // var_dump($tong_like);
         // exit;

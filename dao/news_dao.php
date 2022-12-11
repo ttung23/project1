@@ -17,7 +17,7 @@ function load_one_new ($id_new) {
 }
 
 function load_new_by_status ($status) {
-    $sql = "SELECT news.*, ad.name as admin_name FROM news LEFT JOIN admins ad on news.id_admin = ad.admin_id where status = ?";
+    $sql = "SELECT news.*, ad.name as admin_name FROM news LEFT JOIN admins ad on news.id_admin = ad.admin_id where news.status = ?";
     $new = pdo_query_all($sql, $status);
     return $new;
 }

@@ -8,7 +8,7 @@ require_once '../../dao/service_dao.php';
 require_once '../../dao/permission_dao.php';
 $categoryAll = loadAll_categories();
 $service = loadAll_service();
-$roomAll = loadAll_room4();
+$roomAll = loadAll_room6();
 
 if(isset($_GET['id'])){
     $loadone = loadOne_room_status($_GET['id']);
@@ -19,10 +19,11 @@ $permis =  loadAll_permissions();
 
 // if(isset($_SESSION['id']) == 5){
 if(isset($_GET['add-room'])){
+    $len_rows = $_SESSION['add_room'];
+
     if(isset($_POST['add_room'])){
         $name_room = $_POST['name_room'];
         $category_id = $_POST['category_id'];
-        $service_id = $_POST['service_id'];
         $price_room = $_POST['price_room'];
         $quantity = $_POST['quantity'];
         $star = $_POST['star'];
@@ -34,65 +35,82 @@ if(isset($_GET['add-room'])){
         $description = $_POST['description'];
         $image = $_FILES['image'];
         $image_name = $image['name'];
-        $err=[];
 
-        if ($name_room == "") {
-            $err['name_room'] = "Bạn chưa nhập tên phòng";
-        }
-
-        if ($price_room == "") {
-            $err['price_room'] = "Bạn chưa nhập Giá Phòng";
-        }
-        if ($category_id == "") {
-            $err['category_id'] = "Bạn chưa nhập tên danh mục";
-        }
-
-        if ($quantity == "") {
-            $err['quantity'] = "Bạn chưa chọn diện tích";
-        }
-
-        if ($location == "") {
-            $err['location'] = "Bạn chưa nhập vị trí";
-        }
-
-        if ($acreage_room == "") {
-            $err['acreage_room'] = "Bạn chưa nhập diện tích";
-        }
-        if ($service_id == "") {
-            $err['service_id'] = "Bạn chưa nhập tên danh mục";
-        }
-
-        if ($status == "") {
-            $err['status'] = "Bạn chưa nhập trạng thái của Phòng";
-        }
-
-        if ($description == "") {
-            $err['description'] = "Bạn chưa nhập mô tả của Phòng";
-        }
-
-        $ext = pathinfo($image_name, PATHINFO_EXTENSION);
-
-        if ($image['size'] <= 0) {
-            $err['img'] = "Bạn chưa chọn ảnh cho phòng";
-        } else if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
-            $err['img'] = "Ảnh không đúng định dạng";
-        } else if ($image['size'] >= 2 * 1024 * 1024) {
-            $err['img'] = "Ảnh không được quá 2MB";
-        }
-        
-        if (!$err) {
-            $add_room = insert_room($name_room, $description, $image_name, $category_id, $price_room,$star, $quantity,$status,$location,$acreage_room,$view,$likes,$service_id);
-
-            if ($image['size'] > 0) {
-                move_uploaded_file($image['tmp_name'], '../../layout/assets/img/product/' . $image_name);
+        for ($i = 0; $i < $len_rows; $i++) {
+            if ($name_room[$i] == "") {
+                $err['name_room'][$i] = "Bạn chưa nhập tên phòng";
+            }
+    
+            if ($price_room[$i] == "") {
+                $err['price_room'][$i] = "Bạn chưa nhập Giá Phòng";
+            } elseif (!is_numeric(($price_room[$i]))) {
+                $err['quantity'][$i] = "Giá phòng phải là số";
+            } elseif ($price_room[$i] <=0 ) {
+                $err['price_room'][$i] = "Giá phòng phải lớn hơn 0";
             }
 
-            header('location:c_room.php');
+            if ($category_id[$i] == "") {
+                $err['category_id'][$i] = "Bạn chưa nhập tên danh mục";
+            }
+    
+            if ($quantity[$i] == "") {
+                $err['quantity'][$i] = "Bạn chưa nhập số lượng người";
+            } elseif (!is_numeric($quantity[$i])) {
+                $err['quantity'][$i] = "Số lượng người phải là số";
+            } elseif ($quantity[$i] <= 0) {
+                $err['quantity'][$i] = "Số lượng người phải lớn hơn 0";
+            }
+
+            if ($star[$i] == "") {
+                $err['star'][$i] = "Bạn chưa nhập số sao";
+            } elseif ($star[$i] <= 0) {
+                $err['star'][$i] = "Số sao phải lớn hơn 0 và nhỏ hơn hoặc bằng 5";
+            }
+    
+            if ($location[$i] == "") {
+                $err['location'][$i] = "Bạn chưa nhập số tầng";
+            } elseif (!is_numeric($location[$i])) {
+                $err['location'][$i] = "Vị trí tầng phải là số";
+            } elseif ($location[$i] < 1 || $location[$i] > 4) {
+                $err['location'][$i] = "Khách sạn chỉ có 4 tầng";
+            }
+    
+            if ($acreage_room[$i] == "") {
+                $err['acreage_room'][$i] = "Bạn chưa nhập diện tích";
+            } elseif (!is_numeric($acreage_room[$i])) {
+                $err['acreage_room'][$i] = "Diện tích phòng phải là số";
+            } elseif ($location[$i] <= 0 || $location[$i] > 300) {
+                $err['acreage_room'][$i] = "Diện tích phải lớn hơn 0 và nhỏ hơn 300m<sup>2</sup>";
+            }
+    
+            if ($description[$i] == "") {
+                $err['description'][$i] = "Bạn chưa nhập mô tả của phòng";
+            }
+    
+            $ext = pathinfo($image_name[$i], PATHINFO_EXTENSION);
+    
+            if ($image['size'][$i] <= 0) {
+                $err['img'][$i] = "Bạn chưa chọn ảnh cho phòng";
+            } else if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
+                $err['img'][$i] = "Ảnh không đúng định dạng";
+            } else if ($image['size'][$i] >= 2 * 1024 * 1024) {
+                $err['img'][$i] = "Ảnh không được quá 2MB";
+            }
+            
+            if (!$err) {
+                $add_room = insert_room($name_room[$i], $description[$i], $image_name[$i], $category_id[$i], $price_room[$i],$star[$i], $quantity[$i],$status,$location[$i],$acreage_room[$i],$view,$likes);
+    
+                if ($image['size'][$i] > 0) {
+                    move_uploaded_file($image['tmp_name'][$i], '../../layout/assets/img/product/' . $image_name[$i]);
+                }
+    
+                header('location:c_room.php');
+            }
         }
     }
 
     $VIEW_TITLE = "Thêm danh mục";
-    $VIEW_CSS = 'admin_add_danhmuc.css';
+    $VIEW_CSS = 'admin_add.css';
     $VIEW_ADMIN_NAME = 'add-room.php';
     
 } elseif(isset($_GET['edit_room'])){
@@ -104,7 +122,6 @@ if(isset($_GET['add-room'])){
     if(isset($_POST['btn_edit_room'])){
         $name_room = $_POST['name_room'];
         $category_id = $_POST['category_id'];
-        $service_id = $_POST['service_id'];
         $price_room = $_POST['price_room'];
         $quantity = $_POST['quantity'];
         $star = $_POST['star'];
@@ -123,6 +140,10 @@ if(isset($_GET['add-room'])){
     
             if ($price_room[$i] == "") {
                 $err['price_room'][$i] = "Bạn chưa nhập Giá Phòng";
+            } elseif (!is_numeric(($price_room[$i]))) {
+                $err['quantity'][$i] = "Giá phòng phải là số";
+            } elseif ($price_room[$i] <=0 ) {
+                $err['price_room'][$i] = "Giá phòng phải lớn hơn 0";
             }
     
             if ($star[$i] == "") {
@@ -134,18 +155,33 @@ if(isset($_GET['add-room'])){
             }
     
             if ($quantity[$i] == "") {
-                $err['quantity'][$i] = "Bạn chưa chọn diện tích";
+                $err['quantity'][$i] = "Bạn chưa nhập số lượng người";
+            } elseif (!is_numeric($quantity[$i])) {
+                $err['quantity'][$i] = "Số lượng người phải là số";
+            } elseif ($quantity[$i] <= 0) {
+                $err['quantity'][$i] = "Số lượng người phải lớn hơn 0";
+            }
+
+            if ($star[$i] == "") {
+                $err['star'][$i] = "Bạn chưa nhập số sao";
+            } elseif ($star[$i] <= 0) {
+                $err['star'][$i] = "Số sao phải lớn hơn 0 và nhỏ hơn hoặc bằng 5";
             }
     
             if ($location[$i] == "") {
-                $err['location'][$i] = "Bạn chưa nhập vị trí";
+                $err['location'][$i] = "Bạn chưa nhập số tầng";
+            } elseif (!is_numeric($location[$i])) {
+                $err['location'][$i] = "Vị trí tầng phải là số";
+            } elseif ($location[$i] < 1 || $location[$i] > 4) {
+                $err['location'][$i] = "Khách sạn chỉ có 4 tầng";
             }
     
             if ($acreage_room[$i] == "") {
                 $err['acreage_room'][$i] = "Bạn chưa nhập diện tích";
-            }
-            if ($service_id[$i] == "") {
-                $err['service_id'][$i] = "Bạn chưa nhập tên danh mục";
+            } elseif (!is_numeric($acreage_room[$i])) {
+                $err['acreage_room'][$i] = "Diện tích phòng phải là số";
+            } elseif ($location[$i] <= 0 || $location[$i] > 300) {
+                $err['acreage_room'][$i] = "Diện tích phải lớn hơn 0 và nhỏ hơn 300m<sup>2</sup>";
             }
     
             if ($description[$i] == "") {
@@ -165,7 +201,7 @@ if(isset($_GET['add-room'])){
             
             if (empty($err)) {
     
-                $update = update_room($name_room[$i], $description[$i] ,$image_name[$i], $category_id[$i], $price_room[$i], $star[$i], $quantity[$i], $location[$i], $acreage_room[$i],$view,$likes,$service_id[$i], $room_edit[$i]->room_id);
+                $update = update_room($name_room[$i], $description[$i] ,$image_name[$i], $category_id[$i], $price_room[$i], $star[$i], $quantity[$i], $location[$i], $acreage_room[$i],$view,$likes, $room_edit[$i]->room_id);
                 if ($image['size'][$i] > 0) {
                     move_uploaded_file($image['tmp_name'][$i], '../../layout/assets/img/product/' . $image_name[$i]);
                 }
@@ -213,6 +249,17 @@ if(isset($_GET['add-room'])){
             }
         }
         header("location:c_room.php");
+    } elseif (isset($_POST['add_room'])) {
+        $quantity_rows = $_POST['quantity_rows'];
+
+        if ($quantity_rows <= 0) {
+            $loi = "Số lượng phải lớn hơn 1";
+        }
+
+        if (!isset($loi)) {
+            $_SESSION['add_room'] = $quantity_rows;
+            header('location:c_room.php?add-room');
+        }
     }
 
     $VIEW_TITLE = "Danh sách phòng";

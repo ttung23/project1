@@ -31,7 +31,7 @@
                         </div>
 
                         <div>
-                            <a href="c_cmt.php?status=0" class="bg-red-500 capitalize text-center btn-outline- px-3 py-[12px] shadow-lg w-[200px]">
+                            <a href="c_cmt.php?status=2" class="bg-red-500 capitalize text-center btn-outline- px-3 py-[12px] shadow-lg w-[200px]">
                                 bình luận đã chặn
                             </a>
                         </div>

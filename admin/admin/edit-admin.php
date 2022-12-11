@@ -50,10 +50,12 @@
 
                             <div>
                                 <label for="">Giới Tính</label>
-                                <input value="<?= $admins[$i]->gender ?>" type="text" name="gender[]" class="border rounded border-sky-400 w-full p-2" />
-                                <?php if (isset($err['gender'])) { ?>
-                                    <span class="text-red-500"><?= $err['gender'] ?></span>
-                                <?php } ?>
+                                <!-- <input value="<?//= $_POST['gender'][$i] ?? "" ?>" type="text" name="gender[]"
+                                    class="border rounded border-sky-400 w-full p-2" /> -->
+                                <select name="gender[]" id="" class="border rounded border-sky-400 w-full p-2">
+                                    <option <?= ($admins[$i]->gender=="nữ") ? "selected" : "" ?> value="nữ">Nữ</option>
+                                    <option <?= ($admins[$i]->gender=="nam") ? "selected" : "" ?> value="nam">Nam</option>
+                                </select>
                             </div>
                                 
                             <div>

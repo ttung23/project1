@@ -29,12 +29,22 @@
                             <?php } ?>
                         </div>
 
-                        <div>
+                        <!-- <div>
                             <label for="">Giới tính</label>
-                            <input value="<?= $users_edit[$i]->gender ?>" type="text" name="gender[]" class="border rounded border-sky-400 w-full p-2" />
-                            <?php if (isset($err['gender'][$i])) { ?>
-                                <span class="text-red-500"><?= $err['gender'][$i] ?></span>
-                            <?php } ?>
+                            <input value="<?//= $users_edit[$i]->gender ?>" type="text" name="gender[]" class="border rounded border-sky-400 w-full p-2" />
+                            <?//php if (isset($err['gender'][$i])) { ?>
+                                <span class="text-red-500"><?//= $err['gender'][$i] ?></span>
+                            <?//php } ?>
+                        </div> -->
+
+                        <div>
+                            <label for="">Giới Tính</label>
+                            <!-- <input value="<?//= $_POST['gender'][$i] ?? "" ?>" type="text" name="gender[]"
+                                class="border rounded border-sky-400 w-full p-2" /> -->
+                            <select name="gender[]" id="" class="border rounded border-sky-400 w-full p-2">
+                                <option <?= ($users_edit[$i]->gender=="nữ") ? "selected" : "" ?> value="nữ">Nữ</option>
+                                <option <?= ($users_edit[$i]->gender=="nam") ? "selected" : "" ?> value="nam">Nam</option>
+                            </select>
                         </div>
 
                         <div>

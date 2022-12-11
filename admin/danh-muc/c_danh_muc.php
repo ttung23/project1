@@ -13,45 +13,48 @@ if (isset($_GET["status"])) {
 }
 
 if (isset($_GET['add_cate'])) {
+    $len_rows = $_SESSION['add_cate'];
+
     if (isset($_POST['add_cate'])) {
         $name_cate = $_POST['name_cate'];
         $status = 1;
         $description = $_POST['description'];
 
         $image = $_FILES['image'];
-        $image_name = $image['name'];
+        $image_name = $image['name'];        
 
-        if ($name_cate == "") {
-            $err['name_cate'] = "Bạn chưa nhập tên danh mục";
-        }
-
-        if ($description == "") {
-            $err['description'] = "Bạn chưa nhập mô tả của danh mục";
-        }
-
-        $ext = pathinfo($image_name, PATHINFO_EXTENSION);
-
-        if ($image['size'] <= 0) {
-            $err['img'] = "Bạn chưa chọn ảnh cho danh mục";
-        } else if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
-            $err['img'] = "Ảnh không đúng định dạng";
-        } else if ($image['size'] >= 2 * 1024 * 1024) {
-            $err['img'] = "Ảnh không được quá 2MB";
-        }
-
-        if (!$err) {
-            $add_cate = Insert_category($name_cate, $status, $description, $image_name);
-
-            if ($image['size'] > 0) {
-                move_uploaded_file($image['tmp_name'], '../../layout/assets/img/categories/' . $image_name);
+        for ($i = 0; $i < $len_rows; $i++) {            
+            if ($name_cate[$i] == "") {
+                $err['name_cate'][$i] = "Bạn chưa nhập tên danh mục";
             }
-
-            header('location:c_danh_muc.php');
+    
+            if ($description[$i] == "") {
+                $err['description'][$i] = "Bạn chưa nhập mô tả của danh mục";
+            }
+    
+            $ext = pathinfo($image_name[$i], PATHINFO_EXTENSION);
+            if ($image['size'][$i] <= 0) {
+                $err['img'][$i] = "Bạn chưa chọn ảnh cho danh mục";
+            } else if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
+                $err['img'][$i] = "Ảnh không đúng định dạng";
+            } else if ($image['size'][$i] >= 2 * 1024 * 1024) {
+                $err['img'][$i] = "Ảnh không được quá 2MB";
+            }
+    
+            if (empty($err)) {
+                $add_cate = Insert_category($name_cate[$i], $status, $description[$i], $image_name[$i]);
+    
+                if ($image['size'][$i] > 0) {
+                    move_uploaded_file($image['tmp_name'][$i], '../../layout/assets/img/categories/' . $image_name[$i]);
+                }
+    
+                header('location:c_danh_muc.php');
+            }
         }
     }
 
     $VIEW_TITLE = "Thêm danh mục";
-    $VIEW_CSS = 'admin_add_danhmuc.css';
+    $VIEW_CSS = 'admin_add.css';
     $VIEW_ADMIN_NAME = '../danh-muc/add_cate.php';
 } else if (isset($_GET['edit_cate'])) {
     $len_cate_edit = count($_SESSION['cates_edit']);
@@ -125,6 +128,17 @@ if (isset($_GET['add_cate'])) {
             header('location:c_danh_muc.php?edit_cate');
         } else {
             header('location:c_danh_muc.php');
+        }
+    } elseif (isset($_POST['add_cate'])) {
+        $quantity_rows = $_POST['quantity_rows'];
+
+        if ($quantity_rows <= 0) {
+            $loi = "Số lượng phải lớn hơn 1";
+        }
+
+        if (!isset($loi)) {
+            $_SESSION['add_cate'] = $quantity_rows;
+            header('location:c_danh_muc.php?add_cate');
         }
     }
     $VIEW_TITLE = "Danh sách danh mục";
