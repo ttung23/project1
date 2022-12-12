@@ -88,7 +88,7 @@ td p:hover {
   border-radius: 10px;
 }
 
-#aa {
+#aa, #bb, #cc {
   position: fixed;
   top: 0!important;
   bottom: 0;

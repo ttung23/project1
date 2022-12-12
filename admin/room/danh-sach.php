@@ -6,7 +6,7 @@
                 <div class="action">
                     <div class="grid grid-cols-4 gap-[20px] my-3">
                         <div class="">
-                            <a href="c_room.php" class="bg-green-500 text-center btn-outline- px-3 py-[12px] shadow-lg w-[200px]">
+                            <a href="c_room.php" class="bg-[#0194f3] text-center btn-outline- px-3 py-[12px] shadow-lg w-[200px]">
                                 Tất Cả
                             </a>
                         </div>
@@ -39,6 +39,10 @@
                             Thêm
                         </div>
 
+                        <div class="add cursor-pointer capitalize bg-[#0194f3] text-center px-3 py-[12px] shadow-lg w-[200px]"  data-modal-toggle="bb">
+                            Thêm ảnh
+                        </div>
+
                         <div class="">
                             <button type="submit" name="edit_room" class="bg-yellow-500 text-center px-3 py-[12px] shadow-lg w-[200px]">
                                 Sửa
@@ -51,8 +55,6 @@
                             </button>
                         </div>
 
-                        <div></div>
-
                         <div class="">
                             <button type="submit" name="unlock_room" class="bg-green-500 text-center text-white px-3 py-[12px] shadow-lg w-[200px]">
                                 Mở Khóa
@@ -63,6 +65,10 @@
                             <button type="submit" name="lock_room" class="bg-red-500 text-center px-3 py-[12px] shadow-lg w-[200px]">
                                 Khóa
                             </button>
+                        </div>
+
+                        <div class="add cursor-pointer capitalize bg-[#0194f3] text-center px-3 py-[12px] shadow-lg w-[200px]"  data-modal-toggle="cc">
+                            Thêm dịch vụ
                         </div>
                     </div>
                 </div>
@@ -80,7 +86,38 @@
                             <span class="text-red-700"><?= $loi ?></span>
                         <?php } ?>
                         <button name="add_room" class="block text-white rounded-[8px] mt-2 bg-[#0194f3] p-2 mx-auto" type="submit">Xác nhận</button>
+                    </div>
+                </div>
 
+                <div id="bb" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden h-modal">
+                    <div class="bg-white" id="popup">
+                        <div class="flex_tt text-center py-3">
+                            <img class="inline-block" src="../../layout/assets/img/logo/logo_chuong.png" width="50px" alt="ảnh logo">
+                            <span class="font-semibold text-[20px]">StayyInn</span>
+                        </div>
+
+                        <h4>NHẬP SỐ ẢNH MUỐN THÊM</h4>
+                        <input class="p-3 border border-[#0194f3] text-center outline-none rounded-[8px] w-full" type="number" name="quantity_img" min="1" max="3" step="1" id="">
+                        <?php if (isset($loi_img)) { ?>
+                            <span class="text-red-700"><?= $loi_img ?></span>
+                        <?php } ?>
+                        <button name="add_img_room" class="block text-white rounded-[8px] mt-2 bg-[#0194f3] p-2 mx-auto" type="submit">Xác nhận</button>
+                    </div>
+                </div>
+
+                <div id="cc" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden h-modal">
+                    <div class="bg-white" id="popup">
+                        <div class="flex_tt text-center py-3">
+                            <img class="inline-block" src="../../layout/assets/img/logo/logo_chuong.png" width="50px" alt="ảnh logo">
+                            <span class="font-semibold text-[20px]">StayyInn</span>
+                        </div>
+
+                        <h4>NHẬP SỐ DỊCH VỤ MUỐN THÊM</h4>
+                        <input class="p-3 border border-[#0194f3] text-center outline-none rounded-[8px] w-full" type="number" name="quantity_service" min="1" max="5" step="1" id="">
+                        <?php if (isset($loi_service)) { ?>
+                            <span class="text-red-700"><?= $loi_service ?></span>
+                        <?php } ?>
+                        <button name="add_service_room" class="block text-white rounded-[8px] mt-2 bg-[#0194f3] p-2 mx-auto" type="submit">Xác nhận</button>
                     </div>
                 </div>
 

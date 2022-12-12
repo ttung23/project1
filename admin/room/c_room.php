@@ -9,6 +9,7 @@ require_once '../../dao/permission_dao.php';
 $categoryAll = loadAll_categories();
 $service = loadAll_service();
 $roomAll = loadAll_room6();
+$img = load_all_img();
 
 if(isset($_GET['id'])){
     $loadone = loadOne_room_status($_GET['id']);
@@ -213,6 +214,56 @@ if(isset($_GET['add-room'])){
     $VIEW_TITLE = "Sửa thông tin phòng";
     $VIEW_CSS = 'admin_add.css';
     $VIEW_ADMIN_NAME = 'edit-room.php';
+} elseif (isset($_GET['add_img_room'])) {
+    $len_rows = count($_SESSION['room_add_img']);
+    for ($i = 0; $i < $len_rows; $i++) {
+        $room_add_img[$i] = load_one_room($_SESSION['room_add_img'][$i]);
+    }
+
+    if (isset($_POST['add_img_room'])) {
+        $img = $_POST['imgs'];
+
+        for ($i = 0; $i < $len_rows; $i++) {
+
+            if (empty($err)) {
+                for ($j = 0; $j < $_SESSION['add_img_room']; $j++) {
+                    $add_imgs = add_img_room($img[$j], $room_add_img[$i]->room_id);
+                }
+
+                header('location:c_room.php');
+            }
+
+        }
+    }
+
+    $VIEW_TITLE = "Thêm ảnh vào phòng";
+    $VIEW_CSS = 'admin_add.css';
+    $VIEW_ADMIN_NAME = 'add_img_room.php';
+} elseif (isset($_GET['add_service_room'])) {
+    $len_rows = count($_SESSION['room_add_service']);
+    for ($i = 0; $i < $len_rows; $i++) {
+        $room_add_service[$i] = load_one_room($_SESSION['room_add_service'][$i]);
+    }
+
+    if (isset($_POST['add_service_room'])) {
+        $services = $_POST['services'];
+
+        for ($i = 0; $i < $len_rows; $i++) {
+
+            if (empty($err)) {
+                for ($j = 0; $j < $_SESSION['add_service_room']; $j++) {
+                    $add_services = add_service_room($room_add_service[$i]->room_id, $services[$j]);
+                }
+
+                header('location:c_room.php');
+            }
+
+        }
+    }
+
+    $VIEW_TITLE = "Thêm dịch vụ vào phòng";
+    $VIEW_CSS = 'admin_add.css';
+    $VIEW_ADMIN_NAME = 'add_service_room.php';
 } else {
     if (isset($_POST['delete_room'])) {
         if (isset($_POST['room'])) {
@@ -259,6 +310,43 @@ if(isset($_GET['add-room'])){
         if (!isset($loi)) {
             $_SESSION['add_room'] = $quantity_rows;
             header('location:c_room.php?add-room');
+        }
+    } elseif (isset($_POST['add_img_room'])) {
+        $quantity_img = $_POST['quantity_img'];
+
+        if ($quantity_img <= 0 || $quantity_img >= 4) {
+            $loi_img = "Số lượng ảnh chỉ là 3";
+        }
+
+        if (isset($_POST['room'])) {
+            $_SESSION['room_add_img'] = $_POST['room'];
+        }
+
+        if (!isset($loi_img)) {
+            $_SESSION['add_img_room'] = $quantity_img;
+            header('location:c_room.php?add_img_room');
+        }
+
+        // if (isset($_POST['room'])) {
+        //     $_SESSION['room_edit'] = $_POST['room'];
+        //     header('location:c_room.php?edit_room');
+        // } else {
+        //     header('location:c_room.php');
+        // }
+    } elseif (isset($_POST['add_service_room'])) {
+        $quantity_service = $_POST['quantity_service'];
+
+        if ($quantity_service <= 0 || $quantity_service >= 6) {
+            $loi_service = "Số lượng dịch vụ chỉ là 5";
+        }
+
+        if (isset($_POST['room'])) {
+            $_SESSION['room_add_service'] = $_POST['room'];
+        }
+
+        if (!isset($loi_service)) {
+            $_SESSION['add_service_room'] = $quantity_service;
+            header('location:c_room.php?add_service_room');
         }
     }
 

@@ -147,4 +147,20 @@ function unlock_room($room_id){
     $query = "update room set status = 1 where room_id = ?";
     pdo_execute($query, $room_id);
 }
+
+function add_img_room ($img_detail, $id_room) {
+    $sql = "INSERT INTO image_detail (id_list_image, id_room) VALUES (?,?)";
+    pdo_execute($sql, $img_detail, $id_room);
+}
+
+function add_service_room ($id_room, $id_service) {
+    $sql = "INSERT INTO service_detail (id_room, id_service) VALUES (?,?)";
+    pdo_execute($sql, $id_room, $id_service);
+}
+
+function load_all_img () {
+    $sql = "SELECT * FROM list_image";
+    $list_img = pdo_query_all($sql);
+    return $list_img;
+}
 ?>
