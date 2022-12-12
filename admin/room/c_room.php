@@ -201,7 +201,7 @@ if(isset($_GET['add-room'])){
             
             if (empty($err)) {
     
-                $update = update_room($name_room[$i], $description[$i] ,$image_name[$i], $category_id[$i], $price_room[$i], $star[$i], $quantity[$i], $location[$i], $acreage_room[$i],$view,$likes, $room_edit[$i]->room_id);
+                $update = update_room($name_room[$i], $description[$i] ,$image_name[$i], $category_id[$i], $price_room[$i], $star[$i], $quantity[$i], $location[$i], $acreage_room[$i],$room_edit[$i]->room_id);
                 if ($image['size'][$i] > 0) {
                     move_uploaded_file($image['tmp_name'][$i], '../../layout/assets/img/product/' . $image_name[$i]);
                 }

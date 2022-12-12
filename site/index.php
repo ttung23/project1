@@ -172,7 +172,6 @@ if (isset($_GET['cart'])) {
     $_TITLE = "Tin tức StayyInn";
     $VIEW_NAME = 'tin-tuc.php';
 } elseif (isset($_GET['list-room'])) {
-
     if (isset($_POST['find'])) {
         $checkin = $_POST['checkin'];
         $checkout = $_POST['checkout'];
@@ -199,14 +198,12 @@ if (isset($_GET['cart'])) {
     if (isset($_POST['loc'])) {
         $gia = $_POST['gender'];
         $cate = $_POST['cate'];
-
         $logroom = loadAll_room_price_list($gia, $cate);
     } else {
         $logroom = [];
     }
     $loadroomprice =  loadAll_room_price();
     $_TITLE = "Thông Tin Phòng";
-
     $VIEW_NAME = 'list-room.php';
 } elseif (isset($_GET['info-user'])) {
     if (isset($_GET['id']) && ($_GET['id'])) {
@@ -277,13 +274,27 @@ if (isset($_GET['cart'])) {
     $_TITLE = 'Thông tin người dùng';
     $VIEW_NAME = 'info_user.php';
 } elseif (isset($_GET['product-detail'])) {
-    if (isset($_GET['id']) && ($_GET['id'])) {
+    if (isset($_GET['id'])) {
         $id = $_GET['id'];
+        $sessionKey = 'product_' . $id;
+        $sessionView = $_SESSION[$sessionKey] ?? null;
+        if (!$sessionView) { // nếu chưa có session
+            $_SESSION[$sessionKey] = 1; //set giá trị cho session
+            $addview = room_tang_so_luot_xem($id);
+        }
         $iddm = $_GET['iddm'];
         $link = "product-detail&id=$id&iddm=$iddm";
         $oneroom = loadOne_room($id);
         $loadanh = loadAll_image($id);
-        $addview = room_tang_so_luot_xem($id);
+        
+        if(isset($_GET['likes'])){
+            $addview = room_add_likes($id);
+            header("location:index.php?$link");
+        }
+        if(isset($_GET['dislike'])){
+            $addview = room_add_dislikes($id);
+            header("location:index.php?$link");
+        }
         $onecomment = loadOne_comment($id);
         $servicedt =  loadAll_service_room($id);
         $room_categories = load_room_categories($iddm);

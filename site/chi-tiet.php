@@ -72,6 +72,12 @@
                 <button
                     class="border border-2 rounded-md my-3 px-16 py-3 border-blue-500 text-[#0194f3] hover:bg-blue-500 hover:text-white"
                     type="submit" name="addcart">Đặt phòng</button>
+                    <div class="ml-10 mt-4 border-red-500 text-red-500  font-bold">
+                  <a href="index.php?product-detail&likes&id=<?= $value->room_id?>&iddm=<?php echo $_GET['iddm']?>"> <i class="fa-solid fa-heart text-3xl"></i> </a>
+              </div>
+              <div class="ml-10 mt-4 border-red-500 text-red-500  font-bold">
+                  <a href="index.php?product-detail&dislike&id=<?= $value->room_id?>&iddm=<?php echo $_GET['iddm']?>"><i class="fa-solid fa-thumbs-down"></i></i> </a>
+              </div>
                 </form>
             </div>
         </div>
@@ -88,7 +94,7 @@
         </div>
         <div class="column">
             <h1 class="font-bold text-2xl">Thông tin phòng</h1>
-            <h1>Phòng <?= $value->name?></h1>
+            <h1  class ="text-2xl my-4 border-red-500 text-red-500 font-bold ">Phòng <?= $value->name?></h1>
             <h1 class=" py-5"><?php echo $value->description?></h1>
             <h1 class="font-bold text-2xl">Dịch vụ</h1>
             <?php $service_room = loadAll_service_room($value->room_id)

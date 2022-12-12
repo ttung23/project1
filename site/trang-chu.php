@@ -33,12 +33,12 @@
              <div class="book">
                  <i class="fa-solid fa-right-from-bracket"></i>
                  <p>Nhận phòng</p>
-                 <input type="date" name="checkin" min="2022-12-08">
+                 <input type="date" name="checkin" min="<?= $ngay?>">
              </div>
              <div class="book1">
                  <i class="fa-solid fa-right-from-bracket"></i>
                  <p>Trả phòng </p>
-                 <input type="date" name="checkout">
+                 <input type="date" name="checkout" min="<?= $day?>">
              </div>
              <button type="submit" name="find"><i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm</button>
          </div>

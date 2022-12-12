@@ -18,7 +18,7 @@ function loadAll_service_room($id){
 }
 
 function load_one_service ($id_service) {
-    $query = "SELECT sv.*, room.name as room_name FROM `service` sv LEFT JOIN room on sv.id_room = room.room_id WHERE sv.service_id = ?;";
+    $query = "SELECT sv.*, r.name as room_name FROM `service` sv left join service_detail dt on dt.id_service = sv.service_id LEFT JOIN room r on dt.id_room = r.room_id WHERE sv.service_id = ?;";
     $listservice = pdo_query_one_person($query, $id_service);
     return $listservice;
 }

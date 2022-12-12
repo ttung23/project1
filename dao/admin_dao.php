@@ -60,9 +60,9 @@ function admin_order_by_id($user_id){
     $listuser = pdo_query_all($query,$user_id);
     return $listuser;
 }
-function Insert_admins($name_admin,$email,$password,$gender,$image_name,$address,$phone, $id_permission){
-    $query = "Insert into admins(name,email,password,gender,thumbnail,address,phone,id_permission) values(?,?,?,?,?,?,?,?)";
-    pdo_execute($query, $name_admin, $email, $password, $gender, $image_name, $address, $phone, $id_permission);
+function Insert_admins($name_admin,$email,$password,$gender,$image_name,$address,$phone, $id_permission,$status){
+    $query = "Insert into admins(name,email,password,gender,thumbnail,address,phone,id_permission,status) values(?,?,?,?,?,?,?,?,?)";
+    pdo_execute($query, $name_admin, $email, $password, $gender, $image_name, $address, $phone, $id_permission,$status);
 }
 function Update_admins($name_admin,$email,$password,$gender,$image,$address,$phone,$id_permission,$id)
 {

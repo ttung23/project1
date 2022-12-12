@@ -27,6 +27,7 @@ if (isset($_GET['add-admin'])) {
         $image = $_FILES['image'];
         $image_name = $image['name'];
         $id_permission = $_POST['id_permission'];
+        $err = [];
         
         for ($i = 0; $i < $len_rows; $i++) {
             if ($name_admin[$i] == "") {
@@ -63,7 +64,7 @@ if (isset($_GET['add-admin'])) {
             }
     
             if (!$err) {
-                $update = Insert_admins($name_admin[$i], $email[$i], $password[$i], $gender[$i], $image_name[$i], $address[$i], $phone[$i], $id_permission[$i]);
+                $update = Insert_admins($name_admin[$i], $email[$i], $password[$i], $gender[$i], $image_name[$i], $address[$i], $phone[$i], $id_permission[$i],0);
     
                 if ($image['size'][$i] > 0) {
                     move_uploaded_file($image['tmp_name'][$i], '../../layout/assets/img/admins/' . $image_name[$i]);
