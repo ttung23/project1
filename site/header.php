@@ -2,7 +2,6 @@
     <div class="nav-left">
         <i class="fa-solid fa-bars"></i>
         <a href=" <?= SITE_URL  ?>"><img class="max-w-[200px] ml-[-30px]" src="../layout/assets/img/logo/logo_ngang.png" alt=""></a>
-
     </div>
     <div class="nav-right">
         <ul>
@@ -106,7 +105,7 @@
                             <span>Mật khẩu</span> <a href="index.php?forgot">Quên mật khẩu</a>
 
                             </div>
-                            <input type="text" name="password" id="ipnPassword" autocomplete="off">
+                            <input type="password" name="password" id="ipnPassword" autocomplete="off">
                             <i><i class="fa-regular fa-eye" onclick="changeTypePassword()"></i></i>
                             
                             
@@ -136,6 +135,8 @@
 <div class="nav-2-index">
     <ul class="containerr">
         <li>
+
+
             <div class="menu-con4">
                 <button style="margin-right: 30px;"> <a href="<?= SITE_URL . "?cart" ?>">Giỏ Hàng</a><i class="fa-solid fa-caret-down"></i></button>
                 <button style="margin-right: 30px;"> <a href="<?= SITE_URL . "?tin-tuc" ?>">Tin Tức</a><i class="fa-solid fa-caret-down"></i></button>

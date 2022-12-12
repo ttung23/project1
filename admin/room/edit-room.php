@@ -2,6 +2,7 @@
     <div class="content">
         <div class="danh_sach">
             <h3 class="text-3xl text-sky-500">Sửa thông tin phòng</h3>
+
             <form action="" method="post" enctype="multipart/form-data">
                 <?php for ($i = 0; $i < $len_room_edit; $i++) { ?>
                     <div class="flex-from">

@@ -34,7 +34,7 @@
                 class="w-fulll mr-5 ml-4 rounded">
             <div class="flex mx-20 ">
    <?php foreach ($loadanh as $key => $values) : ?>
-                <div class="column py-3 ">
+                <div class="column py-3 mr-3">
                     <img style="width: 150; height: 100px" src="../layout/assets/img/product/<?php echo $values->image?>" alt="" class=" rounded">
                 </div>
 <?php endforeach ?>
@@ -42,10 +42,12 @@
         </div>
         <div>
             <h3 class="font-bold pb-3">Thông tin phòng</h3>
-            <div class="flex pb-3 gap-4">
-                <p><?php echo $value->description?></p>
-                <p>Cửa sổ</p>
-                <p>20m2</p>
+            <div class="">
+                <p>Tầng : <?php echo $value->location?></p>
+               <p> Diện Tích : <?php echo $value->acreage?></p>               
+              <p>Phòng Dành Cho : <?php echo $value->quantity?> Người</p>              
+              <p>Lượt Xem Phòng : <?php echo $value->view?> </p>              
+              <p>Lượt Thích : <?php echo $value->likes?> </p>
             </div>
             <hr>
             <h2 class="font-weight-bold text-300 mt-3">Giới thiệu phòng</h2>
@@ -72,11 +74,11 @@
                 <button
                     class="border border-2 rounded-md my-3 px-16 py-3 border-blue-500 text-[#0194f3] hover:bg-blue-500 hover:text-white"
                     type="submit" name="addcart">Đặt phòng</button>
-                    <div class="ml-10 mt-4 border-red-500 text-red-500  font-bold">
+              <div class="ml-10 mt-4 border-red-500 text-red-500  font-bold">
                   <a href="index.php?product-detail&likes&id=<?= $value->room_id?>&iddm=<?php echo $_GET['iddm']?>"> <i class="fa-solid fa-heart text-3xl"></i> </a>
               </div>
-              <div class="ml-10 mt-4 border-red-500 text-red-500  font-bold">
-                  <a href="index.php?product-detail&dislike&id=<?= $value->room_id?>&iddm=<?php echo $_GET['iddm']?>"><i class="fa-solid fa-thumbs-down"></i></i> </a>
+               <div class="ml-10 mt-4 border-red-500 text-red-500  font-bold">
+                  <a href="index.php?product-detail&dislike&id=<?= $value->room_id?>&iddm=<?php echo $_GET['iddm']?>"><i class="fa-solid fa-thumbs-down text-3xl"></i></i> </a>
               </div>
                 </form>
             </div>
@@ -94,7 +96,7 @@
         </div>
         <div class="column">
             <h1 class="font-bold text-2xl">Thông tin phòng</h1>
-            <h1  class ="text-2xl my-4 border-red-500 text-red-500 font-bold ">Phòng <?= $value->name?></h1>
+            <h1>Phòng <?= $value->name?></h1>
             <h1 class=" py-5"><?php echo $value->description?></h1>
             <h1 class="font-bold text-2xl">Dịch vụ</h1>
             <?php $service_room = loadAll_service_room($value->room_id)
@@ -107,8 +109,7 @@
             <h1 class="font-bold text-xl">Đặc điểm nổi bật</h1>
             <div class="flex">
                 <h1 class="border border-2 rounded-md my-2 border-red-500 text-red-500 font-bold">
-                    <?php echo $value->price?></h1>
-                <h1 class="border border-2 rounded-md mx-1 my-2 border-red-500 text-red-500 font-bold">Tặng giờ</h1>
+                   <?php echo number_format($value->price,0,",",".")?>đ</span> 
             </div>
             <div class="flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green"
@@ -121,8 +122,7 @@
         </div>
         <div class="column">
             <h1 class="font-bold text-xl">Giá phòng</h1>
-            <h1 class="font-bold text-xl py-5 text-red-600">2 Giờ</h1>
-            <h1><span class="font-bold pr-2 m-4 text-xl"><?php echo number_format($value->price,0,",",".")?>đ</span> <span                    class="text-xl line-through">200.000đ</span></h1>
+            <h1><span class="font-bold pr-2 m-4 text-xl"><?php echo number_format($value->price,0,",",".")?>đ</span>
             <a style=" display: inline-block"
                 class="border border-2 rounded-md my-3 px-8 py-3 mt-5 border-blue-500 text-[#0194f3] hover:bg-blue-500 hover:text-white"
              href="index.php?product-detail&id=<?= $value->room_id?>&iddm=<?php echo $_GET['iddm']?>">Đặt phòng</a>

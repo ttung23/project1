@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="../layout/assets/css/login.css">
     <link rel="stylesheet" href="../layout/assets/css/booking_detail.css">
     <link rel="stylesheet" href="../layout/assets/css/sign_up.css">
+  	<link rel="icon" href="../../layout/assets/img/logo/logo_chuong.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../layout/assets/owlcarousel/assets/owl.carousel.min.css" />

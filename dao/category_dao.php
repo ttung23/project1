@@ -1,18 +1,18 @@
 <?php
 function loadAll_categories(){
-    $query = "select * from categories_room";
+    $query = "select * from categories_room limit 6";
     $listcategories = pdo_query_all($query);
     return $listcategories;
 }
 
 function loadOne_category ($id) {{
-    $query = "select * from categories_room where categories_id = ?";
+    $query = "select * from categories_room where categories_id = ? limit 6";
     $listcategories = pdo_query_one_person($query, $id);
     return $listcategories;
 }}
 
 function load_cate_by_status ($status) {
-    $query = "select * from categories_room where status = ?";
+    $query = "select * from categories_room where status = ? limit 6";
     $listcategories = pdo_query_all($query, $status);
     return $listcategories;
 }

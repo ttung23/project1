@@ -52,23 +52,11 @@
                         <br />
                         <input type="radio" name="gender" value="<?= $value->min ?>" />
                         <span>Giá thấp nhất</span><br />
-                        <input type="radio" name="gender" value="other" />
-                        <span>Điểm đánh giá</span>
-                        <br />
-                        <input type="radio" name="gender" value="other" />
-                        <span>Tất cả</span>
                     <?php endforeach ?>
             </div>
 
             <div class="convenient-l-pro">
                 <div class="text-c">
-                    <div class="ks-l-pro">
-                        <h2>Loại phòng khách sạn</h2>
-                        <?php foreach ($categoriesAll  as $key => $value) : ?>
-                            <input type="radio" name="cate" value="<?= $value->categories_id ?>" checked />
-                            <span><?= $value->name ?></span><br />
-                        <?php endforeach ?>
-                    </div>
                     <h2>Lọc theo kết quả</h2>
                     <button type="submit" name="loc">Hiển thị theo kết quả lọc :</button>
                     </form>
@@ -84,17 +72,6 @@
                 <span>Giảm giá 11.11 độc quyền!</span><br />
                 <span>Khách sạn giảm giá lên tới 50%! Đặt ngay!</span>
             </div>
-            <div class="tim-r-pro">
-                <input type="text" placeholder="Nhập phòng bạn muốn tìm kiếm" />
-                <select name="tp" id="sampleSelect" class="tp" onchange="location = this.value;">
-                    <option class="hidden" value="index.php?list-room&id=0&iddm=0">Tất Cả</option></a>
-                    <option value="index.php?list-room&id=0&iddm=0">Tất Cả</option></a>
-                    <?php foreach ($categoriesAll as $key => $value) : ?>
-                        <option value="index.php?list-room&id=<?php echo $value->categories_id; ?>&iddm=<?php echo $value->categories_id; ?>">
-                            <?php echo $value->name; ?></option></a>
-                    <?php endforeach ?>
-                </select>
-            </div>
             <?php foreach ($logroom as $key => $value) : ?>
                 <div class="room-l-pro">
                     <div class="img-l-pro">
@@ -105,8 +82,11 @@
                                 </h2>
                                 <a href="">Khách sạn</a><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <br />
                                 <i style="padding-top: 13px; padding-right: 7px; color: #959ca1" class="fa-solid fa-location-dot"></i><span style="color: #959ca1">Hà nội</span><br />
-                                <i style="color: #1ba0e2; padding-top: 9px" class="fa-solid fa-heart"></i>
-                                <span style="color: #1ba0e2">ấn tượng - 8.9</span> (257)
+                             <i style="color: #1ba0e2; padding-top: 9px" class="fa-solid fa-heart"></i>
+                                <span style="color: #1ba0e2">ấn tượng -</span> (<?= $value->likes ?>)
+                                <br />
+                              	<i style="color: #1ba0e2; padding-top: 9px" class="fa-solid fa-heart" class="fa-solid fa-eye"></i>
+                                <span style="color: #1ba0e2">Lượt Xem -</span> (<?= $value->view ?>)
                                 <br /><br />
                                 <a style="background-color: #eac2b0; color: #616669" href=""><i style="color: #f3545c" class="fa-solid fa-gift"></i> Quà
                                     tặng cho thành viên mới</a>
@@ -143,8 +123,11 @@
                                 </h2>
                                 <a href="">Khách sạn</a><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <br />
                                 <i style="padding-top: 13px; padding-right: 7px; color: #959ca1" class="fa-solid fa-location-dot"></i><span style="color: #959ca1">Hà nội</span><br />
-                                <i style="color: #1ba0e2; padding-top: 9px" class="fa-solid fa-heart"></i>
-                                <span style="color: #1ba0e2">ấn tượng - 8.9</span> (257)
+                             <i style="color: #1ba0e2; padding-top: 9px" class="fa-solid fa-heart"></i>
+                                <span style="color: #1ba0e2">ấn tượng -</span> (<?= $value->likes ?>)
+                                <br />
+                              	<i style="color: #1ba0e2; padding-top: 9px" class="fa-solid fa-heart" class="fa-solid fa-eye"></i>
+                                <span style="color: #1ba0e2">Lượt Xem -</span> (<?= $value->view ?>)
                                 <br /><br />
                                 <a style="background-color: #eac2b0; color: #616669" href=""><i style="color: #f3545c" class="fa-solid fa-gift"></i> Quà
                                     tặng cho thành viên mới</a>
@@ -188,8 +171,11 @@
                                 <h2> ( Phòng <?php echo $value->name ?> )<span></span></h2>
                                 <a href="">Khách sạn</a><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <br />
                                 <i style="padding-top: 13px; padding-right: 7px; color: #959ca1" class="fa-solid fa-location-dot"></i><span style="color: #959ca1">Hà nội</span><br />
-                                <i style="color: #1ba0e2; padding-top: 9px" class="fa-solid fa-heart"></i>
-                                <span style="color: #1ba0e2">ấn tượng - 8.9</span> (257)
+                                 <i style="color: #1ba0e2; padding-top: 9px" class="fa-solid fa-heart"></i>
+                                <span style="color: #1ba0e2">ấn tượng -</span> (<?= $value->likes ?>)
+                                <br />
+                              	<i style="color: #1ba0e2; padding-top: 9px" class="fa-solid fa-heart" class="fa-solid fa-eye"></i>
+                                <span style="color: #1ba0e2">Lượt Xem -</span> (<?= $value->view ?>)
                                 <br /><br />
                                 <a style="background-color: #eac2b0; color: #616669" href=""><i style="color: #f3545c" class="fa-solid fa-gift"></i> Quà
                                     tặng cho thành viên mới</a>

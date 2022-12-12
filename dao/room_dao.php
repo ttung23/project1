@@ -11,7 +11,7 @@ function loadAll_room4(){
     return $listroom;
 }
 function loadAll_room5(){
-    $query = "SELECT r.*,count(dt.id_room) as 'sld' FROM room r LEFT JOIN booking_detail dt ON dt.id_room = r.room_id LEFT JOIN bookings bk ON dt.id_booking = bk.booking_id WHERE month(bk.check_in_date) = 12 and r.status = 1 GROUP BY r.room_id ";
+    $query = "SELECT r.*,count(dt.id_room) as 'sld' FROM room r LEFT JOIN booking_detail dt ON dt.id_room = r.room_id LEFT JOIN bookings bk ON dt.id_booking = bk.booking_id WHERE month(bk.check_in_date) = 12 and r.status = 1 GROUP BY r.room_id";
     $listroom = pdo_query_all($query);
     return $listroom;
 }
@@ -25,8 +25,8 @@ function loadAll_room_price(){
     $listroom = pdo_query_all($query);
     return $listroom;
 }
-function loadAll_room_price_list($id,$cate){
-    $query = "SELECT r.*,ct.name as 'tendt' FROM room r inner join categories_room ct  on ct.categories_id=r.id_category_room where r.price =" .$id." and r.id_category_room = ".$cate." and  r.status = 1 ";
+function loadAll_room_price_list($id){
+    $query = "SELECT r.*,ct.name as 'tendt' FROM room r inner join categories_room ct  on ct.categories_id=r.id_category_room where r.price =" .$id." and  r.status = 1 ";
     $listroom = pdo_query_all($query);
     return $listroom;
 }
@@ -81,7 +81,7 @@ function load_room_order_add($id)
 // load phong theo danh muc
 function load_room_categories($id)
 {
-    $sql = "select r.*  from room r left join service_detail sv on sv.id_room=r.room_id where id_category_room= ? and r.status = 1;";
+    $sql = "select r.*  from room r left join service_detail sv on sv.id_room=r.room_id where id_category_room= ? and r.status = 1 limit 4;";
     $room = pdo_query_all($sql,$id);
     return $room;
 }
@@ -107,6 +107,12 @@ function room_tang_so_luot_xem($id){
     $sql = "UPDATE room SET view = view + 1 WHERE room_id=?";
     pdo_execute($sql, $id);
 }
+// phân trang
+//  function read_room($limit,$offset) {
+//     $sql = "select * from room limit ?,?";
+//     $room = pdo_query_all($sql,$offset,$limit);
+//     return $room;
+// }
 function room_add_likes($id)
 {
     $sql = "UPDATE room SET likes = likes + 1 WHERE room_id = ?";
@@ -119,13 +125,6 @@ function room_add_dislikes($id)
     $room = pdo_query_all($sql,$id);
     return $room;
 }
-// phân trang
-//  function read_room($limit,$offset) {
-//     $sql = "select * from room limit ?,?";
-//     $room = pdo_query_all($sql,$offset,$limit);
-//     return $room;
-// }
-
 function insert_room($name, $des, $thumbnail, $id_cate, $price, $star, $quantity,$status,$location,$acreage,$view,$likes)
 {
     $sql = "insert into room(name, description, thumbnail, id_category_room, price, star, quantity,status,location,acreage,view,likes) value('$name', '$des', '$thumbnail', '$id_cate', '$price', '$star', '$quantity','$status','$location','$acreage','$view','$likes')";
@@ -150,7 +149,6 @@ function load_room_like($id)
     $room = pdo_query_all($sql);
     return $room;
 }
-
 function block_room($room_id){
     $query = "update room set status = 2 where room_id = ?";
     pdo_execute($query, $room_id);
@@ -159,5 +157,21 @@ function block_room($room_id){
 function unlock_room($room_id){
     $query = "update room set status = 1 where room_id = ?";
     pdo_execute($query, $room_id);
+}
+
+function add_img_room ($img_detail, $id_room) {
+    $sql = "INSERT INTO image_detail (id_list_image, id_room) VALUES (?,?)";
+    pdo_execute($sql, $img_detail, $id_room);
+}
+
+function add_service_room ($id_room, $id_service) {
+    $sql = "INSERT INTO service_detail (id_room, id_service) VALUES (?,?)";
+    pdo_execute($sql, $id_room, $id_service);
+}
+
+function load_all_img () {
+    $sql = "SELECT * FROM list_image";
+    $list_img = pdo_query_all($sql);
+    return $list_img;
 }
 ?>

@@ -140,8 +140,7 @@ if(isset($_GET['add-room'])){
     
             if ($price_room[$i] == "") {
                 $err['price_room'][$i] = "Bạn chưa nhập Giá Phòng";
-            } elseif (!is_numeric(($price_room[$i]))) {
-                $err['quantity'][$i] = "Giá phòng phải là số";
+        
             } elseif ($price_room[$i] <=0 ) {
                 $err['price_room'][$i] = "Giá phòng phải lớn hơn 0";
             }

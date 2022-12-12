@@ -38,7 +38,7 @@
              <div class="book1">
                  <i class="fa-solid fa-right-from-bracket"></i>
                  <p>Trả phòng </p>
-                 <input type="date" name="checkout" min="<?= $day?>">
+                 <input type="date" name="checkout" min ="<?= $day?>">
              </div>
              <button type="submit" name="find"><i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm</button>
          </div>
@@ -93,7 +93,7 @@
      <div class="room">
          <a style="background-color: #0770cd; color: white;" href="index.php">Tất cả các phòng</a>
          <?php foreach ($categoriesAll as $key => $value) : ?>
-         <a href="index.php?iddm=<?= $value->categories_id ?>">Phòng <?php echo $value->name ?></a>
+         <a href="index.php?iddm=<?= $value->categories_id ?>"><?php echo $value->name ?></a>
          <?php endforeach ?>
      </div>
      <div class="flex-choose">
@@ -103,7 +103,7 @@
                  <figure class="snip0016">
                      <img style="width: 300px; height: 220px;" src="../layout/assets/img/product/<?php echo $value->thumbnail ?>" alt="sample41" />
                      <figcaption>
-                         <p class="p">Diện tích: <?php echo $value->acreage ?></p>
+                         <p class="p">Diện tích: <?php echo $value->acreage ?>m<sup>2<sup></p>
                          <p class="p">Tầng: <?php echo $value->location ?></p>
                          <p class="p"> <?php echo $value->sv ?> dịch vụ đi kèm</p>
                          <p>
@@ -119,7 +119,7 @@
                          <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
                      </p>
                      <div class="text-dg">
-                         <a class="a" href=""><?php echo $value->star ?> tuyệt vời</a><br>
+                         <a class="a" href="">tuyệt vời</a><br>
                          <a class="a1" href="<?= SITE_URL . "?product-detail&id=$value->room_id&iddm=$value->id_category_room" ?>">Qua
                              1257 đánh giá</a>
                      </div>
@@ -210,7 +210,7 @@
                  <figure class="snip0016">
                      <img style="width: 300px; height: 220px;" src="../layout/assets/img/product/<?php echo $value->thumbnail ?>" alt="sample41" />
                      <figcaption>
-                         <p class="p"><?php echo $value->acreage ?></p>
+                         <p class="p">Diện tích: <?php echo $value->acreage ?>m<sup>2<sup></p>
                          <p class="p">Tầng: <?php echo $value->location ?></p>
                          <p class="p"> <?php echo $value->sld ?>Lượt Đặt Phòng</p>
                          <p>
@@ -227,7 +227,7 @@
                          <i><i class="fa-sharp fa-solid fa-location-dot"></i></i> Stayyin(Hà Nội)
                      </p>
                      <div class="text-dg">
-                         <a class="a" href=""><?php echo $value->star ?> tuyệt vời</a><br>
+                         <a class="a" href="">tuyệt vời</a><br>
                          <a class="a1" href="">Qua 1257 đánh giá</a>
                      </div>
                      <div class="datphong-index">
